@@ -4,12 +4,13 @@
 <head>
     <!-- Metadata tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Lab 3 HTML Page">
-    <meta name="keywords" content="HTML5, Forms, Job Application">
+    <meta name="description" content="Project Part 1 apply.html Page">
+    <meta name="keywords" content="HTML5, Forms, Group Project, Job Application">
     <meta name="author" content="Mark Richards">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book in Help Desk Appointment</title>
+    <title>Job Application</title>
 </head>
+
 <body>
     <header>
         <!-- Heading -->
@@ -22,9 +23,10 @@
             <a href="about.html" title="About Us">About Us</a>
         </nav>
     </header>
+
     <!-- Begin the main content of the web page -->
     <main>
-        <!-- Begin the form. The form submits to the Swinburne form test php page -->
+        <!-- Begin the form. The form submits to the Swinburne formtest.php page -->
         <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
             <h2>Please enter the relevant information for your application</h2>
 
@@ -44,7 +46,7 @@
             <fieldset>
                 <!-- The 'title' of the fieldset -->
                 <legend>Name:</legend>
-                <!-- Get student first and last name
+                <!-- Get applicants first and last name
                     Input is limited to 1-15 characters, and can only be characters-->
                 <label for="givenname">Given Name: <input type="text" id="givenname" name="givenname" pattern="[a-zA-Z]{1,14}" required></label>
                 <br>
