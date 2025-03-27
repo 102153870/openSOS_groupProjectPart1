@@ -1,0 +1,16 @@
+/*
+filename: style.css
+
+author: OpenSOS, mainly Rodney
+
+created: 27/3/2025
+
+last modified: 27/3/2025
+
+description: refers to index.html, about.html, apply.html and jobs.html
+*/
+
+#header_name{
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
