@@ -11,12 +11,54 @@
     <title>Book in Help Desk Appointment</title>
 </head>
 <body>
-    <!-- The navigation menu should be the same for all pages -->
-    <nav>
-        <a href="index.html" title="Homepage"></a>
-        <a href="apply.html" title="Apply"></a>
-        <a href="jobs.html" title="Job Descriptions"></a>
-        <a href="about.html" title="About Us"></a>
-    </nav>
+    <header>
+        <!-- Heading -->
+        <h1>Application Page</h1>
+        <!-- The navigation menu should be the same for all pages -->
+        <nav>
+            <a href="index.html" title="Homepage">Homepage</a>
+            <a href="apply.html" title="Apply">Apply</a>
+            <a href="jobs.html" title="Job Descriptions">Job Descriptions</a>
+            <a href="about.html" title="About Us">About Us</a>
+        </nav>
+    </header>
+    <!-- Begin the main content of the web page -->
+    <main>
+        <!-- Begin the form. The form submits to the Swinburne form test php page -->
+        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+            <h2>Please enter the relevant information for your application</h2>
+
+            <!-- The drop down box for the job reference number -->
+            <label for="jobrefnumber">Job Reference Number:
+                <select name="jobrefnumber" id="jobrefnumber" required>
+                    <option value="" selected="selected">Please Select</option>
+                    <option value="Placeholder 1">Placeholder 1</option>
+                    <option value="Placeholder 2">Placeholder 2</option>
+                    <option value="Placeholder 3">Placeholder 3</option>
+                    <option value="Placeholder 4">Placeholder 4</option>
+                    <option value="Placeholder 5">Placeholder 5</option>
+                </select>
+            </label>
+
+            <!-- Fieldset to contain the applicants name -->
+            <fieldset>
+                <!-- The 'title' of the fieldset -->
+                <legend>Name:</legend>
+                <!-- Get student first and last name
+                    Input is limited to 1-15 characters, and can only be characters-->
+                <label for="givenname">Given Name: <input type="text" id="givenname" name="givenname" pattern="[a-zA-Z]{1,14}" required></label>
+                <br>
+                <label for="familyname">Family Name: <input type="text" id="familyname" name="familyname" pattern="[a-zA-Z]{1,14}" required></label>
+            </fieldset>
+            <br>
+
+
+            <br>
+            <!-- The Submit button -->
+            <input type="submit"  value="Apply">
+            <!-- The Reset button -->
+            <input type="reset" value="Reset">
+        </form>
+        </main>
 </body>
 </html>
