@@ -11,15 +11,53 @@ description: refers to index.html, about.html, apply.html and jobs.html
 */
 
 /*Changes to website background colour*/
-body{
+html, body{
     background: linear-gradient(to bottom, #112128, #a19f96 100%, #8f8888);
     background-size: 100% 100vh; /*Make the gradient scale with window size*/
+    margin: 0;
+    border-left:  solid black;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/*Navigation Menu*/
+nav{
+    text-align: center;
 }
 
 
-/*HOME PAGE CSS*/
+/*Horizontal Line Formatting*/
+hr{
+    border: none; /* Remove default border */
+    height: 4px; /* Set thickness */
+    background-color: #212528; /* Set color */
+    width: 100%; /* Full-width line */
+}
+
+/*Making footer at the bottom of page*/
+main {
+    flex: 1; /* Makes the main content take up all available space */
+}
+
+/* Footer styling */
+footer {
+    background: black;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+
+/*index.html specific CSS*/
 #header_logo{ 
     width: 350px;;
     display: block;
     margin: auto;
+}
+
+.company_description{
+    text-align: center;
+    border: 2px solid darkgrey;
+    ;
 }
