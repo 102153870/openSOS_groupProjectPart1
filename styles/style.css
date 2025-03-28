@@ -10,8 +10,16 @@ last modified: 27/3/2025
 description: refers to index.html, about.html, apply.html and jobs.html
 */
 
+/*Changes to website background colour*/
+body{
+    background: linear-gradient(to bottom, #112128, #a19f96 100%, #8f8888);
+    background-size: 100% 100vh; /*Make the gradient scale with window size*/
+}
+
+
 /*HOME PAGE CSS*/
-#header_name{
-    text-align: center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+#header_logo{ 
+    width: 350px;;
+    display: block;
+    margin: auto;
 }
