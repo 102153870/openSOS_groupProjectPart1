@@ -48,7 +48,7 @@ footer {
     padding: 10px;
 }
 
-
+/************************************************************/
 /*index.html specific CSS*/
 #header_logo{ 
     width: 350px;;
@@ -61,3 +61,27 @@ footer {
     border: 2px solid darkgrey;
     ;
 }
+
+/*Formatting Home Nav Icons*/
+.home_nav{
+    display:flex;
+    justify-content: center;
+}
+
+.home_nav a{ /*Removes the blue hyperlink line*/
+    text-decoration: none;
+}
+
+.home_nav img{
+    width: 100px;
+    padding-top: 15px;
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+    margin: 0 20px; /*Margin shorthand (horizontal, vertical)*/
+}
+
+/*Making the Home Nav buttons Hover*/
+.home_nav img:hover{
+    width: 120px;
+}
+
+
