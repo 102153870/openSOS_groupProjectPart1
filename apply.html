@@ -42,17 +42,30 @@
                 </select>
             </label>
 
-            <!-- Fieldset to contain the applicants name -->
+            <!-- Fieldset to contain the applicants name, D.O.B and Gender -->
             <fieldset>
                 <!-- The 'title' of the fieldset -->
-                <legend>Name:</legend>
+                <legend>Personal Details:</legend>
                 <!-- Get applicants first and last name
                     Input is limited to 1-15 characters, and can only be characters-->
                 <label for="givenname">Given Name: <input type="text" id="givenname" name="givenname" pattern="[a-zA-Z]{1,14}" required></label>
                 <br>
                 <label for="familyname">Family Name: <input type="text" id="familyname" name="familyname" pattern="[a-zA-Z]{1,14}" required></label>
+                <br>
+                <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" pattern="[a-zA-Z]{1,14}" max="2025-03-27" required></label>
+                <br>
+                <label for="gender">Gender: 
+                    <select name="gender" id="gender" required>
+                        <option value="" selected="selected">Please Select</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                        <option value="prefernottosay">Prefer Not To Say</option>
+                    </select>
+                </label>
             </fieldset>
             <br>
+
 
 
             <br>
