@@ -125,6 +125,11 @@ footer {
     transform: scale(1.2); /* Enlarges both image and text */
 }
 
+/*Changing text colour to stand out on background*/
+.white-text {
+    color: white;
+}
+
 
 
 
