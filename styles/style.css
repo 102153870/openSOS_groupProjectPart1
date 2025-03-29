@@ -10,8 +10,88 @@ last modified: 27/3/2025
 description: refers to index.html, about.html, apply.html and jobs.html
 */
 
-/*HOME PAGE CSS*/
-#header_name{
-    text-align: center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+/*Changes to website background colour*/
+html, body{
+    background: linear-gradient(to bottom, #112128, #a19f96 100%, #8f8888);
+    background-size: 100% 100vh; /*Make the gradient scale with window size*/
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    border-left: 30px solid rgb(0, 0, 0);  /* Left border */
+    border-right: 30px solid black; /* Right border */
+    margin: 0;
+    padding: 0;
 }
+
+/*Navigation Menu*/
+nav{
+    text-align: center;
+}
+
+
+/*Horizontal Line Formatting*/
+hr{
+    border: none; /* Remove default border */
+    height: 4px; /* Set thickness */
+    background-color: #212528; /* Set color */
+    width: 100%; /* Full-width line */
+}
+
+/*Making footer at the bottom of page*/
+main {
+    flex: 1; /* Makes the main content take up all available space */
+}
+
+/* Footer styling */
+footer {
+    background: rgb(26, 25, 25);
+    color: white;
+    text-align: left;
+    padding-left: 2px;
+}
+
+/************************************************************/
+/*index.html specific CSS*/
+#header_logo{ 
+    width: 350px;;
+    display: block;
+    margin: auto;
+}
+
+.company_description, .Home_email{
+    text-align: center;
+    margin: 10px;
+    border: 5px solid rgb(214, 203, 203);
+    
+}
+
+/*Formatting Home Nav Section*/
+.home_nav .home_prompt{
+    text-align: center;
+}
+
+
+.home_nav nav{
+    display:flex;
+    justify-content: center;
+}
+
+.home_nav a{ /*Removes the blue hyperlink line*/
+    text-decoration: none;
+}
+
+.home_nav img{
+    width: 100px;
+    padding-top: 15px;
+    transition: transform 0.1s ease-in-out; /* Smooth animation */
+    margin: 0 30px; /*Margin shorthand (horizontal, vertical)*/
+}
+
+/*Making the Home Nav buttons Hover*/
+.home_nav img:hover{
+    transform: scale(1.2); /* Enlarges without affecting other elements */
+}
+
+
