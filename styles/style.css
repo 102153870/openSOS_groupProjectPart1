@@ -54,24 +54,52 @@ footer {
 
 /************************************************************/
 /*index.html specific CSS*/
+/*HEADER LOGO FORMATTING*/
 #header_logo{ 
     width: 350px;;
     display: block;
     margin: auto;
 }
 
+/*Fieldset Formatting*/
 .company_description, .Home_email{
     text-align: center;
     margin: 10px;
     border: 5px solid rgb(214, 203, 203);
+    border-radius: 30px;
     
+}
+
+/*Border Formatting*/
+.side_textbar {
+    position: fixed; /*Text is fixed at the side*/
+    top: 0; /*Removes space at top and bottom*/
+    bottom: 0;
+    width: 60px; 
+    background-color: rgb(0, 0, 0);
+    color: rgb(77, 72, 72);
+    font-size: 50px;
+    text-align: center;
+
+    display: flex; /*Create a vertical flexbox*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.left_side {
+    left: 0;
+}
+
+.right_side {
+    right: 0;
 }
 
 /*Formatting Home Nav Section*/
 .home_nav .home_prompt{
     text-align: center;
 }
-
 
 .home_nav nav{
     display:flex;
@@ -80,18 +108,23 @@ footer {
 
 .home_nav a{ /*Removes the blue hyperlink line*/
     text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
 }
 
-.home_nav img{
+.home_nav img, .home_nav p{
     width: 100px;
-    padding-top: 15px;
+    padding-top: 15px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
     margin: 0 30px; /*Margin shorthand (horizontal, vertical)*/
 }
 
-/*Making the Home Nav buttons Hover*/
-.home_nav img:hover{
-    transform: scale(1.2); /* Enlarges without affecting other elements */
+/* Apply hover effect to both image and text */
+.nav_item a:hover img,
+.nav_item a:hover p{
+    transform: scale(1.2); /* Enlarges both image and text */
 }
+
+
 
 
