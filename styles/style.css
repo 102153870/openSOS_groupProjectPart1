@@ -94,4 +94,9 @@ footer {
     transform: scale(1.2); /* Enlarges without affecting other elements */
 }
 
+/*Changing text colour to stand out on background*/
+.white-text {
+    color: white;
+}
+
 
