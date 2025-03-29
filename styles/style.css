@@ -14,11 +14,15 @@ description: refers to index.html, about.html, apply.html and jobs.html
 html, body{
     background: linear-gradient(to bottom, #112128, #a19f96 100%, #8f8888);
     background-size: 100% 100vh; /*Make the gradient scale with window size*/
-    margin: 0;
-    border-left:  solid black;
+    
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    border-left: 30px solid rgb(0, 0, 0);  /* Left border */
+    border-right: 30px solid black; /* Right border */
+    margin: 0;
+    padding: 0;
 }
 
 /*Navigation Menu*/
@@ -42,10 +46,10 @@ main {
 
 /* Footer styling */
 footer {
-    background: black;
+    background: rgb(26, 25, 25);
     color: white;
     text-align: left;
-    padding: 10px;
+    padding-left: 2px;
 }
 
 /************************************************************/
@@ -56,14 +60,20 @@ footer {
     margin: auto;
 }
 
-.company_description{
+.company_description, .Home_email{
     text-align: center;
-    border: 2px solid darkgrey;
-    ;
+    margin: 10px;
+    border: 5px solid rgb(214, 203, 203);
+    
 }
 
-/*Formatting Home Nav Icons*/
-.home_nav{
+/*Formatting Home Nav Section*/
+.home_nav .home_prompt{
+    text-align: center;
+}
+
+
+.home_nav nav{
     display:flex;
     justify-content: center;
 }
@@ -75,13 +85,13 @@ footer {
 .home_nav img{
     width: 100px;
     padding-top: 15px;
-    transition: transform 0.3s ease-in-out; /* Smooth animation */
-    margin: 0 20px; /*Margin shorthand (horizontal, vertical)*/
+    transition: transform 0.1s ease-in-out; /* Smooth animation */
+    margin: 0 30px; /*Margin shorthand (horizontal, vertical)*/
 }
 
 /*Making the Home Nav buttons Hover*/
 .home_nav img:hover{
-    width: 120px;
+    transform: scale(1.2); /* Enlarges without affecting other elements */
 }
 
 
