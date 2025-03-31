@@ -12,7 +12,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
 
 /*Changes to website background colour*/
 html, body{
-    background: linear-gradient(to bottom, #112128, #a19f96 100%, #8f8888);
+    background: linear-gradient(90deg, #7373ad 0%, #9ba3b8 100%);
     background-size: 100% 100vh; /*Make the gradient scale with window size*/
     
     display: flex;
@@ -50,8 +50,12 @@ footer {
     color: white;
     text-align: left;
     padding-left: 2px;
+    display: inline-flex;
 }
 
+#Jira_link{
+    margin-left: auto;
+}
 /************************************************************/
 /*index.html specific CSS*/
 /*HEADER LOGO FORMATTING*/
@@ -62,12 +66,12 @@ footer {
 }
 
 /*Fieldset Formatting*/
-.company_description, .Home_email{
+.company_description, .home_email{
     text-align: center;
     margin: 10px;
     border: 5px solid rgb(214, 203, 203);
     border-radius: 30px;
-    
+    box-shadow: 10px 10px 5px #1c1b1b;
 }
 
 /*Border Formatting*/
@@ -77,14 +81,15 @@ footer {
     bottom: 0;
     width: 60px; 
     background-color: rgb(0, 0, 0);
-    color: rgb(77, 72, 72);
+    color: rgb(108, 139, 144);
     font-size: 50px;
     text-align: center;
 
-    display: flex; /*Create a vertical flexbox*/
+    /*Create a vertical flexbox*/
+    display: flex; 
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    writing-mode: vertical-rl; /*Makes the text vertical*/
+    text-orientation: upright;
     
 }
 
@@ -97,13 +102,17 @@ footer {
 }
 
 /*Formatting Home Nav Section*/
-.home_nav .home_prompt{
+.home_nav{
     text-align: center;
 }
 
 .home_nav nav{
     display:flex;
     justify-content: center;
+
+    justify-content: space-evenly; /* Distributes items evenly */
+    align-items: center; /* Aligns items vertically */
+     /* Adds spacing between items */
 }
 
 .home_nav a{ /*Removes the blue hyperlink line*/
@@ -112,16 +121,16 @@ footer {
     color: black;
 }
 
-.home_nav img, .home_nav p{
-    width: 100px;
+.home_nav img, .home_nav p{ /*Refers to the icons and the text*/
+    width: 150px;
     padding-top: 15px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
-    margin: 0 30px; /*Margin shorthand (horizontal, vertical)*/
+    gap: 20px;
+    text-shadow: 1px 1px 2px #2a2828;;
 }
 
 /* Apply hover effect to both image and text */
-.nav_item a:hover img,
-.nav_item a:hover p{
+.nav_item a:hover img, .nav_item a:hover p{
     transform: scale(1.2); /* Enlarges both image and text */
 }
 
