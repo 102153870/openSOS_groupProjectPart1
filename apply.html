@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application</title>
 
-    
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Adds the OpenSOS Icon to title bar -->
+    <link rel="icon" type="image/x-icon" href="images/tab_icon.ico">
 </head>
 
 <body>
@@ -33,8 +35,8 @@
             <h2>Please enter the relevant information for your application</h2>
 
             <!-- The drop down box for the job reference number -->
-            <label for="jobrefnumber">Job Reference Number:
-                <select name="jobrefnumber" id="jobrefnumber" required>
+            <label for="job_ref_number">Job Reference Number:
+                <select name="job_ref_number" id="job_ref_number" required>
                     <option value="" selected="selected">Please Select</option>
                     <option value="Placeholder 1">Placeholder 1</option>
                     <option value="Placeholder 2">Placeholder 2</option>
@@ -50,9 +52,9 @@
                 <!-- The 'title' of the fieldset -->
                 <legend>Personal Details:</legend>
                 <!-- Get applicants personal details -->
-                <label for="givenname">Given Name: <input type="text" id="givenname" name="givenname" pattern="[a-zA-Z]{1,14}" required></label>
+                <label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,14}" required></label>
                 <br>
-                <label for="familyname">Family Name: <input type="text" id="familyname" name="familyname" pattern="[a-zA-Z]{1,14}" required></label>
+                <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,14}" required></label>
                 <br>
                 <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" max="2025-03-27" required></label>
                 <br>
@@ -62,7 +64,7 @@
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                         <option value="other">Other</option>
-                        <option value="prefernottosay">Prefer Not To Say</option>
+                        <option value="prefer_not_to_say">Prefer Not To Say</option>
                     </select>
                 </label>
             </fieldset>
@@ -71,11 +73,11 @@
             <!-- Fieldset for address details -->
             <fieldset>
                 <legend>Address: </legend>
-                <label for="unitnumber">Unit Number: <input type="text" id="unitnumber" name="unitnumber" pattern="d{1,3}"></label>
-                <label for="streetnumber">&nbsp;&nbsp;&nbsp;Street Number: <input type="text" id="streetnumber" name="streetnumber" pattern="d{1,4}" required></label>
-                <label for="streetname">&nbsp;&nbsp;&nbsp;Street Name: <input type="text" id="streetname" name="streetname" pattern="[a-zA-Z]{1,14}" required></label>
-                <label for="streettype">&nbsp;&nbsp;&nbsp;Street Type
-                    <select name="streettype" id="streettype" required>
+                <label for="unit_number">Unit Number: <input type="text" id="unit_number" name="unit_number" pattern="d{1,3}"></label>
+                <label for="street_number">&nbsp;&nbsp;&nbsp;Street Number: <input type="text" id="street_number" name="street_number" pattern="d{1,4}" required></label>
+                <label for="street_name">&nbsp;&nbsp;&nbsp;Street Name: <input type="text" id="street_name" name="street_name" pattern="[a-zA-Z]{1,14}" required></label>
+                <label for="street_type">&nbsp;&nbsp;&nbsp;Street Type
+                    <select name="street_type" id="street_type" required>
                         <option value="" selected="selected">Please Select</option>
                         <option value="road">Rd</option>
                         <option value="street">St</option>
@@ -93,7 +95,7 @@
                     </select>
                 </label>
                 <br><br>
-                <label for="postcode">Postcode: <input type="text" id="postcode" name="postcode" pattern="d{4}"></label>
+                <label for="post_code">Postcode: <input type="text" id="post_code" name="post_code" pattern="d{4}"></label>
                 <label for="state">&nbsp;&nbsp;&nbsp;State/Territory
                     <select name="state" id="state" required>
                         <option value="" selected="selected">Please Select</option>
@@ -114,7 +116,7 @@
             <fieldset>
                 <legend>Contact Details:</legend>
                 <!-- Input validation is for digits and spaces -->
-                <label for="phonenumber">Phone Number: <input type="text" id="phonenumber" name="phonenumber" pattern="[0-9 ]{8,12}" required></label>
+                <label for="phone_number">Phone Number: <input type="text" id="phone_number" name="phone_number" pattern="[0-9 ]{8,12}" required></label>
                 <label for="email">Email Address: <input type="email" id="email" name="email" required></label>
             </fieldset>
             <br>
@@ -132,12 +134,11 @@
                 </p>              
             </fieldset>
             <br>
-            <p>Change to see where Pushes went</p>
-
+            
             <!-- Fieldset for other skills -->
             <p>
-                <label for="issue">Other Skills<br>
-                    <textarea name="otherskills" id="otherskills" rows="10" cols="40" placeholder="List any other relevant skills here"></textarea>
+                <label for="other_skills">Other Skills<br>
+                    <textarea name="other_skills" id="other_skills" rows="10" cols="40" placeholder="List any other relevant skills here"></textarea>
                 </label>
             </p>
 
@@ -146,6 +147,10 @@
             <!-- The Reset button -->
             <input type="reset" value="Reset">
         </form>
-        </main>
+    </main>
+        
+    <footer>
+        <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="footer_logo">
+    </footer>
 </body>
 </html>
