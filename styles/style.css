@@ -12,7 +12,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
 
 /*Changes to website background colour*/
 html, body{
-    background-color: #bc9335fb;
+    background-color: #c29d46fb;
     background-size: 100% 100vh; /*Make the gradient scale with window size*/
     
     display: flex;
@@ -23,69 +23,6 @@ html, body{
     border-right: 30px solid black; /* Right border */
     margin: 0;
     padding: 0;
-}
-
-/*Navigation Menu*/
-nav{
-    text-align: center;
-}
-
-
-/*Horizontal Line Formatting*/
-hr{
-    border: none; /* Remove default border */
-    height: 4px; /* Set thickness */
-    background-color: #212528; /* Set color */
-    width: 100%; /* Full-width line */
-}
-
-/*Making footer at the bottom of page*/
-main {
-    flex: 1; /* Makes the main content take up all available space */
-}
-
-/* Footer styling */
-footer {
-    background: rgb(26, 25, 25);
-    color: white;
-    font-size: 20px;
-    text-align: left;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-}
-
-#Jira_link{
-    margin-left: auto;
-    text-decoration: none;
-    padding-right: 5px;
-    color: lightgray;
-}
-
-footer b{
-    color: yellow;
-}
-
-/************************************************************/
-/*index.html specific CSS*/
-/*HEADER LOGO FORMATTING*/
-#header_logo{ 
-    width: 350px;;
-    display: block;
-    margin: auto;
-}
-
-/*Description and Email Formatting*/
-.company_description, .home_email{
-    text-align: center;
-    margin: auto;
-    border: 5px solid rgb(227, 220, 220);
-    border-radius: 30px;
-    box-shadow: 10px 10px 5px #1c1b1b;
-    margin-bottom: 20px;
-    width: 80%;
-
-    background-color: #cfc6ac;
 }
 
 /*Border Formatting*/
@@ -116,14 +53,109 @@ footer b{
     right: 0;
 }
 
+/*Navigation Menu*/
+nav{
+    text-align: center;
+}
+
+
+/*Horizontal Line Formatting*/
+hr{
+    border: none; /* Remove default border */
+    height: 4px; /* Set thickness */
+    background-color: #212528; /* Set color */
+    width: 100%; /* Full-width line */
+}
+
+/*Making footer at the bottom of page*/
+main {
+    flex: 1; /* Makes the main content take up all available space */
+}
+
+/* Footer styling */
+footer {
+    background: rgb(26, 25, 25);
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+#Jira_link{
+    margin-left: auto;
+    text-decoration: none;
+    padding-right: 5px;
+    color: lightgray;
+}
+
+footer b{
+    color: yellow;
+}
+
+/************************************************************/
+/*index.html specific CSS*/
+/*HEADER LOGO FORMATTING*/
+#header_logo{ 
+    width: 350px;;
+    display: block;
+    margin: auto;
+}
+
+/*Description and Email Formatting*/
+.company_description, .home_email{
+    margin: auto;
+    border: 5px solid rgb(227, 220, 220);
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px #1c1b1b;
+    margin-bottom: 20px;
+    width: 70%;
+    background-color: #cfc6ac;
+    text-align: center;
+}
+
+.company_description h1, .home_email h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block; /*Makes the background and border match the text width*/
+    background-color: rgb(231, 236, 204);
+    padding: 5px 10px; 
+    border-radius: 10px; 
+    margin: auto; 
+    
+}
+
+.company_description p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-align: justify;
+    padding-left: 2%;
+    padding-right: 2%;
+    line-height: 2;
+}
+
+.home_email p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+#email_link{
+    margin: 0;
+    display: inline;
+
+}
 /*Formatting Home Nav Section*/
 .home_nav{
     text-align: center;
 }
 
 #home_prompt{
+    font-size:larger;
     margin-top: 40px;
+    padding: 1%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(223, 220, 178);
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
 }
 
 .home_nav nav{
@@ -143,7 +175,7 @@ footer b{
 
 .home_nav img, .home_nav p{ /*Refers to the icons and the text*/
     width: 150px;
-    padding-top: 15px;;
+    padding-top: 25px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
     text-shadow: 1px 1px 1px #d6d6d6;
     font-size: 20px;
@@ -154,11 +186,17 @@ footer b{
     transform: scale(1.2); /* Enlarges both image and text */
 }
 
+/************************************************************/
+/*about.html specific CSS*/
 /*Changing text colour to stand out on background*/
 .white-text {
     color: white;
 }
 
+/************************************************************/
+/*jobs.html specific CSS*/
 
 
+/************************************************************/
+/*apply.html specific CSS*/
 
