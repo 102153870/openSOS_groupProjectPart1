@@ -1,11 +1,11 @@
 /*
 filename: style.css
 
-author: OpenSOS, mainly Rodney
+author: OpenSOS, mainly Rodney, Mark Richards
 
 created: 27/3/2025
 
-last modified: 27/3/2025
+last modified: 03/04/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
@@ -72,13 +72,14 @@ main {
     flex: 1; /* Makes the main content take up all available space */
 }
 
-/* Footer styling */
+/* Footer styling. Same for every page*/
 footer {
     background: rgb(26, 25, 25);
     color: white;
     font-size: 20px;
     text-align: left;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -200,3 +201,42 @@ footer b{
 /************************************************************/
 /*apply.html specific CSS*/
 
+/* Centre the heading and apply styling */
+h1 {
+    text-align: center;
+    color: darkblue;
+    font-size: 3rem;
+}
+
+/* Centre the nav bar and style it */
+#nav_apply {
+    text-align: center;
+    display:flex;
+    justify-content: center;
+
+    justify-content: space-evenly; /* Distributes items evenly */
+    align-items: center; /* Aligns items vertically */
+     /* Adds spacing between items */
+}
+#nav_apply a {
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    /* Apply border */
+    border: solid 3px black;
+    padding: 0.2em 0.6em; /*vertical horizontal*/
+    border-radius: 10%;
+}
+/* Change the nav menu when hovered over */
+#nav_apply a:hover {
+    font-size: 1.8rem;
+    background-color: #e9d28b;
+    border-color: #272c30;
+}
+
+#footer_apply {
+    display: flex;
+    justify-content: space-around;
+}
