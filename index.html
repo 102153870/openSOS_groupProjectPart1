@@ -6,14 +6,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
+    <meta name="author" content="Rodney Liaw">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSOS</title>
+
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="images/tab_icon.ico">
+</head>
+
 </head>
 
 <body>
+    <!--Group Name and Top of page -->
     <header>
-        <h1 id="header_name">OpenSos</h1>
+        <a href="index.html"> <!--Link Logo to Home Page-->
+            <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
+        </a>
+        <!--Logo created using GenAI-->
+        <!--Prompt: Business Name: OpenSOS, Theme: Green, White, Grey, Tagline: Sourcing the Best-->
+        <!--Website: https://logo.app -->
     </header>
+ 
+    <!--Main content for page-->
+    <main>
+        <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOS</div>
+        <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOS</div>
+
+        <!--Description of Company-->
+        <section class="company_description">
+            <h1 id="description_heading">What We Do</h1>
+            <p><strong>OpenSOS</strong> is a forward-thinking programming company dedicated to delivering top-quality solutions across various fields of computer science. 
+                Our expertise spans software development, data analysis, artificial intelligence, cybersecurity, and IT consulting, ensuring that businesses 
+                stay ahead in the digital landscape. With a team of highly skilled professionals, we leverage cutting-edge technology to develop efficient, 
+                scalable, and innovative solutions tailored to our client&apos;s unique needs. Whether it&apos;s optimizing business processes through data insights or 
+                building robust software applications, we are committed to excellence in every project. At OpenSOS, we take pride in "sourcing the best" talent,
+                 technology, and strategies to drive success for our clients.</p>
+        </section>
+
+
+        <!--Navigation Menu-->
+        <section class="home_nav">
+            <div id="nav_prompt">
+                <h2>Think you have what it takes? Apply now and check out more information!</h2>
+            </div>
+
+            <nav>
+                <div class="nav_item">
+                    <a href="about.html">
+                    <img src="images/aboutus_icon.png" alt="About Us">
+                    <!--Image source: https://www.freeiconspng.com/images/about-us-icon-->
+                    <p><b>About Us</b></p>    
+                </a>
+                </div>
+                
+                <div class="nav_item">
+                    <a href="jobs.html">
+                    <img src="images/job_icon.png" alt="Job Descriptions">
+                    <!--Image source: https://www.svgrepo.com/svg/416638/work-ui-job-->
+                    <p><b>Careers</b></p>  
+                    </a>
+                </div>
+            
+                <div class="nav_item">
+                    <a href="apply.html">
+                    <img src="images/apply_icon.png" alt="Apply Now!">
+                    <!--Image source: https://thenounproject.com/browse/icons/term/add-circle/-->
+                    <p><b>Apply Now!</b></p>
+                    </a>
+                </div>
+            </nav>
+        </section>
+
+        <!--Email-->
+        <section class="home_email">
+            <h2>Company Contact info:</h2>
+            <p id="email_prompt">Have any questions, queries or prefer to talk to us directly? Drop us an email and we'll be glad to help you out!</p>
+            
+            <a href="mailto:info@opensos.com.au">
+                <img src="images/email_icon.png" alt="info@opensos.com.au" id="email_icon">
+                <!--Image source: https://thenounproject.com/browse/icons/term/letter-icon/-->
+                <p><strong>info@openSOS.com.au</strong></p>
+            </a>
+        </section>
+        
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <p>&copy; OpenSOS 2025</p>
+        <a href="https://opensos.atlassian.net/jira/software/projects/SCRUM/boards/1?atlOrigin=eyJpIjoiNGQ5N2FlMTZiMzI4NDJmNjk1MzQ0OTM1NzljMmUzOWEiLCJwIjoiaiJ9"; id="Jira_link"><b>Jira Board</b></a>
+    </footer>
     
 </body>
+
 </html>

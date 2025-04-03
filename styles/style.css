@@ -5,12 +5,223 @@ author: OpenSOS, mainly Rodney
 
 created: 27/3/2025
 
-last modified: 27/3/2025
+last modified: 3/4/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
 
-#header_name{
-    text-align: center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+/*Changes to website background colour*/
+html, body{
+    background-color: #c29d46fb;
+    background-size: 100% 100vh; /*Make the gradient scale with window size*/
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    border-left: 30px solid rgb(0, 0, 0);  /* Left border */
+    border-right: 30px solid black; /* Right border */
+    margin: 0;
+    padding: 0;
 }
+
+/*Border Formatting*/
+.side_textbar {
+    position: fixed; /*Text is fixed at the side*/
+    top: 0; /*Removes space at top and bottom*/
+    bottom: 0;
+    width: 60px; 
+    background-color: rgb(0, 0, 0);
+    color: rgb(181, 186, 187);
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+    /*Create a vertical flexbox*/
+    display: flex; 
+    flex-direction: column;
+    writing-mode: vertical-rl; /*Makes the text vertical*/
+    text-orientation: upright;
+}
+
+.left_side {
+    left: 0;
+}
+
+.right_side {
+    right: 0;
+}
+
+/*Navigation Menu*/
+nav{
+    text-align: center;
+}
+
+
+/*Horizontal Line Formatting*/
+hr{
+    border: none; /* Remove default border */
+    height: 4px; /* Set thickness */
+    background-color: #212528; /* Set color */
+    width: 100%; /* Full-width line */
+}
+
+/*Making footer at the bottom of page*/
+main {
+    flex: 1; /* Makes the main content take up all available space */
+}
+
+/* Footer styling */
+footer {
+    background: rgb(26, 25, 25);
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+#Jira_link{
+    margin-left: auto;
+    text-decoration: none;
+    padding-right: 5px;
+    color: lightgray;
+}
+
+footer b{
+    color: yellow;
+}
+
+/************************************************************/
+/*index.html specific CSS*/
+/*HEADER LOGO FORMATTING*/
+#header_logo{ 
+    width: 350px;;
+    display: block;
+    margin: auto;
+}
+/*Formatting Home Nav Section*/
+.home_nav{
+    text-align: center;
+}
+
+#nav_prompt {
+    font-size:larger;
+    margin-top: 40px;
+    padding: 1%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(223, 220, 178);
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.home_nav nav{
+    display:flex;
+    justify-content: center;
+
+    justify-content: space-evenly; /* Distributes items evenly */
+}
+
+.home_nav a{ /*Removes the blue hyperlink line*/
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+
+.home_nav img, .home_nav p{ /*Refers to the icons and the text*/
+    width: 150px;
+    padding-top: 25px;;
+    transition: transform 0.1s ease-in-out; /* Smooth animation */
+    text-shadow: 1px 1px 1px #d6d6d6;
+    font-size: 20px;
+}
+
+/* Apply hover effect to both image and text */
+.nav_item a:hover img, .nav_item a:hover p{
+    transform: scale(1.2); /* Enlarges both image and text */
+}
+
+/*Description and Email Formatting*/
+.company_description, .home_email{ /*Box format*/
+    margin: auto;
+    border: 5px solid rgb(227, 220, 220);
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px #1c1b1b;
+    margin-bottom: 20px;
+    width: 70%;
+    background-color: #cfc6ac;
+    text-align: center;
+}
+
+.company_description h1, .home_email h2{ /*Box titles*/ 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block; /*Makes the background and border match the text width*/
+    background-color: rgb(231, 236, 204);
+    padding: 5px 10px; 
+    border-radius: 10px; 
+    margin: auto; 
+    
+}
+
+.company_description p { /*Description Text*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    text-align: justify;
+    padding-left: 2%;
+    padding-right: 2%;
+    line-height: 2;
+}
+
+/*Email specific CSS*/
+.home_email #email_prompt { /*Email text*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.home_email a{ /*Removes the blue hyperlink line*/
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+
+#email_icon {
+    width: 140px; /* Reduce the icon size if needed */
+    height: auto;
+    margin-bottom: 0px; /* Remove extra bottom margin */
+}
+
+.home_email a p{
+    margin-top: 0;
+    text-decoration: none;
+    
+}
+
+#email_icon, .home_email a p{
+    transition: transform 0.1s ease-in-out; /* Smooth animation */
+}
+
+.home_email a:hover #email_icon, .home_email a:hover p {
+    transform: scale(1.4);
+}
+
+/************************************************************/
+/*about.html specific CSS*/
+/*Changing text colour to stand out on background*/
+.white-text {
+    color: white;
+}
+
+/************************************************************/
+/*jobs.html specific CSS*/
+
+
+/************************************************************/
+/*apply.html specific CSS*/
+
