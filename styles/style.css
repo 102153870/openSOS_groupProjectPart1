@@ -103,7 +103,7 @@ footer b{
 }
 
 /*Description and Email Formatting*/
-.company_description, .home_email{
+.company_description, .home_email{ /*Box format*/
     margin: auto;
     border: 5px solid rgb(227, 220, 220);
     border-radius: 30px;
@@ -114,7 +114,7 @@ footer b{
     text-align: center;
 }
 
-.company_description h1, .home_email h2{
+.company_description h1, .home_email h2{ /*Box titles*/ 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: inline-block; /*Makes the background and border match the text width*/
     background-color: rgb(231, 236, 204);
@@ -124,31 +124,58 @@ footer b{
     
 }
 
-.company_description p {
+.company_description p { /*Description Text*/
     font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
+    font-size: 20px;
     text-align: justify;
     padding-left: 2%;
     padding-right: 2%;
     line-height: 2;
 }
 
-.home_email p{
+.home_email #email_prompt { /*Email text*/
     font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
+    font-size: 30px;
+    padding: 3%;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 0px;
 }
 
-#email_link{
-    margin: 0;
-    display: inline;
-
+.home_email a{ /*Removes the blue hyperlink line*/
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
 }
+
+#email_icon {
+    width: 140px; /* Reduce the icon size if needed */
+    height: auto;
+    margin-bottom: 0px; /* Remove extra bottom margin */
+}
+
+.home_email a p{
+    margin-top: 0;
+    text-decoration: none;
+    
+}
+
+#email_icon, .home_email a p{
+    transition: transform 0.1s ease-in-out; /* Smooth animation */
+}
+
+.home_email a:hover #email_icon, .home_email a:hover p {
+    transform: scale(1.2);
+}
+
+
 /*Formatting Home Nav Section*/
 .home_nav{
     text-align: center;
 }
 
-#home_prompt{
+#nav_prompt {
     font-size:larger;
     margin-top: 40px;
     padding: 1%;
@@ -163,8 +190,6 @@ footer b{
     justify-content: center;
 
     justify-content: space-evenly; /* Distributes items evenly */
-    align-items: center; /* Aligns items vertically */
-     /* Adds spacing between items */
 }
 
 .home_nav a{ /*Removes the blue hyperlink line*/
