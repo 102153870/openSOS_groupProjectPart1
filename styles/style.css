@@ -1,28 +1,100 @@
 /*
 filename: style.css
 
-author: OpenSOS, mainly Rodney
+author: OpenSOS, Rodney, Mark
 
 created: 27/3/2025
 
-last modified: 3/4/2025
+last modified: 5/4/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
 
+/* Universal Selectors */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box; /*  Make sure the borders dont add extra pixels */
+    margin: 0;
+    padding: 0;
+}
+
 /*Changes to website background colour*/
 html, body{
-    background-color: #c29d46fb;
     background-size: 100% 100vh; /*Make the gradient scale with window size*/
     
     display: flex;
     flex-direction: column;
+    /* Ensures the content spans the entire window (No white bars) */
+    width: 100%;
     height: 100%;
 
-    border-left: 30px solid rgb(0, 0, 0);  /* Left border */
-    border-right: 30px solid black; /* Right border */
-    margin: 0;
-    padding: 0;
+    /* Left border */
+    /* border-left: 2.5% solid black; */
+    padding-left: 1.5%; 
+    /* Right border */
+    /* border-right: 2.5% solid black; */
+    padding-right: 1.5%;
+}
+
+/* Changes to the header section */
+header {
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    /* Adjusts the content to take up 20% of the vertical space */
+    flex: 0 0 20%; 
+    min-width: 100%;
+}
+/*Navigation Menu - For all pages except homepage which is styled below*/
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* padding-top: 1em; */
+    /* padding-bottom: 0.5em; */
+    /* text-align: center; */
+    font-size: 2em;
+    /* border: 0.1em solid green; */
+    padding-bottom: 1em;
+}
+nav a {
+    text-decoration: none;
+    padding: 0.35em;
+    border-radius: 50%;
+    color: purple;
+    font-weight: bold;
+}
+nav a:hover {
+    color: blue;
+    background-color: yellow;
+}
+
+/* Changes to the main section */
+main {
+    background: linear-gradient(to bottom, rgb(231, 166, 80), greenyellow);
+    flex: 1; /* Takes up remaining space */
+    /* Scrolls if content is too tall */
+    /* This keeps the header and footer stationary and scrolls the main part of the page only*/
+    /* overflow-y: auto;  */
+}
+/* Changes to the footer section */
+footer {
+    background: rgb(26, 25, 25);
+    color: lightblue;
+    font-size: 1.05rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1em;
+    flex: 0 0 auto; /* Automatically scales to fit remaining vertical space */
+    min-width: 100%;
+    margin: auto;
+}
+#jira_link{
+    text-decoration: none;
+    color: yellow;
+}
+#jira_link:hover {
+    color: lightblue;
 }
 
 /*Border Formatting*/
@@ -53,24 +125,9 @@ html, body{
     right: 0;
 }
 
-/*Navigation Menu - For all pages except homepage which is styled below*/
+/*Navigation Menu*/
 nav{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
     text-align: center;
-    padding-right: 5px;
-    font-size: 2em;
-}
-nav a {
-    text-decoration: none;
-    padding: 0.35em;
-    border-radius: 50%;
-    color: yellow;
-}
-nav a:hover {
-    color: blue;
-    background-color: yellow;
 }
 
 
@@ -96,15 +153,16 @@ footer {
     display: flex;
     align-items: center;
 }
-#jira_link{
+
+#Jira_link{
     margin-left: auto;
     text-decoration: none;
     padding-right: 5px;
-    color: yellow;
+    color: lightgray;
 }
-#jira_link:hover {
-    color: blue;
-    
+
+footer b{
+    color: yellow;
 }
 
 /************************************************************/
@@ -154,6 +212,11 @@ footer {
 /* Apply hover effect to both image and text */
 .nav_item a:hover img, .nav_item a:hover p{
     transform: scale(1.2); /* Enlarges both image and text */
+}
+/* Prevent global hover styles on home page nav links */
+.home_nav nav a:hover {
+    color: black;           /* Reset text colour */
+    background-color: transparent;  /* Remove yellow background */
 }
 
 /*Description and Email Formatting*/
@@ -269,9 +332,32 @@ footer {
         text-align: center;
     }
 
-    #Jira_link {
+    #jira_link {
         margin-left: 0;
         margin-top: 10px;
+    }
+
+    /************************************************************/
+    /* For Apply.html */
+    #job_selection, 
+    #personal_details, 
+    #address_details, 
+    #contact_details, 
+    #technical_skills, 
+    #other_skills_div {
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        width: 100%; /* Ensure sections take full width */
+        margin: auto; /* Center content */
+    }
+    /* Make writing and padding smaller for tiny screens */
+    input[type="text"] {
+        font-size: 0.6rem;
+        padding: 0.4em;
+    }
+    textarea {
+        width: 100%;
+        height: 5em;
     }
 }
 
@@ -302,6 +388,28 @@ footer {
     footer {
         font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
     }
+
+    /************************************************************/
+    /* For Apply.html */
+    #job_selection,
+    #personal_details,
+    #address_details,
+    #contact_details,
+    #technical_skills,
+    #other_skills_div {
+        width: 100%;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+    /* Make writing and padding smaller for tiny screens */
+    input[type="text"] {
+        font-size: 0.5rem;
+        padding: 0.3em;
+    }
+    textarea {
+        width: 90%;
+        height: 2em;
+    }
 }
 
 /************************************************************/
@@ -317,11 +425,145 @@ footer {
 
 /************************************************************/
 /*apply.html specific CSS*/
-
 /* Centre the heading and apply styling */
-h1 {
+#apply_heading {
     text-align: center;
     color: darkblue;
     font-size: 3rem;
+    padding-bottom: 0.5em;
 }
 
+#apply_subheading {
+    color: purple;
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* width: 100%; */
+}
+
+form h3 {
+    text-align: center;
+    color: blue;
+}
+
+/* ID for the job selection dropdown menu */
+#job_selection {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    color: blue;
+    text-align: center;
+    font-size: 1.1em;
+    margin: auto;
+    /* border: 0.3125rem solid greenyellow; */
+    border-radius: 1em;
+    /* box-shadow: 1em 0.75em 0.75em #1c1b1b; */
+    width: 100%;
+    background-color: transparent;
+    padding: 0.75em;
+}
+
+/* ID for the personal details section */
+#personal_details {
+    font-weight: bold;
+    text-align: left;
+    float: left;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    /* background-color: rgb(223, 220, 178); */
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    padding-left: 3em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+}
+
+/* ID for the address details for applicant */
+#address_details {
+    font-weight: bold;
+    text-align: left;
+    float: right;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    padding-left: 3em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+
+/* ID for the contact details for applicant */
+#contact_details {
+    font-weight: bold;
+    text-align: center;
+    clear: both;
+    margin: auto;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: space-evenly;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 60%;
+    background: linear-gradient(to top, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    text-align: center;
+}
+
+/* ID for the technical skills checkbox */
+#technical_skills {
+    font-weight: bold;
+    text-align: center;
+    float: left;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+}
+
+/* ID for the other skills text area */
+#other_skills_div {
+    font-weight: bold;
+    float: right;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+textarea {
+    width: 100%;
+}
+
+#buttons_div {
+    display: flex;
+    justify-content: space-evenly;
+    clear: both;
+    margin-bottom: 1em;;
+}
+.buttons {
+    padding: 1%;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 2em;
+}
+.buttons:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}

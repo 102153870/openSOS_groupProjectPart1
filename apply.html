@@ -25,7 +25,7 @@
             <a href="about.html" title="About Us">About Us</a>
         </nav>
         <!-- Heading -->
-        <h1>Application Page</h1>
+        <h1 id="apply_heading">Application Page</h1>
         <!-- OpenSOS Logo -->
         <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
         <!-- The navigation menu should be the same for all pages -->
@@ -39,11 +39,14 @@
 
         <!-- Begin the form. The form submits to the Swinburne formtest.php page -->
         <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
-            <h2>Please enter the relevant information for your application</h2>
+            <!-- Sub Heading -->
+            <!-- <h2 id="apply_subheading">Please enter the relevant information for your application</h2> -->
+            <br>
 
             <!-- The drop down box for the job reference number -->
             <div id="job_selection">
-                <label for="job_ref_number">Job Reference Number:
+                <h2 id="apply_subheading">Please enter the relevant information for your application</h2>
+                <label for="job_ref_number"><strong>Job Reference Number:</strong>
                     <select name="job_ref_number" id="job_ref_number" required>
                         <option value="" selected="selected">Please Select</option>
                         <option value="Placeholder 1">Placeholder 1</option>
@@ -53,19 +56,22 @@
                         <option value="Placeholder 5">Placeholder 5</option>
                     </select>
                 </label>
-                <br><br>
             </div>
+            <br><br>
 
             <!-- Fieldset to contain the applicants name, D.O.B and Gender -->
-            <fieldset id="personal_details">
+            <div id="personal_details">
                 <!-- The 'title' of the fieldset -->
-                <legend>Personal Details:</legend>
+                <h3>Personal Details:</h3>
+                <br>
                 <!-- Get applicants personal details -->
-                <label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,14}" required></label>
-                <label for="family_name">&nbsp;&nbsp;&nbsp;Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,14}" required></label>
+                <div class="input_row">
+                    <label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,14}" required></label>
+                    <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,14}" required></label>
+                </div>
                 <br>
                 <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" max="2025-03-27" required></label>
-                <br>
+                <br><br>
                 <label for="gender">Gender: 
                     <select name="gender" id="gender" required>
                         <option value="" selected="selected">Please Select</option>
@@ -75,64 +81,77 @@
                         <option value="prefer_not_to_say">Prefer Not To Say</option>
                     </select>
                 </label>
-            </fieldset>
-            <br>
+            </div>
 
             <!-- Fieldset for address details -->
-            <fieldset id="address_details">
-                <legend>Address: </legend>
-                <label for="unit_number">Unit Number: <input type="text" id="unit_number" name="unit_number" pattern="d{1,3}"></label>
-                <label for="street_number">&nbsp;&nbsp;&nbsp;Street Number: <input type="text" id="street_number" name="street_number" pattern="d{1,4}" required></label>
+            <div id="address_details">
+                <h3>Address: </h3>
                 <br>
-                <label for="street_name">Street Name: <input type="text" id="street_name" name="street_name" pattern="[a-zA-Z]{1,14}" required></label>
-                <label for="street_type">&nbsp;&nbsp;&nbsp;Street Type
-                    <select name="street_type" id="street_type" required>
-                        <option value="" selected="selected">Please Select</option>
-                        <option value="road">Rd</option>
-                        <option value="street">St</option>
-                        <option value="avenue">Ave</option>
-                        <option value="boulevard">Blvd</option>
-                        <option value="drive">Dr</option>
-                        <option value="lane">La</option>
-                        <option value="way">Way</option>
-                        <option value="crescent">Cres</option>
-                        <option value="circle">Cir</option>
-                        <option value="close">Close</option>
-                        <option value="court">Ct</option>
-                        <option value="place">Pl</option>
-                        <option value="highway">Hwy</option>
-                    </select>
-                </label>
-                <br><br>
-                <label for="post_code">Postcode: <input type="text" id="post_code" name="post_code" pattern="d{4}"></label>
-                <label for="state">&nbsp;&nbsp;&nbsp;State/Territory
-                    <select name="state" id="state" required>
-                        <option value="" selected="selected">Please Select</option>
-                        <option value="act">ACT</option>
-                        <option value="nsw">NSW</option>
-                        <option value="nt">NT</option>
-                        <option value="qld">QLD</option>
-                        <option value="sa">SA</option>
-                        <option value="tas">TAS</option>
-                        <option value="vic">VIC</option>
-                        <option value="wa">WA</option>
-                    </select>
-                </label>
-            </fieldset>
+                <div class="input_row">
+                    <label for="unit_number">Unit Number: <input type="text" id="unit_number" name="unit_number" pattern="\d{1,3}"></label>
+                    <label for="street_number">Street Number: <input type="text" id="street_number" name="street_number" pattern="\d{1,4}" required></label>
+                </div>
+                <br>
+                <div class="input_row">
+                    <label for="street_name">Street Name: <input type="text" id="street_name" name="street_name" pattern="[a-zA-Z]{1,14}" required></label>
+                    <label for="street_type">Street Type
+                        <select name="street_type" id="street_type" required>
+                            <option value="" selected="selected">Please Select</option>
+                            <option value="road">Rd</option>
+                            <option value="street">St</option>
+                            <option value="avenue">Ave</option>
+                            <option value="boulevard">Blvd</option>
+                            <option value="drive">Dr</option>
+                            <option value="lane">La</option>
+                            <option value="way">Way</option>
+                            <option value="crescent">Cres</option>
+                            <option value="circle">Cir</option>
+                            <option value="close">Close</option>
+                            <option value="court">Ct</option>
+                            <option value="place">Pl</option>
+                            <option value="highway">Hwy</option>
+                        </select>
+                    </label>
+                </div>
+                <br>
+                <div class="input_row">
+                    <label for="post_code">Postcode: <input type="text" id="post_code" name="post_code" pattern="\d{4}" required></label>
+                    <label for="state">State/Territory
+                        <select name="state" id="state" required>
+                            <option value="" selected="selected">Please Select</option>
+                            <option value="act">ACT</option>
+                            <option value="nsw">NSW</option>
+                            <option value="nt">NT</option>
+                            <option value="qld">QLD</option>
+                            <option value="sa">SA</option>
+                            <option value="tas">TAS</option>
+                            <option value="vic">VIC</option>
+                            <option value="wa">WA</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
             <br>
 
             <!-- Fieldset for contact details -->
-            <fieldset id="contact_details">
-                <legend>Contact Details:</legend>
+            <div id="contact_details">
+                <h3>Contact Details:</h3>
                 <!-- Input validation is for digits and spaces -->
-                <label for="phone_number">Phone Number: <input type="text" id="phone_number" name="phone_number" pattern="[0-9 ]{8,12}" required></label>
-                <label for="email">Email Address: <input type="email" id="email" name="email" required></label>
-            </fieldset>
+                <div class="input_row">
+                    <label for="phone_number">Phone Number:
+                        <input type="text" id="phone_number" name="phone_number" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}" required>
+                    </label>
+                    <label for="email">Email Address:
+                        <input type="email" id="email" name="email" placeholder="email@domain.com" required>
+                    </label>
+                </div>
+            </div>
             <br>
 
             <!-- Fieldset to contain the technical skills checklist -->
-            <fieldset id="technical_skills">
-                <legend>Technical Skills:</legend>
+            <div id="technical_skills">
+                <h3>Technical Skills:</h3>
+                <br>
                 <!-- CHECKBOX input type -->
                 <p>
                     <label for="html" ><input type="checkbox" id="html" name="skills[]" value="html">HTML</label>
@@ -141,22 +160,25 @@
                     <label for="php" ><input type="checkbox" id="php" name="skills[]" value="php">PHP</label>
                     <label for="mysql" ><input type="checkbox" id="mysql" name="skills[]" value="mysql">MySQL</label>
                 </p>              
-            </fieldset>
-            <br>
+            </div>
             
             <!-- Textarea for other skills -->
-            <div id="other_skills_textarea">
+            <div id="other_skills_div">
+                <h3>Other Skills:</h3>
                 <p>
-                    <label for="other_skills">Other Skills<br>
-                        <textarea name="other_skills" id="other_skills" rows="10" cols="40" placeholder="List any other relevant skills here"></textarea>
+                    <label for="other_skills"><br>
+                        <textarea name="other_skills" id="other_skills" rows="10" cols="80" placeholder="List any other relevant skills here"></textarea>
                     </label>
                 </p>
             </div>
 
-            <!-- The Submit button -->
-            <input type="submit"  value="Apply">
-            <!-- The Reset button -->
-            <input type="reset" value="Reset">
+            <div id="buttons_div">
+                <!-- The Submit button -->
+                <input class="buttons" type="submit" value="Apply">
+                <!-- The Reset button -->
+                <input class="buttons" type="reset" value="Reset">
+            </div>
+            
         </form>
     </main>
         
@@ -165,5 +187,6 @@
         <p>&copy; OpenSOS 2025. All rights reserved</p>
         <p><a href="https://opensos.atlassian.net/jira/software/projects/SCRUM/boards/1" title="Go To Jira Board" id="jira_link" target="_blank">Jira Board</a></p>
     </footer>
+
 </body>
 </html>
