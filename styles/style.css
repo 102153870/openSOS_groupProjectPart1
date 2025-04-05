@@ -53,9 +53,24 @@ html, body{
     right: 0;
 }
 
-/*Navigation Menu*/
+/*Navigation Menu - For all pages except homepage which is styled below*/
 nav{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
     text-align: center;
+    padding-right: 5px;
+    font-size: 2em;
+}
+nav a {
+    text-decoration: none;
+    padding: 0.35em;
+    border-radius: 50%;
+    color: yellow;
+}
+nav a:hover {
+    color: blue;
+    background-color: yellow;
 }
 
 
@@ -82,16 +97,15 @@ footer {
     justify-content: space-evenly;
     align-items: center;
 }
-
-#Jira_link{
+#jira_link{
     margin-left: auto;
     text-decoration: none;
     padding-right: 5px;
-    color: lightgray;
-}
-
-footer b{
     color: yellow;
+}
+#jira_link:hover {
+    color: blue;
+    
 }
 
 /************************************************************/
@@ -208,35 +222,3 @@ h1 {
     font-size: 3rem;
 }
 
-/* Centre the nav bar and style it */
-#nav_apply {
-    text-align: center;
-    display:flex;
-    justify-content: center;
-
-    justify-content: space-evenly; /* Distributes items evenly */
-    align-items: center; /* Aligns items vertically */
-     /* Adds spacing between items */
-}
-#nav_apply a {
-    text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-    font-weight: bold;
-    font-size: 1.5rem;
-    /* Apply border */
-    border: solid 3px black;
-    padding: 0.2em 0.6em; /*vertical horizontal*/
-    border-radius: 10%;
-}
-/* Change the nav menu when hovered over */
-#nav_apply a:hover {
-    font-size: 1.8rem;
-    background-color: #e9d28b;
-    border-color: #272c30;
-}
-
-#footer_apply {
-    display: flex;
-    justify-content: space-around;
-}
