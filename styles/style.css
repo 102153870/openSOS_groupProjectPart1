@@ -166,7 +166,7 @@ footer b{
 
 .company_description p { /*Description Text*/
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1em;
+    font-size: 1.3em;
     text-align: justify; /*Aligns text to both sides*/
     padding-left: 2%;
     padding-right: 2%;
@@ -262,7 +262,7 @@ footer b{
 }
 
 /* Responsive styles for screens up to 325px */
-@media (max-width: 325px) {
+@media (max-width: 380px) {
     .side_textbar {
         width: 1.875rem;  /*30px -> 1.875rem*/
         font-size: 1.25rem;  /*20px -> 1.25rem*/
@@ -281,8 +281,13 @@ footer b{
         width: 95%; /*Maximize width for smaller screens*/
     }
 
-    .company_description p, .home_email #email_prompt {
+    .home_email #email_prompt {
         font-size: 0.9em; /*Adjust text size*/
+    }
+
+    .company_description p{
+        font-size: 0.9em; /*Adjust text size*/
+        text-align: center;  /*Align text to center*/
     }
 
     footer {
