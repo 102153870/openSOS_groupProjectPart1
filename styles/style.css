@@ -154,7 +154,7 @@ footer b{
 
 .nav_item a:hover svg {
     transform: scale(1.2);
-    fill: #007bff; /* Change to blue on hover */
+    fill: #00a2ff; /* Change to blue on hover */
 }
 
 .nav_item p{
