@@ -219,6 +219,27 @@ footer b{
     background-color: transparent;  /* Remove yellow background */
 }
 
+/* SVG styling*/
+.nav_item svg {
+    width: 9.375rem;
+    height: auto;
+    fill: currentColor;
+    transition: transform 0.1s ease-in-out, fill 0.3s ease; /* Add fill transition */
+    margin-bottom: -1rem; /* Add negative margin to reduce space */
+    margin-top: 0.7rem;
+}
+
+.nav_item a:hover svg {
+    transform: scale(1.2);
+    fill: #00a2ff; /* Change to blue on hover */
+}
+
+.nav_item p{
+    text-align: center; /* Center the text under the icon */
+    width: 100%; /* Take full width of container */
+    margin-top: 0.1rem; /* Reduce top margin of text */
+}
+
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
     margin: auto;
@@ -243,8 +264,8 @@ footer b{
 
 .company_description p { /*Description Text*/
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1em;
-    text-align: justify;
+    font-size: 1.3em;
+    text-align: justify; /*Aligns text to both sides*/
     padding-left: 2%;
     padding-right: 2%;
     line-height: 2;
@@ -306,11 +327,10 @@ footer b{
     }
 
     .home_nav nav {
-        flex-direction: column; /*Stack nav items vertically*/
         align-items: center;
     }
 
-    .home_nav img, .home_nav p {
+    .home_nav svg, .home_nav p {
         width: 6.25rem;  /*100px -> 6.25rem*/
         font-size: 1rem; /*Adjust font size*/
     }
@@ -321,7 +341,7 @@ footer b{
     }
 
     .company_description p, .home_email #email_prompt {
-        font-size: 0.7rem; /*Adjust text size: 11px*/
+        font-size: 1rem; /*Adjust text size: 11px*/
         padding-left: 5%;
         padding-right: 5%;
     }
@@ -362,7 +382,7 @@ footer b{
 }
 
 /* Responsive styles for screens up to 325px */
-@media (max-width: 325px) {
+@media (max-width: 380px) {
     .side_textbar {
         width: 1.875rem;  /*30px -> 1.875rem*/
         font-size: 1.25rem;  /*20px -> 1.25rem*/
@@ -372,7 +392,12 @@ footer b{
         width: 12.5rem;  /*200px -> 12.5rem*/
     }
 
-    .home_nav img, .home_nav p {
+    .home_nav nav {
+        flex-direction: column; /*Stack nav items vertically*/
+        align-items: center;
+    }
+
+    .home_nav svg, .home_nav p {
         width: 5rem;  /*80px -> 5rem*/
         font-size: 0.9rem; /*Adjust font size: 14px */
     }
@@ -381,8 +406,13 @@ footer b{
         width: 95%; /*Maximize width for smaller screens*/
     }
 
-    .company_description p, .home_email #email_prompt {
+    .company_description p{
         font-size: 0.9em; /*Adjust text size*/
+        text-align: center;  /*Align text to center*/
+    }
+
+    .home_email #email_prompt, .home_email a p {
+        font-size: 0.85em; /*Adjust text size*/
     }
 
     footer {
