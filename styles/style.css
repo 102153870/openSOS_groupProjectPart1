@@ -19,26 +19,22 @@ description: refers to index.html, about.html, apply.html and jobs.html
 }
 
 /*Changes to website background colour*/
-html, body{
-    background-size: 100% 100vh; /*Make the gradient scale with window size*/
+body {
+    background: linear-gradient(to bottom, rgb(244, 178, 25) 0%, rgba(245, 241, 226, 0.836) 100%);
+    background-attachment: fixed; /* Keeps gradient pinned during scroll */
+    background-size: cover; /* Cover entire area */
+    background-repeat: no-repeat;
     
     display: flex;
     flex-direction: column;
-    /* Ensures the content spans the entire window (No white bars) */
+    
     width: 100%;
-    height: 100%;
-
-    /* Left border */
-    /* border-left: 2.5% solid black; */
-    padding-left: 1.5%; 
-    /* Right border */
-    /* border-right: 2.5% solid black; */
-    padding-right: 1.5%;
+    min-height: 100%;
+    margin: 0; /* Remove default browser margin */
 }
 
 /* Changes to the header section */
 header {
-    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
     /* Adjusts the content to take up 20% of the vertical space */
     flex: 0 0 20%; 
     min-width: 100%;
@@ -69,11 +65,9 @@ nav a:hover {
 
 /* Changes to the main section */
 main {
-    background: linear-gradient(to bottom, rgb(231, 166, 80), greenyellow);
     flex: 1; /* Takes up remaining space */
     /* Scrolls if content is too tall */
     /* This keeps the header and footer stationary and scrolls the main part of the page only*/
-    /* overflow-y: auto;  */
 }
 /* Changes to the footer section */
 footer {
@@ -84,8 +78,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 1em;
-    flex: 0 0 auto; /* Automatically scales to fit remaining vertical space */
+    padding: 1em; /* Automatically scales to fit remaining vertical space */
     min-width: 100%;
     margin: auto;
 }
@@ -125,11 +118,6 @@ footer {
     right: 0;
 }
 
-/*Navigation Menu*/
-nav{
-    text-align: center;
-}
-
 
 /*Horizontal Line Formatting*/
 hr{
@@ -167,7 +155,15 @@ footer b{
 
 /************************************************************/
 /*index.html specific CSS*/
-/*HEADER LOGO FORMATTING*/
+/*Homepage background image*/
+body.hero_background {
+    background-image: url("../images/homepage_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/*Header Logo Formatting*/
 #header_logo{ 
     width: 22rem;  /*350px -> 22rem*/
     display: block;
@@ -179,20 +175,18 @@ footer b{
 }
 
 #nav_prompt {
-    font-size:larger;
-    margin-top: 2.5rem;  /*40px -> 2.5rem*/
-    padding: 1%;
+    font-size: 1.5rem;
+    margin: 0;        /* Remove side margins */
+    padding: 3%;        /* Keep inner spacing */
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;        /* Force full width */
+    
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(223, 220, 178);
+    line-height: 1.5;
+    background-color: #cac79a;
     border-top: 3px solid black;
     border-bottom: 3px solid black;
-}
-
-.home_nav nav{
-    display:flex;
-    justify-content: center;
-
-    justify-content: space-evenly; /*Distributes items evenly*/
 }
 
 .home_nav a{ /*Removes the blue hyperlink line*/
@@ -201,44 +195,63 @@ footer b{
     color: black;
 }
 
-.home_nav img, .home_nav p{ /*Refers to the icons and the text*/
+.home_nav p{ /*Refers to the icons and the text*/
     width: 9.375rem;  /*150px -> 9.375rem*/
     padding-top: 1.5625rem;  /*25px -> 1.5625rem*/
     transition: transform 0.1s ease-in-out; /* Smooth animation */
-    text-shadow: 1px 1px 1px #d6d6d6;
+   
     font-size: 1.2rem;
+    text-align: center;
 }
 
 /* Apply hover effect to both image and text */
-.nav_item a:hover img, .nav_item a:hover p{
+.nav_item a:hover p{
     transform: scale(1.2); /* Enlarges both image and text */
 }
+
 /* Prevent global hover styles on home page nav links */
 .home_nav nav a:hover {
-    color: black;           /* Reset text colour */
     background-color: transparent;  /* Remove yellow background */
 }
 
-/* SVG styling*/
-.nav_item svg {
+/*Adjusting the text to be centered and used flexbox */
+.nav_item, .nav_item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+}
+
+/* SVG and text styling */
+.home_nav .nav_item a svg {
     width: 9.375rem;
     height: auto;
-    fill: currentColor;
-    transition: transform 0.1s ease-in-out, fill 0.3s ease; /* Add fill transition */
-    margin-bottom: -1rem; /* Add negative margin to reduce space */
-    margin-top: 0.7rem;
+    fill: #e2ff0b; /* Change icon color */
+    stroke: #000000; /* Add stroke color */
+    stroke-width: 0.5;
+    transition: transform 0.1s ease-in-out, fill 0.3s ease;
+    margin-bottom: 0.5rem;
 }
 
-.nav_item a:hover svg {
-    transform: scale(1.2);
-    fill: #00a2ff; /* Change to blue on hover */
+.home_nav .nav_item a p {
+    text-align: center;
+    color: #ffffff; /* Match text color with icon */
+    margin: 0;
+    width: 100%;
+    padding-top: 0; 
+    background-color: rgb(0, 0, 0);
+    border-radius: 1rem;
+    text-shadow: 2px 2px 2px #000000; /* Add text shadow for better visibility */
+    font-size: 1.5rem;
 }
 
-.nav_item p{
-    text-align: center; /* Center the text under the icon */
-    width: 100%; /* Take full width of container */
-    margin-top: 0.1rem; /* Reduce top margin of text */
+.home_nav .nav_item a:hover svg, .home_nav .nav_item a:hover p {
+    transform: scale(1.1);
+    fill: #00a2ff; /* Blue color on hover */
+    color: #00a2ff; /* Match text color with icon on hover */
 }
+
+
 
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
@@ -248,14 +261,14 @@ footer b{
     box-shadow: 10px 10px 5px #1c1b1b;
     margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
     width: 70%;
-    background-color: #cfc6ac;
+    background-color: #bcbcb9;
     text-align: center;
 }
 
 .company_description h1, .home_email h2{ /*Box titles*/ 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: inline-block; /*Makes the background and border match the text width*/
-    background-color: rgb(231, 236, 204);
+    background-color: rgb(172, 173, 165);
     padding: 5px 10px; 
     border-radius: 10px; 
     margin: auto; 
@@ -306,7 +319,7 @@ footer b{
 }
 
 .home_email a:hover #email_icon, .home_email a:hover p {
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
 
 /* Responsive styles for screens up to 768px */
@@ -597,3 +610,5 @@ textarea {
     background-color: white;
     cursor: pointer;
 }
+
+
