@@ -24,8 +24,10 @@ body {
     background-attachment: fixed; /* Keeps gradient pinned during scroll */
     background-size: cover; /* Cover entire area */
     background-repeat: no-repeat;
+    
     display: flex;
     flex-direction: column;
+    
     width: 100%;
     min-height: 100%;
     margin: 0; /* Remove default browser margin */
@@ -64,6 +66,8 @@ nav a:hover {
 /* Changes to the main section */
 main {
     flex: 1; /* Takes up remaining space */
+    /* Scrolls if content is too tall */
+    /* This keeps the header and footer stationary and scrolls the main part of the page only*/
 }
 /* Changes to the footer section */
 footer {
@@ -268,7 +272,6 @@ body.hero_background {
     padding: 5px 10px; 
     border-radius: 10px; 
     margin: auto; 
-    
 }
 
 .company_description p { /*Description Text*/
@@ -307,7 +310,6 @@ body.hero_background {
 .home_email a p{
     margin-top: 0;
     text-decoration: none;
-    
 }
 
 #email_icon, .home_email a p{
@@ -318,150 +320,6 @@ body.hero_background {
     transform: scale(1.2);
 }
 
-/************************************************************/
-/*about.html specific CSS*/
-/*border colour*/
-table {
-    box-align: center;
-    border: 1px;
-}
-
-/************************************************************/
-/*jobs.html specific CSS*/
-
-
-/************************************************************/
-/*apply.html specific CSS*/
-
-/* Centre the heading and apply styling */
-#apply_heading {
-    text-align: center;
-    color: darkblue;
-    font-size: 3rem;
-    padding-bottom: 0.5em;
-}
-
-#apply_subheading {
-    color: purple;
-    /* display: flex; */
-    /* justify-content: space-around; */
-    /* width: 100%; */
-}
-
-form h3 {
-    text-align: center;
-    color: blue;
-}
-
-/* ID for the job selection dropdown menu */
-#job_selection {
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.1em;
-    display: flex;
-    justify-content: space-evenly;
-    color: blue;
-    margin: auto;
-    width: 100%;
-    background-color: transparent;
-    padding: 0.75em;
-    border: none;
-}
-
-/* Common attributes */
-#personal_details,
-#address_details,
-#contact_details,
-#technical_skills,
-#other_skills_div {
-    font-weight: bold;
-    margin: auto;
-    background: linear-gradient(to bottom, greenyellow, rgb(244, 178, 25));
-    padding: 0.75em;
-    /* Border */
-    border: 0.3125rem solid black;
-    border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-}
-
-/* ID for the personal details section */
-#personal_details {
-    /* text-align: left; */
-    float: left;
-    width: 40%;
-    padding-left: 2em;
-    margin-left: 4.5em;
-    margin-bottom: 2em;
-}
-#personal_details fieldset {
-    border: none;
-}
-
-/* ID for the address details for applicant */
-#address_details {
-    text-align: left;
-    float: right;
-    width: 40%;
-    padding-left: 2em;
-    margin-right: 4.5em;
-    margin-bottom: 2em;
-}
-
-/* ID for the contact details for applicant */
-#contact_details {
-    text-align: center;
-    clear: both;
-    margin-bottom: 2em;
-    /* display: flex;
-    justify-content: space-evenly; */
-    width: 60%;
-}
-
-/* ID for the technical skills checkbox */
-#technical_skills {
-    text-align: center;
-    float: left;
-    width: 40%;
-    margin-left: 4.5em;
-    margin-bottom: 2em;
-}
-
-/* ID for the other skills text area */
-#other_skills_div {
-    float: right;
-    width: 40%;
-    margin-right: 4.5em;
-    margin-bottom: 2em;
-}
-/* Make the text area in Other Skills span the entire box size */
-div textarea {
-    width: 100%;
-}
-.input_row label:last-child {
-    padding-left: 3em;
-}
-
-#buttons_div {
-    display: flex;
-    justify-content: space-evenly;
-    clear: both;
-    margin-bottom: 1em;
-    border: none;
-}
-.buttons {
-    padding: 1%;
-    color: white;
-    background-color: black;
-    font-weight: bold;
-    font-size: 2em;
-}
-.buttons:hover {
-    color: black;
-    background-color: white;
-    cursor: pointer;
-}
-
-/* Responsive Code for smaller screens */
 /* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
     html, body {
@@ -518,29 +376,19 @@ div textarea {
     #contact_details, 
     #technical_skills, 
     #other_skills_div {
-        margin-left: auto;
-        margin-right: auto;
-        float: none;
-        width: 80%;
-        text-align: center;
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        width: 100%; /* Ensure sections take full width */
+        margin: auto; /* Center content */
     }
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
         font-size: 0.6rem;
-        padding: 0.3em;
+        padding: 0.4em;
     }
     textarea {
-        width: 80%;
+        width: 100%;
         height: 5em;
-    }
-    .input_row {
-        display: flex;
-        flex-direction: column;
-        /* align-content: center; */
-        /* justify-content: center; */
-    }
-    .input_row:last-child {
-        padding: 0;
     }
 }
 
@@ -590,23 +438,175 @@ div textarea {
     #contact_details,
     #technical_skills,
     #other_skills_div {
+        width: 100%;
         padding: 1em;
         margin-bottom: 1em;
-        width: 80%; /* Ensure sections take full width */
-        text-align: left;
-        display: flex;
-        flex-direction: column; /* Stack content vertically */ 
-        margin: auto;
-        float: center;
     }
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
         font-size: 0.5rem;
-        padding: 0.2em;
-        width: 50%;
+        padding: 0.3em;
     }
     textarea {
-        width:70%;
+        width: 90%;
         height: 2em;
     }
 }
+
+/************************************************************/
+/*about.html specific CSS*/
+/*Changing text colour to stand out on background*/
+.white-text {
+    color: white;
+}
+
+/************************************************************/
+/*jobs.html specific CSS*/
+
+
+/************************************************************/
+/*apply.html specific CSS*/
+/* Centre the heading and apply styling */
+#apply_heading {
+    text-align: center;
+    color: darkblue;
+    font-size: 3rem;
+    padding-bottom: 0.5em;
+}
+
+#apply_subheading {
+    color: purple;
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* width: 100%; */
+}
+
+form h3 {
+    text-align: center;
+    color: blue;
+}
+
+/* ID for the job selection dropdown menu */
+#job_selection {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    color: blue;
+    text-align: center;
+    font-size: 1.1em;
+    margin: auto;
+    /* border: 0.3125rem solid greenyellow; */
+    border-radius: 1em;
+    /* box-shadow: 1em 0.75em 0.75em #1c1b1b; */
+    width: 100%;
+    background-color: transparent;
+    padding: 0.75em;
+}
+
+/* ID for the personal details section */
+#personal_details {
+    font-weight: bold;
+    text-align: left;
+    float: left;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    /* background-color: rgb(223, 220, 178); */
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    padding-left: 3em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+}
+
+/* ID for the address details for applicant */
+#address_details {
+    font-weight: bold;
+    text-align: left;
+    float: right;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    padding-left: 3em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+
+/* ID for the contact details for applicant */
+#contact_details {
+    font-weight: bold;
+    text-align: center;
+    clear: both;
+    margin: auto;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: space-evenly;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 60%;
+    background: linear-gradient(to top, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    text-align: center;
+}
+
+/* ID for the technical skills checkbox */
+#technical_skills {
+    font-weight: bold;
+    text-align: center;
+    float: left;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+}
+
+/* ID for the other skills text area */
+#other_skills_div {
+    font-weight: bold;
+    float: right;
+    margin: auto;
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    width: 40%;
+    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
+    padding: 0.75em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+textarea {
+    width: 100%;
+}
+
+#buttons_div {
+    display: flex;
+    justify-content: space-evenly;
+    clear: both;
+    margin-bottom: 1em;;
+}
+.buttons {
+    padding: 1%;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 2em;
+}
+.buttons:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+
