@@ -320,9 +320,10 @@ body.hero_background {
 
 /************************************************************/
 /*about.html specific CSS*/
-/*Changing text colour to stand out on background*/
-.white-text {
-    color: white;
+/*border colour*/
+table {
+    box-align: center;
+    border: 1px;
 }
 
 /************************************************************/
@@ -331,6 +332,7 @@ body.hero_background {
 
 /************************************************************/
 /*apply.html specific CSS*/
+
 /* Centre the heading and apply styling */
 #apply_heading {
     text-align: center;
