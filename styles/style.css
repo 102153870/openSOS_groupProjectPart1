@@ -72,22 +72,34 @@ main {
 /* Changes to the footer section */
 footer {
     background: rgb(26, 25, 25);
-    color: lightblue;
     font-size: 1.05rem;
-    text-align: left;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 1em; /* Automatically scales to fit remaining vertical space */
-    min-width: 100%;
-    margin: auto;
+    padding: 1em 3em; /* Add horizontal padding */
+    width: 100%;
+    margin: 0;
 }
-#jira_link{
-    text-decoration: none;
-    color: yellow;
-}
-#jira_link:hover {
-    color: lightblue;
+footer p:first-child { /*OpenSOS copyright*/
+    text-align: left; 
+    padding: 0 1em;
+} 
+footer p:last-child { /*Either Github link (for index) or Jira Link*/
+    text-align: right; 
+    padding: 0 1em;
+} 
+footer p {
+    flex: 1; /* Make each paragraph take equal space */
+    text-align: center; /* Center the text within each paragraph */
+    margin: 0; /* Remove default margins */
+    & #jira_link{
+        text-decoration: none;
+        color: yellow; }
+    & #github_link{
+        text-decoration: none;
+        color: rgb(63, 235, 103);}
+    & #jira_link:hover, #github_link:hover {
+    color: rgb(185, 217, 227);}
 }
 
 /*Border Formatting*/
