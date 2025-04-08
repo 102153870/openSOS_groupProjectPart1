@@ -72,22 +72,34 @@ main {
 /* Changes to the footer section */
 footer {
     background: rgb(26, 25, 25);
-    color: lightblue;
     font-size: 1.05rem;
-    text-align: left;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 1em; /* Automatically scales to fit remaining vertical space */
-    min-width: 100%;
-    margin: auto;
+    padding: 1em 3em; /* Add horizontal padding */
+    width: 100%;
+    margin: 0;
 }
-#jira_link{
-    text-decoration: none;
-    color: yellow;
-}
-#jira_link:hover {
-    color: lightblue;
+footer p:first-child { /*OpenSOS copyright*/
+    text-align: left; 
+    padding: 0 1em;
+} 
+footer p:last-child { /*Either Github link (for index) or Jira Link*/
+    text-align: right; 
+    padding: 0 1em;
+} 
+footer p {
+    flex: 1; /* Make each paragraph take equal space */
+    text-align: center; /* Center the text within each paragraph */
+    margin: 0; /* Remove default margins */
+    & #jira_link{
+        text-decoration: none;
+        color: yellow; }
+    & #github_link{
+        text-decoration: none;
+        color: rgb(63, 235, 103);}
+    & #jira_link:hover, #github_link:hover {
+    color: rgb(185, 217, 227);}
 }
 
 /*Border Formatting*/
@@ -175,18 +187,21 @@ body.hero_background {
 }
 
 #nav_prompt {
-    font-size: 1.5rem;
-    margin: 0;        /* Remove side margins */
-    padding: 3%;        /* Keep inner spacing */
-    padding-left: 10%;
-    padding-right: 10%;
-    width: 100%;        /* Force full width */
-    
+    font-size:larger;
+    margin-top: 40px;
+    padding: 1%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     line-height: 1.5;
     background-color: #cac79a;
     border-top: 3px solid black;
     border-bottom: 3px solid black;
+}
+
+.home_nav nav{
+    display:flex;
+    justify-content: center;
+
+    justify-content: space-evenly; /* Distributes items evenly */
 }
 
 .home_nav a{ /*Removes the blue hyperlink line*/
@@ -195,9 +210,9 @@ body.hero_background {
     color: black;
 }
 
-.home_nav p{ /*Refers to the icons and the text*/
-    width: 9.375rem;  /*150px -> 9.375rem*/
-    padding-top: 1.5625rem;  /*25px -> 1.5625rem*/
+.home_nav img, .home_nav p{ /*Refers to the icons and the text*/
+    width: 150px;
+    padding-top: 25px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
    
     font-size: 1.2rem;
@@ -272,7 +287,6 @@ body.hero_background {
     padding: 5px 10px; 
     border-radius: 10px; 
     margin: auto; 
-    
 }
 
 .company_description p { /*Description Text*/
@@ -311,7 +325,6 @@ body.hero_background {
 .home_email a p{
     margin-top: 0;
     text-decoration: none;
-    
 }
 
 #email_icon, .home_email a p{
@@ -455,6 +468,85 @@ body.hero_background {
     }
 }
 
+/* Responsive styles for screens up to 768px */
+@media (max-width: 768px) {
+    html, body {
+        background-size: cover; /*Adjust background scaling*/
+        border-left: 15px solid rgb(0, 0, 0); 
+        border-right: 15px solid black;
+    }
+
+    .side_textbar {
+        width: 2.5rem;  /*40px -> 2.5rem*/
+        font-size: 1.875rem;  /*30px -> 1.875rem*/
+    }
+
+    #header_logo {
+        width: 15.625rem;  /*250px -> 15.625rem*/
+    }
+
+    .home_nav nav {
+        flex-direction: column; /*Stack nav items vertically*/
+        align-items: center;
+    }
+
+    .home_nav img, .home_nav p {
+        width: 6.25rem;  /*100px -> 6.25rem*/
+        font-size: 1rem; /*Adjust font size*/
+    }
+
+    .company_description, .home_email {
+        width: 90%; /*Increase width for smaller screens, easier to read*/
+        margin-bottom: 0.9375rem;  /* 15px -> 0.9375rem */
+    }
+
+    .company_description p, .home_email #email_prompt {
+        font-size: 0.7rem; /*Adjust text size: 11px*/
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    footer {
+        font-size: 0.9rem; /*Adjust footer text size: 14px*/
+        flex-direction: column; /*Stack footer content*/
+        text-align: center;
+    }
+
+    #Jira_link {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Responsive styles for screens up to 325px */
+@media (max-width: 325px) {
+    .side_textbar {
+        width: 1.875rem;  /*30px -> 1.875rem*/
+        font-size: 1.25rem;  /*20px -> 1.25rem*/
+    }
+
+    #header_logo {
+        width: 12.5rem;  /*200px -> 12.5rem*/
+    }
+
+    .home_nav img, .home_nav p {
+        width: 5rem;  /*80px -> 5rem*/
+        font-size: 0.9rem; /*Adjust font size: 14px */
+    }
+
+    .company_description, .home_email {
+        width: 95%; /*Maximize width for smaller screens*/
+    }
+
+    .company_description p, .home_email #email_prompt {
+        font-size: 0.9em; /*Adjust text size*/
+    }
+
+    footer {
+        font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
+    }
+}
+
 /************************************************************/
 /*about.html specific CSS*/
 /*Changing text colour to stand out on background*/
@@ -547,147 +639,4 @@ body.hero_background {
 
 /************************************************************/
 /*apply.html specific CSS*/
-/* Centre the heading and apply styling */
-#apply_heading {
-    text-align: center;
-    color: darkblue;
-    font-size: 3rem;
-    padding-bottom: 0.5em;
-}
-
-#apply_subheading {
-    color: purple;
-    /* display: flex; */
-    /* justify-content: space-around; */
-    /* width: 100%; */
-}
-
-form h3 {
-    text-align: center;
-    color: blue;
-}
-
-/* ID for the job selection dropdown menu */
-#job_selection {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    color: blue;
-    text-align: center;
-    font-size: 1.1em;
-    margin: auto;
-    /* border: 0.3125rem solid greenyellow; */
-    border-radius: 1em;
-    /* box-shadow: 1em 0.75em 0.75em #1c1b1b; */
-    width: 100%;
-    background-color: transparent;
-    padding: 0.75em;
-}
-
-/* ID for the personal details section */
-#personal_details {
-    font-weight: bold;
-    text-align: left;
-    float: left;
-    margin: auto;
-    border: 0.3125rem solid black;
-    border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-    width: 40%;
-    /* background-color: rgb(223, 220, 178); */
-    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
-    padding: 0.75em;
-    padding-left: 3em;
-    margin-left: 2em;
-    margin-bottom: 2em;
-}
-
-/* ID for the address details for applicant */
-#address_details {
-    font-weight: bold;
-    text-align: left;
-    float: right;
-    margin: auto;
-    border: 0.3125rem solid black;
-    border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-    width: 40%;
-    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
-    padding: 0.75em;
-    padding-left: 3em;
-    margin-right: 2em;
-    margin-bottom: 2em;
-}
-
-/* ID for the contact details for applicant */
-#contact_details {
-    font-weight: bold;
-    text-align: center;
-    clear: both;
-    margin: auto;
-    margin-bottom: 2em;
-    display: flex;
-    justify-content: space-evenly;
-    border: 0.3125rem solid black;
-    border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-    width: 60%;
-    background: linear-gradient(to top, greenyellow, rgb(231, 166, 80));
-    padding: 0.75em;
-    text-align: center;
-}
-
-/* ID for the technical skills checkbox */
-#technical_skills {
-    font-weight: bold;
-    text-align: center;
-    float: left;
-    margin: auto;
-    border: 0.3125rem solid black;
-    border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-    width: 40%;
-    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
-    padding: 0.75em;
-    margin-left: 2em;
-    margin-bottom: 2em;
-}
-
-/* ID for the other skills text area */
-#other_skills_div {
-    font-weight: bold;
-    float: right;
-    margin: auto;
-    border: 0.3125rem solid black;
-    border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-    width: 40%;
-    background: linear-gradient(to bottom, greenyellow, rgb(231, 166, 80));
-    padding: 0.75em;
-    margin-right: 2em;
-    margin-bottom: 2em;
-}
-textarea {
-    width: 100%;
-}
-
-#buttons_div {
-    display: flex;
-    justify-content: space-evenly;
-    clear: both;
-    margin-bottom: 1em;;
-}
-.buttons {
-    padding: 1%;
-    color: white;
-    background-color: black;
-    font-weight: bold;
-    font-size: 2em;
-}
-.buttons:hover {
-    color: black;
-    background-color: white;
-    cursor: pointer;
-}
-
 
