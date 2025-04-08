@@ -464,7 +464,86 @@ body.hero_background {
 
 /************************************************************/
 /*jobs.html specific CSS*/
+.section
+{
+    padding: 16px;
+    
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    overflow: auto;
 
+    margin: 80px;
+}
+
+.jobs_heading
+{
+    text-align: center;
+    color: darkblue;
+    font-size: 3rem;
+    padding-bottom: 0.5em;
+}
+
+.float_left
+{
+    float: left;
+    clear: left;
+    margin: auto;
+
+    width: 48%;
+}
+
+.float_right
+{
+    float: right;
+    clear: right;
+    margin: auto;
+
+    width: 48%;
+}
+
+.list_indent
+{
+    margin-left: 20px;
+}
+
+.grey
+{
+    color: grey;
+}
+
+.job_title
+{
+    color: darkblue;
+}
+
+.top_text_left
+{
+    float: left;
+    clear: left;
+    margin: auto;
+
+    width: 50%;
+
+    /*extra (not copy of float)*/
+    margin-left: 96px; /*using 96 because margin + padding of sections text*/
+}
+
+.top_text_right
+{
+    float: right;
+    clear: right;
+    margin: auto;
+
+    width: 30%;
+
+    /*extra (not copy of float)*/
+    margin-right: 96px;
+
+    /*aside*/
+    background-color: white;
+    padding: 16px; /*might be nicer if text was at the same level, but this is good too*/
+    border-radius: 10px;
+}
 
 /************************************************************/
 /*apply.html specific CSS*/
