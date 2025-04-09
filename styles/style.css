@@ -83,6 +83,7 @@ footer {
 footer p:first-child { /*OpenSOS copyright*/
     text-align: left; 
     padding: 0 1em;
+    color: #ffffff;
 } 
 footer p:last-child { /*Either Github link (for index) or Jira Link*/
     text-align: right; 
@@ -121,49 +122,11 @@ footer p {
     writing-mode: vertical-rl; /*Makes the text vertical*/
     text-orientation: upright;
 }
-
 .left_side {
-    left: 0;
-}
+    left: 0;}
 
 .right_side {
-    right: 0;
-}
-
-
-/*Horizontal Line Formatting*/
-hr{
-    border: none; /* Remove default border */
-    height: 0.25rem;  /*4px -> 0.25rem*/
-    background-color: #212528; /* Set color */
-    width: 100%; /* Full-width line */
-}
-
-/*Making footer at the bottom of page*/
-main {
-    flex: 1; /* Makes the main content take up all available space */
-}
-
-/* Footer styling */
-footer {
-    background: rgb(26, 25, 25);
-    color: white;
-    font-size: 1.05rem;
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-
-#Jira_link{
-    margin-left: auto;
-    text-decoration: none;
-    padding-right: 5px;
-    color: lightgray;
-}
-
-footer b{
-    color: yellow;
-}
+    right: 0;}
 
 /************************************************************/
 /*index.html specific CSS*/
@@ -199,8 +162,6 @@ body.hero_background {
 
 .home_nav nav{
     display:flex;
-    justify-content: center;
-
     justify-content: space-evenly; /* Distributes items evenly */
 }
 
@@ -214,7 +175,6 @@ body.hero_background {
     width: 150px;
     padding-top: 25px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
-   
     font-size: 1.2rem;
     text-align: center;
 }
@@ -376,6 +336,7 @@ body.hero_background {
         font-size: 0.9rem; /*Adjust footer text size: 14px*/
         flex-direction: column; /*Stack footer content*/
         text-align: center;
+        line-height: 1.5;
     }
 
     #jira_link {
@@ -443,6 +404,7 @@ body.hero_background {
 
     footer {
         font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
+        line-height: 1.5;
     }
 
     /************************************************************/
@@ -465,85 +427,6 @@ body.hero_background {
     textarea {
         width: 90%;
         height: 2em;
-    }
-}
-
-/* Responsive styles for screens up to 768px */
-@media (max-width: 768px) {
-    html, body {
-        background-size: cover; /*Adjust background scaling*/
-        border-left: 15px solid rgb(0, 0, 0); 
-        border-right: 15px solid black;
-    }
-
-    .side_textbar {
-        width: 2.5rem;  /*40px -> 2.5rem*/
-        font-size: 1.875rem;  /*30px -> 1.875rem*/
-    }
-
-    #header_logo {
-        width: 15.625rem;  /*250px -> 15.625rem*/
-    }
-
-    .home_nav nav {
-        flex-direction: column; /*Stack nav items vertically*/
-        align-items: center;
-    }
-
-    .home_nav img, .home_nav p {
-        width: 6.25rem;  /*100px -> 6.25rem*/
-        font-size: 1rem; /*Adjust font size*/
-    }
-
-    .company_description, .home_email {
-        width: 90%; /*Increase width for smaller screens, easier to read*/
-        margin-bottom: 0.9375rem;  /* 15px -> 0.9375rem */
-    }
-
-    .company_description p, .home_email #email_prompt {
-        font-size: 0.7rem; /*Adjust text size: 11px*/
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    footer {
-        font-size: 0.9rem; /*Adjust footer text size: 14px*/
-        flex-direction: column; /*Stack footer content*/
-        text-align: center;
-    }
-
-    #Jira_link {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-}
-
-/* Responsive styles for screens up to 325px */
-@media (max-width: 325px) {
-    .side_textbar {
-        width: 1.875rem;  /*30px -> 1.875rem*/
-        font-size: 1.25rem;  /*20px -> 1.25rem*/
-    }
-
-    #header_logo {
-        width: 12.5rem;  /*200px -> 12.5rem*/
-    }
-
-    .home_nav img, .home_nav p {
-        width: 5rem;  /*80px -> 5rem*/
-        font-size: 0.9rem; /*Adjust font size: 14px */
-    }
-
-    .company_description, .home_email {
-        width: 95%; /*Maximize width for smaller screens*/
-    }
-
-    .company_description p, .home_email #email_prompt {
-        font-size: 0.9em; /*Adjust text size*/
-    }
-
-    footer {
-        font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
     }
 }
 
