@@ -214,8 +214,9 @@ footer b{
 /************************************************************/
 /*about.html specific CSS*/
 /*Changing text colour to stand out on background*/
-.white-text {
-    color: white;
+
+#AboutUsAlignment {
+    text-align: center;
 }
 
 
