@@ -595,14 +595,13 @@ div textarea {
 
 /************************************************************/
 /*jobs.html specific CSS*/
-.section
+.job_description_box
 {
+    /* Try and use realtive units so the page scales */
     padding: 16px;
-    
     border: 4px solid rgb(0, 0, 0);
     border-radius: 10px;
     overflow: auto;
-
     margin: 80px;
 }
 
@@ -614,12 +613,11 @@ div textarea {
     padding-bottom: 0.5em;
 }
 
-.float_left
+.job_description
 {
     float: left;
     clear: left;
     margin: auto;
-
     width: 48%;
 }
 
@@ -628,7 +626,6 @@ div textarea {
     float: right;
     clear: right;
     margin: auto;
-
     width: 48%;
 }
 
@@ -647,7 +644,7 @@ div textarea {
     color: darkblue;
 }
 
-.top_text_left
+#top_text_left
 {
     float: left;
     clear: left;
@@ -659,7 +656,7 @@ div textarea {
     margin-left: 96px; /*using 96 because margin + padding of sections text*/
 }
 
-.top_text_right
+#top_text_right
 {
     float: right;
     clear: right;
