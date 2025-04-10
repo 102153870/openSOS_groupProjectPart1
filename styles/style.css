@@ -226,8 +226,6 @@ body.hero_background {
     color: #00a2ff; /* Match text color with icon on hover */
 }
 
-
-
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
     margin: auto;
