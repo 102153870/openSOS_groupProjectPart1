@@ -38,27 +38,21 @@
             <a href="apply.html" title="Apply">Apply</a>
             <a href="about.html" title="About Us">About Us</a>
         </nav>
-
-        <!-- Heading -->
-        <h1 class = "jobs_heading">Job Descriptions</h1>
-
-        <!-- OpenSOS Logo -->
-        <a href="index.html"> <!--Link Logo to Home Page-->
-            <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
-        </a>
-        <br>
     </header>
 
     <!-- Begin the main content of the web page -->
     <main>
-        <p class = "top_text_left">Here, you can view our amazing job descriptions! Browse and view each one for its required skills, and and overview of the work you will be undertaking! Also see appropriate annual salaries, and other important information.</p>
-        <aside class = "top_text_right">Use the "Apply" page to apply for a job. You will need to use the reference code shown in the description of the job you would like to apply for.</aside><!--This might not need to be a float-->
+        <!-- Use ID's for things you are only going to reference once -->
+         <!-- Use classes to group elements that will have the same CSS code applied (So the boces you have the job desciptions in for example) -->
+        <p id="top_text_left">Here, you can view our amazing job descriptions!<br>Browse and view each one for its required skills, and an overview of the work you will be undertaking!<br>Also see appropriate annual salaries, and other important information.</p>
+        <aside id="top_text_right">Use the "Apply" page to apply for a job.<br>You will need to use the reference code shown in the description of the job you would like to apply for.</aside><!--This might not need to be a float-->
         <br>
-        <br>
+
         <!--jobs in sections-->
-        <section class = "section">
-            <section class = "float_left">
-                <h2 class = "job_title">Data Analyst</h2>
+        <!-- Cant use the name section as a class -->
+        <section class="job_description_box">
+            <section class="job_description">
+                <h2 class="job_title">Data Analyst</h2>
                 <br>
                 <p>
                     As a data analyst for OpenSOS, you will need to work efficiently with our team to collect and meaningfully present data in multiple areas of interest, including emerging issues with our technologies, how users interact with our programs,  and how our work can be made more effective.
@@ -125,9 +119,8 @@
             
         </section>
 
-        <section class = "section">
-            <section class = "float_left">
-                <!--main-->
+        <section class = "job_description_box">
+            <section class = "job_description">
                 <h2 class = "job_title">Programmer</h2>
                 <br>
                 <p>
@@ -197,9 +190,8 @@
             
         </section>
 
-        <section class = "section">
-            <section class = "float_left">
-                <!--main-->
+        <section class = "job_description_box">
+            <section class = "job_description">
                 <h2 class = "job_title">Front-end Web Developer</h2>
                 <br>
                 <p>
