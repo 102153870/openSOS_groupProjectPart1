@@ -213,11 +213,13 @@ footer b{
 
 /************************************************************/
 /*about.html specific CSS*/
-/*border colour*/
-table {
-    box-align: center;
-    border: 1px;
+/*Changing text colour to stand out on background*/
+.white-text {
+    color: white;
 }
+
+
+
 
 /************************************************************/
 /*jobs.html specific CSS*/
