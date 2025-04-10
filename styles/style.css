@@ -132,7 +132,7 @@ footer p {
 /*index.html specific CSS*/
 /*Homepage background image*/
 body.hero_background {
-    background-image: url("../images/homepage_background.jpg");
+    background-image: url("images/homepage_background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
