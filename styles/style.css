@@ -55,12 +55,10 @@ nav{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* padding-top: 1em; */
-    /* padding-bottom: 0.5em; */
-    /* text-align: center; */
     font-size: 2em;
-    /* border: 0.1em solid green; */
-    padding-bottom: 1em;
+    background-color: #D1C4E9;
+    border: solid black 3px;
+    padding: 1%;
 }
 nav a {
     text-decoration: none;
@@ -84,34 +82,27 @@ main {
 footer {
     background: rgb(26, 25, 25);
     font-size: 1.05rem;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1em 3em; /* Add horizontal padding */
     width: 100%;
     margin: 0;
 }
-footer p:first-child { /*OpenSOS copyright*/
-    text-align: left; 
-    padding: 0 1em;
-    color: #ffffff;
-} 
-footer p:last-child { /*Either Github link (for index) or Jira Link*/
-    text-align: right; 
-    padding: 0 1em;
-} 
 footer p {
     flex: 1; /* Make each paragraph take equal space */
     text-align: center; /* Center the text within each paragraph */
     margin: 0; /* Remove default margins */
-    & #jira_link{
-        text-decoration: none;
-        color: yellow; }
-    & #github_link{
-        text-decoration: none;
-        color: rgb(63, 235, 103);}
-    & #jira_link:hover, #github_link:hover {
-    color: rgb(185, 217, 227);}
+    color: white;
+}
+footer p #jira_link {
+    text-decoration: none;
+    color: yellow;
+}
+footer p #github_link {
+    text-decoration: none;
+    color: rgb(63, 235, 103);
+}
+footer p #jira_link:hover, footer p #github_link:hover {
+    color: rgb(185, 217, 227);
 }
 
 /*Border Formatting*/
@@ -139,6 +130,22 @@ footer p {
 .right_side {
     right: 0;}
 
+/*Section Span (Horizontal Span) Formatting*/
+.section_span {
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1%;
+
+    line-height: 1.5;
+    background-color: #cac79a;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
 /************************************************************/
 /*index.html specific CSS*/
 /*Homepage background image*/
@@ -156,24 +163,11 @@ body.hero_background {
     margin: auto;
 }
 /*Formatting Home Nav Section*/
-.home_nav{
-    text-align: center;
-}
-
-#nav_prompt {
-    font-size:larger;
-    margin-top: 40px;
-    padding: 1%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    line-height: 1.5;
-    background-color: #cac79a;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-}
-
 .home_nav nav{
     display:flex;
     justify-content: space-evenly; /* Distributes items evenly */
+    background-color: transparent;
+    border: none;
 }
 
 .home_nav a{ /*Removes the blue hyperlink line*/
@@ -307,10 +301,70 @@ body.hero_background {
 
 /************************************************************/
 /*about.html specific CSS*/
-/*Changing text colour to stand out on background*/
-.white-text {
-    color: white;
+.centered_section { /*Used commonly in this page*/
+    width: 80%;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+/* Student IDs floated to the right */
+.student_ids {
+    float: right;
+    width: 200px;
+    margin-left: 20px;
+}
+
+/* Group photo with border and float right */
+.group_photo {
+    float: right;
+    margin-left: 20px;
+    border: 2px solid #666;
+    padding: 5px;
+}
+.group_photo img {
+    border: 2px solid #444; /* shorthand border */
+}
+
+/* Table styling for Member's Interests*/
+.member_interests {
+    margin: auto;
+    width: 80%;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #5937af;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f0f0f0;
+}
+
+/* Hover effect*/
+td:hover {
+    background-color: #d0e0ff;
+}
+
+/*Member's Interests*/
 
 /************************************************************/
 /*jobs.html specific CSS*/
