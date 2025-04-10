@@ -393,7 +393,6 @@ form h3 {
 
 /* ID for the personal details section */
 #personal_details {
-    /* text-align: left; */
     float: left;
     width: 40%;
     padding-left: 2em;
@@ -416,28 +415,33 @@ form h3 {
 
 /* ID for the contact details for applicant */
 #contact_details {
-    text-align: center;
+    clear:left;
+    float: left;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 4.5em;
+    margin-bottom: 2em;
+    /* text-align: center;
     clear: both;
     margin-bottom: 2em;
-    /* display: flex;
-    justify-content: space-evenly; */
-    width: 60%;
+    width: 40%; */
 }
 
 /* ID for the technical skills checkbox */
 #technical_skills {
     text-align: center;
-    float: left;
+    float: right;
     width: 40%;
-    margin-left: 4.5em;
+    padding-left: 2em;
+    margin-right: 4.5em;
     margin-bottom: 2em;
 }
 
 /* ID for the other skills text area */
 #other_skills_div {
-    float: right;
-    width: 40%;
-    margin-right: 4.5em;
+    clear: both;
+    /* float: right; */
+    width: 30%;
     margin-bottom: 2em;
 }
 /* Make the text area in Other Skills span the entire box size */
