@@ -35,9 +35,20 @@ body {
 
 /* Changes to the header section */
 header {
-    /* Adjusts the content to take up 20% of the vertical space */
-    flex: 0 0 20%; 
-    min-width: 100%;
+    /* Adjusts the content to take up a % value of the vertical space */
+    flex: 0 0 15%; 
+}
+/* Positioning the heading and openSOS logo */
+header section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#header_logo_not_homepage {
+    scale: 0.6;
+    margin: 0; /* Add this to remove any default margins */
 }
 /*Navigation Menu - For all pages except homepage which is styled below*/
 nav{
@@ -295,6 +306,151 @@ body.hero_background {
     transform: scale(1.2);
 }
 
+
+/************************************************************/
+/*about.html specific CSS*/
+/*Changing text colour to stand out on background*/
+.white-text {
+    color: white;
+}
+
+/************************************************************/
+/*jobs.html specific CSS*/
+
+
+/************************************************************/
+/*apply.html specific CSS*/
+/* Centre the heading and apply styling */
+#heading_not_homepage {
+    color: darkblue;
+    font-size: 3rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#apply_subheading {
+    color: purple;
+}
+
+form h3 {
+    text-align: center;
+    color: blue;
+}
+
+/* ID for the job selection dropdown menu */
+#job_selection {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-evenly;
+    color: blue;
+    margin: auto;
+    width: 100%;
+    background-color: transparent;
+    padding: 0.75em;
+    border: none;
+}
+
+/* Common attributes */
+#personal_details,
+#address_details,
+#contact_details,
+#technical_skills,
+#other_skills_div {
+    font-weight: bold;
+    margin: auto;
+    background: linear-gradient(to bottom, greenyellow, rgb(244, 178, 25));
+    padding: 0.75em;
+    /* Border */
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+}
+
+/* ID for the personal details section */
+#personal_details {
+    float: left;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 4.5em;
+    margin-bottom: 2em;
+}
+#personal_details fieldset {
+    border: none;
+}
+
+/* ID for the address details for applicant */
+#address_details {
+    text-align: left;
+    float: right;
+    width: 40%;
+    padding-left: 2em;
+    margin-right: 4.5em;
+    margin-bottom: 2em;
+}
+
+/* ID for the contact details for applicant */
+#contact_details {
+    clear:left;
+    float: left;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 4.5em;
+    margin-bottom: 2em;
+    /* text-align: center;
+    clear: both;
+    margin-bottom: 2em;
+    width: 40%; */
+}
+
+/* ID for the technical skills checkbox */
+#technical_skills {
+    text-align: center;
+    float: right;
+    width: 40%;
+    padding-left: 2em;
+    margin-right: 4.5em;
+    margin-bottom: 2em;
+}
+
+/* ID for the other skills text area */
+#other_skills_div {
+    clear: both;
+    /* float: right; */
+    width: 30%;
+    margin-bottom: 2em;
+}
+/* Make the text area in Other Skills span the entire box size */
+div textarea {
+    width: 100%;
+}
+.input_row label:last-child {
+    padding-left: 3em;
+}
+
+#buttons_div {
+    display: flex;
+    justify-content: space-evenly;
+    clear: both;
+    margin-bottom: 1em;
+    border: none;
+}
+.buttons {
+    padding: 1%;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 2em;
+}
+.buttons:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Responsive Code for smaller screens */
 /* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
     html, body {
@@ -519,7 +675,3 @@ body.hero_background {
     padding: 16px; /*might be nicer if text was at the same level, but this is good too*/
     border-radius: 10px;
 }
-
-/************************************************************/
-/*apply.html specific CSS*/
-
