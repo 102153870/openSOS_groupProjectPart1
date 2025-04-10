@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/style.css">
 
     <!-- Adds the OpenSOS Icon to title bar -->
-    <link rel="icon" type="image/x-icon" href="images/tab_icon.ico">
+    <link rel="icon" type="image/x-icon" href="images/tab_icon.png">
 
 </head>
 
@@ -46,51 +46,92 @@
         <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOS</div>
         <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOS</div>
 
-        <div align = "center">
-            <h1>&nbsp;&nbsp;About us</h1>
-        </div>
-        <!-- The navigation menu connects to other pages-->
-        
-    </header>
+        <br> <!--Who are OpenSOS question-->
+        <div class="section_span">
+            <h1>Who are OpenSOS?</h1>
+         </div>
 
+    <!-- Group Name and Class Time (Nested Lists)-->
+        <section class="centered_section group_info">
+            <h2>Group Information</h2>
 
-    <div align = "center">
-        <fieldset style = "border: none;">
+        <ul>
+            <li><strong>Group Name:</strong> OpenSOS</li>
+            <li><strong>Class Time:</strong> Thursday 12:30 - 2:30 pm</li>
+        </ul>
+            <h2>Tutor's Name</h2>
+            <p>Dr. Jane Smith</p>
+        </section>
         
-        <h2><strong>Tutor: </strong> Enrique Ketterer Ortiz (Nick)</h2>
-        <h2><strong>Class Time: </strong> Thursday 12:30pm-2:30pm</h2>
-    </fieldset>
-        <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOS</div>
-            <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOS</div>
-            <img src="images\OpenSOS_logo_nobg.png" >
-    </div>
-    
-    
-    <!--individual photo and their epic title-->
-    
-    <fieldset>
-        
-        <table id="intro">
-          <tr>
-            <th colspan="1">Mr. Red and Black</th>
-            <th colspan="1"> Mark Richards</th>
-            <th colspan="1">Ryab</th>
-            <th colspan="1">SeeFood Veteran</th>
-          </tr>
-          <tr>
+    <!-- Student IDs (Pan right)-->
+        <section class="student_ids">
+            <h2>Student IDs</h2>
+            <ul>
+                <li>123456</li>
+                <li>234567</li>
+                <li>345678</li>
+            </ul>
+        </section>
 
-            <td><img src="images\Rodney Liaw Smaller.png" alt="Photo of Rodney Liaw"></td>
-            <td><img src="images\Mark Richards (1) (1).jpg" alt="Photo of Mark Richards"></td>
-            <td><img src="images\Ryan Weber (1) (1) (1).png" alt="Photo of Ryan Weber"></td>
-            <td><img src="images\Henry Low smaller.png" alt="Photo of Henry Low"></td>
-          </tr>
+    <!-- Member Contributions (Definition List)-->
+        <section class="centered_section member_contributions">
+            <h2>Member Contributions</h2>
+            <dl>
+                <dt>Alice</dt>
+                <dd>Frontend Development</dd>
+                <dt>Bob</dt>
+                <dd>Backend Integration</dd>
+                <dt>Carol</dt>
+                <dd>Design and Testing</dd>
+            </dl>
+        </section>
+
+    <!-- Group Photo -->
+    <section>
+        <h2>Group Photo</h2>
+        <figure class="group_photo">
+            <!--INSERT GROUP PHOTO HERE-->
+            <img src="group-photo.jpg" alt="Group Photo" width="300">
+            <figcaption>Our Team</figcaption>
+        </figure>
+    </section>
+
+    <!-- Member Interests (Table) -->
+    <section class="member_interests">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Interests</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Rodney</td>
+                    <td>Reading</td>
+                </tr>
+                <tr>
+                    <td>Traveling</td>
+                </tr>
+                <tr>
+                    <td>Mark</td>
+                    <td>Coding, Gaming</td>
+                </tr>
+                <tr>
+                    <td>Henry</td>
+                    <td>Music, Movies</td>
+                </tr>
+                <tr>
+                    <td>Ryan</td>
+                    <td>Music, Movies</td>
+                </tr>
+            </tbody>
+            <caption>Our Fabulous Interests</caption>
         </table>
-        
-    </fieldset>
+    </section>
 
 
-
-    <div align = center>
+    <!-- <div align = center>
         
     
         <fieldset>
@@ -101,28 +142,27 @@
             <img src="images\apply_icon.png">
             
         </fieldset>
-    </div>
+    </div> -->
     
 
-    
+    <!-- 
     <br><br><br>
     <hr>
-    <br><br><br>
-    
-    <fieldset>
+    <br><br><br> --> 
+    <!-- <fieldset>
         <h3>Rodney Liaw</h3>
         <p>
             Enjoys the otaku lifestyle, watching anime while eating his favourite meals.<br>
             Final year of of studying here, loves robotics.<br>
             In addition to machines, he loves to make cosplay weapons too.
 
-            <!--
+           
             - Making cosplay weapons
             - Robotics 
             - Watching anime
             - Eating Food
             -->
-        </p>
+        <!-- </p>
 
         <img src="images\Rodney Liaw Small.png">
 
@@ -132,14 +172,14 @@
         <p>
             Harbours the best of both worlds in gaming and Aussie sports.<br>
             Enjoys walking his dog Arlo on walks. <br>
-            Interested in creating electronics and building in addition to the reason why he enrolled into Mechatronics and Computer Science 
+            Interested in creating electronics and building in addition to the reaso -- n why he enrolled into Mechatronics and Computer Science  -->
             
         <!--
             Hobbies are gaming, watching Cricket, AFL and NFL.
             I also enjoy taking my dog Arlo on walks.
             I like building things, particularly electronics which is why I am enrolled in a Mechatronics and Computer Science degree.
         -->
-        </p>
+       <!--  </p>
         <img src="images\apply_icon.png">
     </fieldset><fieldset>
         <h3>Ryan Weber</h3>
@@ -156,13 +196,14 @@
     <hr>
     <br>
     
-    <image src="images\apply_icon.png"></image>
+    <image src="images\apply_icon.png"></image> 
 
-    <!--Footer-->
-<footer>
-    <p>&copy; OpenSOS 2025. All rights reserved</p>
+    Footer-->
+ <!--Footer-->
+ <footer>
+    <p>&copy; OpenSOS 2025. All rights reserved.</p>
     <p><a href="https://opensos.atlassian.net/jira/software/projects/SCRUM/boards/1" title="Go To Jira Board" id="jira_link" target="_blank"><em>Jira Board</em></a></p>
+    <p><a href="https://github.com/102153870/openSOS_groupProjectPart1" title="Go to Github Repository" id="github_link" target="_blank"><em>Github Link</em></a></p>
 </footer>
-</body>
 
 </html>
