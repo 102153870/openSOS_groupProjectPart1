@@ -35,21 +35,30 @@ body {
 
 /* Changes to the header section */
 header {
-    /* Adjusts the content to take up 20% of the vertical space */
-    flex: 0 0 20%; 
-    min-width: 100%;
+    /* Adjusts the content to take up a % value of the vertical space */
+    flex: 0 0 15%; 
+}
+/* Positioning the heading and openSOS logo */
+header section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#header_logo_not_homepage {
+    scale: 0.6;
+    margin: 0; /* Add this to remove any default margins */
 }
 /*Navigation Menu - For all pages except homepage which is styled below*/
 nav{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* padding-top: 1em; */
-    /* padding-bottom: 0.5em; */
-    /* text-align: center; */
     font-size: 2em;
-    /* border: 0.1em solid green; */
-    padding-bottom: 1em;
+    background-color: #D1C4E9;
+    border: solid black 3px;
+    padding: 1%;
 }
 nav a {
     text-decoration: none;
@@ -73,34 +82,27 @@ main {
 footer {
     background: rgb(26, 25, 25);
     font-size: 1.05rem;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1em 3em; /* Add horizontal padding */
     width: 100%;
     margin: 0;
 }
-footer p:first-child { /*OpenSOS copyright*/
-    text-align: left; 
-    padding: 0 1em;
-    color: #ffffff;
-} 
-footer p:last-child { /*Either Github link (for index) or Jira Link*/
-    text-align: right; 
-    padding: 0 1em;
-} 
 footer p {
     flex: 1; /* Make each paragraph take equal space */
     text-align: center; /* Center the text within each paragraph */
     margin: 0; /* Remove default margins */
-    & #jira_link{
-        text-decoration: none;
-        color: yellow; }
-    & #github_link{
-        text-decoration: none;
-        color: rgb(63, 235, 103);}
-    & #jira_link:hover, #github_link:hover {
-    color: rgb(185, 217, 227);}
+    color: white;
+}
+footer p #jira_link {
+    text-decoration: none;
+    color: yellow;
+}
+footer p #github_link {
+    text-decoration: none;
+    color: rgb(63, 235, 103);
+}
+footer p #jira_link:hover, footer p #github_link:hover {
+    color: rgb(185, 217, 227);
 }
 
 /*Border Formatting*/
@@ -128,11 +130,27 @@ footer p {
 .right_side {
     right: 0;}
 
+/*Section Span (Horizontal Span) Formatting*/
+.section_span {
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1%;
+
+    line-height: 1.5;
+    background-color: #cac79a;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
 /************************************************************/
 /*index.html specific CSS*/
 /*Homepage background image*/
 body.hero_background {
-    background-image: url("../images/homepage_background.jpg");
+    background-image: url("images/homepage_background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -145,24 +163,11 @@ body.hero_background {
     margin: auto;
 }
 /*Formatting Home Nav Section*/
-.home_nav{
-    text-align: center;
-}
-
-#nav_prompt {
-    font-size:larger;
-    margin-top: 40px;
-    padding: 1%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    line-height: 1.5;
-    background-color: #cac79a;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-}
-
 .home_nav nav{
     display:flex;
     justify-content: space-evenly; /* Distributes items evenly */
+    background-color: transparent;
+    border: none;
 }
 
 .home_nav a{ /*Removes the blue hyperlink line*/
@@ -225,8 +230,6 @@ body.hero_background {
     fill: #00a2ff; /* Blue color on hover */
     color: #00a2ff; /* Match text color with icon on hover */
 }
-
-
 
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
@@ -295,6 +298,211 @@ body.hero_background {
     transform: scale(1.2);
 }
 
+
+/************************************************************/
+/*about.html specific CSS*/
+.centered_section { /*Used commonly in this page*/
+    width: 80%;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Student IDs floated to the right */
+.student_ids {
+    float: right;
+    width: 200px;
+    margin-left: 20px;
+}
+
+/* Group photo with border and float right */
+.group_photo {
+    float: right;
+    margin-left: 20px;
+    border: 2px solid #666;
+    padding: 5px;
+}
+.group_photo img {
+    border: 2px solid #444; /* shorthand border */
+}
+
+/* Table styling for Member's Interests*/
+.member_interests {
+    margin: auto;
+    width: 80%;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #5937af;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f0f0f0;
+}
+
+/* Hover effect*/
+td:hover {
+    background-color: #d0e0ff;
+}
+
+/*Member's Interests*/
+
+/************************************************************/
+/*jobs.html specific CSS*/
+
+
+/************************************************************/
+/*apply.html specific CSS*/
+/* Centre the heading and apply styling */
+#heading_not_homepage {
+    color: darkblue;
+    font-size: 3rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#apply_subheading {
+    color: purple;
+}
+
+form h3 {
+    text-align: center;
+    color: blue;
+}
+
+/* ID for the job selection dropdown menu */
+#job_selection {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-evenly;
+    color: blue;
+    margin: auto;
+    width: 100%;
+    background-color: transparent;
+    padding: 0.75em;
+    border: none;
+}
+
+/* Common attributes */
+#personal_details,
+#address_details,
+#contact_details,
+#technical_skills,
+#other_skills_div {
+    font-weight: bold;
+    margin: auto;
+    background: linear-gradient(to bottom, greenyellow, rgb(244, 178, 25));
+    padding: 0.75em;
+    /* Border */
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+}
+
+/* ID for the personal details section */
+#personal_details {
+    float: left;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 4.5em;
+    margin-bottom: 2em;
+}
+#personal_details fieldset {
+    border: none;
+}
+
+/* ID for the address details for applicant */
+#address_details {
+    text-align: left;
+    float: right;
+    width: 40%;
+    padding-left: 2em;
+    margin-right: 4.5em;
+    margin-bottom: 2em;
+}
+
+/* ID for the contact details for applicant */
+#contact_details {
+    clear:left;
+    float: left;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 4.5em;
+    margin-bottom: 2em;
+    /* text-align: center;
+    clear: both;
+    margin-bottom: 2em;
+    width: 40%; */
+}
+
+/* ID for the technical skills checkbox */
+#technical_skills {
+    text-align: center;
+    float: right;
+    width: 40%;
+    padding-left: 2em;
+    margin-right: 4.5em;
+    margin-bottom: 2em;
+}
+
+/* ID for the other skills text area */
+#other_skills_div {
+    clear: both;
+    /* float: right; */
+    width: 30%;
+    margin-bottom: 2em;
+}
+/* Make the text area in Other Skills span the entire box size */
+div textarea {
+    width: 100%;
+}
+.input_row label:last-child {
+    padding-left: 3em;
+}
+
+#buttons_div {
+    display: flex;
+    justify-content: space-evenly;
+    clear: both;
+    margin-bottom: 1em;
+    border: none;
+}
+.buttons {
+    padding: 1%;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 2em;
+}
+.buttons:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Responsive Code for smaller screens */
 /* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
     html, body {
@@ -440,14 +648,13 @@ table {
 
 /************************************************************/
 /*jobs.html specific CSS*/
-.section
+.job_description_box
 {
+    /* Try and use realtive units so the page scales */
     padding: 16px;
-    
     border: 4px solid rgb(0, 0, 0);
     border-radius: 10px;
     overflow: auto;
-
     margin: 80px;
 }
 
@@ -459,12 +666,11 @@ table {
     padding-bottom: 0.5em;
 }
 
-.float_left
+.job_description
 {
     float: left;
     clear: left;
     margin: auto;
-
     width: 48%;
 }
 
@@ -473,7 +679,6 @@ table {
     float: right;
     clear: right;
     margin: auto;
-
     width: 48%;
 }
 
@@ -492,7 +697,7 @@ table {
     color: darkblue;
 }
 
-.top_text_left
+#top_text_left
 {
     float: left;
     clear: left;
@@ -504,7 +709,7 @@ table {
     margin-left: 96px; /*using 96 because margin + padding of sections text*/
 }
 
-.top_text_right
+#top_text_right
 {
     float: right;
     clear: right;
@@ -520,7 +725,3 @@ table {
     padding: 16px; /*might be nicer if text was at the same level, but this is good too*/
     border-radius: 10px;
 }
-
-/************************************************************/
-/*apply.html specific CSS*/
-
