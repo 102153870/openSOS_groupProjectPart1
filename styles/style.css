@@ -313,7 +313,7 @@ body.hero_background {
 .student_ids {
     float: right;
     width: 200px;
-    margin-left: 20px;
+    padding-right: 30%;
 }
 
 /* Group photo with border and float right */
