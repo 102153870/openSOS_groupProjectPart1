@@ -646,6 +646,10 @@ table {
     border: 1px;
 }
 
+.CenterTextAlignment {
+    text-align: center;
+}
+
 /************************************************************/
 /*jobs.html specific CSS*/
 .job_description_box
