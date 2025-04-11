@@ -314,6 +314,7 @@ body.hero_background {
     float: right;
     width: 200px;
     padding-right: 30%;
+    padding-top: 3%;
 }
 
 /* Group photo with border and float right */
