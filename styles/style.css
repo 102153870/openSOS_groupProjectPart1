@@ -319,6 +319,7 @@ body.hero_background {
 
 /* Group photo with border and float right */
 .group_photo {
+    padding-right: 50%;
     float: right;
     margin-left: 20px;
     border: 2px solid #666;
