@@ -18,6 +18,19 @@ description: refers to index.html, about.html, apply.html and jobs.html
     padding: 0;
 }
 
+/*Headings for pages other than homepage*/
+#heading_not_homepage {
+    color: darkblue;
+    font-size: 3rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#apply_subheading {
+    color: purple;
+}
+
 /*Changes to website background colour*/
 body {
     background: linear-gradient(to bottom, rgb(244, 131, 25) 0%, rgba(245, 241, 226, 0.836) 100%);
@@ -280,35 +293,47 @@ body.hero_background {
 
 /************************************************************/
 /*about.html specific CSS*/
-.centered_section { /*Used commonly in this page*/
-    width: 80%;
-    margin: 2em auto;
-    padding: 1em;
-    background-color: rgba(255, 255, 255, 0.9);
+/*Section headings*/
+.section_heading{text-align: center; font-size: 2rem;}
+
+/*OpenSOS Highlight text*/
+#highlight{
+    font-weight: bolder;
+    color: rgb(13, 0, 152);
+}
+
+/*About Us page content (middle section)*/
+.about_content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 1em;
+}
+.about_section {
+    background-color: white;
+    padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-/* Student IDs floated to the right */
-.student_ids {
-    float: right;
-    width: 200px;
-    padding-right: 30%;
-    padding-top: 3%;
-}
-/* Group photo with border and float right */
-.group_photo {
-    float: right;
-    border: 2px solid #666;
-    margin-right: 15%;
+    flex: 1; /* Allows flexible resizing */
+    min-width: 250px; /* Prevents shrinking too much */
+    max-width: 300px;
+    margin: 0; /* Remove margin-left */
     text-align: center;
-    margin-bottom: 2%;
+
+    list-style-position: inside; /* Puts bullet/number inside the box, aligning better */
+    line-height: 1.5;
 }
-.group_photo img {
-    border: 2px solid #444; /* shorthand border */
+.about_section li {
+    background-color: white;
+    padding: 0 .5rem;
+    font-size: 1.5rem;
 }
 
 /* Table styling for Member's Interests*/
-.member_interests {
+.member_interests table{
     margin: auto;
     width: 80%;
     border-collapse: collapse;
@@ -342,9 +367,16 @@ td {
 
 /* Hover effect*/
 td:hover {
-    background-color: #d0e0ff;
+    background-color: #a5d2d8;
+    color: rgb(255, 255, 0);
 }
 
+/*Group Photo*/
+figure {
+  float: right;
+  border: 3px solid #000; 
+  margin-right: 10%; margin-top: 1%; margin-bottom: 1%;
+}
 /************************************************************/
 /*jobs.html specific CSS*/
 
@@ -352,17 +384,6 @@ td:hover {
 /************************************************************/
 /*apply.html specific CSS*/
 /* Centre the heading and apply styling */
-#heading_not_homepage {
-    color: darkblue;
-    font-size: 3rem;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-#apply_subheading {
-    color: purple;
-}
 
 form h3 {
     text-align: center;
