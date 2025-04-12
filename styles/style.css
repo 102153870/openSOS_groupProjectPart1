@@ -1,11 +1,11 @@
 /*
 filename: style.css
 
-author: OpenSOS, Rodney, Mark
+author: OpenSOS, Rodney, Mark, Henry
 
 created: 27/3/2025
 
-last modified: 5/4/2025
+last modified: 12/4/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
@@ -301,6 +301,11 @@ body.hero_background {
 
 /************************************************************/
 /*about.html specific CSS*/
+
+#title {
+    font-size: 3em;
+}
+
 .centered_section { /*Used commonly in this page*/
     width: 80%;
     margin: 2em auto;
@@ -324,6 +329,7 @@ body.hero_background {
     float: right;
     margin-left: 20px;
     border: 2px solid #666;
+    padding-top: 5px;
     padding: 5px;
 }
 .group_photo img {
@@ -374,6 +380,10 @@ table {
 
 .CenterTextAlignment {
     text-align: center;
+}
+
+.RightTextAlignment {
+    text-align: right;
 }
 
 /*Member's Interests*/
