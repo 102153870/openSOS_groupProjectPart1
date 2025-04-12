@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- The header of the webpage. Contains the meta tags and Title -->
-
 <head>
     <!-- Metadata tags -->
      <!--Charset I don't understand-->
@@ -22,54 +21,56 @@
 
 </head>
 
+<body>
+    <header>
+        <section>
+            <!-- OpenSOS Logo -->
+            <a href="index.html"> <!--Link Logo to Home Page-->
+                <img src="images/tab_icon.png" alt="OpenSOS logo" id="header_logo_not_homepage">
+            </a>
+            <!-- Heading -->
+            <h1 id="heading_not_homepage">About Us</h1>
+        </section>
 
-
-            <h1 class="CenterTextAlignment" id="title">About us</h1>
-
-        <!-- The navigation menu connects to other pages-->
+        <!-- The navigation bar -->
+        <!-- The navigation menu should be the same for all pages -->
         <nav>
             <a href="index.html" title="Homepage">Homepage</a>
             <a href="jobs.html" title="Job Descriptions">Job Descriptions</a>
             <a href="apply.html" title="Apply">Apply</a>
             <a href="about.html" title="About Us">About Us</a>
         </nav>
-
-        
-
     </header>
 
+    <main>
+        <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOS</div>
+        <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOS</div>
 
-    <div class="CenterTextAlignment">
-        <fieldset style = "border: none;">
-        <h2><strong>Tutor: </strong> Enrique Ketterer Ortiz (Nick)</h2>
-        <h2><strong>Class Time: </strong> Thursday 12:30pm-2:30pm</h2>
-    </fieldset>
-        <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOS</div>
-            <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOS</div>
-            <img src="images\OpenSOS_logo_nobg.png" >
-    </div>
-    
-    
-    <!--individual photo and their epic title-->
-    
-    <fieldset>
-        
+        <!--individual photo and their epic title-->>
         <table id="intro">
-          <tr>
-            <th colspan="1">Mr. Red and Black</th>
-            <th colspan="1"> Mark Richards</th>
-            <th colspan="1">Ryab</th>
-            <th colspan="1">SeeFood Veteran</th>
-          </tr>
-          <tr>
+            <tr>
+                <th colspan="1">Mr. Red and Black</th>
+                <th colspan="1"> Mark Richards</th>
+                <th colspan="1">Ryab</th>
+                <th colspan="1">SeeFood Veteran</th>
+            </tr>
 
-            <td><img src="images\Rodney Liaw Smaller.png" alt="Photo of Rodney Liaw"></td>
-            <td><img src="images\Mark Richards (1) (1).jpg" alt="Photo of Mark Richards"></td>
-            <td><img src="images\Ryan Weber (1) (1) (1).png" alt="Photo of Ryan Weber"></td>
-            <td><img src="images\Henry Low smaller.png" alt="Photo of Henry Low"></td>
-          </tr>
+            <tr>
+                <td><img src="images\Rodney Liaw Smaller.png" alt="Photo of Rodney Liaw"></td>
+                <td><img src="images\Mark Richards (1) (1).jpg" alt="Photo of Mark Richards"></td>
+                <td><img src="images\Ryan Weber (1) (1) (1).png" alt="Photo of Ryan Weber"></td>
+                <td><img src="images\Henry Low smaller.png" alt="Photo of Henry Low"></td>
+            </tr>
+        </table>
+        
+        <!--Group Name, Class Time and Tutor's Name-->
+        <section class="section_span">
+            <h2><strong>Group Name: </strong>OpenSOS</h2>
+            <h2><strong>Class Time and Day: </strong>Thursday 12:30 - 2:30 pm</h2>
+            <h2><strong>Tutor's Name: </strong>Enrique Nicolás Ketterer (Nick) </h2>
+        </section>
 
-    <!-- Student IDs (Pan right)-->
+        <!-- Student IDs (Pan right)-->
         <section class="student_ids">
             <h2>Student IDs</h2>
             <ul>
@@ -80,7 +81,7 @@
             </ul>
         </section>
 
-    <!-- Member Contributions (Definition List)-->
+        <!-- Member Contributions (Definition List)-->
         <section class="centered_section member_contributions">
             <h2>Member Contributions</h2>
             <dl>
@@ -92,20 +93,16 @@
                 <dd>About Us page, design and collaborations</dd><br>
                 <dt>Ryan Weber</dt>
                 <dd>Job descriptions and communications</dd>
-                
             </dl>
         </section>
 
     <!-- Group Photo -->
-    
-    <section>
-        <h2 class="RightTextAlignment">Group Photo</h2>
-        <br><br><br><br><br>
-        <figure class="group_photo">
+    <section class="group_photo">
+        <figure>
             <!--INSERT GROUP PHOTO HERE-->
             <img src="images\Group Photo HRRM.png" alt="Group Photo" width="300">
-            <figcaption>Our Team</figcaption>
         </figure>
+        <figcaption>Our Team</figcaption>
     </section>
     
 
@@ -148,8 +145,9 @@
             <caption>Our Fabulous Interests</caption>
 
         </table>
-        
-    </fieldset>
+        </fieldset>
+    </main>
+   
 
 
     <footer>
