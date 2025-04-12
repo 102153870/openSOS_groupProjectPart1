@@ -20,7 +20,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
 
 /*Changes to website background colour*/
 body {
-    background: linear-gradient(to bottom, rgb(244, 178, 25) 0%, rgba(245, 241, 226, 0.836) 100%);
+    background: linear-gradient(to bottom, rgb(244, 131, 25) 0%, rgba(245, 241, 226, 0.836) 100%);
     background-attachment: fixed; /* Keeps gradient pinned during scroll */
     background-size: cover; /* Cover entire area */
     background-repeat: no-repeat;
@@ -150,11 +150,8 @@ footer p #jira_link:hover, footer p #github_link:hover {
 /*index.html specific CSS*/
 /*Homepage background image*/
 body.hero_background {
-    background-image: url("images/homepage_background.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background: url("images/homepage_background.png") center/cover no-repeat fixed;
+    /*Background image source: https://au.pinterest.com/pin/108579041008104767/ */
 }
 /*Header Logo Formatting*/
 #header_logo{ 
@@ -167,40 +164,34 @@ body.hero_background {
     display:flex;
     justify-content: space-evenly; /* Distributes items evenly */
     background-color: transparent;
-    border: none;
-}
+    border: none;}
 
 .home_nav a{ /*Removes the blue hyperlink line*/
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-}
+    color: black;}
 
 .home_nav img, .home_nav p{ /*Refers to the icons and the text*/
     width: 150px;
     padding-top: 25px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
     font-size: 1.2rem;
-    text-align: center;
-}
+    text-align: center;}
 
 /* Apply hover effect to both image and text */
 .nav_item a:hover p{
-    transform: scale(1.2); /* Enlarges both image and text */
-}
+    transform: scale(1.2); /* Enlarges both image and text */}
 
 /* Prevent global hover styles on home page nav links */
 .home_nav nav a:hover {
-    background-color: transparent;  /* Remove yellow background */
-}
+    background-color: transparent;  /* Remove yellow background */}
 
 /*Adjusting the text to be centered and used flexbox */
 .nav_item, .nav_item a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
-}
+    width: auto;}
 
 /* SVG and text styling */
 .home_nav .nav_item a svg {
@@ -210,8 +201,7 @@ body.hero_background {
     stroke: #000000; /* Add stroke color */
     stroke-width: 0.5;
     transition: transform 0.1s ease-in-out, fill 0.3s ease;
-    margin-bottom: 0.5rem;
-}
+    margin-bottom: 0.5rem;}
 
 .home_nav .nav_item a p {
     text-align: center;
@@ -222,14 +212,12 @@ body.hero_background {
     background-color: rgb(0, 0, 0);
     border-radius: 1rem;
     text-shadow: 2px 2px 2px #000000; /* Add text shadow for better visibility */
-    font-size: 1.5rem;
-}
+    font-size: 1.5rem;}
 
 .home_nav .nav_item a:hover svg, .home_nav .nav_item a:hover p {
     transform: scale(1.1);
     fill: #00a2ff; /* Blue color on hover */
-    color: #00a2ff; /* Match text color with icon on hover */
-}
+    color: #00a2ff; /* Match text color with icon on hover */}
 
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
@@ -240,8 +228,7 @@ body.hero_background {
     margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
     width: 70%;
     background-color: #bcbcb9;
-    text-align: center;
-}
+    text-align: center;}
 
 .company_description h1, .home_email h2{ /*Box titles*/ 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -249,8 +236,7 @@ body.hero_background {
     background-color: rgb(172, 173, 165);
     padding: 5px 10px; 
     border-radius: 10px; 
-    margin: auto; 
-}
+    margin: auto; }
 
 .company_description p { /*Description Text*/
     font-family: Arial, Helvetica, sans-serif;
@@ -258,8 +244,7 @@ body.hero_background {
     text-align: justify; /*Aligns text to both sides*/
     padding-left: 2%;
     padding-right: 2%;
-    line-height: 2;
-}
+    line-height: 2;}
 
 /*Email specific CSS*/
 .home_email #email_prompt { /*Email text*/
@@ -270,38 +255,31 @@ body.hero_background {
     margin-top: 5px;
     text-align: center;
     line-height: 1.5;
-    margin-bottom: 0;
-}
+    margin-bottom: 0;}
 
 .home_email a{ /*Removes the blue hyperlink line*/
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-}
+    color: black;}
 
 #email_icon {
     width: 8.75rem;  /*140px -> 8.75rem*/
     height: auto;
-    margin-bottom: 0; /*Remove extra bottom margin*/
-}
+    margin-bottom: 0; /*Remove extra bottom margin*/}
 
 .home_email a p{
     margin-top: 0;
-    text-decoration: none;
-}
+    text-decoration: none;}
 
 #email_icon, .home_email a p{
-    transition: transform 0.1s ease-in-out; /*Smooth animation*/
-}
+    transition: transform 0.1s ease-in-out; /*Smooth animation*/}
 
 .home_email a:hover #email_icon, .home_email a:hover p {
-    transform: scale(1.2);
-}
+    transform: scale(1.2);}
 
 
 /************************************************************/
 /*about.html specific CSS*/
-
 .centered_section { /*Used commonly in this page*/
     width: 80%;
     margin: 2em auto;
