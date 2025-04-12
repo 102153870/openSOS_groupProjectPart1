@@ -1,11 +1,11 @@
 /*
 filename: style.css
 
-author: OpenSOS, Rodney, Mark
+author: OpenSOS, Rodney, Mark, Henry
 
 created: 27/3/2025
 
-last modified: 5/4/2025
+last modified: 12/4/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
@@ -301,6 +301,11 @@ body.hero_background {
 
 /************************************************************/
 /*about.html specific CSS*/
+
+#title {
+    font-size: 3em;
+}
+
 .centered_section { /*Used commonly in this page*/
     width: 80%;
     margin: 2em auto;
@@ -313,14 +318,18 @@ body.hero_background {
 .student_ids {
     float: right;
     width: 200px;
-    margin-left: 20px;
+    padding-right: 30%;
+    padding-top: 3%;
 }
+
+
 
 /* Group photo with border and float right */
 .group_photo {
     float: right;
     margin-left: 20px;
     border: 2px solid #666;
+    padding-top: 5px;
     padding: 5px;
 }
 .group_photo img {
@@ -362,6 +371,19 @@ td {
 /* Hover effect*/
 td:hover {
     background-color: #d0e0ff;
+}
+
+table {
+    box-align: center;
+    border: 1px;
+}
+
+.CenterTextAlignment {
+    text-align: center;
+}
+
+.RightTextAlignment {
+    text-align: right;
 }
 
 /*Member's Interests*/
@@ -638,12 +660,6 @@ div textarea {
     }
 }
 
-/************************************************************/
-/*about.html specific CSS*/
-/*Changing text colour to stand out on background*/
-.white-text {
-    color: white;
-}
 
 /************************************************************/
 /*jobs.html specific CSS*/

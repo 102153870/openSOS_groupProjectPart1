@@ -5,13 +5,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- The header of the webpage. Contains the meta tags and Title -->
+
 <head>
     <!-- Metadata tags -->
+     <!--Charset I don't understand-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Henry Low">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
 
     <link rel="stylesheet" href="styles/style.css">
@@ -21,55 +22,61 @@
 
 </head>
 
-<body>
-    <header>
-        <section>
-            <!-- OpenSOS Logo -->
-            <a href="index.html"> <!--Link Logo to Home Page-->
-                <img src="images/tab_icon.png" alt="OpenSOS logo" id="header_logo_not_homepage">
-            </a>
-            <!-- Heading -->
-            <h1 id="heading_not_homepage">About Us</h1>
-        </section>
 
-        <!-- The navigation bar -->
-        <!-- The navigation menu should be the same for all pages -->
+
+            <h1 class="CenterTextAlignment" id="title">About us</h1>
+
+        <!-- The navigation menu connects to other pages-->
         <nav>
             <a href="index.html" title="Homepage">Homepage</a>
             <a href="jobs.html" title="Job Descriptions">Job Descriptions</a>
             <a href="apply.html" title="Apply">Apply</a>
             <a href="about.html" title="About Us">About Us</a>
         </nav>
+
+        
+
     </header>
 
-    <main>
+
+    <div class="CenterTextAlignment">
+        <fieldset style = "border: none;">
+        <h2><strong>Tutor: </strong> Enrique Ketterer Ortiz (Nick)</h2>
+        <h2><strong>Class Time: </strong> Thursday 12:30pm-2:30pm</h2>
+    </fieldset>
         <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOS</div>
-        <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOS</div>
-
-        <br> <!--Who are OpenSOS question-->
-        <div class="section_span">
-            <h1>Who are OpenSOS?</h1>
-         </div>
-
-    <!-- Group Name and Class Time (Nested Lists)-->
-        <section class="centered_section group_info">
-            <h2>Group Information</h2>
-
-        <ul>
-            <li><strong>Group Name:</strong> OpenSOS</li>
-            <li><strong>Class Time:</strong> Thursday 12:30 - 2:30 pm</li>
-        </ul>
-            <h2>Tutor's Name</h2>
-            <p>Dr. Jane Smith</p>
-        </section>
+            <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOS</div>
+            <img src="images\OpenSOS_logo_nobg.png" >
+    </div>
+    
+    
+    <!--individual photo and their epic title-->
+    
+    <fieldset>
         
+        <table id="intro">
+          <tr>
+            <th colspan="1">Mr. Red and Black</th>
+            <th colspan="1"> Mark Richards</th>
+            <th colspan="1">Ryab</th>
+            <th colspan="1">SeeFood Veteran</th>
+          </tr>
+          <tr>
+
+            <td><img src="images\Rodney Liaw Smaller.png" alt="Photo of Rodney Liaw"></td>
+            <td><img src="images\Mark Richards (1) (1).jpg" alt="Photo of Mark Richards"></td>
+            <td><img src="images\Ryan Weber (1) (1) (1).png" alt="Photo of Ryan Weber"></td>
+            <td><img src="images\Henry Low smaller.png" alt="Photo of Henry Low"></td>
+          </tr>
+
     <!-- Student IDs (Pan right)-->
         <section class="student_ids">
             <h2>Student IDs</h2>
             <ul>
-                <li>123456</li>
-                <li>234567</li>
-                <li>345678</li>
+                <li>102770761</li><br><br>
+                <li>102153870</li><br><br>
+                <li>106010911</li><br><br>
+                <li>RyanWeber</li><br><br>
             </ul>
         </section>
 
@@ -77,133 +84,81 @@
         <section class="centered_section member_contributions">
             <h2>Member Contributions</h2>
             <dl>
-                <dt>Alice</dt>
-                <dd>Frontend Development</dd>
-                <dt>Bob</dt>
-                <dd>Backend Integration</dd>
-                <dt>Carol</dt>
-                <dd>Design and Testing</dd>
+                <dt>Rodney Liaw</dt>
+                <dd>Index, website design and assistance with other members</dd><br>
+                <dt>Mark Richards</dt>
+                <dd>Application, website design and Jira managing</dd><br>
+                <dt>Henry Low</dt>
+                <dd>About Us page, design and collaborations</dd><br>
+                <dt>Ryan Weber</dt>
+                <dd>Job descriptions and communications</dd>
+                
             </dl>
         </section>
 
     <!-- Group Photo -->
+    
     <section>
-        <h2>Group Photo</h2>
+        <h2 class="RightTextAlignment">Group Photo</h2>
+        <br><br><br><br><br>
         <figure class="group_photo">
             <!--INSERT GROUP PHOTO HERE-->
-            <img src="group-photo.jpg" alt="Group Photo" width="300">
+            <img src="images\Group Photo HRRM.png" alt="Group Photo" width="300">
             <figcaption>Our Team</figcaption>
         </figure>
     </section>
+    
 
     <!-- Member Interests (Table) -->
     <section class="member_interests">
         <table>
             <thead>
                 <tr>
+                    <th>Student ID</th>
                     <th>Name</th>
                     <th>Interests</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    
+                    <td rowspan="2">102770761</td>
                     <td rowspan="2">Rodney</td>
-                    <td>Reading</td>
+                    <td colspan="2">reading</td>
                 </tr>
                 <tr>
                     <td>Traveling</td>
                 </tr>
                 <tr>
+                    <td>102153870</td>
                     <td>Mark</td>
                     <td>Coding, Gaming</td>
                 </tr>
                 <tr>
+                    <td>106010911</td>
                     <td>Henry</td>
                     <td>Music, Movies</td>
                 </tr>
                 <tr>
+                    <td>Ryan's Student ID</td>
                     <td>Ryan</td>
                     <td>Music, Movies</td>
                 </tr>
             </tbody>
             <caption>Our Fabulous Interests</caption>
+
         </table>
-    </section>
-
-
-    <!-- <div align = center>
         
-    
-        <fieldset>
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>White Muncher&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fashion Destroyer</strong></label>
-            <br>
-            <img src="images\apply_icon.png">
-    
-            <img src="images\apply_icon.png">
-            
-        </fieldset>
-    </div> -->
-    
-
-    <!-- 
-    <br><br><br>
-    <hr>
-    <br><br><br> --> 
-    <!-- <fieldset>
-        <h3>Rodney Liaw</h3>
-        <p>
-            Enjoys the otaku lifestyle, watching anime while eating his favourite meals.<br>
-            Final year of of studying here, loves robotics.<br>
-            In addition to machines, he loves to make cosplay weapons too.
-
-           
-            - Making cosplay weapons
-            - Robotics 
-            - Watching anime
-            - Eating Food
-            -->
-        <!-- </p>
-
-        <img src="images\Rodney Liaw Small.png">
-
-    </fieldset><fieldset>
-        <h3> Mark Richards</h3>
-        
-        <p>
-            Harbours the best of both worlds in gaming and Aussie sports.<br>
-            Enjoys walking his dog Arlo on walks. <br>
-            Interested in creating electronics and building in addition to the reaso -- n why he enrolled into Mechatronics and Computer Science  -->
-            
-        <!--
-            Hobbies are gaming, watching Cricket, AFL and NFL.
-            I also enjoy taking my dog Arlo on walks.
-            I like building things, particularly electronics which is why I am enrolled in a Mechatronics and Computer Science degree.
-        -->
-       <!--  </p>
-        <img src="images\apply_icon.png">
-    </fieldset><fieldset>
-        <h3>Ryan Weber</h3>
-        <br>
-        <img src="images\apply_icon.png">
-    </fieldset><fieldset>
-        <h3>Henry Low</h3>
-        <br>
-        <img src="images\apply_icon.png">
-        <p></p>
     </fieldset>
-    
-    <br>
-    <hr>
-    <br>
-    
-    <image src="images\apply_icon.png"></image> 
 
-    Footer-->
- <!--Footer-->
- <footer>
-    <p>&copy; OpenSOS 2025. All rights reserved.</p>
-    <p><a href="https://opensos.atlassian.net/jira/software/projects/SCRUM/boards/1" title="Go To Jira Board" id="jira_link" target="_blank"><em>Jira Board</em></a></p>
-    <p><a href="https://github.com/102153870/openSOS_groupProjectPart1" title="Go to Github Repository" id="github_link" target="_blank"><em>Github Link</em></a></p>
-</footer>
+
+    <footer>
+        <p>&copy; OpenSOS 2025. All rights reserved.</p>
+        <p><a href="https://opensos.atlassian.net/jira/software/projects/SCRUM/boards/1" title="Go To Jira Board" id="jira_link" target="_blank"><em>Jira Board</em></a></p>
+        <p><a href="https://github.com/102153870/openSOS_groupProjectPart1" title="Go to Github Repository" id="github_link" target="_blank"><em>Github Link</em></a></p>
+    </footer>
+
+
+</body>
 
 </html>
