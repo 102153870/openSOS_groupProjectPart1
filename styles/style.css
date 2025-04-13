@@ -72,6 +72,8 @@ nav{
     background-color: #D1C4E9;
     border: solid black 3px;
     padding: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
 }
 nav a {
     text-decoration: none;
@@ -526,7 +528,9 @@ div textarea {
     border-radius: 1em;
     border: 0.25em solid black;
     background-color: rgb(195, 232, 255);
+    
     overflow: auto;
+
     margin: 1.5em 4.5em;
     clear: both;
     line-height: 1.5;
@@ -559,7 +563,7 @@ div textarea {
 }
 
 .reference_number{
-    color: grey;
+    color: rgb(88, 88, 88);
 }
 
 h1.job_title /*h1 styling*/{
@@ -570,22 +574,28 @@ h1.job_title /*h1 styling*/{
 #job_prompt{
     float: left;
     clear: left;
-    margin: auto;
+
     font-size: 1.3em;
-    width: 55%;
+
+    width: 50%;
     margin-left: 4.5em;
+
+    border: 4px solid rgb(227, 220, 220);
+    background-color: #bcbcb9;
+    padding: 1em;
+    border-radius: 1em;
 }
 
 #job_aside /*aside*/{
     float: right;
     clear: right;
-    margin: auto;
+
     font-size: 1.3em;
+
     width: 25%;
     margin-right: 4.5em;
     margin-bottom: 1em;
 
-    /*aside*/
     border: 4px solid black;
     background-color: #cac79a;
     padding: 1em;
@@ -736,11 +746,24 @@ h1.job_title /*h1 styling*/{
 
     #job_prompt{
         /*extra (not copy of float)*/
-        margin-left: 1em; /*using 96 because margin + padding of sections text*/
+        margin-left: 1em;
+        margin-right: 1em;
+        margin-bottom: 1em;
+
+        width: calc(100% - 2em);
+
+        float: none;
+        clear: none;
     }
 
     #job_aside{
+        margin-left: 1em;
         margin-right: 1em;
+
+        width: calc(100% - 2em);
+
+        float: none;
+        clear: none;
     }
 }
 
