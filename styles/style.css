@@ -1,7 +1,7 @@
 /*
 filename: style.css
 
-author: OpenSOS, Rodney, Mark, Henry, Ryan
+author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
@@ -33,7 +33,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
 
 /*Changes to website background colour*/
 body {
-    background: linear-gradient(to bottom, rgb(244, 131, 25) 0%, rgba(255, 200, 0, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
+    background: linear-gradient(to bottom, rgb(220, 142, 70) 0%, rgba(255, 200, 0, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
     background-attachment: fixed; /* Keeps gradient pinned during scroll */
     background-size: cover; /* Cover entire area */
     background-repeat: no-repeat;
@@ -61,7 +61,7 @@ header section {
 }
 #header_logo_not_homepage {
     scale: 0.6;
-    margin: 0; /* Add this to remove any default margins */
+    margin: -1em; /* Add this to remove any default margins */
 }
 /*Navigation Menu - For all pages except homepage which is styled below*/
 nav{
@@ -72,6 +72,8 @@ nav{
     background-color: #D1C4E9;
     border: solid black 3px;
     padding: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
 }
 nav a {
     text-decoration: none;
@@ -86,11 +88,10 @@ nav a:hover {
     transform: scale(1.2);
 }
 
+
 /* Changes to the main section */
 main {
-    flex: 1; /* Takes up remaining space */
-    /* Scrolls if content is too tall */
-    /* This keeps the header and footer stationary and scrolls the main part of the page only*/
+    flex: 1; /* Takes up remaining space, Scrolls if content is too tall, this keeps the header and footer stationary and scrolls the main part of the page only*/
 }
 /* Changes to the footer section */
 footer {
@@ -152,7 +153,7 @@ footer p #jira_link:hover, footer p #github_link:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2%;
+    padding: 1%;
 
     line-height: 1.5;
     background-color: #cac79a;
@@ -291,11 +292,13 @@ body.hero_background {
 .home_email a:hover #email_icon, .home_email a:hover p {
     transform: scale(1.2);}
 
-
 /************************************************************/
 /*about.html specific CSS*/
 /*Section headings*/
-.section_heading{text-align: center; font-size: 2rem; color: blue;}
+.section_heading{
+    text-align: center; 
+    font-size: 2rem; 
+    color: blue;}
 
 /*OpenSOS Highlight text*/
 #highlight{
@@ -400,12 +403,11 @@ td:hover {
   float: right;
   border: 3px solid #000; 
   margin-right: 10%; margin-top: 1%; margin-bottom: 1%;
-
+}
 
 /************************************************************/
 /*apply.html specific CSS*/
 /* Centre the heading and apply styling */
-
 form h3 {
     text-align: center;
     color: blue;
@@ -416,8 +418,6 @@ form h3 {
     font-weight: bold;
     text-align: center;
     font-size: 1.1em;
-    display: flex;
-    justify-content: space-evenly;
     color: blue;
     margin: auto;
     width: 100%;
@@ -427,14 +427,10 @@ form h3 {
 }
 
 /* Common attributes */
-#personal_details,
-#address_details,
-#contact_details,
-#technical_skills,
-#other_skills_div {
+#personal_details, #address_details, #contact_details, #technical_skills, #other_skills_div {
     font-weight: bold;
     margin: auto;
-    background: linear-gradient(to bottom, greenyellow, rgb(244, 178, 25));
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(174, 172, 170));
     padding: 0.75em;
     /* Border */
     border: 0.3125rem solid black;
@@ -472,10 +468,6 @@ form h3 {
     padding-left: 2em;
     margin-left: 4.5em;
     margin-bottom: 2em;
-    /* text-align: center;
-    clear: both;
-    margin-bottom: 2em;
-    width: 40%; */
 }
 
 /* ID for the technical skills checkbox */
@@ -502,6 +494,12 @@ div textarea {
 .input_row label:last-child {
     padding-left: 3em;
 }
+.input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+}
 
 #buttons_div {
     display: flex;
@@ -525,111 +523,129 @@ div textarea {
 
 /************************************************************/
 /*jobs.html specific CSS*/
-
-.job_description_box
-{
-    display: flex;
-    /* Try and use realtive units so the page scales */
+.job_description_box{
     padding: 1em;
-    
     border-radius: 1em;
     border: 0.25em solid black;
     background-color: rgb(195, 232, 255);
-
-    /*rgb(227, 220, 220) bcbcb9
-    */
-
+    
     overflow: auto;
 
+    margin: 1.5em 4.5em;
+    clear: both;
+    line-height: 1.5;
+    font-size: 1.3em;
 }
 
-.jobs_heading
-{
+.jobs_heading{
     text-align: center;
     color: darkblue;
     font-size: 3rem;
     padding-bottom: 0.5em;
 }
 
-.job_description_left
-{
+.job_description_left{
     float: left;
     clear: left;
     margin: auto;
     width: 48%;
-    line-height: 1.5;
 }
 
-.job_description_right
-{
+.job_description_right{
     float: right;
     clear: right;
     margin: auto;
     width: 48%;
-    line-height: 1.5;
 }
 
-.list_indent
-{
+.list_indent{
     margin-left: 1.5em;
 }
 
-.grey
-{
-    color: grey;
+.reference_number{
+    color: rgb(88, 88, 88);
 }
 
-h1.job_title /*h1 styling*/
-{
+h1.job_title /*h1 styling*/{
     font: bold 1.5em Arial, Helvetica, sans-serif;
     color: darkblue;
 }
 
-#top_text_left
-{
+#job_prompt{
     float: left;
     clear: left;
-    margin: auto;
 
     font-size: 1.3em;
 
-    width: 55%;
-
+    width: 50%;
     margin-left: 4.5em;
+
+    border: 4px solid rgb(227, 220, 220);
+    background-color: #bcbcb9;
+    padding: 1em;
+    border-radius: 1em;
 }
 
-#top_text_right /*aside*/
-{
+#job_aside /*aside*/{
     float: right;
     clear: right;
-    margin: auto;
 
     font-size: 1.3em;
 
     width: 25%;
-
     margin-right: 4.5em;
     margin-bottom: 1em;
 
-    /*aside*/
     border: 4px solid black;
     background-color: #cac79a;
-    padding: 1em; /*might be nicer if text was at the same level, but this is good too*/
+    padding: 1em;
     border-radius: 1em;
-
     box-shadow: 0.25em 0.25em 0.75em #1c1b1b;
+}
+
+.apply_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+}
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.buttons_description_box {
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    background-color: green;
+    font-weight: bold;
+    font-size: 1.25em;
+    border: 0.1em solid black;
+    border-radius: 0.5em;
+    text-align: center;
+    margin-top: 0.5em;
+}
+.buttons_description_box:hover {
+    color: green;
+    background-color: white;
+    cursor: pointer;
 }
 
 /* Responsive Code for smaller screens */
 /* Responsive styles for screens up to 925px */
 @media (max-width: 925px) {
-    
     /* Header adjustments */
     #heading_not_homepage {
-        font-size: 2rem; /* Reduce from 3rem to 2rem */
+        font-size: 2rem; /* Adjust heading size */
+        margin: 0.5em 0; /* Add some margin */
     }
+
     #header_logo_not_homepage {
         scale: 0.45; }
+
+    /*Nav adjustments*/
+    nav{text-align: center;}
 
     html, body {
         background-size: cover; /*Adjust background scaling*/
@@ -680,16 +696,11 @@ h1.job_title /*h1 styling*/
 
     /************************************************************/
     /* For apply.html */
-    #job_selection, 
-    #personal_details, 
-    #address_details, 
-    #contact_details, 
-    #technical_skills, 
-    #other_skills_div {
+    #job_selection, #personal_details, #address_details, #contact_details, #technical_skills, #other_skills_div {
         display: flex;
         flex-direction: column; /* Stack content vertically */
-        width: 100%; /* Ensure sections take full width */
-        margin: auto; /* Center content */
+        width: 100%; /* Ensure sections take full width */;
+        margin: 1em 0;
     }
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
@@ -706,7 +717,6 @@ h1.job_title /*h1 styling*/
     .team_intro {
         width: 95%;
     }
-
     .team_intro th {
         font-size: 0.9rem;
         padding: 0.5rem;
@@ -715,15 +725,50 @@ h1.job_title /*h1 styling*/
     .team_intro img {
         max-width: 150px;
     }
-
     /************************************************************/
     /* For jobs.html */
+    .job_description_box{
+        margin: 1em 1em;
+    }
+    .job_description_left{
+        float: left;
+        clear: none;
+        margin: auto;
+        width: 100%;
+    }
 
+    .job_description_right{
+        float: left;
+        clear: none;
+        margin: 0;
+        width: 100%;
+    }
 
+    #job_prompt{
+        /*extra (not copy of float)*/
+        margin-left: 1em;
+        margin-right: 1em;
+        margin-bottom: 1em;
+
+        width: calc(100% - 2em);
+
+        float: none;
+        clear: none;
+    }
+
+    #job_aside{
+        margin-left: 1em;
+        margin-right: 1em;
+
+        width: calc(100% - 2em);
+
+        float: none;
+        clear: none;
+    }
 }
 
-/* Responsive styles for screens up to 325px */
-@media (max-width: 325px) {
+/* Responsive styles for screens up to 380px */
+@media (max-width: 380px) {
     .side_textbar {
         width: 1.875rem;  /*30px -> 1.875rem*/
         font-size: 1.25rem;  /*20px -> 1.25rem*/
@@ -762,12 +807,7 @@ h1.job_title /*h1 styling*/
 
     /************************************************************/
     /* For Apply.html */
-    #job_selection,
-    #personal_details,
-    #address_details,
-    #contact_details,
-    #technical_skills,
-    #other_skills_div {
+    #job_selection, #personal_details,#address_details,#contact_details,#technical_skills,#other_skills_div {
         width: 100%;
         padding: 1em;
         margin-bottom: 1em;
@@ -781,29 +821,4 @@ h1.job_title /*h1 styling*/
         width: 90%;
         height: 2em;
     }
-
-    /************************************************************/
-    /* For about.html */
-    .team_intro, 
-    .team_intro tr, 
-    .team_intro td, 
-    .team_intro th {
-        display: block;
-        text-align: center;
-    }
-    .team_intro th {
-        font-size: 0.8rem;
-        padding: 0.3rem;
-    }
-    .team_intro img {
-        max-width: 120px;
-        margin: 0.5rem auto;
-    }
-    /* Add spacing between stacked items */
-    .team_intro td {
-        margin-bottom: 1rem;
-    }
-
-    /************************************************************/
-    /* For jobs.html */
 }
