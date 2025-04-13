@@ -380,8 +380,8 @@ figure {
 
 /************************************************************/
 /*apply.html specific CSS*/
-/* Centre the heading and apply styling */
 
+/* Centre the heading and apply styling */
 form h3 {
     text-align: center;
     color: blue;
@@ -392,8 +392,6 @@ form h3 {
     font-weight: bold;
     text-align: center;
     font-size: 1.1em;
-    display: flex;
-    justify-content: space-evenly;
     color: blue;
     margin: auto;
     width: 100%;
@@ -448,10 +446,6 @@ form h3 {
     padding-left: 2em;
     margin-left: 4.5em;
     margin-bottom: 2em;
-    /* text-align: center;
-    clear: both;
-    margin-bottom: 2em;
-    width: 40%; */
 }
 
 /* ID for the technical skills checkbox */
@@ -477,6 +471,12 @@ div textarea {
 }
 .input_row label:last-child {
     padding-left: 3em;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
 }
 
 #buttons_div {
