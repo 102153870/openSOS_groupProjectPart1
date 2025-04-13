@@ -33,7 +33,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
 
 /*Changes to website background colour*/
 body {
-    background: linear-gradient(to bottom, rgb(244, 131, 25) 0%, rgba(245, 241, 226, 0.836) 100%);
+    background: linear-gradient(to bottom, rgb(244, 131, 25) 0%, rgba(255, 200, 0, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
     background-attachment: fixed; /* Keeps gradient pinned during scroll */
     background-size: cover; /* Cover entire area */
     background-repeat: no-repeat;
@@ -377,9 +377,6 @@ figure {
   border: 3px solid #000; 
   margin-right: 10%; margin-top: 1%; margin-bottom: 1%;
 }
-/************************************************************/
-/*jobs.html specific CSS*/
-
 
 /************************************************************/
 /*apply.html specific CSS*/
@@ -504,14 +501,25 @@ div textarea {
 
 /************************************************************/
 /*jobs.html specific CSS*/
+
 .job_description_box
 {
     /* Try and use realtive units so the page scales */
-    padding: 16px;
-    border: 4px solid rgb(0, 0, 0);
-    border-radius: 10px;
+    padding: 1em;
+    
+    border-radius: 1em;
+    border: 0.25em solid black;
+    background-color: rgb(195, 232, 255);
+
+    /*rgb(227, 220, 220) bcbcb9
+    */
+
     overflow: auto;
-    margin: 80px;
+    margin: 1.5em 4.5em;
+    clear: both;
+
+    line-height: 1.5;
+    font-size: 1.3em;
 }
 
 .jobs_heading
@@ -522,7 +530,7 @@ div textarea {
     padding-bottom: 0.5em;
 }
 
-.job_description
+.job_description_left
 {
     float: left;
     clear: left;
@@ -530,7 +538,7 @@ div textarea {
     width: 48%;
 }
 
-.float_right
+.job_description_right
 {
     float: right;
     clear: right;
@@ -540,7 +548,7 @@ div textarea {
 
 .list_indent
 {
-    margin-left: 20px;
+    margin-left: 1.5em;
 }
 
 .grey
@@ -548,8 +556,9 @@ div textarea {
     color: grey;
 }
 
-.job_title
+h1.job_title /*h1 styling*/
 {
+    font: bold 1.5em Arial, Helvetica, sans-serif;
     color: darkblue;
 }
 
@@ -559,27 +568,33 @@ div textarea {
     clear: left;
     margin: auto;
 
-    width: 50%;
+    font-size: 1.3em;
 
-    /*extra (not copy of float)*/
-    margin-left: 96px; /*using 96 because margin + padding of sections text*/
+    width: 55%;
+
+    margin-left: 4.5em;
 }
 
-#top_text_right
+#top_text_right /*aside*/
 {
     float: right;
     clear: right;
     margin: auto;
 
-    width: 30%;
+    font-size: 1.3em;
 
-    /*extra (not copy of float)*/
-    margin-right: 96px;
+    width: 25%;
+
+    margin-right: 4.5em;
+    margin-bottom: 1em;
 
     /*aside*/
-    background-color: white;
-    padding: 16px; /*might be nicer if text was at the same level, but this is good too*/
-    border-radius: 10px;
+    border: 4px solid black;
+    background-color: #cac79a;
+    padding: 1em; /*might be nicer if text was at the same level, but this is good too*/
+    border-radius: 1em;
+
+    box-shadow: 0.25em 0.25em 0.75em #1c1b1b;
 }
 
 /* Responsive Code for smaller screens */
@@ -661,6 +676,39 @@ div textarea {
 
     /************************************************************/
     /* For jobs.html */
+
+    .job_description_box
+    {
+        /* Try and use realtive units so the page scales */
+        margin: 1em 1em;
+    }
+
+    .job_description_left
+    {
+        float: left;
+        clear: none;
+        margin: auto;
+        width: 100%;
+    }
+
+    .job_description_right
+    {
+        float: left;
+        clear: none;
+        margin: none;
+        width: 100%;
+    }
+
+    #top_text_left
+    {
+        /*extra (not copy of float)*/
+        margin-left: 1em; /*using 96 because margin + padding of sections text*/
+    }
+
+    #top_text_right
+    {
+        margin-right: 1em;
+    }
 }
 
 /* Responsive styles for screens up to 325px */
