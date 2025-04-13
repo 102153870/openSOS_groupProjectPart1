@@ -597,6 +597,31 @@ h1.job_title /*h1 styling*/
     box-shadow: 0.25em 0.25em 0.75em #1c1b1b;
 }
 
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.buttons_description_box {
+    padding: 1%;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: green;
+    font-weight: bold;
+    font-size: 1.25em;
+    border: 0.1em solid black;
+    border-radius: 0.5em;
+    text-align: center;
+    padding: 0.2em 0.4em;
+    margin-top: 0.5em;
+}
+.buttons_description_box:hover {
+    color: green;
+    background-color: white;
+    cursor: pointer;
+}
+
 /* Responsive Code for smaller screens */
 /* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
