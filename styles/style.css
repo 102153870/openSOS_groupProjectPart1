@@ -1,11 +1,11 @@
 /*
 filename: style.css
 
-author: OpenSOS, Rodney, Mark
+author: OpenSOS, Rodney, Mark, Henry
 
 created: 27/3/2025
 
-last modified: 5/4/2025
+last modified: 12/4/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
@@ -18,9 +18,22 @@ description: refers to index.html, about.html, apply.html and jobs.html
     padding: 0;
 }
 
+/*Headings for pages other than homepage*/
+#heading_not_homepage {
+    color: darkblue;
+    font-size: 3rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#apply_subheading {
+    color: purple;
+}
+
 /*Changes to website background colour*/
 body {
-    background: linear-gradient(to bottom, rgb(244, 178, 25) 0%, rgba(245, 241, 226, 0.836) 100%);
+    background: linear-gradient(to bottom, rgb(244, 131, 25) 0%, rgba(255, 200, 0, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
     background-attachment: fixed; /* Keeps gradient pinned during scroll */
     background-size: cover; /* Cover entire area */
     background-repeat: no-repeat;
@@ -55,12 +68,10 @@ nav{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* padding-top: 1em; */
-    /* padding-bottom: 0.5em; */
-    /* text-align: center; */
     font-size: 2em;
-    /* border: 0.1em solid green; */
-    padding-bottom: 1em;
+    background-color: #D1C4E9;
+    border: solid black 3px;
+    padding: 1%;
 }
 nav a {
     text-decoration: none;
@@ -84,34 +95,27 @@ main {
 footer {
     background: rgb(26, 25, 25);
     font-size: 1.05rem;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1em 3em; /* Add horizontal padding */
     width: 100%;
     margin: 0;
 }
-footer p:first-child { /*OpenSOS copyright*/
-    text-align: left; 
-    padding: 0 1em;
-    color: #ffffff;
-} 
-footer p:last-child { /*Either Github link (for index) or Jira Link*/
-    text-align: right; 
-    padding: 0 1em;
-} 
 footer p {
     flex: 1; /* Make each paragraph take equal space */
     text-align: center; /* Center the text within each paragraph */
     margin: 0; /* Remove default margins */
-    & #jira_link{
-        text-decoration: none;
-        color: yellow; }
-    & #github_link{
-        text-decoration: none;
-        color: rgb(63, 235, 103);}
-    & #jira_link:hover, #github_link:hover {
-    color: rgb(185, 217, 227);}
+    color: white;
+}
+footer p #jira_link {
+    text-decoration: none;
+    color: yellow;
+}
+footer p #github_link {
+    text-decoration: none;
+    color: rgb(63, 235, 103);
+}
+footer p #jira_link:hover, footer p #github_link:hover {
+    color: rgb(185, 217, 227);
 }
 
 /*Border Formatting*/
@@ -139,15 +143,28 @@ footer p {
 .right_side {
     right: 0;}
 
+/*Section Span (Horizontal Span) Formatting*/
+.section_span {
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1%;
+
+    line-height: 1.5;
+    background-color: #cac79a;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
 /************************************************************/
 /*index.html specific CSS*/
 /*Homepage background image*/
 body.hero_background {
-    background-image: url("images/homepage_background.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background: url("images/homepage_background.png") center/cover no-repeat fixed;
+    /*Background image source: https://au.pinterest.com/pin/108579041008104767/ */
 }
 /*Header Logo Formatting*/
 #header_logo{ 
@@ -156,57 +173,38 @@ body.hero_background {
     margin: auto;
 }
 /*Formatting Home Nav Section*/
-.home_nav{
-    text-align: center;
-}
-
-#nav_prompt {
-    font-size:larger;
-    margin-top: 40px;
-    padding: 1%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    line-height: 1.5;
-    background-color: #cac79a;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-}
-
 .home_nav nav{
     display:flex;
     justify-content: space-evenly; /* Distributes items evenly */
-}
+    background-color: transparent;
+    border: none;}
 
 .home_nav a{ /*Removes the blue hyperlink line*/
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-}
+    color: black;}
 
 .home_nav img, .home_nav p{ /*Refers to the icons and the text*/
     width: 150px;
     padding-top: 25px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
     font-size: 1.2rem;
-    text-align: center;
-}
+    text-align: center;}
 
 /* Apply hover effect to both image and text */
 .nav_item a:hover p{
-    transform: scale(1.2); /* Enlarges both image and text */
-}
+    transform: scale(1.2); /* Enlarges both image and text */}
 
 /* Prevent global hover styles on home page nav links */
 .home_nav nav a:hover {
-    background-color: transparent;  /* Remove yellow background */
-}
+    background-color: transparent;  /* Remove yellow background */}
 
 /*Adjusting the text to be centered and used flexbox */
 .nav_item, .nav_item a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
-}
+    width: auto;}
 
 /* SVG and text styling */
 .home_nav .nav_item a svg {
@@ -216,8 +214,7 @@ body.hero_background {
     stroke: #000000; /* Add stroke color */
     stroke-width: 0.5;
     transition: transform 0.1s ease-in-out, fill 0.3s ease;
-    margin-bottom: 0.5rem;
-}
+    margin-bottom: 0.5rem;}
 
 .home_nav .nav_item a p {
     text-align: center;
@@ -228,16 +225,12 @@ body.hero_background {
     background-color: rgb(0, 0, 0);
     border-radius: 1rem;
     text-shadow: 2px 2px 2px #000000; /* Add text shadow for better visibility */
-    font-size: 1.5rem;
-}
+    font-size: 1.5rem;}
 
 .home_nav .nav_item a:hover svg, .home_nav .nav_item a:hover p {
     transform: scale(1.1);
     fill: #00a2ff; /* Blue color on hover */
-    color: #00a2ff; /* Match text color with icon on hover */
-}
-
-
+    color: #00a2ff; /* Match text color with icon on hover */}
 
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
@@ -248,8 +241,7 @@ body.hero_background {
     margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
     width: 70%;
     background-color: #bcbcb9;
-    text-align: center;
-}
+    text-align: center;}
 
 .company_description h1, .home_email h2{ /*Box titles*/ 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -257,8 +249,7 @@ body.hero_background {
     background-color: rgb(172, 173, 165);
     padding: 5px 10px; 
     border-radius: 10px; 
-    margin: auto; 
-}
+    margin: auto; }
 
 .company_description p { /*Description Text*/
     font-family: Arial, Helvetica, sans-serif;
@@ -266,8 +257,7 @@ body.hero_background {
     text-align: justify; /*Aligns text to both sides*/
     padding-left: 2%;
     padding-right: 2%;
-    line-height: 2;
-}
+    line-height: 2;}
 
 /*Email specific CSS*/
 .home_email #email_prompt { /*Email text*/
@@ -278,60 +268,119 @@ body.hero_background {
     margin-top: 5px;
     text-align: center;
     line-height: 1.5;
-    margin-bottom: 0;
-}
+    margin-bottom: 0;}
 
 .home_email a{ /*Removes the blue hyperlink line*/
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
-}
+    color: black;}
 
 #email_icon {
     width: 8.75rem;  /*140px -> 8.75rem*/
     height: auto;
-    margin-bottom: 0; /*Remove extra bottom margin*/
-}
+    margin-bottom: 0; /*Remove extra bottom margin*/}
 
 .home_email a p{
     margin-top: 0;
-    text-decoration: none;
-}
+    text-decoration: none;}
 
 #email_icon, .home_email a p{
-    transition: transform 0.1s ease-in-out; /*Smooth animation*/
-}
+    transition: transform 0.1s ease-in-out; /*Smooth animation*/}
 
 .home_email a:hover #email_icon, .home_email a:hover p {
-    transform: scale(1.2);
-}
+    transform: scale(1.2);}
 
 
 /************************************************************/
 /*about.html specific CSS*/
-/*Changing text colour to stand out on background*/
-.white-text {
-    color: white;
+/*Section headings*/
+.section_heading{text-align: center; font-size: 2rem;}
+
+/*OpenSOS Highlight text*/
+#highlight{
+    font-weight: bolder;
+    color: rgb(13, 0, 152);
 }
 
-/************************************************************/
-/*jobs.html specific CSS*/
+/*About Us page content (middle section)*/
+.about_content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 1em;
+}
+.about_section {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    flex: 1; /* Allows flexible resizing */
+    min-width: 250px; /* Prevents shrinking too much */
+    max-width: 300px;
+    margin: 0; /* Remove margin-left */
+    text-align: center;
 
+    list-style-position: inside; /* Puts bullet/number inside the box, aligning better */
+    line-height: 1.5;
+}
+.about_section li {
+    background-color: white;
+    padding: 0 .5rem;
+    font-size: 1.5rem;
+}
+
+/* Table styling for Member's Interests*/
+.member_interests table{
+    margin: auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #5937af;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f0f0f0;
+}
+
+/* Hover effect*/
+td:hover {
+    background-color: #a5d2d8;
+    color: rgb(255, 255, 0);
+}
+
+/*Group Photo*/
+figure {
+  float: right;
+  border: 3px solid #000; 
+  margin-right: 10%; margin-top: 1%; margin-bottom: 1%;
+}
 
 /************************************************************/
 /*apply.html specific CSS*/
 /* Centre the heading and apply styling */
-#heading_not_homepage {
-    color: darkblue;
-    font-size: 3rem;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-#apply_subheading {
-    color: purple;
-}
 
 form h3 {
     text-align: center;
@@ -450,9 +499,108 @@ div textarea {
     cursor: pointer;
 }
 
+/************************************************************/
+/*jobs.html specific CSS*/
+
+.job_description_box
+{
+    /* Try and use realtive units so the page scales */
+    padding: 1em;
+    
+    border-radius: 1em;
+    border: 0.25em solid black;
+    background-color: rgb(195, 232, 255);
+
+    /*rgb(227, 220, 220) bcbcb9
+    */
+
+    overflow: auto;
+    margin: 1.5em 4.5em;
+    clear: both;
+
+    line-height: 1.5;
+    font-size: 1.3em;
+}
+
+.jobs_heading
+{
+    text-align: center;
+    color: darkblue;
+    font-size: 3rem;
+    padding-bottom: 0.5em;
+}
+
+.job_description_left
+{
+    float: left;
+    clear: left;
+    margin: auto;
+    width: 48%;
+}
+
+.job_description_right
+{
+    float: right;
+    clear: right;
+    margin: auto;
+    width: 48%;
+}
+
+.list_indent
+{
+    margin-left: 1.5em;
+}
+
+.grey
+{
+    color: grey;
+}
+
+h1.job_title /*h1 styling*/
+{
+    font: bold 1.5em Arial, Helvetica, sans-serif;
+    color: darkblue;
+}
+
+#top_text_left
+{
+    float: left;
+    clear: left;
+    margin: auto;
+
+    font-size: 1.3em;
+
+    width: 55%;
+
+    margin-left: 4.5em;
+}
+
+#top_text_right /*aside*/
+{
+    float: right;
+    clear: right;
+    margin: auto;
+
+    font-size: 1.3em;
+
+    width: 25%;
+
+    margin-right: 4.5em;
+    margin-bottom: 1em;
+
+    /*aside*/
+    border: 4px solid black;
+    background-color: #cac79a;
+    padding: 1em; /*might be nicer if text was at the same level, but this is good too*/
+    border-radius: 1em;
+
+    box-shadow: 0.25em 0.25em 0.75em #1c1b1b;
+}
+
 /* Responsive Code for smaller screens */
 /* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
+    /* For index.html */
     html, body {
         background-size: cover; /*Adjust background scaling*/
         border-left: 15px solid rgb(0, 0, 0); 
@@ -501,7 +649,7 @@ div textarea {
     }
 
     /************************************************************/
-    /* For Apply.html */
+    /* For apply.html */
     #job_selection, 
     #personal_details, 
     #address_details, 
@@ -522,6 +670,45 @@ div textarea {
         width: 100%;
         height: 5em;
     }
+
+    /************************************************************/
+    /* For about.html */
+
+    /************************************************************/
+    /* For jobs.html */
+
+    .job_description_box
+    {
+        /* Try and use realtive units so the page scales */
+        margin: 1em 1em;
+    }
+
+    .job_description_left
+    {
+        float: left;
+        clear: none;
+        margin: auto;
+        width: 100%;
+    }
+
+    .job_description_right
+    {
+        float: left;
+        clear: none;
+        margin: none;
+        width: 100%;
+    }
+
+    #top_text_left
+    {
+        /*extra (not copy of float)*/
+        margin-left: 1em; /*using 96 because margin + padding of sections text*/
+    }
+
+    #top_text_right
+    {
+        margin-right: 1em;
+    }
 }
 
 /* Responsive styles for screens up to 325px */
@@ -530,7 +717,11 @@ div textarea {
         width: 1.875rem;  /*30px -> 1.875rem*/
         font-size: 1.25rem;  /*20px -> 1.25rem*/
     }
-
+    footer {
+        font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
+        line-height: 1.5;
+    }
+    /* For index.html */
     #header_logo {
         width: 12.5rem;  /*200px -> 12.5rem*/
     }
@@ -558,11 +749,6 @@ div textarea {
         font-size: 0.85em; /*Adjust text size*/
     }
 
-    footer {
-        font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
-        line-height: 1.5;
-    }
-
     /************************************************************/
     /* For Apply.html */
     #job_selection,
@@ -584,91 +770,4 @@ div textarea {
         width: 90%;
         height: 2em;
     }
-}
-
-/************************************************************/
-/*about.html specific CSS*/
-/*Changing text colour to stand out on background*/
-.white-text {
-    color: white;
-}
-
-/************************************************************/
-/*jobs.html specific CSS*/
-.job_description_box
-{
-    /* Try and use realtive units so the page scales */
-    padding: 16px;
-    border: 4px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    overflow: auto;
-    margin: 80px;
-}
-
-.jobs_heading
-{
-    text-align: center;
-    color: darkblue;
-    font-size: 3rem;
-    padding-bottom: 0.5em;
-}
-
-.job_description
-{
-    float: left;
-    clear: left;
-    margin: auto;
-    width: 48%;
-}
-
-.float_right
-{
-    float: right;
-    clear: right;
-    margin: auto;
-    width: 48%;
-}
-
-.list_indent
-{
-    margin-left: 20px;
-}
-
-.grey
-{
-    color: grey;
-}
-
-.job_title
-{
-    color: darkblue;
-}
-
-#top_text_left
-{
-    float: left;
-    clear: left;
-    margin: auto;
-
-    width: 50%;
-
-    /*extra (not copy of float)*/
-    margin-left: 96px; /*using 96 because margin + padding of sections text*/
-}
-
-#top_text_right
-{
-    float: right;
-    clear: right;
-    margin: auto;
-
-    width: 30%;
-
-    /*extra (not copy of float)*/
-    margin-right: 96px;
-
-    /*aside*/
-    background-color: white;
-    padding: 16px; /*might be nicer if text was at the same level, but this is good too*/
-    border-radius: 10px;
 }
