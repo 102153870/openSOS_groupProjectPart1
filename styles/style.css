@@ -61,7 +61,7 @@ header section {
 }
 #header_logo_not_homepage {
     scale: 0.6;
-    margin: 0; /* Add this to remove any default margins */
+    margin: -1em; /* Add this to remove any default margins */
 }
 /*Navigation Menu - For all pages except homepage which is styled below*/
 nav{
@@ -408,7 +408,6 @@ td:hover {
 
 /************************************************************/
 /*apply.html specific CSS*/
-
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
@@ -436,7 +435,7 @@ form h3 {
 #other_skills_div {
     font-weight: bold;
     margin: auto;
-    background: linear-gradient(to bottom, greenyellow, rgb(244, 178, 25));
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(174, 172, 170));
     padding: 0.75em;
     /* Border */
     border: 0.3125rem solid black;
@@ -529,99 +528,75 @@ div textarea {
 
 /************************************************************/
 /*jobs.html specific CSS*/
-
-.job_description_box
-{
-    /* Try and use realtive units so the page scales */
+.job_description_box{
     padding: 1em;
-    
     border-radius: 1em;
     border: 0.25em solid black;
     background-color: rgb(195, 232, 255);
-
-    /*rgb(227, 220, 220) bcbcb9
-    */
-
     overflow: auto;
     margin: 1.5em 4.5em;
     clear: both;
-
     line-height: 1.5;
     font-size: 1.3em;
 }
 
-.jobs_heading
-{
+.jobs_heading{
     text-align: center;
     color: darkblue;
     font-size: 3rem;
     padding-bottom: 0.5em;
 }
 
-.job_description_left
-{
+.job_description_left{
     float: left;
     clear: left;
     margin: auto;
     width: 48%;
 }
 
-.job_description_right
-{
+.job_description_right{
     float: right;
     clear: right;
     margin: auto;
     width: 48%;
 }
 
-.list_indent
-{
+.list_indent{
     margin-left: 1.5em;
 }
 
-.grey
-{
+.reference_number{
     color: grey;
 }
 
-h1.job_title /*h1 styling*/
-{
+h1.job_title /*h1 styling*/{
     font: bold 1.5em Arial, Helvetica, sans-serif;
     color: darkblue;
 }
 
-#top_text_left
-{
+#job_prompt{
     float: left;
     clear: left;
     margin: auto;
-
     font-size: 1.3em;
-
     width: 55%;
-
     margin-left: 4.5em;
 }
 
-#top_text_right /*aside*/
-{
+#job_aside /*aside*/{
     float: right;
     clear: right;
     margin: auto;
-
     font-size: 1.3em;
-
     width: 25%;
-
     margin-right: 4.5em;
     margin-bottom: 1em;
 
     /*aside*/
     border: 4px solid black;
     background-color: #cac79a;
-    padding: 1em; /*might be nicer if text was at the same level, but this is good too*/
+    padding: 1em;
     border-radius: 1em;
-
     box-shadow: 0.25em 0.25em 0.75em #1c1b1b;
 }
 
@@ -630,11 +605,17 @@ h1.job_title /*h1 styling*/
 @media (max-width: 925px) {
     /* Header adjustments */
     #heading_not_homepage {
-        font-size: 2rem; /* Reduce from 3rem to 2rem */
+        font-size: 2rem; /* Adjust heading size */
+        margin: 0.5em 0; /* Add some margin */
     }
+
     #header_logo_not_homepage {
         scale: 0.45; }
-   
+
+    /*Nav adjustments*/
+    nav{
+        text-align: center;}
+
     html, body {
         background-size: cover; /*Adjust background scaling*/
         border-left: 15px solid rgb(0, 0, 0); 
@@ -692,8 +673,8 @@ h1.job_title /*h1 styling*/
     #other_skills_div {
         display: flex;
         flex-direction: column; /* Stack content vertically */
-        width: 100%; /* Ensure sections take full width */
-        margin: auto; /* Center content */
+        width: 100%; /* Ensure sections take full width */;
+        margin: 1em 0;
     }
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
@@ -710,7 +691,6 @@ h1.job_title /*h1 styling*/
     .team_intro {
         width: 95%;
     }
-
     .team_intro th {
         font-size: 0.9rem;
         padding: 0.5rem;
