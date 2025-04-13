@@ -65,11 +65,11 @@
 
             <!-- Fieldset to contain the applicants name, D.O.B and Gender -->
             <fieldset id="personal_details">
-                <!-- The 'title' of the fieldset -->
-                <h3>Personal Details:</h3>
-                <br>
                 <!-- Get applicants personal details -->
                 <section class="input">
+                    <!-- The 'title' of the fieldset -->
+                    <h3>Personal Details:</h3>
+                    <br>
                     <!-- Max 20 alpha characters -->
                     <label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" required></label>
                     <br>
@@ -83,10 +83,10 @@
                     <fieldset>
                         <legend>Gender:</legend>
                         <p>
-                            <input type="radio" id="gender_female" name="gender" value="Female" required="required">Female <!-- No label for the radio input -->
-                            <input type="radio" id="gender_male" name="gender" value="Male">Male 
-                            <input type="radio" id="gender_other" name="gender" value="Other">Other 
-                            <input type="radio" id="gender_prefer_not_to_say" name="gender" value="Prefer Not To Say">Prefer Not To Say
+                            <label><input type="radio" id="gender_female" name="gender" value="Female" required="required">Female</label>
+                            <label><input type="radio" id="gender_male" name="gender" value="Male">Male</label>
+                            <label><input type="radio" id="gender_other" name="gender" value="Other">Other</label>
+                            <label><input type="radio" id="gender_prefer_not_to_say" name="gender" value="Prefer Not To Say">Prefer Not To Say</label>
                         </p>
                     </fieldset>
                 </section>
@@ -94,17 +94,15 @@
 
             <!-- Fieldset for address details -->
             <fieldset id="address_details">
-                <h3>Address:</h3>
-                <br>
                 <section class="input">
+                    <h3>Address:</h3>
+                    <br>
                     <!-- Max 3 digits -->
                     <label for="unit_number">Unit Number: <input type="text" id="unit_number" name="unit_number" pattern="\d{1,3}"></label>
                     <br>
                     <!-- Max 4 digits -->
                     <label for="street_number">Street Number: <input type="text" id="street_number" name="street_number" pattern="\d{1,4}" required></label>
-                <!-- </section> -->
-                <br>
-                <!-- <section class="input_row"> -->
+                    <br>
                     <!-- Max 20 alpha characters -->
                     <label for="street_name">Street Name: <input type="text" id="street_name" name="street_name" pattern="[a-zA-Z]{1,20}" required></label>
                     <br>
@@ -127,9 +125,7 @@
                             <option value="highway">Hwy</option>
                         </select>
                     </label>
-                </section>
-                <br>
-                <section class="input">
+                    <br>
                     <!-- 4 digits -->
                     <label for="post_code">Postcode: <input type="text" id="post_code" name="post_code" pattern="\d{4}" required></label>
                     <br>
@@ -153,10 +149,10 @@
 
             <!-- Fieldset for contact details -->
             <fieldset id="contact_details">
-                <h3>Contact Details:</h3>
-                <br>
                 <!-- Input validation is for digits and spaces -->
                 <section class="input">
+                    <h3>Contact Details:</h3>
+                    <br>
                     <label for="phone_number">Phone Number:
                         <!-- 8 to 12 digits, or spaces -->
                         <input type="text" id="phone_number" name="phone_number" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}" required>
@@ -199,9 +195,8 @@
             <fieldset id="other_skills_div">
                 <h3>Other Skills:</h3>
                 <p>
-                    <label for="other_skills"><br>
-                        <textarea name="other_skills" id="other_skills" rows="10" cols="80" placeholder="List any other relevant skills here"></textarea>
-                    </label>
+                    <br>
+                    <label><textarea name="other_skills" id="other_skills" rows="10" cols="80" placeholder="List any other relevant skills here"></textarea>Please Enter Any Other Relevant Skills</label>
                 </p>
             </fieldset>
 
