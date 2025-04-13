@@ -1,16 +1,773 @@
 /*
 filename: style.css
 
-author: OpenSOS, mainly Rodney
+author: OpenSOS, Rodney, Mark, Henry
 
 created: 27/3/2025
 
-last modified: 27/3/2025
+last modified: 12/4/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
 
-#header_name{
+/* Universal Selectors */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box; /*  Make sure the borders dont add extra pixels */
+    margin: 0;
+    padding: 0;
+}
+
+/*Headings for pages other than homepage*/
+#heading_not_homepage {
+    color: darkblue;
+    font-size: 3rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#apply_subheading {
+    color: purple;
+}
+
+/*Changes to website background colour*/
+body {
+    background: linear-gradient(to bottom, rgb(244, 131, 25) 0%, rgba(255, 200, 0, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
+    background-attachment: fixed; /* Keeps gradient pinned during scroll */
+    background-size: cover; /* Cover entire area */
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    min-height: 100%;
+    margin: 0; /* Remove default browser margin */
+}
+
+/* Changes to the header section */
+header {
+    /* Adjusts the content to take up a % value of the vertical space */
+    flex: 0 0 15%; 
+}
+/* Positioning the heading and openSOS logo */
+header section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#header_logo_not_homepage {
+    scale: 0.6;
+    margin: 0; /* Add this to remove any default margins */
+}
+/*Navigation Menu - For all pages except homepage which is styled below*/
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size: 2em;
+    background-color: #D1C4E9;
+    border: solid black 3px;
+    padding: 1%;
+}
+nav a {
+    text-decoration: none;
+    padding: 0.35em;
+    border-radius: 50%;
+    color: purple;
+    font-weight: bold;
+}
+nav a:hover {
+    color: blue;
+    background-color: yellow;
+}
+
+/* Changes to the main section */
+main {
+    flex: 1; /* Takes up remaining space */
+    /* Scrolls if content is too tall */
+    /* This keeps the header and footer stationary and scrolls the main part of the page only*/
+}
+/* Changes to the footer section */
+footer {
+    background: rgb(26, 25, 25);
+    font-size: 1.05rem;
+    align-items: center;
+    padding: 1em 3em; /* Add horizontal padding */
+    width: 100%;
+    margin: 0;
+}
+footer p {
+    flex: 1; /* Make each paragraph take equal space */
+    text-align: center; /* Center the text within each paragraph */
+    margin: 0; /* Remove default margins */
+    color: white;
+}
+footer p #jira_link {
+    text-decoration: none;
+    color: yellow;
+}
+footer p #github_link {
+    text-decoration: none;
+    color: rgb(63, 235, 103);
+}
+footer p #jira_link:hover, footer p #github_link:hover {
+    color: rgb(185, 217, 227);
+}
+
+/*Border Formatting*/
+.side_textbar {
+    position: fixed; /*Text is fixed at the side*/
+    top: 0; /*Removes space at top and bottom*/
+    bottom: 0;
+    width: 3.75rem;  /*60px -> 3.75rem*/
+    background-color: rgb(0, 0, 0);
+    color: rgb(181, 186, 187);
+    font-size: 3.125rem;  /*50px -> 3.125rem*/
+    font-weight: bolder;
     text-align: center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+
+    /*Create a vertical flexbox*/
+    display: flex; 
+    flex-direction: column;
+    writing-mode: vertical-rl; /*Makes the text vertical*/
+    text-orientation: upright;
+}
+.left_side {
+    left: 0;}
+
+.right_side {
+    right: 0;}
+
+/*Section Span (Horizontal Span) Formatting*/
+.section_span {
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1%;
+
+    line-height: 1.5;
+    background-color: #cac79a;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+/************************************************************/
+/*index.html specific CSS*/
+/*Homepage background image*/
+body.hero_background {
+    background: url("images/homepage_background.png") center/cover no-repeat fixed;
+    /*Background image source: https://au.pinterest.com/pin/108579041008104767/ */
+}
+/*Header Logo Formatting*/
+#header_logo{ 
+    width: 22rem;  /*350px -> 22rem*/
+    display: block;
+    margin: auto;
+}
+/*Formatting Home Nav Section*/
+.home_nav nav{
+    display:flex;
+    justify-content: space-evenly; /* Distributes items evenly */
+    background-color: transparent;
+    border: none;}
+
+.home_nav a{ /*Removes the blue hyperlink line*/
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;}
+
+.home_nav img, .home_nav p{ /*Refers to the icons and the text*/
+    width: 150px;
+    padding-top: 25px;;
+    transition: transform 0.1s ease-in-out; /* Smooth animation */
+    font-size: 1.2rem;
+    text-align: center;}
+
+/* Apply hover effect to both image and text */
+.nav_item a:hover p{
+    transform: scale(1.2); /* Enlarges both image and text */}
+
+/* Prevent global hover styles on home page nav links */
+.home_nav nav a:hover {
+    background-color: transparent;  /* Remove yellow background */}
+
+/*Adjusting the text to be centered and used flexbox */
+.nav_item, .nav_item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;}
+
+/* SVG and text styling */
+.home_nav .nav_item a svg {
+    width: 9.375rem;
+    height: auto;
+    fill: #e2ff0b; /* Change icon color */
+    stroke: #000000; /* Add stroke color */
+    stroke-width: 0.5;
+    transition: transform 0.1s ease-in-out, fill 0.3s ease;
+    margin-bottom: 0.5rem;}
+
+.home_nav .nav_item a p {
+    text-align: center;
+    color: #ffffff; /* Match text color with icon */
+    margin: 0;
+    width: 100%;
+    padding-top: 0; 
+    background-color: rgb(0, 0, 0);
+    border-radius: 1rem;
+    text-shadow: 2px 2px 2px #000000; /* Add text shadow for better visibility */
+    font-size: 1.5rem;}
+
+.home_nav .nav_item a:hover svg, .home_nav .nav_item a:hover p {
+    transform: scale(1.1);
+    fill: #00a2ff; /* Blue color on hover */
+    color: #00a2ff; /* Match text color with icon on hover */}
+
+/*Description and Email Formatting*/
+.company_description, .home_email{ /*Box format*/
+    margin: auto;
+    border: 0.3125rem solid rgb(227, 220, 220);  /* 5px -> 0.3125rem */
+    border-radius: 1.875rem;  /*30px -> 1.875rem*/
+    box-shadow: 10px 10px 5px #1c1b1b;
+    margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
+    width: 70%;
+    background-color: #bcbcb9;
+    text-align: center;}
+
+.company_description h1, .home_email h2{ /*Box titles*/ 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block; /*Makes the background and border match the text width*/
+    background-color: rgb(172, 173, 165);
+    padding: 5px 10px; 
+    border-radius: 10px; 
+    margin: auto; }
+
+.company_description p { /*Description Text*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    text-align: justify; /*Aligns text to both sides*/
+    padding-left: 2%;
+    padding-right: 2%;
+    line-height: 2;}
+
+/*Email specific CSS*/
+.home_email #email_prompt { /*Email text*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 0;}
+
+.home_email a{ /*Removes the blue hyperlink line*/
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;}
+
+#email_icon {
+    width: 8.75rem;  /*140px -> 8.75rem*/
+    height: auto;
+    margin-bottom: 0; /*Remove extra bottom margin*/}
+
+.home_email a p{
+    margin-top: 0;
+    text-decoration: none;}
+
+#email_icon, .home_email a p{
+    transition: transform 0.1s ease-in-out; /*Smooth animation*/}
+
+.home_email a:hover #email_icon, .home_email a:hover p {
+    transform: scale(1.2);}
+
+
+/************************************************************/
+/*about.html specific CSS*/
+/*Section headings*/
+.section_heading{text-align: center; font-size: 2rem;}
+
+/*OpenSOS Highlight text*/
+#highlight{
+    font-weight: bolder;
+    color: rgb(13, 0, 152);
+}
+
+/*About Us page content (middle section)*/
+.about_content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 1em;
+}
+.about_section {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    flex: 1; /* Allows flexible resizing */
+    min-width: 250px; /* Prevents shrinking too much */
+    max-width: 300px;
+    margin: 0; /* Remove margin-left */
+    text-align: center;
+
+    list-style-position: inside; /* Puts bullet/number inside the box, aligning better */
+    line-height: 1.5;
+}
+.about_section li {
+    background-color: white;
+    padding: 0 .5rem;
+    font-size: 1.5rem;
+}
+
+/* Table styling for Member's Interests*/
+.member_interests table{
+    margin: auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #5937af;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f0f0f0;
+}
+
+/* Hover effect*/
+td:hover {
+    background-color: #a5d2d8;
+    color: rgb(255, 255, 0);
+}
+
+/*Group Photo*/
+figure {
+  float: right;
+  border: 3px solid #000; 
+  margin-right: 10%; margin-top: 1%; margin-bottom: 1%;
+}
+
+/************************************************************/
+/*apply.html specific CSS*/
+/* Centre the heading and apply styling */
+
+form h3 {
+    text-align: center;
+    color: blue;
+}
+
+/* ID for the job selection dropdown menu */
+#job_selection {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: space-evenly;
+    color: blue;
+    margin: auto;
+    width: 100%;
+    background-color: transparent;
+    padding: 0.75em;
+    border: none;
+}
+
+/* Common attributes */
+#personal_details,
+#address_details,
+#contact_details,
+#technical_skills,
+#other_skills_div {
+    font-weight: bold;
+    margin: auto;
+    background: linear-gradient(to bottom, greenyellow, rgb(244, 178, 25));
+    padding: 0.75em;
+    /* Border */
+    border: 0.3125rem solid black;
+    border-radius: 1em;
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+}
+
+/* ID for the personal details section */
+#personal_details {
+    float: left;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 4.5em;
+    margin-bottom: 2em;
+}
+#personal_details fieldset {
+    border: none;
+}
+
+/* ID for the address details for applicant */
+#address_details {
+    text-align: left;
+    float: right;
+    width: 40%;
+    padding-left: 2em;
+    margin-right: 4.5em;
+    margin-bottom: 2em;
+}
+
+/* ID for the contact details for applicant */
+#contact_details {
+    clear:left;
+    float: left;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 4.5em;
+    margin-bottom: 2em;
+    /* text-align: center;
+    clear: both;
+    margin-bottom: 2em;
+    width: 40%; */
+}
+
+/* ID for the technical skills checkbox */
+#technical_skills {
+    text-align: center;
+    float: right;
+    width: 40%;
+    padding-left: 2em;
+    margin-right: 4.5em;
+    margin-bottom: 2em;
+}
+
+/* ID for the other skills text area */
+#other_skills_div {
+    clear: both;
+    /* float: right; */
+    width: 30%;
+    margin-bottom: 2em;
+}
+/* Make the text area in Other Skills span the entire box size */
+div textarea {
+    width: 100%;
+}
+.input_row label:last-child {
+    padding-left: 3em;
+}
+
+#buttons_div {
+    display: flex;
+    justify-content: space-evenly;
+    clear: both;
+    margin-bottom: 1em;
+    border: none;
+}
+.buttons {
+    padding: 1%;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 2em;
+}
+.buttons:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+/************************************************************/
+/*jobs.html specific CSS*/
+
+.job_description_box
+{
+    /* Try and use realtive units so the page scales */
+    padding: 1em;
+    
+    border-radius: 1em;
+    border: 0.25em solid black;
+    background-color: rgb(195, 232, 255);
+
+    /*rgb(227, 220, 220) bcbcb9
+    */
+
+    overflow: auto;
+    margin: 1.5em 4.5em;
+    clear: both;
+
+    line-height: 1.5;
+    font-size: 1.3em;
+}
+
+.jobs_heading
+{
+    text-align: center;
+    color: darkblue;
+    font-size: 3rem;
+    padding-bottom: 0.5em;
+}
+
+.job_description_left
+{
+    float: left;
+    clear: left;
+    margin: auto;
+    width: 48%;
+}
+
+.job_description_right
+{
+    float: right;
+    clear: right;
+    margin: auto;
+    width: 48%;
+}
+
+.list_indent
+{
+    margin-left: 1.5em;
+}
+
+.grey
+{
+    color: grey;
+}
+
+h1.job_title /*h1 styling*/
+{
+    font: bold 1.5em Arial, Helvetica, sans-serif;
+    color: darkblue;
+}
+
+#top_text_left
+{
+    float: left;
+    clear: left;
+    margin: auto;
+
+    font-size: 1.3em;
+
+    width: 55%;
+
+    margin-left: 4.5em;
+}
+
+#top_text_right /*aside*/
+{
+    float: right;
+    clear: right;
+    margin: auto;
+
+    font-size: 1.3em;
+
+    width: 25%;
+
+    margin-right: 4.5em;
+    margin-bottom: 1em;
+
+    /*aside*/
+    border: 4px solid black;
+    background-color: #cac79a;
+    padding: 1em; /*might be nicer if text was at the same level, but this is good too*/
+    border-radius: 1em;
+
+    box-shadow: 0.25em 0.25em 0.75em #1c1b1b;
+}
+
+/* Responsive Code for smaller screens */
+/* Responsive styles for screens up to 768px */
+@media (max-width: 768px) {
+    /* For index.html */
+    html, body {
+        background-size: cover; /*Adjust background scaling*/
+        border-left: 15px solid rgb(0, 0, 0); 
+        border-right: 15px solid black;
+    }
+
+    .side_textbar {
+        width: 2.5rem;  /*40px -> 2.5rem*/
+        font-size: 1.875rem;  /*30px -> 1.875rem*/
+    }
+
+    #header_logo {
+        width: 15.625rem;  /*250px -> 15.625rem*/
+    }
+
+    .home_nav nav {
+        align-items: center;
+    }
+
+    .home_nav svg, .home_nav p {
+        width: 6.25rem;  /*100px -> 6.25rem*/
+        font-size: 1rem; /*Adjust font size*/
+    }
+
+    .company_description, .home_email {
+        width: 90%; /*Increase width for smaller screens, easier to read*/
+        margin-bottom: 0.9375rem;  /* 15px -> 0.9375rem */
+    }
+
+    .company_description p, .home_email #email_prompt {
+        font-size: 1rem; /*Adjust text size: 11px*/
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    footer {
+        font-size: 0.9rem; /*Adjust footer text size: 14px*/
+        flex-direction: column; /*Stack footer content*/
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    #jira_link {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    /************************************************************/
+    /* For apply.html */
+    #job_selection, 
+    #personal_details, 
+    #address_details, 
+    #contact_details, 
+    #technical_skills, 
+    #other_skills_div {
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        width: 100%; /* Ensure sections take full width */
+        margin: auto; /* Center content */
+    }
+    /* Make writing and padding smaller for tiny screens */
+    input[type="text"] {
+        font-size: 0.6rem;
+        padding: 0.4em;
+    }
+    textarea {
+        width: 100%;
+        height: 5em;
+    }
+
+    /************************************************************/
+    /* For about.html */
+
+    /************************************************************/
+    /* For jobs.html */
+
+    .job_description_box
+    {
+        /* Try and use realtive units so the page scales */
+        margin: 1em 1em;
+    }
+
+    .job_description_left
+    {
+        float: left;
+        clear: none;
+        margin: auto;
+        width: 100%;
+    }
+
+    .job_description_right
+    {
+        float: left;
+        clear: none;
+        margin: none;
+        width: 100%;
+    }
+
+    #top_text_left
+    {
+        /*extra (not copy of float)*/
+        margin-left: 1em; /*using 96 because margin + padding of sections text*/
+    }
+
+    #top_text_right
+    {
+        margin-right: 1em;
+    }
+}
+
+/* Responsive styles for screens up to 325px */
+@media (max-width: 380px) {
+    .side_textbar {
+        width: 1.875rem;  /*30px -> 1.875rem*/
+        font-size: 1.25rem;  /*20px -> 1.25rem*/
+    }
+    footer {
+        font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
+        line-height: 1.5;
+    }
+    /* For index.html */
+    #header_logo {
+        width: 12.5rem;  /*200px -> 12.5rem*/
+    }
+
+    .home_nav nav {
+        flex-direction: column; /*Stack nav items vertically*/
+        align-items: center;
+    }
+
+    .home_nav svg, .home_nav p {
+        width: 5rem;  /*80px -> 5rem*/
+        font-size: 0.9rem; /*Adjust font size: 14px */
+    }
+
+    .company_description, .home_email {
+        width: 95%; /*Maximize width for smaller screens*/
+    }
+
+    .company_description p{
+        font-size: 0.9em; /*Adjust text size*/
+        text-align: center;  /*Align text to center*/
+    }
+
+    .home_email #email_prompt, .home_email a p {
+        font-size: 0.85em; /*Adjust text size*/
+    }
+
+    /************************************************************/
+    /* For Apply.html */
+    #job_selection,
+    #personal_details,
+    #address_details,
+    #contact_details,
+    #technical_skills,
+    #other_skills_div {
+        width: 100%;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+    /* Make writing and padding smaller for tiny screens */
+    input[type="text"] {
+        font-size: 0.5rem;
+        padding: 0.3em;
+    }
+    textarea {
+        width: 90%;
+        height: 2em;
+    }
 }
