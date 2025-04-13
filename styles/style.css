@@ -294,11 +294,34 @@ body.hero_background {
 /************************************************************/
 /*about.html specific CSS*/
 /*Section headings*/
-.section_heading{text-align: center; font-size: 2rem;}
+.section_heading{text-align: center; font-size: 2rem; color: blue;}
 
 /*OpenSOS Highlight text*/
 #highlight{
     font-weight: bolder;
+    color: rgb(13, 0, 152);
+}
+
+/* Team intro table styling */
+.team_intro {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+}
+.team_intro th { /* table header */
+    padding: 1rem;
+    background-color: #5937af;
+    color: white;
+}
+.team_intro img { /* Individual images*/
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.team_intro img:hover {
+    transform: scale(1.1);
     color: rgb(13, 0, 152);
 }
 
@@ -598,6 +621,17 @@ h1.job_title /*h1 styling*/
 }
 
 /* Responsive Code for smaller screens */
+/* Responsive styles for screens up to 925px */
+@media (max-width: 925px) {
+
+    /* Header adjustments */
+    #heading_not_homepage {
+        font-size: 2rem; /* Reduce from 3rem to 2rem */
+    }
+    #header_logo_not_homepage {
+        scale: 0.45; }
+}
+
 /* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
     /* For index.html */
@@ -673,6 +707,25 @@ h1.job_title /*h1 styling*/
 
     /************************************************************/
     /* For about.html */
+    .team_intro, 
+    .team_intro tr, 
+    .team_intro td, 
+    .team_intro th {
+        display: block;
+        text-align: center;
+    }
+    .team_intro th {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+    .team_intro img {
+        max-width: 120px;
+        margin: 0.5rem auto;
+    }
+    /* Add spacing between stacked items */
+    .team_intro td {
+        margin-bottom: 1rem;
+    }
 
     /************************************************************/
     /* For jobs.html */
