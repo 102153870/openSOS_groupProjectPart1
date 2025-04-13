@@ -359,7 +359,7 @@ body.hero_background {
 /* Table styling for Member's Interests*/
 .member_interests table{
     margin: auto;
-    width: 80%;
+    width: 60%;
     border-collapse: collapse;
 }
 table {
