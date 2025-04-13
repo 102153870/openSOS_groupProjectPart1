@@ -1,7 +1,7 @@
 /*
 filename: style.css
 
-author: OpenSOS, Rodney, Mark, Henry, Ryan
+author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
@@ -740,7 +740,7 @@ h1.job_title /*h1 styling*/{
     .job_description_right{
         float: left;
         clear: none;
-        margin: none;
+        margin: 0;
         width: 100%;
     }
 
