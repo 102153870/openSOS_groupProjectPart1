@@ -596,7 +596,7 @@ h1.job_title /*h1 styling*/{
     margin-right: 4.5em;
     margin-bottom: 1em;
 
-    border: 0.25rem solid black;
+    border: 0.25rem solid rgb(165, 148, 53);
     background-color: #cac79a;
     padding: 1em;
     border-radius: 1em;
