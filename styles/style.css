@@ -15,8 +15,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box; /*  Make sure the borders dont add extra pixels */
     margin: 0;
-    padding: 0;
-}
+    padding: 0;}
 
 /*Headings for pages other than homepage*/
 #heading_not_homepage {
@@ -24,8 +23,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
     font-size: 3rem;
     margin: 0;
     display: flex;
-    align-items: center;
-}
+    align-items: center;}
 
 /*Changes to website background colour*/
 body {
@@ -39,26 +37,24 @@ body {
     
     width: 100%;
     min-height: 100%;
-    margin: 0; /* Remove default browser margin */
-}
+    margin: 0; /* Remove default browser margin */}
 
 /* Changes to the header section */
 header {
     /* Adjusts the content to take up a % value of the vertical space */
-    flex: 0 0 15%; 
-}
+    flex: 0 0 15%;}
 /* Positioning the heading and openSOS logo */
 header section {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-}
+    align-items: center;}
+
 #header_logo_not_homepage {
     scale: 0.6;
-    margin: -1em; /* Add this to remove any default margins */
-}
+    margin: -1em; /* Add this to remove any default margins */}
+
 /*Navigation Menu - For all pages except homepage which is styled below*/
 nav{
     display: flex;
@@ -69,26 +65,24 @@ nav{
     border: solid black 3px;
     padding: 1%;
     padding-left: 4%;
-    padding-right: 4%;
-}
+    padding-right: 4%;}
+
 nav a {
     text-decoration: none;
     padding: 0.5em;;
     border-radius: 50%;
     color: rgb(2, 83, 34);
     font-weight: bold;
-    transition: transform 0.1s ease-in-out; /*Smooth animation*/
-}
+    transition: transform 0.1s ease-in-out; /*Smooth animation*/}
+
 nav a:hover {
     color: blue;
-    transform: scale(1.2);
-}
-
+    transform: scale(1.2);}
 
 /* Changes to the main section */
 main {
-    flex: 1; /* Takes up remaining space, Scrolls if content is too tall, this keeps the header and footer stationary and scrolls the main part of the page only*/
-}
+    flex: 1;} /* Takes up remaining space, Scrolls if content is too tall, this keeps the header and footer stationary and scrolls the main part of the page only*/
+
 /* Changes to the footer section */
 footer {
     background: rgb(26, 25, 25);
@@ -96,25 +90,24 @@ footer {
     align-items: center;
     padding: 1em 3em; /* Add horizontal padding */
     width: 100%;
-    margin: 0;
-}
+    margin: 0;}
+
 footer p {
     flex: 1; /* Make each paragraph take equal space */
     text-align: center; /* Center the text within each paragraph */
     margin: 0; /* Remove default margins */
-    color: white;
-}
+    color: white;}
+
 footer p #jira_link {
     text-decoration: none;
-    color: yellow;
-}
+    color: yellow;}
+
 footer p #github_link {
     text-decoration: none;
-    color: rgb(63, 235, 103);
-}
+    color: rgb(63, 235, 103);}
+
 footer p #jira_link:hover, footer p #github_link:hover {
-    color: rgb(185, 217, 227);
-}
+    color: rgb(185, 217, 227);}
 
 /*Border Formatting*/
 .side_textbar {
@@ -133,8 +126,7 @@ footer p #jira_link:hover, footer p #github_link:hover {
     display: flex; 
     flex-direction: column;
     writing-mode: vertical-rl; /*Makes the text vertical*/
-    text-orientation: upright;
-}
+    text-orientation: upright;}
 .left_side {
     left: 0;}
 
@@ -154,8 +146,7 @@ footer p #jira_link:hover, footer p #github_link:hover {
     line-height: 1.5;
     background-color: rgb(162, 196, 134);
     border-top: 3px solid black;
-    border-bottom: 3px solid black;
-}
+    border-bottom: 3px solid black;}
 
 /************************************************************/
 /*index.html specific CSS*/
@@ -377,42 +368,37 @@ caption {
 th, td {
     border: 1px solid #ccc;
     padding: 10px;
-    text-align: center;
-}
+    text-align: center;}
 
 th {
     background-color: rgb(3, 59, 22);
     color: white;
-    font-weight: bold;
-}
+    font-weight: bold;}
 
 td {
-    background-color: #f0f0f0;
-}
+    background-color: #f0f0f0;}
 
 /* Hover effect*/
 td:hover {
     background-color: #a5d2d8;
-    color: rgb(255, 255, 0);
-}
+    color: rgb(255, 255, 0);}
 
 /*Group Photo*/
 .group_photo {
   float: right;
   border: 3px solid #000; 
-  margin-right: 10%; margin-top: 1%; margin-bottom: 1%;
-}
+  margin-right: 10%; margin-top: 1%; margin-bottom: 1%;}
 
 /************************************************************/
 /*apply.html specific CSS*/
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
-    color:rgb(6, 98, 40);
-}
+    color:rgb(6, 98, 40);}
+
 #apply_subheading {
-    color: rgb(4, 42, 61);
-}
+    color: rgb(4, 42, 61);}
+
 /* ID for the job selection dropdown menu */
 #job_selection {
     font-weight: bold;
@@ -423,8 +409,7 @@ form h3 {
     width: 100%;
     background-color: transparent;
     padding: 0.75em;
-    border: none;
-}
+    border: none;}
 
 /* Common attributes */
 #personal_details, #address_details, #contact_details, #technical_skills, #other_skills_div {
@@ -435,8 +420,7 @@ form h3 {
     /* Border */
     border: 0.3125rem solid black;
     border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-}
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;}
 
 /* ID for the personal details section */
 #personal_details {
@@ -444,11 +428,9 @@ form h3 {
     width: 40%;
     padding-left: 2em;
     margin-left: 4.5em;
-    margin-bottom: 2em;
-}
+    margin-bottom: 2em;}
 #personal_details fieldset {
-    border: none;
-}
+    border: none;}
 
 /* ID for the address details for applicant */
 #address_details {
@@ -457,8 +439,7 @@ form h3 {
     width: 40%;
     padding-left: 2em;
     margin-right: 4.5em;
-    margin-bottom: 2em;
-}
+    margin-bottom: 2em;}
 
 /* ID for the contact details for applicant */
 #contact_details {
@@ -467,8 +448,7 @@ form h3 {
     width: 40%;
     padding-left: 2em;
     margin-left: 4.5em;
-    margin-bottom: 2em;
-}
+    margin-bottom: 2em;}
 
 /* ID for the technical skills checkbox */
 #technical_skills {
@@ -477,49 +457,45 @@ form h3 {
     width: 40%;
     padding-left: 2em;
     margin-right: 4.5em;
-    margin-bottom: 2em;
-}
+    margin-bottom: 2em;}
 
 /* ID for the other skills text area */
 #other_skills_div {
     clear: both;
     /* float: right; */
     width: 30%;
-    margin-bottom: 2em;
-}
+    margin-bottom: 2em;}
+
 /* Make the text area in Other Skills span the entire box size */
 div textarea {
-    width: 100%;
-}
+    width: 100%;}
+
 .input_row label:last-child {
-    padding-left: 3em;
-}
+    padding-left: 3em;}
+
 .input {
     display: flex;
     flex-direction: column;
     text-align: center;
-    align-content: center;
-}
+    align-content: center;}
 
 #buttons_div {
     display: flex;
     justify-content: space-evenly;
     clear: both;
     margin-bottom: 1em;
-    border: none;
-}
+    border: none;}
+
 .buttons {
     padding: 1%;
     color: white;
     background-color: black;
     font-weight: bold;
-    font-size: 2em;
-}
+    font-size: 2em;}
 .buttons:hover {
     color: black;
     background-color: white;
-    cursor: pointer;
-}
+    cursor: pointer;}
 
 /************************************************************/
 /*jobs.html specific CSS*/
@@ -541,33 +517,27 @@ div textarea {
     text-align: center;
     color: rgb(6, 98, 40);
     font-size: 3rem;
-    padding-bottom: 0.5em;
-}
+    padding-bottom: 0.5em;}
 
 .job_description_left{
     float: left;
     clear: left;
-    width: 48%;
-}
+    width: 48%;}
 
 .job_description_right{
     float: right;
     clear: right;
-    width: 48%;
-}
+    width: 48%;}
 
 .list_indent{
-    margin-left: 1.5em;
-}
+    margin-left: 1.5em;}
 
 .reference_number{
-    color: rgb(88, 88, 88);
-}
+    color: rgb(88, 88, 88);}
 
 h1.job_title /*h1 styling*/{
     font: bold 1.5em Arial, Helvetica, sans-serif;
-    color: rgb(3, 59, 22);
-}
+    color: rgb(3, 59, 22);}
 
 #job_prompt{ /*Grey box (left)*/
     float: left;
@@ -578,8 +548,7 @@ h1.job_title /*h1 styling*/{
     border: 4px solid rgb(0, 0, 0);
     background-color: rgb(162, 196, 134);
     padding: 1em;
-    border-radius: 1em;
-}
+    border-radius: 1em;}
 
 #job_aside /*aside*/{
     float: right;
@@ -593,20 +562,19 @@ h1.job_title /*h1 styling*/{
     background-color: #cac79a;
     padding: 1em;
     border-radius: 1em;
-    box-shadow: 0.25em 0.25em 0.75em #1c1b1b;
-}
+    box-shadow: 0.25em 0.25em 0.75em #1c1b1b;}
 
 .apply_container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
-}
+    margin-top: auto;}
+
 .button-wrapper {
     display: flex;
     justify-content: center;
-    width: 100%;
-}
+    width: 100%;}
+
 .buttons_description_box {
     padding: 1%;
     color: white;
@@ -617,15 +585,13 @@ h1.job_title /*h1 styling*/{
     border: 0.1em solid black;
     border-radius: 0.5em;
     text-align: center;
-    margin-top: 0.5em;
-}
+    margin-top: 0.5em;}
+
 .buttons_description_box:hover {
     color: green;
     background-color: white;
-    cursor: pointer;
-}
+    cursor: pointer;}
 
-/* Responsive Code for smaller screens */
 /* Responsive styles for screens up to 925px */
 @media (max-width: 925px) {
     /* Header adjustments */
@@ -815,5 +781,4 @@ h1.job_title /*h1 styling*/{
         font-size: 0.9em;
         text-align: center;
     }
-
 }
