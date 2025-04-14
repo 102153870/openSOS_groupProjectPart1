@@ -66,7 +66,7 @@ nav{
     justify-content: space-evenly;
     font-size: 2em;
     background-color: #c5ffd9;
-    border: solid black 3px;
+    border: solid black 0.25rem;
     padding: 1%;
     padding-left: 4%;
     padding-right: 4%;
@@ -153,8 +153,8 @@ footer p #jira_link:hover, footer p #github_link:hover {
 
     line-height: 1.5;
     background-color: rgb(162, 196, 134);
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
+    border-top: 0.25rem solid black;
+    border-bottom: 0.25rem solid black;
 }
 
 /************************************************************/
@@ -233,7 +233,7 @@ body.hero_background {
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
     margin: auto;
-    border: 0.3125rem solid rgb(0, 0, 0);  /* 5px -> 0.3125rem */
+    border: 0.25rem solid rgb(0, 0, 0);  /* 5px -> 0.3125rem */
     border-radius: 1.875rem;  /*30px -> 1.875rem*/
     box-shadow: 10px 10px 5px #1c1b1b;
     margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
@@ -295,25 +295,29 @@ body.hero_background {
 .section_heading{
     text-align: center; 
     font-size: 2rem; 
-    color: blue;}
+    color: rgb(3, 59, 22);}
 
 /*OpenSOS Highlight text*/
 #highlight{
     font-weight: bolder;
-    color: rgb(13, 0, 152);}
+    color: rgb(3, 59, 22);}
 
 /* Team intro table styling */
 .team_intro {
     width: 90%;
     margin: auto;
     border-collapse: collapse;
+    border: rgb(0, 0, 0) 0.25rem solid;
+    border-radius: 10px;
 }
 .team_intro th { /* table header */
     padding: 1rem;
     background-color: rgb(3, 59, 22);
     color: white;}
 
-
+.team_intro td{
+    background-color: #b8ebab;
+}
 .team_intro img { /* Individual images*/
     width: 100%;
     max-width: 200px;
@@ -333,13 +337,13 @@ body.hero_background {
     flex-wrap: wrap;
     gap: 2em;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 4.5em;
     padding: 2em 1em;}
 
 .about_section {
-    background-color: white;
+    background-color: #b8ebab;
     padding: 1rem;
-    border: rgb(0, 0, 0) 0.4em solid;
+    border: rgb(0, 0, 0) 0.25rem solid;
     border-radius: 10px;
     flex: 1; /* Allows flexible resizing */
     min-width: 250px;
@@ -352,7 +356,7 @@ body.hero_background {
     line-height: 1.5;
 }
 .about_section li {
-    background-color: white;
+    background-color: #b8ebab;
     padding: 0 .5rem;
     font-size: 1.5rem;
 }
@@ -362,6 +366,8 @@ body.hero_background {
     margin: auto;
     width: 60%;
     border-collapse: collapse;
+    border: rgb(0, 0, 0) 0.25rem solid;
+    border-radius: 10px;
 }
 table {
     margin: 0 auto;
@@ -387,19 +393,19 @@ th {
 }
 
 td {
-    background-color: #f0f0f0;
+    background-color: #b8ebab;;
 }
 
 /* Hover effect*/
 td:hover {
     background-color: #a5d2d8;
-    color: rgb(255, 255, 0);
+    color: rgb(255, 255, 255);
 }
 
 /*Group Photo*/
 .group_photo {
   float: right;
-  border: 3px solid #000; 
+  border: 0.25rem solid #000; 
   margin-right: 10%; margin-top: 1%; margin-bottom: 1%;
 }
 
@@ -433,7 +439,7 @@ form h3 {
     background: #b8ebab;
     padding: 0.75em;
     /* Border */
-    border: 0.3125rem solid black;
+    border: 0.25rem solid black;
     border-radius: 1em;
     box-shadow: 1em 0.75em 0.75em #1c1b1b;
 }
@@ -514,6 +520,7 @@ div textarea {
     background-color: black;
     font-weight: bold;
     font-size: 2em;
+    border-radius: 1rem;
 }
 .buttons:hover {
     color: black;
@@ -526,7 +533,7 @@ div textarea {
 .job_description_box{
     padding: 1em;
     border-radius: 1em;
-    border: 0.25em solid black;
+    border: 0.25rem solid black;
     background-color:  #b8ebab;
     height: 100%; /* Or set a fixed height like 500px */
     overflow: auto;
@@ -569,13 +576,13 @@ h1.job_title /*h1 styling*/{
     color: rgb(3, 59, 22);
 }
 
-#job_prompt{ /*Grey box (left)*/
+#job_prompt{ /*left box*/
     float: left;
     clear: left;
     font-size: 1.3em;
     width: 50%;
     margin-left: 4.5em;
-    border: 4px solid rgb(0, 0, 0);
+    border: 0.25rem solid rgb(0, 0, 0);
     background-color: rgb(162, 196, 134);
     padding: 1em;
     border-radius: 1em;
@@ -589,7 +596,7 @@ h1.job_title /*h1 styling*/{
     margin-right: 4.5em;
     margin-bottom: 1em;
 
-    border: 4px solid black;
+    border: 0.25rem solid rgb(165, 148, 53);
     background-color: #cac79a;
     padding: 1em;
     border-radius: 1em;
@@ -614,7 +621,7 @@ h1.job_title /*h1 styling*/{
     background-color: green;
     font-weight: bold;
     font-size: 1.25em;
-    border: 0.1em solid black;
+    border: 0.25rem solid rgb(6, 98, 40);
     border-radius: 0.5em;
     text-align: center;
     margin-top: 0.5em;
@@ -721,10 +728,10 @@ h1.job_title /*h1 styling*/{
     /************************************************************/
     /* For jobs.html */
     .job_description_box{
-        margin: 1em 1em;
+        margin: 1rem 1rem;
         font-size: 1em;
     }
-    .job_description_left, .job_description_right{/*Make them stack*/
+    .job_description_left, .job_description_right{/*Makes them stack*/
         float: left;
         clear: none;
         margin: auto;
@@ -737,17 +744,17 @@ h1.job_title /*h1 styling*/{
     }
 
     #job_prompt{
-        margin-left: 1em;
-        margin-right: 1em;
-        margin-bottom: 1em;
-        width: calc(100% - 2em);
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        width: calc(100% - 2rem);
         float: none;
         clear: none;}
 
     #job_aside{
-        margin-left: 1em;
-        margin-right: 1em;
-        width: calc(100% - 2em);
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: calc(100% - 2rem);
         float: none;
         clear: none;
     }
