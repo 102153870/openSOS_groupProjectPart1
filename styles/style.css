@@ -556,6 +556,8 @@ div textarea {
 
 /************************************************************/
 /*jobs.html specific CSS*/
+
+/*description box div*/
 .job_description_box{
     padding: 1em;
     border-radius: 1em;
@@ -570,6 +572,7 @@ div textarea {
     font-size: 1.3em;
 }
 
+/*main jobs header*/
 .jobs_heading{
     text-align: center;
     color: rgb(6, 98, 40);
@@ -577,32 +580,38 @@ div textarea {
     padding-bottom: 0.5em;
 }
 
+/*left side of job desc*/
 .job_description_left{
     float: left;
     clear: left;
     width: 48%;
 }
 
+/*right side of job desc*/
 .job_description_right{
     float: right;
     clear: right;
     width: 48%;
 }
 
+/*indenting list items, since they aren't moved by default. might be due to affect of other css?*/
 .list_indent{
     margin-left: 1.5em;
 }
 
+/*grey to imply they aren't main content*/
 .reference_number{
     color: rgb(88, 88, 88);
 }
 
-h1.job_title /*h1 styling*/{
+/*h1 styling*/
+h1.job_title {
     font: bold 1.5em Arial, Helvetica, sans-serif;
     color: rgb(3, 59, 22);
 }
 
-#job_prompt{ /*left box*/
+/*left top box*/
+#job_prompt{ 
     float: left;
     clear: left;
     font-size: 1.3em;
@@ -614,7 +623,8 @@ h1.job_title /*h1 styling*/{
     border-radius: 1em;
 }
 
-#job_aside /*aside*/{
+/*aside*/
+#job_aside {
     float: right;
     clear: right;
     font-size: 1.3em;
@@ -753,22 +763,28 @@ h1.job_title /*h1 styling*/{
     }
     /************************************************************/
     /* For jobs.html */
+
+    /*smaller margin and font size to fit more in on smaller reses*/
     .job_description_box{
         margin: 1rem 1rem;
         font-size: 1em;
     }
-    .job_description_left, .job_description_right{/*Makes them stack*/
+
+    /*section stacking*/
+    .job_description_left, .job_description_right{
         float: left;
         clear: none;
         margin: auto;
         width: 100%;
     }
 
-    .job_description_left p{ /*Make the job description justified*/
+    /*justified to fit more content*/
+    .job_description_left p{ 
         text-align: justify;
         line-height: 1.5;
     }
 
+    /*smaller margins, calculating width or else it goes off screen*/
     #job_prompt{
         margin-left: 1rem;
         margin-right: 1rem;
@@ -777,6 +793,7 @@ h1.job_title /*h1 styling*/{
         float: none;
         clear: none;}
 
+    /*smaller margins, calculating width or else it goes off screen*/
     #job_aside{
         margin-left: 1rem;
         margin-right: 1rem;
@@ -848,5 +865,4 @@ h1.job_title /*h1 styling*/{
         font-size: 0.9em;
         text-align: center;
     }
-
 }
