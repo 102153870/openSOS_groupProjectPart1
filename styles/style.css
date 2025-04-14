@@ -20,20 +20,16 @@ description: refers to index.html, about.html, apply.html and jobs.html
 
 /*Headings for pages other than homepage*/
 #heading_not_homepage {
-    color: darkblue;
+    color: rgb(255, 255, 255);
     font-size: 3rem;
     margin: 0;
     display: flex;
     align-items: center;
 }
 
-#apply_subheading {
-    color: purple;
-}
-
 /*Changes to website background colour*/
 body {
-    background: linear-gradient(to bottom, rgb(220, 142, 70) 0%, rgba(255, 200, 0, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
+    background: linear-gradient(to bottom, rgb(110, 189, 101) 0%, rgba(50, 185, 170, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
     background-attachment: fixed; /* Keeps gradient pinned during scroll */
     background-size: cover; /* Cover entire area */
     background-repeat: no-repeat;
@@ -69,7 +65,7 @@ nav{
     flex-wrap: wrap;
     justify-content: space-evenly;
     font-size: 2em;
-    background-color: #D1C4E9;
+    background-color: #c5ffd9;
     border: solid black 3px;
     padding: 1%;
     padding-left: 4%;
@@ -79,7 +75,7 @@ nav a {
     text-decoration: none;
     padding: 0.5em;;
     border-radius: 50%;
-    color: purple;
+    color: rgb(2, 83, 34);
     font-weight: bold;
     transition: transform 0.1s ease-in-out; /*Smooth animation*/
 }
@@ -156,7 +152,7 @@ footer p #jira_link:hover, footer p #github_link:hover {
     padding: 1%;
 
     line-height: 1.5;
-    background-color: #cac79a;
+    background-color: rgb(162, 196, 134);
     border-top: 3px solid black;
     border-bottom: 3px solid black;
 }
@@ -165,8 +161,8 @@ footer p #jira_link:hover, footer p #github_link:hover {
 /*index.html specific CSS*/
 /*Homepage background image*/
 body.hero_background {
-    background: url("images/homepage_background.png") center/cover no-repeat fixed;
-    /*Background image source: https://au.pinterest.com/pin/108579041008104767/ */
+    background: url("images/homepage_background.jpg") center/cover no-repeat fixed;
+    /*Background image source: https://www.pinterest.com/pin/43699058879898852/ */
 }
 /*Header Logo Formatting*/
 #header_logo{ 
@@ -212,7 +208,7 @@ body.hero_background {
 .home_nav .nav_item a svg {
     width: 9.375rem;
     height: auto;
-    fill: #e2ff0b; /* Change icon color */
+    fill: #64dd5d; /* Change icon color */
     stroke: #000000; /* Add stroke color */
     stroke-width: 0.5;
     transition: transform 0.1s ease-in-out, fill 0.3s ease;
@@ -231,24 +227,25 @@ body.hero_background {
 
 .home_nav .nav_item a:hover svg, .home_nav .nav_item a:hover p {
     transform: scale(1.1);
-    fill: #00a2ff; /* Blue color on hover */
-    color: #00a2ff; /* Match text color with icon on hover */}
+    fill:  rgb(23, 248, 188); /* Grey Blue color on hover */
+    color:  rgb(45, 233, 183); /* Match text color with icon on hover */}
 
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
     margin: auto;
-    border: 0.3125rem solid rgb(227, 220, 220);  /* 5px -> 0.3125rem */
+    border: 0.3125rem solid rgb(0, 0, 0);  /* 5px -> 0.3125rem */
     border-radius: 1.875rem;  /*30px -> 1.875rem*/
     box-shadow: 10px 10px 5px #1c1b1b;
     margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
     width: 70%;
-    background-color: #bcbcb9;
+    background-color: #b8ebab;
     text-align: center;}
 
 .company_description h1, .home_email h2{ /*Box titles*/ 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
     display: inline-block; /*Makes the background and border match the text width*/
-    background-color: rgb(172, 173, 165);
+    background-color: rgb(3, 59, 22);
     padding: 5px 10px; 
     border-radius: 10px; 
     margin: auto; }
@@ -313,9 +310,10 @@ body.hero_background {
 }
 .team_intro th { /* table header */
     padding: 1rem;
-    background-color: #5937af;
-    color: white;
-}
+    background-color: rgb(3, 59, 22);
+    color: white;}
+
+
 .team_intro img { /* Individual images*/
     width: 100%;
     max-width: 200px;
@@ -341,7 +339,7 @@ body.hero_background {
 .about_section {
     background-color: white;
     padding: 1rem;
-    border: darkgrey 0.4em solid;
+    border: rgb(0, 0, 0) 0.4em solid;
     border-radius: 10px;
     flex: 1; /* Allows flexible resizing */
     min-width: 250px;
@@ -383,7 +381,7 @@ th, td {
 }
 
 th {
-    background-color: #5937af;
+    background-color: rgb(3, 59, 22);
     color: white;
     font-weight: bold;
 }
@@ -410,15 +408,17 @@ td:hover {
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
-    color: blue;
+    color:rgb(6, 98, 40);
 }
-
+#apply_subheading {
+    color: rgb(4, 42, 61);
+}
 /* ID for the job selection dropdown menu */
 #job_selection {
     font-weight: bold;
     text-align: center;
     font-size: 1.1em;
-    color: blue;
+    color:rgb(4, 42, 61);
     margin: auto;
     width: 100%;
     background-color: transparent;
@@ -430,7 +430,7 @@ form h3 {
 #personal_details, #address_details, #contact_details, #technical_skills, #other_skills_div {
     font-weight: bold;
     margin: auto;
-    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(174, 172, 170));
+    background: #b8ebab;
     padding: 0.75em;
     /* Border */
     border: 0.3125rem solid black;
@@ -527,8 +527,8 @@ div textarea {
     padding: 1em;
     border-radius: 1em;
     border: 0.25em solid black;
-    background-color: rgb(195, 232, 255);
-    
+    background-color:  #b8ebab;
+    height: 100%; /* Or set a fixed height like 500px */
     overflow: auto;
 
     margin: 1.5em 4.5em;
@@ -539,7 +539,7 @@ div textarea {
 
 .jobs_heading{
     text-align: center;
-    color: darkblue;
+    color: rgb(6, 98, 40);
     font-size: 3rem;
     padding-bottom: 0.5em;
 }
@@ -547,14 +547,12 @@ div textarea {
 .job_description_left{
     float: left;
     clear: left;
-    margin: auto;
     width: 48%;
 }
 
 .job_description_right{
     float: right;
     clear: right;
-    margin: auto;
     width: 48%;
 }
 
@@ -568,20 +566,17 @@ div textarea {
 
 h1.job_title /*h1 styling*/{
     font: bold 1.5em Arial, Helvetica, sans-serif;
-    color: darkblue;
+    color: rgb(3, 59, 22);
 }
 
-#job_prompt{
+#job_prompt{ /*Grey box (left)*/
     float: left;
     clear: left;
-
     font-size: 1.3em;
-
     width: 50%;
     margin-left: 4.5em;
-
-    border: 4px solid rgb(227, 220, 220);
-    background-color: #bcbcb9;
+    border: 4px solid rgb(0, 0, 0);
+    background-color: rgb(162, 196, 134);
     padding: 1em;
     border-radius: 1em;
 }
@@ -589,9 +584,7 @@ h1.job_title /*h1 styling*/{
 #job_aside /*aside*/{
     float: right;
     clear: right;
-
     font-size: 1.3em;
-
     width: 25%;
     margin-right: 4.5em;
     margin-bottom: 1em;
@@ -607,7 +600,7 @@ h1.job_title /*h1 styling*/{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1em;
+    margin-top: auto;
 }
 .button-wrapper {
     display: flex;
@@ -640,10 +633,8 @@ h1.job_title /*h1 styling*/{
         font-size: 2rem; /* Adjust heading size */
         margin: 0.5em 0; /* Add some margin */
     }
-
     #header_logo_not_homepage {
         scale: 0.45; }
-
     /*Nav adjustments*/
     nav{text-align: center;}
 
@@ -658,6 +649,8 @@ h1.job_title /*h1 styling*/{
         font-size: 1.875rem;  /*30px -> 1.875rem*/
     }
 
+    /************************************************************/
+    /* For index.html */
     #header_logo {
         width: 15.625rem;  /*250px -> 15.625rem*/
     }
@@ -677,7 +670,7 @@ h1.job_title /*h1 styling*/{
     }
 
     .company_description p, .home_email #email_prompt {
-        font-size: 1rem; /*Adjust text size: 11px*/
+        font-size: 1rem; /*Adjust text size*/
         padding-left: 5%;
         padding-right: 5%;
     }
@@ -729,46 +722,39 @@ h1.job_title /*h1 styling*/{
     /* For jobs.html */
     .job_description_box{
         margin: 1em 1em;
+        font-size: 1em;
     }
-    .job_description_left{
+    .job_description_left, .job_description_right{/*Make them stack*/
         float: left;
         clear: none;
         margin: auto;
         width: 100%;
     }
 
-    .job_description_right{
-        float: left;
-        clear: none;
-        margin: 0;
-        width: 100%;
+    .job_description_left p{ /*Make the job description justified*/
+        text-align: justify;
+        line-height: 1.5;
     }
 
     #job_prompt{
-        /*extra (not copy of float)*/
         margin-left: 1em;
         margin-right: 1em;
         margin-bottom: 1em;
-
         width: calc(100% - 2em);
-
         float: none;
-        clear: none;
-    }
+        clear: none;}
 
     #job_aside{
         margin-left: 1em;
         margin-right: 1em;
-
         width: calc(100% - 2em);
-
         float: none;
         clear: none;
     }
 }
 
-/* Responsive styles for screens up to 380px */
-@media (max-width: 380px) {
+/* Responsive styles for screens up to 425px */
+@media (max-width: 425px) {
     .side_textbar {
         width: 1.875rem;  /*30px -> 1.875rem*/
         font-size: 1.25rem;  /*20px -> 1.25rem*/
@@ -777,27 +763,26 @@ h1.job_title /*h1 styling*/{
         font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
         line-height: 1.5;
     }
+    /************************************************************/
     /* For index.html */
     #header_logo {
         width: 12.5rem;  /*200px -> 12.5rem*/
     }
-
     .home_nav nav {
         flex-direction: column; /*Stack nav items vertically*/
-        align-items: center;
-    }
+        align-items: center;}
+
+    .home_nav h2{font-size: 1.1em;}
 
     .home_nav svg, .home_nav p {
         width: 5rem;  /*80px -> 5rem*/
-        font-size: 0.9rem; /*Adjust font size: 14px */
-    }
+        font-size: 0.9rem; /*Adjust font size: 14px */}
 
     .company_description, .home_email {
-        width: 95%; /*Maximize width for smaller screens*/
-    }
+        width: 95%; /*Maximize width for smaller screens*/}
 
     .company_description p{
-        font-size: 0.9em; /*Adjust text size*/
+        font-size: 0.7em; /*Adjust text size*/
         text-align: center;  /*Align text to center*/
     }
 
@@ -821,4 +806,14 @@ h1.job_title /*h1 styling*/{
         width: 90%;
         height: 2em;
     }
+    /************************************************************/
+    /* For about.html */
+    .job_description_box{
+        font-size: 0.9em;
+    }
+    #job_prompt, #job_aside{
+        font-size: 0.9em;
+        text-align: center;
+    }
+
 }
