@@ -127,11 +127,10 @@ footer p #jira_link:hover, footer p #github_link:hover {
     flex-direction: column;
     writing-mode: vertical-rl; /*Makes the text vertical*/
     text-orientation: upright;}
-.left_side {
-    left: 0;}
 
-.right_side {
-    right: 0;}
+.left_side {left: 0;} /*For left OPENSOS border*/
+
+.right_side {right: 0;}/*For right OPENSOS border*/
 
 /*Section Span (Horizontal Span) Formatting*/
 .section_span {
@@ -146,8 +145,7 @@ footer p #jira_link:hover, footer p #github_link:hover {
     line-height: 1.5;
     background-color: rgb(162, 196, 134);
     border-top: 0.25rem solid black;
-    border-bottom: 0.25rem solid black;
-}
+    border-bottom: 0.25rem solid black;}
 
 /************************************************************/
 /*index.html specific CSS*/
@@ -182,12 +180,10 @@ body.hero_background {
     text-align: center;}
 
 /* Apply hover effect to both image and text */
-.nav_item a:hover p{
-    transform: scale(1.2); /* Enlarges both image and text */}
+.nav_item a:hover p {transform: scale(1.2);} /* Enlarges both image and text */
 
 /* Prevent global hover styles on home page nav links */
-.home_nav nav a:hover {
-    background-color: transparent;  /* Remove yellow background */}
+.home_nav nav a:hover {background-color: transparent;}  /* Remove yellow background */
 
 /*Adjusting the text to be centered and used flexbox */
 .nav_item, .nav_item a {
@@ -275,11 +271,9 @@ body.hero_background {
     margin-top: 0;
     text-decoration: none;}
 
-#email_icon, .home_email a p{
-    transition: transform 0.1s ease-in-out; /*Smooth animation*/}
+#email_icon, .home_email a p{transition: transform 0.1s ease-in-out;} /*Smooth animation*/
 
-.home_email a:hover #email_icon, .home_email a:hover p {
-    transform: scale(1.2);}
+.home_email a:hover #email_icon, .home_email a:hover p {transform: scale(1.2);}
 
 /************************************************************/
 /*about.html specific CSS*/
@@ -300,26 +294,24 @@ body.hero_background {
     margin: auto;
     border-collapse: collapse;
     border: rgb(0, 0, 0) 0.25rem solid;
-    border-radius: 10px;
-}
+    border-radius: 10px;}
+
 .team_intro th { /* table header */
     padding: 1rem;
     background-color: rgb(3, 59, 22);
     color: white;}
 
-.team_intro td{
-    background-color: #b8ebab;
-}
+.team_intro td{background-color: #b8ebab;}
+
 .team_intro img { /* Individual images*/
     width: 100%;
     max-width: 200px;
     height: auto;
     border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-.team_intro img:hover {
-    transform: scale(1.1);
-}
+    transition: transform 0.3s ease;}
+
+.team_intro img:hover {transform: scale(1.1);}
+
 /*About Us page content (middle section)*/
 .about_content {
     display: flex;
@@ -344,13 +336,12 @@ body.hero_background {
     text-align: center;
 
     list-style-position: inside; /* Puts bullet/number inside the box, aligning better */
-    line-height: 1.5;
-}
-.about_section li {
+    line-height: 1.5;}
+
+.about_section li {/*Lists for about section formatting*/
     background-color: #b8ebab;
     padding: 0 .5rem;
-    font-size: 1.5rem;
-}
+    font-size: 1.5rem;}
 
 /* Table styling for Member's Interests*/
 .member_interests table{
@@ -360,16 +351,9 @@ body.hero_background {
     border: rgb(0, 0, 0) 0.25rem solid;
     border-radius: 10px;
 }
-table {
-    margin: 0 auto;
-    border-collapse: collapse;
-    width: 50%;
-}
-
 caption {
     font-weight: bold;
-    margin-bottom: 10px;
-}
+    margin-bottom: 10px;}
 
 th, td {
     border: 1px solid #ccc;
@@ -381,24 +365,21 @@ th {
     color: white;
     font-weight: bold;}
 
-td {
-    background-color: #b8ebab;;}
+td {background-color: #b8ebab;;}
 
-/* Hover effect*/
+/* Hover effect for table*/
 td:hover {
     background-color: #a5d2d8;
-    color: rgb(255, 255, 255);
-}
+    color: rgb(255, 255, 255);}
 
-#about_the_team_container {
+#about_the_team_container { /*allows flexible design for the about the team section*/
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3em;
     margin: 2em auto;
     max-width: 1000px;
-    padding: 0 2em;
-}
+    padding: 0 2em;}
 
 #about_the_team {
     flex: 0 1 55%;
@@ -409,9 +390,8 @@ td:hover {
     border-radius: 10px;
     text-align: center;
     line-height: 1.5;
-    height: 100%;
-}
-
+    height: 100%;}
+    
 #group_photo { /*Group Photo Styling*/
     float: right; /*FLoated to the right*/
     flex: 0 1 35%;
@@ -420,8 +400,8 @@ td:hover {
     border: 0.25rem solid #00381c;
     border-radius: 10px;
     object-fit: cover;
-    margin: 0;
-}
+    margin: 0;}
+
 /************************************************************/
 /*apply.html specific CSS*/
 /* Centre the heading and apply styling */
@@ -519,22 +499,21 @@ div textarea {
     margin-bottom: 1em;
     border: none;}
 
-.buttons {
+.buttons { /*Styling for the buttons*/
     padding: 1%;
     color: white;
     background-color: black;
     font-weight: bold;
     font-size: 2em;
-    border-radius: 1rem;
-}
-.buttons:hover {
+    border-radius: 1rem;}
+
+.buttons:hover { /*Apply button hover effect*/
     color: black;
     background-color: white;
     cursor: pointer;}
 
 /************************************************************/
 /*jobs.html specific CSS*/
-
 /*description box div*/
 .job_description_box{
     padding: 1em;
@@ -547,8 +526,7 @@ div textarea {
     margin: 1.5em 4.5em;
     clear: both;
     line-height: 1.5;
-    font-size: 1.3em;
-}
+    font-size: 1.3em;}
 
 /*main jobs header*/
 .jobs_heading{
@@ -570,12 +548,10 @@ div textarea {
     width: 48%;}
 
 /*indenting list items, since they aren't moved by default. might be due to affect of other css?*/
-.list_indent{
-    margin-left: 1.5em;}
+.list_indent{margin-left: 1.5em;}
 
 /*grey to imply they aren't main content*/
-.reference_number{
-    color: rgb(88, 88, 88);}
+.reference_number{color: rgb(88, 88, 88);}
 
 /*h1 styling*/
 h1.job_title {
@@ -609,18 +585,13 @@ h1.job_title {
     border-radius: 1em;
     box-shadow: 0.25em 0.25em 0.75em #1c1b1b;}
 
-.apply_container{
+.apply_container{ /*Allows the reference number and the apply button to be inline*/
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: auto;}
 
-.button-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;}
-
-.buttons_description_box {
+.buttons_description_box {/*styling for buttons*/
     padding: 1%;
     color: white;
     text-decoration: none;
@@ -632,7 +603,7 @@ h1.job_title {
     text-align: center;
     margin-top: 0.5em;}
 
-.buttons_description_box:hover {
+.buttons_description_box:hover {/*Hover for buttons*/
     color: green;
     background-color: white;
     cursor: pointer;}
@@ -642,61 +613,46 @@ h1.job_title {
     /* Header adjustments */
     #heading_not_homepage {
         font-size: 2rem; /* Adjust heading size */
-        margin: 0.5em 0; /* Add some margin */
-    }
-    #header_logo_not_homepage {
-        scale: 0.45; }
+        margin: 0.5em 0;} /* Add some margin */
+
+    #header_logo_not_homepage {scale: 0.45;}
+
     /*Nav adjustments*/
     nav{text-align: center;}
 
     html, body {
         background-size: cover; /*Adjust background scaling*/
         border-left: 15px solid rgb(0, 0, 0); 
-        border-right: 15px solid black;
-    }
+        border-right: 15px solid black;}
 
     .side_textbar {
         width: 2.5rem;  /*40px -> 2.5rem*/
-        font-size: 1.875rem;  /*30px -> 1.875rem*/
-    }
+        font-size: 1.875rem;}  /*30px -> 1.875rem*/
 
     /************************************************************/
     /* For index.html */
-    #header_logo {
-        width: 15.625rem;  /*250px -> 15.625rem*/
-    }
+    #header_logo {width: 15.625rem;} 
 
-    .home_nav nav {
-        align-items: center;
-    }
+    .home_nav nav {align-items: center;}
 
-    .home_nav svg, .home_nav p {
-        width: 6.25rem;  /*100px -> 6.25rem*/
-        font-size: 1rem; /*Adjust font size*/
-    }
+    .home_nav svg, .home_nav p{
+        width: 6.25rem;  
+        font-size: 1rem;} /*Adjust font size*/
 
-    .company_description, .home_email {
+    .company_description, .home_email{
         width: 90%; /*Increase width for smaller screens, easier to read*/
-        margin-bottom: 0.9375rem;  /* 15px -> 0.9375rem */
-    }
+        margin-bottom: 0.9375rem;}  
 
-    .company_description p, .home_email #email_prompt {
+    .company_description p, .home_email #email_prompt{
         font-size: 1rem; /*Adjust text size*/
         padding-left: 5%;
-        padding-right: 5%;
-    }
+        padding-right: 5%;}
 
     footer {
-        font-size: 0.9rem; /*Adjust footer text size: 14px*/
+        font-size: 0.9rem; /*Adjust size for smaller screen*/
         flex-direction: column; /*Stack footer content*/
         text-align: center;
-        line-height: 1.5;
-    }
-
-    #jira_link {
-        margin-left: 0;
-        margin-top: 10px;
-    }
+        line-height: 1.5;}
 
     /************************************************************/
     /* For apply.html */
@@ -704,77 +660,67 @@ h1.job_title {
         display: flex;
         flex-direction: column; /* Stack content vertically */
         width: 100%; /* Ensure sections take full width */;
-        margin: 1em 0;
-    }
+        margin: 1em 0;}
+
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
         font-size: 0.6rem;
-        padding: 0.4em;
-    }
+        padding: 0.4em;}
+
     textarea {
         width: 100%;
-        height: 5em;
-    }
+        height: 5em;}
 
     /************************************************************/
     /* For about.html */
     .section_heading{font-size: 1.5rem;}
     .about_section, .about_section li{font-size: 1rem;}
 
-    .team_intro {
-        width: 95%;
-    }
+    /*Decrease size of table*/
+    .team_intro {width: 95%;}
+
     .team_intro th {
         font-size: 0.9rem;
-        padding: 0.5rem;
-    }
+        padding: 0.5rem;}
 
-    .team_intro img {
-        max-width: 150px;
-    }
+    .team_intro img {max-width: 150px;}
 
-    #about_the_team_container {
+    #about_the_team_container { /*Make the about the team section stacked above the group photo*/
         flex-direction: column;
         align-items: center;
         gap: 2em;
-        padding: 1em;
-    }
+        padding: 1em;}
 
     #about_the_team {
         width: 90%;
         font-size: 0.8em;
         margin: 0 auto;  /* Center the text section */
-        flex: none;      /* Remove flex properties */
-    }
+        flex: none; }     /* Remove flex properties */
 
     #group_photo {
         width: 100%;
         margin: 2em auto;  /* Add margin and center */
         flex: none;        /* Remove flex properties */
-        float: none;       /* Remove float */
-    }
+        float: none;}      /* Remove float */
     /************************************************************/
     /* For jobs.html */
 
     /*smaller margin and font size to fit more in on smaller reses*/
     .job_description_box{
         margin: 1rem 1rem;
-        font-size: 1em;
-    }
+        font-size: 1em;}
 
     /*section stacking*/
     .job_description_left, .job_description_right{
         float: left;
         clear: none;
         margin: auto;
-        width: 100%;
-    }
+        width: 100%;}
 
     /*justified to fit more content*/
     .job_description_left p{ 
         text-align: justify;
-        line-height: 1.5;
-    }
+        line-height: 1.5;}
 
     /*smaller margins, calculating width or else it goes off screen*/
     #job_prompt{
@@ -791,25 +737,23 @@ h1.job_title {
         margin-right: 1rem;
         width: calc(100% - 2rem);
         float: none;
-        clear: none;
-    }
+        clear: none;}
 }
 
 /* Responsive styles for screens up to 425px */
 @media (max-width: 425px) {
     .side_textbar {
         width: 1.875rem;  /*30px -> 1.875rem*/
-        font-size: 1.25rem;  /*20px -> 1.25rem*/
-    }
+        font-size: 1.25rem;  /*20px -> 1.25rem*/}
+
     footer {
         font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
-        line-height: 1.5;
-    }
+        line-height: 1.5;}
+
     /************************************************************/
     /* For index.html */
-    #header_logo {
-        width: 12.5rem;  /*200px -> 12.5rem*/
-    }
+    #header_logo {width: 12.5rem;}  /*200px -> 12.5rem*/
+
     .home_nav nav {
         flex-direction: column; /*Stack nav items vertically*/
         align-items: center;}
@@ -825,12 +769,9 @@ h1.job_title {
 
     .company_description p{
         font-size: 0.7em; /*Adjust text size*/
-        text-align: center;  /*Align text to center*/
-    }
+        text-align: center;  /*Align text to center*/}
 
-    .home_email #email_prompt, .home_email a p {
-        font-size: 0.85em; /*Adjust text size*/
-    }
+    .home_email #email_prompt, .home_email a p {font-size: 0.85em; /*Adjust text size*/}
 
     /************************************************************/
     /* For Apply.html */
@@ -847,19 +788,17 @@ h1.job_title {
     textarea {
         width: 90%;
         height: 2em;}
+     /************************************************************/
+    /* For jobs.html */
+    .job_description_box{font-size: 0.9em;}
 
+    #job_prompt, #job_aside{
+        font-size: 0.9em;
+        text-align: center;}
     /************************************************************/
     /* For about.html */
     #about_the_team {
         font-size: 0.8em;
         margin: 0 auto;  /* Center the text section */
         flex: none;      /* Remove flex properties */}
-
-    /************************************************************/
-    /* For about.html */
-    .job_description_box{font-size: 0.9em;}
-
-    #job_prompt, #job_aside{
-        font-size: 0.9em;
-        text-align: center;}
 }
