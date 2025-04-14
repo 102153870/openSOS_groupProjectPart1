@@ -340,6 +340,22 @@ body.hero_background {
 }
 
 /*About Us page content (middle section)*/
+#about_info {
+    background-color: white;
+    padding: 1rem;
+    border: rgb(0, 0, 0) 0.4em solid;
+    border-radius: 10px;
+    flex: 1; /* Allows flexible resizing */
+    min-width: 20%;
+    max-width: 60%;
+    margin: 5%;
+    text-align: center;
+
+    list-style-position: inside; /* Puts bullet/number inside the box, aligning better */
+    line-height: 1.5;
+}
+
+
 .about_content {
     display: flex;
     justify-content: space-around;
