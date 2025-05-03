@@ -407,10 +407,12 @@ td:hover {
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
-    color:rgb(6, 98, 40);}
+    color:rgb(6, 98, 40);
+}
 
 #apply_subheading {
-    color: rgb(4, 42, 61);}
+    color: rgb(4, 42, 61);
+}
 
 /* ID for the job selection dropdown menu */
 #job_selection {
@@ -422,82 +424,65 @@ form h3 {
     width: 100%;
     background-color: transparent;
     padding: 0.75em;
-    border: none;}
+    border: none;
+}
 
-/* Common attributes */
-#personal_details, #address_details, #contact_details, #technical_skills, #other_skills_div {
+/* Appicants details attributes */
+#applicant_details, #technical_skills, #other_skills_section {
+    text-align: center;
     font-weight: bold;
     margin: auto;
     background: #b8ebab;
     padding: 0.75em;
+    width: 42%;
+    line-height: 1.2em;;
     /* Border */
     border: 0.25rem solid black;
     border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;}
-
-/* ID for the personal details section */
-#personal_details {
-    float: left;
-    width: 40%;
-    padding-left: 2em;
-    margin-left: 4.5em;
-    margin-bottom: 2em;}
+    box-shadow: 1em 0.75em 0.75em #1c1b1b;
+    margin-bottom: 2em;
+}
 #personal_details fieldset {
-    border: none;}
+    border: none;
+}
 
-/* ID for the address details for applicant */
-#address_details {
-    text-align: left;
-    float: right;
-    width: 40%;
-    padding-left: 2em;
-    margin-right: 4.5em;
-    margin-bottom: 2em;}
-
-/* ID for the contact details for applicant */
-#contact_details {
-    clear:left;
+#applicant_details {
     float: left;
-    width: 40%;
     padding-left: 2em;
     margin-left: 4.5em;
-    margin-bottom: 2em;}
+}
 
-/* ID for the technical skills checkbox */
-#technical_skills {
-    text-align: center;
+/* ID's skills */
+#technical_skills, #other_skills_section {
     float: right;
-    width: 40%;
-    padding-left: 2em;
+    padding-right: 2em;
     margin-right: 4.5em;
-    margin-bottom: 2em;}
-
-/* ID for the other skills text area */
-#other_skills_div {
-    clear: both;
-    /* float: right; */
-    width: 30%;
-    margin-bottom: 2em;}
-
-/* Make the text area in Other Skills span the entire box size */
-div textarea {
-    width: 100%;}
+}
+#other_skills_section textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
 .input_row label:last-child {
-    padding-left: 3em;}
+    padding-left: 3em;
+}
 
 .input {
     display: flex;
     flex-direction: column;
     text-align: center;
-    align-content: center;}
+    align-content: center;
+}
 
 #buttons_div {
     display: flex;
     justify-content: space-evenly;
     clear: both;
     margin-bottom: 1em;
-    border: none;}
+    border: none;
+}
 
 .buttons { /*Styling for the buttons*/
     padding: 1%;
@@ -505,12 +490,14 @@ div textarea {
     background-color: black;
     font-weight: bold;
     font-size: 2em;
-    border-radius: 1rem;}
+    border-radius: 1rem;
+}
 
 .buttons:hover { /*Apply button hover effect*/
     color: black;
     background-color: white;
-    cursor: pointer;}
+    cursor: pointer;
+}
 
 /************************************************************/
 /*jobs.html specific CSS*/
@@ -656,11 +643,20 @@ h1.job_title {
 
     /************************************************************/
     /* For apply.html */
-    #job_selection, #personal_details, #address_details, #contact_details, #technical_skills, #other_skills_div {
+    #applicant_details, #technical_skills, #other_skills_section {
         display: flex;
-        flex-direction: column; /* Stack content vertically */
-        width: 100%; /* Ensure sections take full width */;
-        margin: 1em 0;}
+        float: none; /* Remove float */
+        clear: both;
+        flex-direction: column;
+        width: 90%;
+        margin: 1em auto; /* Center using auto margins */
+        padding: 1em;
+        /* Reset positioning */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
 
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
@@ -775,10 +771,10 @@ h1.job_title {
 
     /************************************************************/
     /* For Apply.html */
-    #job_selection, #personal_details,#address_details,#contact_details,#technical_skills,#other_skills_div {
-        width: 100%;
-        padding: 1em;
-        margin-bottom: 1em;
+    #applicant_details, #technical_skills, #other_skills_section {
+        width: 95%; /* Slightly wider on very small screens */
+        margin: 0.5em auto; /* Reduce vertical spacing */
+        padding: 0.5em;
     }
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
