@@ -53,14 +53,14 @@ header section {
 
 #header_logo_not_homepage {
     scale: 0.6;
-    margin: -1em; /* Add this to remove any default margins */}
+    margin: -1rem; /* Add this to remove any default margins */}
 
 /*Navigation Menu - For all pages except homepage which is styled below*/
 nav{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    font-size: 2em;
+    font-size: 2rem;
     background-color: #c5ffd9;
     border: solid black 0.25rem;
     padding: 1%;
@@ -69,7 +69,7 @@ nav{
 
 nav a {
     text-decoration: none;
-    padding: 0.5em;;
+    padding: 0.5rem;;
     border-radius: 50%;
     color: rgb(2, 83, 34);
     font-weight: bold;
@@ -86,9 +86,9 @@ main {
 /* Changes to the footer section */
 footer {
     background: rgb(26, 25, 25);
-    font-size: 1.05rem;
+    font-size: 1rem;
     align-items: center;
-    padding: 1em 3em; /* Add horizontal padding */
+    padding: 1rem 3rem; /* Add horizontal padding */
     width: 100%;
     margin: 0;}
 
@@ -109,32 +109,9 @@ footer p #github_link {
 footer p #jira_link:hover, footer p #github_link:hover {
     color: rgb(185, 217, 227);}
 
-/*Border Formatting*/
-.side_textbar {
-    position: fixed; /*Text is fixed at the side*/
-    top: 0; /*Removes space at top and bottom*/
-    bottom: 0;
-    width: 3.75rem;  /*60px -> 3.75rem*/
-    background-color: rgb(0, 0, 0);
-    color: rgb(181, 186, 187);
-    font-size: 3.125rem;  /*50px -> 3.125rem*/
-    font-weight: bolder;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-
-    /*Create a vertical flexbox*/
-    display: flex; 
-    flex-direction: column;
-    writing-mode: vertical-rl; /*Makes the text vertical*/
-    text-orientation: upright;}
-
-.left_side {left: 0;} /*For left OPENSOS border*/
-
-.right_side {right: 0;}/*For right OPENSOS border*/
-
 /*Section Span (Horizontal Span) Formatting*/
 .section_span {
-    font-size: larger;
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,7 +153,7 @@ body.hero_background {
     width: 150px;
     padding-top: 25px;;
     transition: transform 0.1s ease-in-out; /* Smooth animation */
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;}
 
 /* Apply hover effect to both image and text */
@@ -240,7 +217,7 @@ body.hero_background {
 
 .company_description p { /*Description Text*/
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.3em;
+    font-size: 1.5rem;
     text-align: justify; /*Aligns text to both sides*/
     padding-left: 2%;
     padding-right: 2%;
@@ -249,7 +226,7 @@ body.hero_background {
 /*Email specific CSS*/
 .home_email #email_prompt { /*Email text*/
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
+    font-size: 1.5rem;
     padding-left: 3%;
     padding-right: 3%;
     margin-top: 5px;
@@ -268,7 +245,8 @@ body.hero_background {
     margin-bottom: 0; /*Remove extra bottom margin*/}
 
 .home_email a p{
-    margin-top: 0;
+    margin-top: 0; margin-bottom: 0.3rem;
+    font-size: 1.5rem;
     text-decoration: none;}
 
 #email_icon, .home_email a p{transition: transform 0.1s ease-in-out;} /*Smooth animation*/
@@ -318,10 +296,10 @@ body.hero_background {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 2em;
+    gap: 2rem;
     max-width: 1200px;
-    margin: 2em auto;
-    padding: 2em 1em;}
+    margin: 2rem auto;
+    padding: 2rem 1rem;}
 
 .about_section {
     background-color: #b8ebab;
@@ -376,17 +354,17 @@ td:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3em;
-    margin: 2em auto;
+    gap: 3rem;
+    margin: 2rem auto;
     max-width: 1000px;
-    padding: 0 2em;}
+    padding: 0 2rem;}
 
 #about_the_team {
     flex: 0 1 55%;
     background-color: rgb(162, 196, 134);
     font-size: 1rem;
     padding: 2rem;
-    border: darkgreen 0.4em solid;
+    border: darkgreen 0.4rem solid;
     border-radius: 10px;
     text-align: center;
     line-height: 1.5;
@@ -418,12 +396,12 @@ form h3 {
 #job_selection {
     font-weight: bold;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1rem;
     color:rgb(4, 42, 61);
     margin: auto;
     width: 100%;
     background-color: transparent;
-    padding: 0.75em;
+    padding: 0.75rem;
     border: none;
 }
 
@@ -433,14 +411,14 @@ form h3 {
     font-weight: bold;
     margin: auto;
     background: #b8ebab;
-    padding: 0.75em;
+    padding: 0.75rem;
     width: 42%;
-    line-height: 1.2em;;
+    line-height: 1.2rem;;
     /* Border */
     border: 0.25rem solid black;
-    border-radius: 1em;
-    box-shadow: 1em 0.75em 0.75em #1c1b1b;
-    margin-bottom: 2em;
+    border-radius: 1rem;
+    box-shadow: 1rem 0.75rem 0.75rem #1c1b1b;
+    margin-bottom: 2rem;
 }
 #personal_details fieldset {
     border: none;
@@ -448,15 +426,15 @@ form h3 {
 
 #applicant_details {
     float: left;
-    padding-left: 2em;
-    margin-left: 4.5em;
+    padding-left: 2rem;
+    margin-left: 4.5rem;
 }
 
 /* ID's skills */
 #technical_skills, #other_skills_section {
     float: right;
-    padding-right: 2em;
-    margin-right: 4.5em;
+    padding-right: 2rem;
+    margin-right: 4.5rem;
 }
 #other_skills_section textarea {
     display: flex;
@@ -466,7 +444,7 @@ form h3 {
 }
 
 .input_row label:last-child {
-    padding-left: 3em;
+    padding-left: 3rem;
 }
 
 .input {
@@ -480,7 +458,7 @@ form h3 {
     display: flex;
     justify-content: space-evenly;
     clear: both;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
     border: none;
 }
 
@@ -489,7 +467,7 @@ form h3 {
     color: white;
     background-color: black;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2rem;
     border-radius: 1rem;
 }
 
@@ -503,24 +481,24 @@ form h3 {
 /*jobs.html specific CSS*/
 /*description box div*/
 .job_description_box{
-    padding: 1em;
-    border-radius: 1em;
+    padding: 1rem;
+    border-radius: 1rem;
     border: 0.25rem solid black;
     background-color:  #b8ebab;
     height: 100%; /* Or set a fixed height like 500px */
     overflow: auto;
 
-    margin: 1.5em 4.5em;
+    margin: 1.5rem 4.5rem;
     clear: both;
     line-height: 1.5;
-    font-size: 1.3em;}
+    font-size: 1.2rem;}
 
 /*main jobs header*/
 .jobs_heading{
     text-align: center;
     color: rgb(6, 98, 40);
     font-size: 3rem;
-    padding-bottom: 0.5em;}
+    padding-bottom: 0.5rem;}
 
 /*left side of job desc*/
 .job_description_left{
@@ -535,42 +513,42 @@ form h3 {
     width: 48%;}
 
 /*indenting list items, since they aren't moved by default. might be due to affect of other css?*/
-.list_indent{margin-left: 1.5em;}
+.list_indent{margin-left: 1.5rem;}
 
 /*grey to imply they aren't main content*/
 .reference_number{color: rgb(88, 88, 88);}
 
 /*h1 styling*/
 h1.job_title {
-    font: bold 1.5em Arial, Helvetica, sans-serif;
+    font: bold 1.5rem Arial, Helvetica, sans-serif;
     color: rgb(3, 59, 22);}
 
 /*left top box*/
 #job_prompt{ 
     float: left;
     clear: left;
-    font-size: 1.3em;
+    font-size: 1.2rem;
     width: 50%;
-    margin-left: 4.5em;
+    margin-left: 4.5rem;
     border: 0.25rem solid rgb(0, 0, 0);
     background-color: rgb(162, 196, 134);
-    padding: 1em;
-    border-radius: 1em;}
+    padding: 1rem;
+    border-radius: 1rem;}
 
 /*aside*/
 #job_aside {
     float: right;
     clear: right;
-    font-size: 1.3em;
+    font-size: 1.2rem;
     width: 25%;
-    margin-right: 4.5em;
-    margin-bottom: 1em;
+    margin-right: 4.5rem;
+    margin-bottom: 1rem;
 
     border: 0.25rem solid rgb(165, 148, 53);
     background-color: #cac79a;
-    padding: 1em;
-    border-radius: 1em;
-    box-shadow: 0.25em 0.25em 0.75em #1c1b1b;}
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0.25rem 0.25rem 0.75rem #1c1b1b;}
 
 .apply_container{ /*Allows the reference number and the apply button to be inline*/
     display: flex;
@@ -584,11 +562,11 @@ h1.job_title {
     text-decoration: none;
     background-color: green;
     font-weight: bold;
-    font-size: 1.25em;
+    font-size: 1.2rem;
     border: 0.25rem solid rgb(6, 98, 40);
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     text-align: center;
-    margin-top: 0.5em;}
+    margin-top: 0.5rem;}
 
 .buttons_description_box:hover {/*Hover for buttons*/
     color: green;
@@ -600,7 +578,7 @@ h1.job_title {
     /* Header adjustments */
     #heading_not_homepage {
         font-size: 2rem; /* Adjust heading size */
-        margin: 0.5em 0;} /* Add some margin */
+        margin: 0.5rem 0;} /* Add some margin */
 
     #header_logo_not_homepage {scale: 0.45;}
 
@@ -608,19 +586,14 @@ h1.job_title {
     nav{text-align: center;}
 
     html, body {
-        background-size: cover; /*Adjust background scaling*/
-        border-left: 15px solid rgb(0, 0, 0); 
-        border-right: 15px solid black;}
-
-    .side_textbar {
-        width: 2.5rem;  /*40px -> 2.5rem*/
-        font-size: 1.875rem;}  /*30px -> 1.875rem*/
+        background-size: cover; /*Adjust background scaling*/}
 
     /************************************************************/
     /* For index.html */
     #header_logo {width: 15.625rem;} 
 
     .home_nav nav {align-items: center;}
+    .home_nav h2{font-size: 2rem;}
 
     .home_nav svg, .home_nav p{
         width: 6.25rem;  
@@ -649,23 +622,23 @@ h1.job_title {
         clear: both;
         flex-direction: column;
         width: 90%;
-        margin: 1em auto; /* Center using auto margins */
-        padding: 1em;
+        margin: 1rem auto; /* Center using auto margins */
+        padding: 1rem;
         /* Reset positioning */
         margin-left: auto;
         margin-right: auto;
-        padding-left: 1em;
-        padding-right: 1em;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
         font-size: 0.6rem;
-        padding: 0.4em;}
+        padding: 0.4rem;}
 
     textarea {
         width: 100%;
-        height: 5em;}
+        height: 5rem;}
 
     /************************************************************/
     /* For about.html */
@@ -684,18 +657,18 @@ h1.job_title {
     #about_the_team_container { /*Make the about the team section stacked above the group photo*/
         flex-direction: column;
         align-items: center;
-        gap: 2em;
-        padding: 1em;}
+        gap: 2rem;
+        padding: 1rem;}
 
     #about_the_team {
         width: 90%;
-        font-size: 0.8em;
+        font-size: 1.2rem;
         margin: 0 auto;  /* Center the text section */
         flex: none; }     /* Remove flex properties */
 
     #group_photo {
         width: 100%;
-        margin: 2em auto;  /* Add margin and center */
+        margin: 2rem auto;  /* Add margin and center */
         flex: none;        /* Remove flex properties */
         float: none;}      /* Remove float */
     /************************************************************/
@@ -704,7 +677,7 @@ h1.job_title {
     /*smaller margin and font size to fit more in on smaller reses*/
     .job_description_box{
         margin: 1rem 1rem;
-        font-size: 1em;}
+        font-size: 1rem;}
 
     /*section stacking*/
     .job_description_left, .job_description_right{
@@ -738,10 +711,6 @@ h1.job_title {
 
 /* Responsive styles for screens up to 425px */
 @media (max-width: 425px) {
-    .side_textbar {
-        width: 1.875rem;  /*30px -> 1.875rem*/
-        font-size: 1.25rem;  /*20px -> 1.25rem*/}
-
     footer {
         font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
         line-height: 1.5;}
@@ -754,47 +723,47 @@ h1.job_title {
         flex-direction: column; /*Stack nav items vertically*/
         align-items: center;}
 
-    .home_nav h2{font-size: 1.1em;}
+    .home_nav h2{font-size: 1.5rem;}
 
     .home_nav svg, .home_nav p {
         width: 5rem;  /*80px -> 5rem*/
-        font-size: 0.9rem; /*Adjust font size: 14px */}
+        font-size: 1rem;}
 
     .company_description, .home_email {
         width: 95%; /*Maximize width for smaller screens*/}
 
     .company_description p{
-        font-size: 0.7em; /*Adjust text size*/
+        font-size: 0.9rem; /*Adjust text size*/
         text-align: center;  /*Align text to center*/}
 
-    .home_email #email_prompt, .home_email a p {font-size: 0.85em; /*Adjust text size*/}
+    .home_email #email_prompt, .home_email a p {font-size: 1rem; /*Adjust text size*/}
 
     /************************************************************/
     /* For Apply.html */
     #applicant_details, #technical_skills, #other_skills_section {
         width: 95%; /* Slightly wider on very small screens */
-        margin: 0.5em auto; /* Reduce vertical spacing */
-        padding: 0.5em;
+        margin: 0.5rem auto; /* Reduce vertical spacing */
+        padding: 0.5rem;
     }
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
         font-size: 0.5rem;
-        padding: 0.3em;}
+        padding: 0.3rem;}
 
     textarea {
         width: 90%;
-        height: 2em;}
+        height: 2rem;}
      /************************************************************/
     /* For jobs.html */
-    .job_description_box{font-size: 0.9em;}
+    .job_description_box{font-size: 0.9rem;}
 
     #job_prompt, #job_aside{
-        font-size: 0.9em;
+        font-size: 0.9rem;
         text-align: center;}
     /************************************************************/
     /* For about.html */
     #about_the_team {
-        font-size: 0.8em;
+        font-size: 1rem;
         margin: 0 auto;  /* Center the text section */
         flex: none;      /* Remove flex properties */}
 }
