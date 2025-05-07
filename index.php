@@ -19,7 +19,7 @@
 <body class="hero_background">
     <!--Group Name and Top of page -->
     <header>
-        <a href="index.html"> <!--Link Logo to Home Page-->
+        <a href="index.php"> <!--Link Logo to Home Page-->
             <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
         </a>
         <!--Logo created using GenAI-->

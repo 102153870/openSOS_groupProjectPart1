@@ -1,7 +1,7 @@
 <!-- Modular Header file -->
 <section>
     <!-- OpenSOS Logo -->
-    <a href="index.html"> <!--Link Logo to Home Page-->
+    <a href="index.php"> <!--Link Logo to Home Page-->
     <img src="images/tab_icon.png" alt="OpenSOS logo" id="header_logo_not_homepage">
     </a>
 

@@ -103,7 +103,7 @@
                 <br><br>
                 <div class="apply_container">
                     <p class="reference_number"><em>Reference Number: H3110</em></p>
-                    <a href="apply.html" class="buttons_description_box">Apply</a>
+                    <a href="apply.php" class="buttons_description_box">Apply</a>
                 </div>
             </section>
         </div>
@@ -175,7 +175,7 @@
                 <br>
                 <div class="apply_container">
                     <p class="reference_number"><em>Reference Number: T4B13</em></p>
-                    <a href="apply.html" class="buttons_description_box">Apply</a>
+                    <a href="apply.php" class="buttons_description_box">Apply</a>
                 </div>
             </section>
         </div>
@@ -251,7 +251,7 @@
                 <br><br>
                 <div class="apply_container">
                     <p class="reference_number"><em>Reference Number: P1224</em></p>
-                    <a href="apply.html" class="buttons_description_box">Apply</a>
+                    <a href="apply.php" class="buttons_description_box">Apply</a>
                 </div>
             </section>
         </div>
