@@ -11,7 +11,6 @@
     <meta name="description" content="Project Part 1 about.html Page (About the team)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
-    <meta name="Description" content="Learn about the developers behind this web project!">
     <meta name="author" content="Henry Low">
     <title>About Us</title>
 
