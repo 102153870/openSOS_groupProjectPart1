@@ -256,7 +256,7 @@
             </section>
         </div>
     </main>
-  
+
     <?php include 'footer.inc' ?> <!--Include Footer-->
 </body>
 </html>
