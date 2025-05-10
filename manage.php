@@ -23,6 +23,10 @@
             $page_title = "Manage"; // Set the page title
             include 'header.inc'; // Include the header file
         ?>
-        <?php include 'nav.inc' ?> <!--Include Navigation Bar-->
+
     </header>
+    
+    <div>
+        
+    </div>
 </body>
