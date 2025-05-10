@@ -490,7 +490,7 @@ form h3 {
 
     margin: 1.5rem 4.5rem;
     clear: both;
-    line-height: 1.5;
+    line-height: 1.75rem;
     font-size: 1.2rem;}
 
 /*main jobs header*/
@@ -504,12 +504,14 @@ form h3 {
 .job_description_left{
     float: left;
     clear: left;
+    line-height: 1.75rem;
     width: 48%;}
 
 /*right side of job desc*/
 .job_description_right{
     float: right;
     clear: right;
+    line-height: 1.75rem; /*added consistent line height from feedback*/
     width: 48%;}
 
 /*indenting list items, since they aren't moved by default. might be due to affect of other css?*/
@@ -533,6 +535,7 @@ h1.job_title {
     border: 0.25rem solid rgb(0, 0, 0);
     background-color: rgb(162, 196, 134);
     padding: 1rem;
+    line-height: 1.75rem;
     border-radius: 1rem;}
 
 /*aside*/
@@ -544,10 +547,11 @@ h1.job_title {
     margin-right: 4.5rem;
     margin-bottom: 1rem;
 
-    border: 0.25rem solid rgb(165, 148, 53);
-    background-color: #cac79a;
+    border: 0.25rem solid rgb(12, 107, 0);
+    background-color: #9bff92;
     padding: 1rem;
     border-radius: 1rem;
+    line-height: 1.75rem;
     box-shadow: 0.25rem 0.25rem 0.75rem #1c1b1b;}
 
 .apply_container{ /*Allows the reference number and the apply button to be inline*/
@@ -753,7 +757,7 @@ h1.job_title {
     textarea {
         width: 90%;
         height: 2rem;}
-     /************************************************************/
+    /************************************************************/
     /* For jobs.html */
     .job_description_box{font-size: 0.9rem;}
 
