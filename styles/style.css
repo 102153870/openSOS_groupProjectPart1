@@ -87,6 +87,7 @@ main {
 footer {
     background: rgb(26, 25, 25);
     font-size: 1rem;
+    flex: end;
     align-items: center;
     padding: 1rem 3rem; /* Add horizontal padding */
     width: 100%;
@@ -689,7 +690,6 @@ h1.job_title {
     footer {
         font-size: 0.9rem; /*Adjust size for smaller screen*/
         flex-direction: column; /*Stack footer content*/
-        flex: end;
         text-align: center;
         line-height: 1.5;}
 

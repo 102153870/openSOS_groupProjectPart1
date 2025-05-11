@@ -13,8 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Verify credentials (replace with proper validation)
         if ($username === "admin" && $password === "password123") {
+            $_SESSION['username'] = $username; // Store username in session
             $_SESSION['login_attempts'] = 0;
-            header("Location: manager_dashboard.php");
+            header("Location: manage.php");
             exit();
         } else {
             $_SESSION['login_attempts']++;
@@ -97,7 +98,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </main>
-
-    <?php include 'footer.inc'; ?>
 </body>
 </html>

@@ -1,6 +1,14 @@
 <?php
 session_start();
-// Add authentication check here
+
+// Check if user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: manager_login.php");
+    exit();
+}
+
+// Get username from session
+$username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +20,7 @@ session_start();
 </head>
 <body>
     <h1>Manager Dashboard</h1>
-    <p>Welcome to the manager dashboard!</p>
+        <p>Welcome to the manager dashboard  <?php echo htmlspecialchars($username) ?>!</p>;
+
 </body>
 </html>
