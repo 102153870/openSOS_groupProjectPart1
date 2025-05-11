@@ -30,7 +30,7 @@
             </a>
         </div>
         <div class="manager_login_link">
-            <a href="manager_login.php">
+            <a href="enhancements.php">
                 <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
                 <p>Manager Log In</p>
             </a>
