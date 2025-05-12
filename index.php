@@ -21,10 +21,9 @@
     <header class="home_header">
         <div class="theme_container">
             <!-- Placeholder for the left item -->
-            <p>THEME SWITCHER PLACEHOLDER</p>
             <?php include 'theme.inc' ?> <!--Include Theme Switcher-->
         </div>
-        <div class="home_logo_container">
+        <div class="page_title_container">
             <a href="index.php">
                 <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
             </a>
@@ -32,7 +31,7 @@
         <div class="manager_login_link">
             <a href="enhancements.php">
                 <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
-                <p>Manager Log In</p>
+                <p>User Log In</p>
             </a>
         </div>
     </header>
