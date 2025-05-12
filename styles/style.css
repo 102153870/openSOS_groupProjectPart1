@@ -9,6 +9,62 @@ last modified: 12/4/2025
 
 description: refers to index.html, about.html, apply.html and jobs.html
 */
+/*Variables for theme selector*/
+:root {
+    /* Default/Original (Green) Theme */
+    --home_background_image: url("images/homepage_background.jpg");
+    --heading_color: rgb(3, 59, 22);
+    --textcard_color: #b8ebab;
+    --section_span_color: rgb(162, 196, 134);
+    --home_nav_icon_color: #64dd5d;
+    --nav_bg: #c5ffd9;
+    --home_nav_hover_color: rgb(23, 248, 188);
+    --aside_bg: #9bff92;
+    --gradient_start: rgb(110, 189, 101);
+    --gradient_end: rgba(50, 185, 170, 0.836);
+}
+
+/* Red Theme */
+:root:has(#red:checked) {
+    --home_background_image: url("images/homepage_background_red.jpg");
+    --heading_color: rgb(59, 3, 3);
+    --textcard_color: #ebabab;
+    --section_span_color: rgb(196, 134, 134);
+    --home_nav_icon_color: #dd5d5d;
+    --nav_bg: #ffc5c5;
+    --home_nav_hover_color: rgb(248, 23, 23);
+    --aside_bg: #ff9292;
+    --gradient_start: rgb(189, 101, 101);
+    --gradient_end: rgba(185, 50, 50, 0.836);
+}
+
+/* Blue Theme */
+:root:has(#blue:checked) {
+    --home_background_image: url("images/homepage_background_blue.jpg");
+    --heading_color: rgb(3, 22, 59);
+    --textcard_color: #abc5eb;
+    --section_span_color: rgb(134, 162, 196);
+    --home_nav_icon_color: #5d95dd;
+    --nav_bg: #c5e0ff;
+    --home_nav_hover_color: rgb(188, 210, 246);
+    --aside_bg: #92b8ff;
+    --gradient_start: rgb(101, 145, 189);
+    --gradient_end: rgba(50, 108, 185, 0.836);
+}
+
+/* Yellow Theme */
+:root:has(#yellow:checked) {
+    --home_background_image: url("images/homepage_background_yellow.jpg");
+    --heading_color: rgb(59, 59, 3);
+    --textcard_color: #ebebb8;
+    --section_span_color: rgb(196, 196, 134);
+    --home_nav_icon_color: #dddd5d;
+    --nav_bg: #ffffc5;
+    --home_nav_hover_color: rgb(194, 194, 1);
+    --aside_bg: #ffeb92;
+    --gradient_start: rgb(189, 189, 101);
+    --gradient_end: rgba(185, 185, 50, 0.836);
+}
 
 /* Universal Selectors */
 *{
@@ -27,7 +83,7 @@ description: refers to index.html, about.html, apply.html and jobs.html
 
 /*Changes to website background colour*/
 body {
-    background: linear-gradient(to bottom, rgb(110, 189, 101) 0%, rgba(50, 185, 170, 0.836) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
+    background: linear-gradient(to bottom, var(--gradient_start) 0%, var(--gradient_end) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
     background-attachment: fixed; /* Keeps gradient pinned during scroll */
     background-size: cover; /* Cover entire area */
     background-repeat: no-repeat;
@@ -61,7 +117,7 @@ nav{
     flex-wrap: wrap;
     justify-content: space-evenly;
     font-size: 2rem;
-    background-color: #c5ffd9;
+    background-color: var(--nav_bg);
     border: solid black 0.25rem;
     padding: 1%;
     padding-left: 4%;
@@ -71,7 +127,7 @@ nav a {
     text-decoration: none;
     padding: 0.5rem;;
     border-radius: 50%;
-    color: rgb(2, 83, 34);
+    color: var(--heading_color);
     font-weight: bold;
     transition: transform 0.1s ease-in-out; /*Smooth animation*/}
 
@@ -121,7 +177,7 @@ footer p #jira_link:hover, footer p #github_link:hover {
     padding: 1%;
 
     line-height: 1.5;
-    background-color: rgb(162, 196, 134);
+    background-color: var(--section_span_color);
     border-top: 0.25rem solid black;
     border-bottom: 0.25rem solid black;}
 
@@ -129,8 +185,11 @@ footer p #jira_link:hover, footer p #github_link:hover {
 /*index.html specific CSS*/
 /*Homepage background image*/
 body.hero_background {
-    background: url("images/homepage_background.jpg") center/cover no-repeat fixed;
-    /*Background image source: https://www.pinterest.com/pin/43699058879898852/ */
+    background: var(--home_background_image) center/cover no-repeat fixed;
+    /*Background image source (original): https://www.pinterest.com/pin/43699058879898852/ */
+    /*Background image source (red): https://au.pinterest.com/pin/12877548931304716/*/
+    /*Background image source (blue): https://au.pinterest.com/pin/316237205085060604/ */
+    /*Background image source (yellow): https://www.pinterest.com/pin/43699058879898852/ */
 }
 
 /* Homepage header flexbox */
@@ -142,21 +201,33 @@ body.hero_background {
     width: 100%; /* Ensure it spans the full width*/
 }
 
-/* Change Theme (Left) */
+/* Changing Theme (Left) */
 .theme_container {
     flex: 1; /* Takes 1/3 of the available space */
     text-align: center; 
     font-size: 1rem;
     color: #333;
     padding-left: 1%;
+    width: fit-content;
 }
 
+#theme_selector{
+    display: inline-block;
+    background-color: lightgray;
+    padding: 0.5rem 1rem;
+    border: solid black 0.25rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+
 /* Center logo styling */
-.home_logo_container {
+.page_title_container {
     flex: 1; /* Takes 1/3 of the available space */
     display: flex;
     justify-content: center; /* Centers the logo within its 1/3 space */
     align-items: center; /* Ensures vertical centering if needed */
+    width: fit-content;
 }
 
 /* Header Logo Formatting */
@@ -166,12 +237,11 @@ body.hero_background {
     height: auto;
 }
 
-/*Manager Login (Right)*/
 .manager_login_link {
-    flex: 1; /* Takes 1/3 of the available space */
+    flex: 1;
     display: flex;
-    justify-content: flex-end; /* Aligns its content (the <a> tag) to the right */
-    align-items: center; /* Vertically aligns the <a> tag */
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
     padding-right: 2%;
 }
 
@@ -231,7 +301,7 @@ body.hero_background {
 .home_nav .nav_item a svg {
     width: 9.375rem;
     height: auto;
-    fill: #64dd5d; /* Change icon color */
+    fill: var(--home_nav_icon_color); /* Change icon color */
     stroke: #000000; /* Add stroke color */
     stroke-width: 0.5;
     transition: transform 0.1s ease-in-out, fill 0.3s ease;
@@ -250,8 +320,8 @@ body.hero_background {
 
 .home_nav .nav_item a:hover svg, .home_nav .nav_item a:hover p {
     transform: scale(1.1);
-    fill:  rgb(23, 248, 188); /* Grey Blue color on hover */
-    color:  rgb(45, 233, 183); /* Match text color with icon on hover */}
+    fill: var(--home_nav_hover_color); /* Grey Blue color on hover */
+    color: var(--home_nav_hover_color); /* Match text color with icon on hover */}
 
 /*Description and Email Formatting*/
 .company_description, .home_email{ /*Box format*/
@@ -261,14 +331,14 @@ body.hero_background {
     box-shadow: 10px 10px 5px #1c1b1b;
     margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
     width: 70%;
-    background-color: #b8ebab;
+    background-color: var(--textcard_color);
     text-align: center;}
 
 .company_description h1, .home_email h2{ /*Box titles*/ 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:white;
     display: inline-block; /*Makes the background and border match the text width*/
-    background-color: rgb(3, 59, 22);
+    background-color: var(--heading_color);
     padding: 5px 10px; 
     border-radius: 10px; 
     margin: auto; }
@@ -317,12 +387,12 @@ body.hero_background {
 .section_heading{
     text-align: center; 
     font-size: 2rem; 
-    color: rgb(3, 59, 22);}
+    color: var(--heading_color);}
 
 /*OpenSOS Highlight text*/
 #highlight{
     font-weight: bolder;
-    color: rgb(3, 59, 22);}
+    color: var(--heading_color);}
 
 /* Team intro table styling */
 .team_intro {
@@ -334,10 +404,10 @@ body.hero_background {
 
 .team_intro th { /* table header */
     padding: 1rem;
-    background-color: rgb(3, 59, 22);
+    background-color:var(--heading_color);
     color: white;}
 
-.team_intro td{background-color: #b8ebab;}
+.team_intro td{background-color:var(--textcard_color);}
 
 .team_intro img { /* Individual images*/
     width: 100%;
@@ -360,7 +430,7 @@ body.hero_background {
     padding: 2rem 1rem;}
 
 .about_section {
-    background-color: #b8ebab;
+    background-color: var(--textcard_color);
     padding: 1rem;
     border: rgb(0, 0, 0) 0.25rem solid;
     border-radius: 10px;
@@ -375,7 +445,7 @@ body.hero_background {
     line-height: 1.5;}
 
 .about_section li {/*Lists for about section formatting*/
-    background-color: #b8ebab;
+    background-color: var(--textcard_color);
     padding: 0 .5rem;
     font-size: 1.5rem;}
 
@@ -397,15 +467,15 @@ th, td {
     text-align: center;}
 
 th {
-    background-color: rgb(3, 59, 22);
+    background-color: var(--heading_color);
     color: white;
     font-weight: bold;}
 
-td {background-color: #b8ebab;;}
+td {background-color:var(--textcard_color);}
 
 /* Hover effect for table*/
 td:hover {
-    background-color: #a5d2d8;
+    background-color: var(--home_nav_hover_color);
     color: rgb(255, 255, 255);}
 
 #about_the_team_container { /*allows flexible design for the about the team section*/
@@ -419,10 +489,10 @@ td:hover {
 
 #about_the_team {
     flex: 0 1 55%;
-    background-color: rgb(162, 196, 134);
+    background-color: var(--section_span_color);
     font-size: 1rem;
     padding: 2rem;
-    border: darkgreen 0.4rem solid;
+    border: var(--heading_color) 0.4rem solid;
     border-radius: 10px;
     text-align: center;
     line-height: 1.5;
@@ -443,7 +513,7 @@ td:hover {
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
-    color:rgb(6, 98, 40);
+    color:var(--heading_color);
 }
 
 #apply_subheading {
@@ -468,7 +538,7 @@ form h3 {
     text-align: center;
     font-weight: bold;
     margin: auto;
-    background: #b8ebab;
+    background: var(--textcard_color);
     padding: 0.75rem;
     width: 42%;
     line-height: 1.2rem;;
@@ -542,7 +612,7 @@ form h3 {
     padding: 1rem;
     border-radius: 1rem;
     border: 0.25rem solid black;
-    background-color:  #b8ebab;
+    background-color: var(--textcard_color);
     height: 100%; /* Or set a fixed height like 500px */
     overflow: auto;
 
@@ -581,7 +651,7 @@ form h3 {
 /*h1 styling*/
 h1.job_title {
     font: bold 1.5rem Arial, Helvetica, sans-serif;
-    color: rgb(3, 59, 22);}
+    color: var(--heading_color);}
 
 /*left top box*/
 #job_prompt{ 
@@ -591,7 +661,7 @@ h1.job_title {
     width: 50%;
     margin-left: 4.5rem;
     border: 0.25rem solid rgb(0, 0, 0);
-    background-color: rgb(162, 196, 134);
+    background-color: var(--section_span_color);
     padding: 1rem;
     line-height: 1.75rem;
     border-radius: 1rem;}
@@ -605,8 +675,8 @@ h1.job_title {
     margin-right: 4.5rem;
     margin-bottom: 1rem;
 
-    border: 0.25rem solid rgb(12, 107, 0);
-    background-color: #9bff92;
+    border: 0.25rem solid black;
+    background-color: var(--aside_bg);
     padding: 1rem;
     border-radius: 1rem;
     line-height: 1.75rem;
@@ -622,17 +692,17 @@ h1.job_title {
     padding: 1%;
     color: white;
     text-decoration: none;
-    background-color: green;
+    background-color: var(--heading_color);
     font-weight: bold;
     font-size: 1.2rem;
-    border: 0.25rem solid rgb(6, 98, 40);
+    border: 0.25rem solid black;
     border-radius: 0.5rem;
     text-align: center;
     margin-top: 0.5rem;}
 
 .buttons_description_box:hover {/*Hover for buttons*/
-    color: green;
-    background-color: white;
+    color: black;
+    background-color: var(--home_nav_hover_color);
     cursor: pointer;}
 
 
