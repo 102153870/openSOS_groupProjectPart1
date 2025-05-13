@@ -27,7 +27,7 @@
     <!-- Begin the main content of the web page -->
     <main>
         <!-- Begin the form. The form submits to the process_eoi.php page -->
-        <form action="process_eoi.php" method="post" novalidate=”novalidate”>
+        <form action="process_eoi.php" method="post" novalidate="novalidate">
             <br>
             <!-- The drop down box for the job reference number -->
             <fieldset id="job_selection">
@@ -51,8 +51,8 @@
                     <!-- The 'title' of the section -->
                     <h3>Personal Details:</h3>
                     <br>
-                    <!-- Max 20 alpha characters -->
-                    <label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" required></label>
+                    <!-- Max 20 alpha characters. Has inline CSS!! -->
+                    <p><label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" style="<?php echo $error ?  'border:2px solid red;' : ''; ?>" required></label></p>
                     <br>
                     <!-- Max 20 alpha characters -->
                     <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,20}" required></label>
