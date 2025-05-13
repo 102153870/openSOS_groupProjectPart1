@@ -76,7 +76,7 @@
                     <h3>Address:</h3>
                     <br>
                     <!-- Max 40 alphanumeric characters for address, allows slashes (/) and dashes (-) as well -->
-                    <label for="address">Address: <input type="text" id="address" name="address" pattern="[\da-zA-Z/-]{1,40}"></label>
+                    <label for="address">Address: <input type="text" id="address" name="address" placeholder="1/110 John street" pattern="[\da-zA-Z/]{1,40}"></label>
                     <br>
                     <!-- Max 40 characters for address, only allows characters -->
                     <label for="suburb">Suburb: <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z]{1,40}"></label>

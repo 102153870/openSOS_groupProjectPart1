@@ -39,7 +39,7 @@
 <body>
     <header>
         <?php
-            $page_title = "process_eio"; // Set the page title
+            $page_title = "Processing Expression of Interest"; // Set the page title
             include 'header.inc'; // Include the header file
         ?>
         <?php include 'nav.inc' ?> <!--Include Navigation Bar-->
@@ -47,7 +47,6 @@
 
     <!-- Begin the main content of the web page -->
     <main>
-        <h1>Processing Expression of Interest</h1>
         <?php
             // Check if the form has been submitted using the button, if not show an error message
             // This also stops directly accessing the page by typing the URL of the PHP file
@@ -60,13 +59,15 @@
                     $errors = [];
 
                     // Personal Details
+                    // Do we need to santise/validate input when the user doesn't type anything?
                     if (isset($_POST["job_ref_number"])) $job_ref_number = sanitise_input($_POST["job_ref_number"]);
                     if (isset($_POST['given_name'])) 
                     {
                         $first_name = sanitise_input($_POST['given_name']);
+                        // Check for empty string to give better error messages for the user
                         if ($first_name == "") 
                         {
-                            $errors[] = "First name is required.";
+                            $errors[] = "Please enter your first name.";
                         } 
                         elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $first_name)) 
                         {
@@ -78,35 +79,90 @@
                         $last_name = sanitise_input($_POST['family_name']);
                         if ($last_name == "") 
                         {
-                            $errors[] = "Last name is required.";
+                            $errors[] = "Please enter your last name.";
                         } 
                         elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $last_name)) 
                         {
                             $errors[] = "Please only use characters for your last name and ensure it is less than 20 characters.";
                         } 
                     }
-                    // Do we need to santise input when the user doesn't type anything?
+                    // Do we need to santise/validate input when the user doesn't type anything?
                     if (isset($_POST['dob'])) $dob = sanitise_input($_POST['dob']);
-                    // Do we need to santise input when the user doesn't type anything?
+                    // Do we need to santise/validate input when the user doesn't type anything?
                     if (isset($_POST['gender'])) $gender = sanitise_input($_POST['gender']); 
 
                     // Address
-                    if (isset($_POST['address'])) $address = sanitise_input($_POST['address']);
-                    if (isset($_POST['suburb'])) $suburb = sanitise_input($_POST['suburb']);
-                    if (isset($_POST['postcode'])) $postcode = sanitise_input($_POST['postcode']);
-                    // Do we need to santise input when the user doesn't type anything?
+                    if (isset($_POST['address'])) 
+                    {
+                        $address = sanitise_input($_POST['address']);
+                        if ($address == "")
+                        {
+                            $errors[] = "Please enter your address.";
+                        }
+                        elseif (!preg_match("/^[\da-zA-Z\/]{1,40}$/", $address)) 
+                        {
+                            $errors[] = "Address must be less than 40 characters. Only characters, numbers and slashes(/) are allowed";
+                        } 
+                    }
+                    if (isset($_POST['suburb'])) 
+                    {
+                        $suburb = sanitise_input($_POST['suburb']);
+                        if ($suburb == "")
+                        {
+                            $errors[] = "Please enter your suburb.";
+                        }
+                        elseif (!preg_match("/^[a-zA-Z]{1,40}$/", $suburb)) 
+                        {
+                            $errors[] = "Please only use characters for your suburb and ensure it is less than 40 characters.";
+                        } 
+                    }
+                    if (isset($_POST['postcode'])) 
+                    {
+                        $postcode = sanitise_input($_POST['postcode']);
+                        if ($postcode == "")
+                        {
+                            $errors[] = "Please enter your postcode.";
+                        }
+                        elseif (!preg_match("/^\d{4}$/", $postcode)) 
+                        {
+                            $errors[] = "Please ensure your postcode is 4 digits.";
+                        } 
+                    }
+                    // Do we need to santise/validate input when the user doesn't type anything?
                     if (isset($_POST['state'])) $state = sanitise_input($_POST['state']);
 
                     // Contact Details
-                    if (isset($_POST['phone'])) $phone = sanitise_input($_POST['phone']);
-                    if (isset($_POST['email'])) $email = sanitise_input($_POST['email']);
+                    if (isset($_POST['phone'])) 
+                    {
+                        $phone = sanitise_input($_POST['phone']);
+                        if ($phone == "")
+                        {
+                            $errors[] = "Please enter your phone number.";
+                        }
+                        elseif (!preg_match("/^[0-9 ]{8,12}$/", $phone)) 
+                        {
+                            $errors[] = "Please ensure your phone number is between 8 and 12 digits.";
+                        }
+                    }
+                    if (isset($_POST['email'])) 
+                    {
+                        $email = sanitise_input($_POST['email']);
+                        if ($email == "")
+                        {
+                            $errors[] = "Please enter your email address.";
+                        }
+                        elseif (!preg_match("/^[^@\s]+@[^@\s]+\.[^@\s]+$/", $email)) 
+                        {
+                            $errors[] = "Please ensure your email address is the correct format (email@domain.com).";
+                        }
+                    }
 
                     // Skills
                     if (isset($_POST['skills'])) 
                     {
                         $skills = array_map(function($skill) 
                         {
-                            // Sanitise each skill input
+                            // Do we need to santise/validate input when the user doesn't type anything?
                             return sanitise_input($skill);
                         }, $_POST['skills']);
                     }
