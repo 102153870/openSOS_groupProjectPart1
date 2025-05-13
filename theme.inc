@@ -1,3 +1,4 @@
+<!--Theme Selector Section-->
 <div id="theme_selector">
   <p><strong>Please choose a theme:</strong></p>
 
