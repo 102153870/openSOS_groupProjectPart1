@@ -5,9 +5,9 @@ author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
-last modified: 12/4/2025
+last modified: 13/5/2025
 
-description: refers to index.html, about.html, apply.html and jobs.html
+description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php
 */
 /*Variables for theme selector*/
 :root {
@@ -182,7 +182,7 @@ footer p #jira_link:hover, footer p #github_link:hover {
     border-bottom: 0.25rem solid black;}
 
 /************************************************************/
-/*index.html specific CSS*/
+/*index.php specific CSS*/
 /*Homepage background image*/
 body.hero_background {
     background: var(--home_background_image) center/cover no-repeat fixed;
@@ -382,7 +382,7 @@ body.hero_background {
 .home_email a:hover #email_icon, .home_email a:hover p {transform: scale(1.2);}
 
 /************************************************************/
-/*about.html specific CSS*/
+/*about.php specific CSS*/
 /*Section headings*/
 .section_heading{
     text-align: center; 
@@ -509,7 +509,7 @@ td:hover {
     margin: 0;}
 
 /************************************************************/
-/*apply.html specific CSS*/
+/*apply.php specific CSS*/
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
@@ -533,7 +533,7 @@ form h3 {
     border: none;
 }
 
-/* Appicants details attributes */
+/* Applicants details attributes */
 #applicant_details, #technical_skills, #other_skills_section {
     text-align: center;
     font-weight: bold;
@@ -606,7 +606,7 @@ form h3 {
 }
 
 /************************************************************/
-/*jobs.html specific CSS*/
+/*jobs.php specific CSS*/
 /*description box div*/
 .job_description_box{
     padding: 1rem;
@@ -706,6 +706,15 @@ h1.job_title {
     cursor: pointer;}
 
 
+/************************************************************/
+/*processing_eoi.php specific CSS*/
+.process_eoi_text {
+    text-align: center;
+}
+#process_error_list {
+    list-style-type: square;
+}
+
 /* Responsive styles for screens up to 925px */
 @media (max-width: 925px) {
     
@@ -723,7 +732,7 @@ h1.job_title {
         background-size: cover; /*Adjust background scaling*/}
 
     /************************************************************/
-    /* For index.html */
+    /* For index.php */
     .home_header {
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center-align items */
@@ -764,7 +773,7 @@ h1.job_title {
         line-height: 1.5;}
 
     /************************************************************/
-    /* For apply.html */
+    /* For apply.php */
     #applicant_details, #technical_skills, #other_skills_section {
         display: flex;
         float: none; /* Remove float */
@@ -790,7 +799,7 @@ h1.job_title {
         height: 5rem;}
 
     /************************************************************/
-    /* For about.html */
+    /* For about.php */
     .section_heading{font-size: 1.5rem;}
     .about_section, .about_section li{font-size: 1rem;}
 
@@ -821,7 +830,7 @@ h1.job_title {
         flex: none;        /* Remove flex properties */
         float: none;}      /* Remove float */
     /************************************************************/
-    /* For jobs.html */
+    /* For jobs.php */
 
     /*smaller margin and font size to fit more in on smaller reses*/
     .job_description_box{
@@ -865,7 +874,7 @@ h1.job_title {
         line-height: 1.5;}
 
     /************************************************************/
-    /* For index.html */
+    /* For index.php */
     #header_logo {width: 12.5rem;}  /*200px -> 12.5rem*/
 
     .home_nav nav {
@@ -888,7 +897,7 @@ h1.job_title {
     .home_email #email_prompt, .home_email a p {font-size: 1rem; /*Adjust text size*/}
 
     /************************************************************/
-    /* For Apply.html */
+    /* For Apply.php */
     #applicant_details, #technical_skills, #other_skills_section {
         width: 95%; /* Slightly wider on very small screens */
         margin: 0.5rem auto; /* Reduce vertical spacing */
@@ -903,14 +912,14 @@ h1.job_title {
         width: 90%;
         height: 2rem;}
     /************************************************************/
-    /* For jobs.html */
+    /* For jobs.php */
     .job_description_box{font-size: 0.9rem;}
 
     #job_prompt, #job_aside{
         font-size: 0.9rem;
         text-align: center;}
     /************************************************************/
-    /* For about.html */
+    /* For about.php */
     #about_the_team {
         font-size: 1rem;
         margin: 0 auto;  /* Center the text section */
