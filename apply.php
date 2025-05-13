@@ -4,7 +4,7 @@
 <head>
     <!-- Metadata tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 apply.html Page">
+    <meta name="description" content="Project Part 2 apply.php Page">
     <meta name="keywords" content="HTML5, Forms, Group Project, Job Application">
     <meta name="author" content="Mark Richards">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,12 +26,9 @@
 
     <!-- Begin the main content of the web page -->
     <main>
-        <!-- Begin the form. The form submits to the Swinburne formtest.php page -->
-        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
-            <!-- Sub Heading -->
-            <!-- <h2 id="apply_subheading">Please enter the relevant information for your application</h2> -->
+        <!-- Begin the form. The form submits to the process_eoi.php page -->
+        <form action="process_eoi.php" method="post">
             <br>
-
             <!-- The drop down box for the job reference number -->
             <fieldset id="job_selection">
                 <h2 id="apply_subheading">Please enter the relevant information for your application</h2>
@@ -78,8 +75,11 @@
                 <section id="address_details" class="input">
                     <h3>Address:</h3>
                     <br>
-                    <!-- Max 40 characters -->
-                    <label for="address">Address: <input type="text" id="unit_number" name="unit_number" pattern="[\da-zA-Z/]{1,40}"></label>
+                    <!-- Max 40 alphanumeric characters for address, allows slashes (/) and dashes (-) as well -->
+                    <label for="address">Address: <input type="text" id="address" name="address" pattern="[\da-zA-Z/-]{1,40}"></label>
+                    <br>
+                    <!-- Max 40 characters for address, only allows characters -->
+                    <label for="suburb">Suburb: <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z]{1,40}"></label>
                     <br>
                     <!-- 4 digits -->
                     <label for="post_code">Postcode: <input type="text" id="post_code" name="post_code" pattern="\d{4}" required></label>
