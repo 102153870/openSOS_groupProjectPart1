@@ -27,7 +27,7 @@
     <!-- Begin the main content of the web page -->
     <main>
         <!-- Begin the form. The form submits to the process_eoi.php page -->
-        <form action="process_eoi.php" method="post">
+        <form action="process_eoi.php" method="post" novalidate=”novalidate”>
             <br>
             <!-- The drop down box for the job reference number -->
             <fieldset id="job_selection">

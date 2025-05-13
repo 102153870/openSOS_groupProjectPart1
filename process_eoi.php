@@ -56,15 +56,39 @@
                 // If the connection is made succesfully santise all input
                 if ($db_conn)
                 {
+                    // Personal Details
                     if (isset($_POST["job_ref_number"])) $job_ref_number = sanitise_input($_POST["job_ref_number"]);
-                    if (isset($_POST['given_name'])) $firstname = sanitise_input($_POST['given_name']);
-                    if (isset($_POST['family_name'])) $lastname = sanitise_input($_POST['family_name']);
+                    if (isset($_POST['given_name'])) $first_name = sanitise_input($_POST['given_name']);
+                    if (isset($_POST['family_name'])) $last_name = sanitise_input($_POST['family_name']);
                     // Do we need to santise input when the user doesn't type anything?
                     if (isset($_POST['dob'])) $dob = sanitise_input($_POST['dob']);
                     // Do we need to santise input when the user doesn't type anything?
                     if (isset($_POST['gender'])) $gender = sanitise_input($_POST['gender']); 
+
+                    // Address
+                    if (isset($_POST['address'])) $address = sanitise_input($_POST['address']);
+                    if (isset($_POST['suburb'])) $suburb = sanitise_input($_POST['suburb']);
+                    if (isset($_POST['postcode'])) $postcode = sanitise_input($_POST['postcode']);
+                    // Do we need to santise input when the user doesn't type anything?
+                    if (isset($_POST['state'])) $state = sanitise_input($_POST['state']);
+
+                    // Contact Details
+                    if (isset($_POST['phone'])) $phone = sanitise_input($_POST['phone']);
                     if (isset($_POST['email'])) $email = sanitise_input($_POST['email']);
 
+                    // Skills
+                    if (isset($_POST['skills'])) 
+                    {
+                        $skills = array_map(function($skill) 
+                        {
+                            // Sanitise each skill input
+                            return sanitise_input($skill);
+                        }, $_POST['skills']);
+                    }
+                    if (isset($_POST['other_skills'])) $other_skills = sanitise_input($_POST['other_skills']);
+
+                    // Check all input for errors
+                    
                 }
             }
             // Force the user back to the form if they reached the page without submitting the form
