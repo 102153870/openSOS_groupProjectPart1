@@ -17,16 +17,25 @@
 
 
 <body class="hero_background">
-    <!--Group Name and Top of page -->
-    <header>
-        <a href="index.php"> <!--Link Logo to Home Page-->
-            <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
-        </a>
-        <!--Logo created using GenAI-->
-        <!--Prompt: Business Name: OpenSOS, Theme: Green, White, Grey, Tagline: Sourcing the Best-->
-        <!--Website: https://logo.app -->
+    <!--Group Name and Top of page/Manager Login -->
+    <header class="home_header">
+        <div class="theme_container">
+            <!-- Placeholder for the left item -->
+            <?php include 'theme.inc' ?> <!--Include Theme Switcher-->
+        </div>
+        <div class="page_title_container">
+            <a href="index.php">
+                <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
+            </a>
+        </div>
+        <div class="manager_login_link">
+            <a href="enhancements.php">
+                <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
+                <p>User Log In</p>
+            </a>
+        </div>
     </header>
- 
+
     <!--Main content for page-->
     <main>
         <!--Description of Company-->
