@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Project Part 1 index.html Page (Home Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
@@ -16,21 +17,27 @@
 
 
 <body class="hero_background">
-    <!--Group Name and Top of page -->
-    <header>
-        <a href="index.html"> <!--Link Logo to Home Page-->
-            <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
-        </a>
-        <!--Logo created using GenAI-->
-        <!--Prompt: Business Name: OpenSOS, Theme: Green, White, Grey, Tagline: Sourcing the Best-->
-        <!--Website: https://logo.app -->
+    <!--Group Name and Top of page/Manager Login -->
+    <header class="home_header">
+        <div class="theme_container">
+            <!-- Placeholder for the left item -->
+            <?php include 'theme.inc' ?> <!--Include Theme Switcher-->
+        </div>
+        <div class="page_title_container">
+            <a href="index.php">
+                <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
+            </a>
+        </div>
+        <div class="manager_login_link">
+            <a href="enhancements.php">
+                <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
+                <p>User Log In</p>
+            </a>
+        </div>
     </header>
- 
+
     <!--Main content for page-->
     <main>
-        <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOS</div>
-        <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOS</div>
-
         <!--Description of Company-->
         <section class="company_description">
             <h1 id="description_heading">What We Do</h1>
@@ -53,7 +60,7 @@
 
             <nav>
                 <div class="nav_item"><!--Careers Nav Icon-->
-                    <a href="jobs.html">
+                    <a href="jobs.php">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g> 
                                 <path d="M9 7H5C3.89543 7 3 7.89543 3 9V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V9C21 7.89543 20.1046 7 19 7H15M9 7V5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7M9 7H15" 
@@ -66,7 +73,7 @@
                 </div>
             
                 <div class="nav_item"><!--Apply Nav Icon-->
-                    <a href="apply.html">
+                    <a href="apply.php">
                         <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
                             <g> 
                                 <path d="M10 3a7 7 0 100 14 7 7 0 000-14zm-9 7a9 9 0 1118 0 9 9 0 01-18 0zm14 .069a1 1 0 01-1 1h-2.931V14a1 1 0 11-2 0v-2.931H6a1 1 0 110-2h3.069V6a1 
@@ -79,7 +86,7 @@
                 </div>
 
                 <div class="nav_item"> <!--About Us Nav Icon-->
-                    <a href="about.html">
+                    <a href="about.php">
                         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
                             <g transform="translate(42.666667, 42.666667)"> 
                                 <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 
@@ -109,12 +116,7 @@
         
     </main>
 
-     <!--Footer-->
-     <footer>
-        <p>&copy; OpenSOS 2025. All rights reserved.</p>
-        <p><a href="https://opensos.atlassian.net/jira/software/projects/SCRUM/boards/1" title="Go To Jira Board" id="jira_link" target="_blank"><em>Jira Board</em></a></p>
-        <p><a href="https://github.com/102153870/openSOS_groupProjectPart1" title="Go to Github Repository" id="github_link" target="_blank"><em>Github Link</em></a></p>
-    </footer>
+    <?php include 'footer.inc' ?> <!--Include Footer-->
     
 </body>
 

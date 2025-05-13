@@ -8,6 +8,7 @@
     <!-- Metadata tags -->
      <!--Charset I don't understand-->
     <meta charset="UTF-8">
+    <meta name="description" content="Project Part 1 about.html Page (About the team)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Henry Low">
@@ -22,29 +23,14 @@
 
 <body>
     <header>
-        <section>
-            <!-- OpenSOS Logo -->
-            <a href="index.html"> <!--Link Logo to Home Page-->
-                <img src="images/tab_icon.png" alt="OpenSOS logo" id="header_logo_not_homepage">
-            </a>
-            <!-- Heading -->
-            <h1 id="heading_not_homepage">About Us</h1>
-        </section>
-
-        <!-- The navigation bar -->
-        <!-- The navigation menu should be the same for all pages -->
-        <nav>
-            <a href="index.html" title="Homepage">Homepage</a>
-            <a href="jobs.html" title="Job Descriptions">Job Descriptions</a>
-            <a href="apply.html" title="Apply">Apply</a>
-            <a href="about.html" title="About Us">About Us</a>
-        </nav>
+        <?php
+            $page_title = "About Us"; // Set the page title
+            include 'header.inc'; // Include the header file
+        ?>
+        <?php include 'nav.inc' ?> <!--Include Navigation Bar-->
     </header>
 
     <main>
-        <div class="side_textbar left_side">OPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOS</div>
-        <div class="side_textbar right_side">OPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOSOPENSOS</div>
-      
         <!--individual photo and their epic title-->
         <br>
         <table class="team_intro">
@@ -174,11 +160,7 @@
             </figure>
         </div>
       </main>
-    <footer>
-        <p>&copy; OpenSOS 2025. All rights reserved.</p>
-        <p><a href="https://opensos.atlassian.net/jira/software/projects/SCRUM/boards/1" title="Go To Jira Board" id="jira_link" target="_blank"><em>Jira Board</em></a></p>
-        <p><a href="https://github.com/102153870/openSOS_groupProjectPart1" title="Go to Github Repository" id="github_link" target="_blank"><em>Github Link</em></a></p>
-    </footer>
+    <?php include 'footer.inc' ?> <!--Include Footer-->
 
 
 </body>
