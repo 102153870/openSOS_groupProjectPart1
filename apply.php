@@ -82,7 +82,7 @@
                     <label for="suburb">Suburb: <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z]{1,40}"></label>
                     <br>
                     <!-- 4 digits -->
-                    <label for="post_code">Postcode: <input type="text" id="post_code" name="post_code" pattern="\d{4}" required></label>
+                    <label for="postcode">Postcode: <input type="text" id="postcode" name="postcode" pattern="\d{4}" required></label>
                     <br>
                     <!-- Dropdown menu for the state/territory -->
                     <label for="state">State/Territory

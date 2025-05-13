@@ -39,7 +39,7 @@
 <body>
     <header>
         <?php
-            $page_title = "Processing Expression of Interest"; // Set the page title
+            $page_title = "Processing EOI"; // Set the page title
             include 'header.inc'; // Include the header file
         ?>
         <?php include 'nav.inc' ?> <!--Include Navigation Bar-->
@@ -59,138 +59,192 @@
                     $errors = [];
 
                     // Personal Details
-                    // Do we need to santise/validate input when the user doesn't type anything?
-                    if (isset($_POST["job_ref_number"])) $job_ref_number = sanitise_input($_POST["job_ref_number"]);
-                    if (isset($_POST['given_name'])) 
+                    $job_ref_number = isset($_POST["job_ref_number"]) ? sanitise_input($_POST["job_ref_number"]) : "";
+                    if ($job_ref_number == "") 
                     {
-                        $first_name = sanitise_input($_POST['given_name']);
-                        // Check for empty string to give better error messages for the user
-                        if ($first_name == "") 
-                        {
-                            $errors[] = "Please enter your first name.";
-                        } 
-                        elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $first_name)) 
-                        {
-                            $errors[] = "Please only use characters for your first name and ensure it is less than 20 characters.";
-                        } 
+                        $errors[] = "Please select the job you are applying for.";
                     }
-                    if (isset($_POST['family_name'])) 
+                    $first_name = isset($_POST["given_name"]) ? sanitise_input($_POST["given_name"]) : "";
+                    // Check for empty strings to give better error messages for users
+                    if ($first_name == "") 
                     {
-                        $last_name = sanitise_input($_POST['family_name']);
-                        if ($last_name == "") 
-                        {
-                            $errors[] = "Please enter your last name.";
-                        } 
-                        elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $last_name)) 
-                        {
-                            $errors[] = "Please only use characters for your last name and ensure it is less than 20 characters.";
-                        } 
+                        $errors[] = "Please enter your first name.";
+                    } 
+                    elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $first_name)) 
+                    {
+                        $errors[] = "Please only use characters for your first name and ensure it is less than 20 characters.";
                     }
-                    // Do we need to santise/validate input when the user doesn't type anything?
-                    if (isset($_POST['dob'])) $dob = sanitise_input($_POST['dob']);
-                    // Do we need to santise/validate input when the user doesn't type anything?
-                    if (isset($_POST['gender'])) $gender = sanitise_input($_POST['gender']); 
+                    $last_name = isset($_POST["family_name"]) ? sanitise_input($_POST["family_name"]) : "";
+                    if ($last_name == "") 
+                    {
+                        $errors[] = "Please enter your last name.";
+                    } 
+                    elseif (!preg_match("/^[a-zA-Z]{1,20}$/", $last_name)) 
+                    {
+                        $errors[] = "Please only use characters for your last name and ensure it is less than 20 characters.";
+                    }
+                    $dob = isset($_POST["dob"]) ? sanitise_input($_POST["dob"]) : "";
+                    if ($dob == "") 
+                    {
+                        $errors[] = "Please enter your date of birth.";
+                    }
+                    $gender = isset($_POST["gender"]) ? sanitise_input($_POST["gender"]) : "";
+                    if ($gender == "") 
+                    {
+                        $errors[] = "Please select your gender.";
+                    }
 
                     // Address
-                    if (isset($_POST['address'])) 
+                    $address = isset($_POST["address"]) ? sanitise_input($_POST["address"]) : "";
+                    if ($address == "") 
                     {
-                        $address = sanitise_input($_POST['address']);
-                        if ($address == "")
-                        {
-                            $errors[] = "Please enter your address.";
-                        }
-                        elseif (!preg_match("/^[\da-zA-Z\/]{1,40}$/", $address)) 
-                        {
-                            $errors[] = "Address must be less than 40 characters. Only characters, numbers and slashes(/) are allowed";
-                        } 
-                    }
-                    if (isset($_POST['suburb'])) 
+                        $errors[] = "Please enter your address.";
+                    } 
+                    elseif (!preg_match("/^[\da-zA-Z\/ ]{1,40}$/", $address)) 
                     {
-                        $suburb = sanitise_input($_POST['suburb']);
-                        if ($suburb == "")
-                        {
-                            $errors[] = "Please enter your suburb.";
-                        }
-                        elseif (!preg_match("/^[a-zA-Z]{1,40}$/", $suburb)) 
-                        {
-                            $errors[] = "Please only use characters for your suburb and ensure it is less than 40 characters.";
-                        } 
+                        $errors[] = "Address must be less than 40 characters. Only characters, numbers and slashes(/) are allowed";
                     }
-                    if (isset($_POST['postcode'])) 
+                    $suburb = isset($_POST["suburb"]) ? sanitise_input($_POST["suburb"]) : "";
+                    if ($suburb == "") 
                     {
-                        $postcode = sanitise_input($_POST['postcode']);
-                        if ($postcode == "")
-                        {
-                            $errors[] = "Please enter your postcode.";
-                        }
-                        elseif (!preg_match("/^\d{4}$/", $postcode)) 
-                        {
-                            $errors[] = "Please ensure your postcode is 4 digits.";
-                        } 
+                        $errors[] = "Please enter your suburb.";
+                    } 
+                    elseif (!preg_match("/^[a-zA-Z ]{1,40}$/", $suburb)) 
+                    {
+                        $errors[] = "Please only use characters for your suburb and ensure it is less than 40 characters.";
                     }
-                    // Do we need to santise/validate input when the user doesn't type anything?
-                    if (isset($_POST['state'])) $state = sanitise_input($_POST['state']);
+                    $postcode = isset($_POST["postcode"]) ? sanitise_input($_POST["postcode"]) : "";
+                    if ($postcode == "") 
+                    {
+                        $errors[] = "Please enter your postcode.";
+                    } 
+                    elseif (!preg_match("/^\d{4}$/", $postcode)) 
+                    {
+                        $errors[] = "Please ensure your postcode is 4 digits.";
+                    }
+                    $state = isset($_POST["state"]) ? sanitise_input($_POST["state"]) : "";
+                    if ($state == "") 
+                    {
+                        $errors[] = "Please select your state.";
+                    }
 
                     // Contact Details
-                    if (isset($_POST['phone'])) 
+                    $phone_number = isset($_POST["phone_number"]) ? sanitise_input($_POST["phone_number"]) : "";
+                    if ($phone_number == "") 
                     {
-                        $phone = sanitise_input($_POST['phone']);
-                        if ($phone == "")
-                        {
-                            $errors[] = "Please enter your phone number.";
-                        }
-                        elseif (!preg_match("/^[0-9 ]{8,12}$/", $phone)) 
-                        {
-                            $errors[] = "Please ensure your phone number is between 8 and 12 digits.";
-                        }
+                        $errors[] = "Please enter your phone number.";
+                    } 
+                    elseif (!preg_match("/^[0-9 ]{8,12}$/", $phone_number)) 
+                    {
+                        $errors[] = "Please ensure your phone number is between 8 and 12 digits.";
                     }
-                    if (isset($_POST['email'])) 
+                    $email = isset($_POST["email"]) ? sanitise_input($_POST["email"]) : "";
+                    if ($email == "") 
                     {
-                        $email = sanitise_input($_POST['email']);
-                        if ($email == "")
-                        {
-                            $errors[] = "Please enter your email address.";
-                        }
-                        elseif (!preg_match("/^[^@\s]+@[^@\s]+\.[^@\s]+$/", $email)) 
-                        {
-                            $errors[] = "Please ensure your email address is the correct format (email@domain.com).";
-                        }
+                        $errors[] = "Please enter your email address.";
+                    } 
+                    //([^@\s]+) Make sure there are one or more characters that are not whitespace or the @ symbol
+                    //(@) Make sure the @ symbol comes next
+                    //([^@\s]+) Make sure there is at least one character that is not whitespace or @ symbol
+                    //(\.) Make sure the dot is next
+                    //([^@\s]+) Make sure there is at least one character that is not whitespace or @ symbol
+                    elseif (!preg_match("/^[^@\s]+@[^@\s]+\.[^@\s]+$/", $email)) 
+                    {
+                        $errors[] = "Please ensure your email address is the correct format (email@domain.com).";
                     }
 
                     // Skills
-                    if (isset($_POST['skills'])) 
+                    $skills = isset($_POST['skills']) ? implode(", ", array_map('sanitise_input', $_POST["skills"])) : "";
+                    if ($skills == "") 
                     {
-                        $skills = array_map(function($skill) 
-                        {
-                            // Do we need to santise/validate input when the user doesn't type anything?
-                            return sanitise_input($skill);
-                        }, $_POST['skills']);
+                        $errors[] = "Please select at least one skill";
                     }
-                    if (isset($_POST['other_skills'])) $other_skills = sanitise_input($_POST['other_skills']);
-
+                    $other_skills = isset($_POST["other_skills"]) ? sanitise_input($_POST["other_skills"]) : "";
                     
-
                     // Show errors if there are any 
                     if (!empty($errors))
                     {
-                        echo"<h2>The following errors were found in your submission:</h2>";
+                        echo"<h2 class='process_eoi_text'>The following errors were found in your submission:</h2>";
                         // Iterate through each error
+                        echo"<ul class='process_eoi_text' id='process_error_list'>";
                         foreach ($errors as $error)
                         {
-                            echo"<p>" . htmlspecialchars($error) . "</p>";
+                            echo"<li>" . htmlspecialchars($error) . "</li>";
                         }
-                        echo"<p><strong>Please fix your errors and resubmit.</strong></p>";
+                        echo"</ul>";
+                        echo"<p class='process_eoi_text'><strong>Please fix your errors and resubmit.</strong></p>";
                     }
+                    else
+                    {
+                        // Submit the EOI to the database
+                        // Check if the table exists
+                        $check_table_query = "SHOW TABLES LIKE 'eoi'";
+                        $check_table_result = mysqli_query($db_conn, $check_table_query);
+                        if (mysqli_num_rows($check_table_result) == 0)
+                        {
+                            // The table doesnt exist so we need to create it
+                            $create_table = "CREATE TABLE eoi (
+                                            eoi_number INT AUTO_INCREMENT PRIMARY KEY,
+                                            job_ref_number VARCHAR(5),
+                                            first_name VARCHAR(20),
+                                            last_name VARCHAR(20),
+                                            dob DATE,
+                                            gender VARCHAR(20),
+                                            address VARCHAR(40),
+                                            suburb VARCHAR(40),
+                                            state VARCHAR(3),
+                                            postcode VARCHAR(4),
+                                            email_address VARCHAR(100),
+                                            phone_number VARCHAR(12),
+                                            skills VARCHAR(100),
+                                            other_skills VARCHAR(500),
+                                            status VARCHAR(7)
+                                            )";
+                            // Make sure the table was created
+                            if (!mysqli_query($db_conn, $create_table))
+                            {
+                                echo"<p class='process_eoi_text'>Error creating table: " . mysqli_error($db_conn) . "</p>";
+                                exit();
+                            }    
+                        }
+                        // Insert the data into the database
+                        $status = "NEW";
+                        $insert_sql = "INSERT INTO eoi (
+                                        job_ref_number, first_name, last_name, dob, gender,
+                                        address, suburb, state, postcode, phone_number, email_address,
+                                        skills, other_skills, status
+                                    ) VALUES (
+                                        '$job_ref_number', '$first_name', '$last_name', '$dob', '$gender',
+                                        '$address', '$suburb', '$state', '$postcode', '$phone_number', '$email',
+                                        '$skills', '$other_skills', '$status'
+                                    )
+                                ";
+
+                        if (mysqli_query($db_conn, $insert_sql)) 
+                        {
+                            // Get the auto-incremented ID
+                            $eoi_number = mysqli_insert_id($db_conn); 
+                            // Show the message on the page to the user confirming that there EOI has been submitted
+                            echo "<h2 class='process_eoi_text'><br>Thank you for your application, $first_name.</h2>";
+                            echo "<p class='process_eoi_text'>Your Reference number for your application is: <strong>$eoi_number </strong>
+                                  <br><br>We will get back to you soon.</p>";
+                        } 
+                        else 
+                        {
+                            echo "<p class='process_eoi_text'>Error submitting application: " . mysqli_error($db_conn) . "</p>";
+                        }
+                    }
+
+                    // Close the DB connection
+                    mysqli_close($db_conn);
+                }
+                else
+                {
+                    echo"<p class='process_eoi_text'>Unable to connect to the database</p>";
                 }
             }
             // Force the user back to the form if they reached the page without submitting the form
             else header ("Location:apply.php");
-
-            // SHow the message on the page to the user confirming that there EOI has been submitted
-            echo"<br><p>Thank you for your application $first_name.</p>";
-            echo"<p>We will get back to you soon.</p>";
-            // Get the EOINumber from the database
-            echo"<p>Your Reference number for your application is: $eoi_number</p>";
         ?>
         
     </main>
