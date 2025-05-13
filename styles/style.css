@@ -5,9 +5,9 @@ author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
-last modified: 12/4/2025
+last modified: 13/5/2025
 
-description: refers to index.html, about.html, apply.html and jobs.html
+description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php
 */
 /*Variables for theme selector*/
 /*The root checks the input selected by the user from the theme selector*/
@@ -252,7 +252,7 @@ footer p #github_link:hover {
 h2 {text-align: center;}
 
 /************************************************************/
-/*index.html specific CSS*/
+/*index.php specific CSS*/
 /*Homepage background image*/
 body.hero_background {
     background: var(--home_background_image) center/cover no-repeat fixed;
@@ -522,7 +522,7 @@ body.hero_background {
 }
 
 /************************************************************/
-/*about.html specific CSS*/
+/*about.php specific CSS*/
 /*Section headings*/
 .section_heading {
     text-align: center;
@@ -681,7 +681,7 @@ td:hover {
 }
 
 /************************************************************/
-/*apply.html specific CSS*/
+/*apply.php specific CSS*/
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
@@ -705,10 +705,10 @@ form h3 {
     border: none;
 }
 
-/* Appicants details attributes */
-#applicant_details,
-#technical_skills,
-#other_skills_section {
+
+/* Applicants details attributes */
+#applicant_details, #technical_skills, #other_skills_section {
+
     text-align: center;
     font-weight: bold;
     margin: auto;
@@ -786,7 +786,7 @@ form h3 {
 }
 
 /************************************************************/
-/*jobs.html specific CSS*/
+/*jobs.php specific CSS*/
 /*description box div*/
 .job_description_box {
     padding: 1rem;
@@ -905,6 +905,15 @@ h1.job_title {
 }
 
 
+/************************************************************/
+/*processing_eoi.php specific CSS*/
+.process_eoi_text {
+    text-align: center;
+}
+#process_error_list {
+    list-style-type: square;
+}
+
 /* Responsive styles for screens up to 925px */
 @media (max-width: 925px) {
 
@@ -933,7 +942,7 @@ h1.job_title {
     }
 
     /************************************************************/
-    /* For index.html */
+    /* For index.php */
     .home_header {
         flex-direction: column;
         /* Stack items vertically */
@@ -1002,10 +1011,8 @@ h1.job_title {
     }
 
     /************************************************************/
-    /* For apply.html */
-    #applicant_details,
-    #technical_skills,
-    #other_skills_section {
+    /* For apply.php */
+    #applicant_details, #technical_skills, #other_skills_section {
         display: flex;
         float: none;
         /* Remove float */
@@ -1034,15 +1041,9 @@ h1.job_title {
     }
 
     /************************************************************/
-    /* For about.html */
-    .section_heading {
-        font-size: 1.5rem;
-    }
-
-    .about_section,
-    .about_section li {
-        font-size: 1rem;
-    }
+    /* For about.php */
+    .section_heading{font-size: 1.5rem;}
+    .about_section, .about_section li{font-size: 1rem;}
 
     /*Decrease size of table*/
     .team_intro {
@@ -1087,7 +1088,7 @@ h1.job_title {
 
     /* Remove float */
     /************************************************************/
-    /* For jobs.html */
+    /* For jobs.php */
 
     /*smaller margin and font size to fit more in on smaller reses*/
     .job_description_box {
@@ -1139,13 +1140,9 @@ h1.job_title {
     }
 
     /************************************************************/
-    /* For index.html */
-    #header_logo {
-        width: 12.5rem;
-    }
-
-    /*200px -> 12.5rem*/
-
+    /* For index.php */
+    #header_logo {width: 12.5rem;}  /*200px -> 12.5rem*/
+  
     .home_nav nav {
         flex-direction: column;
         /*Stack nav items vertically*/
@@ -1183,14 +1180,10 @@ h1.job_title {
     }
 
     /************************************************************/
-    /* For Apply.html */
-    #applicant_details,
-    #technical_skills,
-    #other_skills_section {
-        width: 95%;
-        /* Slightly wider on very small screens */
-        margin: 0.5rem auto;
-        /* Reduce vertical spacing */
+    /* For Apply.php */
+    #applicant_details, #technical_skills, #other_skills_section {
+        width: 95%; /* Slightly wider on very small screens */
+        margin: 0.5rem auto; /* Reduce vertical spacing */
         padding: 0.5rem;
     }
 
@@ -1206,10 +1199,8 @@ h1.job_title {
     }
 
     /************************************************************/
-    /* For jobs.html */
-    .job_description_box {
-        font-size: 0.9rem;
-    }
+    /* For jobs.php */
+    .job_description_box{font-size: 0.9rem;}
 
     #job_prompt,
     #job_aside {
@@ -1218,7 +1209,7 @@ h1.job_title {
     }
 
     /************************************************************/
-    /* For about.html */
+    /* For about.php */
     #about_the_team {
         font-size: 1rem;
         margin: 0 auto;
