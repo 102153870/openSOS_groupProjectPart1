@@ -10,6 +10,8 @@ last modified: 13/5/2025
 description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php
 */
 /*Variables for theme selector*/
+/*The root checks the input selected by the user from the theme selector*/
+/*Variables are used to dynamically change the color of each theme based on the user input (no JS needed)*/
 :root {
     /* Default/Original (Green) Theme */
     --home_background_image: url("images/homepage_background.jpg");
@@ -67,11 +69,13 @@ description: refers to index.php, about.php, apply.php and jobs.php, process_eoi
 }
 
 /* Universal Selectors */
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box; /*  Make sure the borders dont add extra pixels */
+    box-sizing: border-box;
+    /*  Make sure the borders dont add extra pixels */
     margin: 0;
-    padding: 0;}
+    padding: 0;
+}
 
 /*Headings for pages other than homepage*/
 #heading_not_homepage {
@@ -79,40 +83,51 @@ description: refers to index.php, about.php, apply.php and jobs.php, process_eoi
     font-size: 3rem;
     margin: 0;
     display: flex;
-    align-items: center;}
+    align-items: center;
+}
 
 /*Changes to website background colour*/
 body {
-    background: linear-gradient(to bottom, var(--gradient_start) 0%, var(--gradient_end) 100%); /*previously rgba(245, 241, 226, 0.836) 100%)*/
-    background-attachment: fixed; /* Keeps gradient pinned during scroll */
-    background-size: cover; /* Cover entire area */
+    background: linear-gradient(to bottom, var(--gradient_start) 0%, var(--gradient_end) 100%);
+    /*previously rgba(245, 241, 226, 0.836) 100%)*/
+    background-attachment: fixed;
+    /* Keeps gradient pinned during scroll */
+    background-size: cover;
+    /* Cover entire area */
     background-repeat: no-repeat;
-    
+
     display: flex;
     flex-direction: column;
-    
+
     width: 100%;
     min-height: 100%;
-    margin: 0; /* Remove default browser margin */}
+    margin: 0;
+    /* Remove default browser margin */
+}
 
 /* Changes to the header section */
 header {
     /* Adjusts the content to take up a % value of the vertical space */
-    flex: 0 0 15%;}
+    flex: 0 0 15%;
+}
+
 /* Positioning the heading and openSOS logo */
 header section {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;}
+    align-items: center;
+}
 
 #header_logo_not_homepage {
     scale: 0.6;
-    margin: -1rem; /* Add this to remove any default margins */}
+    margin: -1rem;
+    /* Add this to remove any default margins */
+}
 
 /*Navigation Menu - For all pages except homepage which is styled below*/
-nav{
+nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -121,23 +136,31 @@ nav{
     border: solid black 0.25rem;
     padding: 1%;
     padding-left: 4%;
-    padding-right: 4%;}
+    padding-right: 4%;
+}
 
 nav a {
     text-decoration: none;
-    padding: 0.5rem;;
+    padding: 0.5rem;
+    ;
     border-radius: 50%;
     color: var(--heading_color);
     font-weight: bold;
-    transition: transform 0.1s ease-in-out; /*Smooth animation*/}
+    transition: transform 0.1s ease-in-out;
+    /*Smooth animation*/
+}
 
 nav a:hover {
     color: blue;
-    transform: scale(1.2);}
+    transform: scale(1.2);
+}
 
 /* Changes to the main section */
 main {
-    flex: 1;} /* Takes up remaining space, Scrolls if content is too tall, this keeps the header and footer stationary and scrolls the main part of the page only*/
+    flex: 1;
+}
+
+/* Takes up remaining space, Scrolls if content is too tall, this keeps the header and footer stationary and scrolls the main part of the page only*/
 
 /* Changes to the footer section */
 footer {
@@ -145,26 +168,36 @@ footer {
     font-size: 1rem;
     flex: end;
     align-items: center;
-    padding: 1rem 3rem; /* Add horizontal padding */
+    padding: 1rem 3rem;
+    /* Add horizontal padding */
     width: 100%;
-    margin: 0;}
+    margin: 0;
+}
 
 footer p {
-    flex: 1; /* Make each paragraph take equal space */
-    text-align: center; /* Center the text within each paragraph */
-    margin: 0; /* Remove default margins */
-    color: white;}
+    flex: 1;
+    /* Make each paragraph take equal space */
+    text-align: center;
+    /* Center the text within each paragraph */
+    margin: 0;
+    /* Remove default margins */
+    color: white;
+}
 
 footer p #jira_link {
     text-decoration: none;
-    color: yellow;}
+    color: yellow;
+}
 
 footer p #github_link {
     text-decoration: none;
-    color: rgb(63, 235, 103);}
+    color: rgb(63, 235, 103);
+}
 
-footer p #jira_link:hover, footer p #github_link:hover {
-    color: rgb(185, 217, 227);}
+footer p #jira_link:hover,
+footer p #github_link:hover {
+    color: rgb(185, 217, 227);
+}
 
 /*Section Span (Horizontal Span) Formatting*/
 .section_span {
@@ -179,7 +212,44 @@ footer p #jira_link:hover, footer p #github_link:hover {
     line-height: 1.5;
     background-color: var(--section_span_color);
     border-top: 0.25rem solid black;
-    border-bottom: 0.25rem solid black;}
+    border-bottom: 0.25rem solid black;
+}
+
+/*Login Page for Users and Managers*/
+.login_container {
+    background-color: var(--textcard_color);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 0.25rem solid black;
+    width: 300px;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.login_form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login_button {
+    background-color: var(--heading_color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 1rem auto;
+    /* center horizontally */
+    display: block;
+    /* make it take up full line, so margin auto works */
+}
+
+.error_message {color: red; margin: 1rem 0;}
+
+h2 {text-align: center;}
 
 /************************************************************/
 /*index.php specific CSS*/
@@ -196,22 +266,24 @@ body.hero_background {
 .home_header {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     position: relative;
-    width: 100%; /* Ensure it spans the full width*/
+    width: 100%;
+    /* Ensure it spans the full width*/
 }
 
 /* Changing Theme (Left) */
 .theme_container {
-    flex: 1; /* Takes 1/3 of the available space */
-    text-align: center; 
+    flex: 1;
+    /* Takes 1/3 of the available space */
+    text-align: center;
     font-size: 1rem;
     color: #333;
     padding-left: 1%;
     width: fit-content;
 }
 
-#theme_selector{
+#theme_selector {
     display: inline-block;
     background-color: lightgray;
     padding: 0.5rem 1rem;
@@ -223,25 +295,32 @@ body.hero_background {
 
 /* Center logo styling */
 .page_title_container {
-    flex: 1; /* Takes 1/3 of the available space */
+    flex: 1;
+    /* Takes 1/3 of the available space */
     display: flex;
-    justify-content: center; /* Centers the logo within its 1/3 space */
-    align-items: center; /* Ensures vertical centering if needed */
+    justify-content: center;
+    /* Centers the logo within its 1/3 space */
+    align-items: center;
+    /* Ensures vertical centering if needed */
     width: fit-content;
 }
 
 /* Header Logo Formatting */
 #header_logo {
-    width: 22rem; /* 350px -> 22rem */
-    max-width: 100%; /* Ensure logo doesn't overflow its container */
+    width: 22rem;
+    /* 350px -> 22rem */
+    max-width: 100%;
+    /* Ensure logo doesn't overflow its container */
     height: auto;
 }
 
 .manager_login_link {
     flex: 1;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
     padding-right: 2%;
 }
 
@@ -250,14 +329,16 @@ body.hero_background {
     align-items: center;
     text-decoration: none;
     color: #003800;
-    gap: 2px; /* Spacing between icon and text */
-    font-size: 1.2rem; 
+    gap: 2px;
+    /* Spacing between icon and text */
+    font-size: 1.2rem;
     font-weight: bold;
-    transition: transform 0.1s ease-in-out; /* Smooth animation */
+    transition: transform 0.1s ease-in-out;
+    /* Smooth animation */
 }
 
 .manager_login_link img {
-    width: 4rem; 
+    width: 4rem;
     height: auto;
 }
 
@@ -266,93 +347,136 @@ body.hero_background {
 }
 
 /*Formatting Home Nav Section*/
-.home_nav nav{
-    display:flex;
-    justify-content: space-evenly; /* Distributes items evenly */
+.home_nav nav {
+    display: flex;
+    justify-content: space-evenly;
+    /* Distributes items evenly */
     background-color: transparent;
-    border: none;}
+    border: none;
+}
 
-.home_nav a{ /*Removes the blue hyperlink line*/
+.home_nav a {
+    /*Removes the blue hyperlink line*/
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
-    color: black;}
+    color: black;
+}
 
-.home_nav img, .home_nav p{ /*Refers to the icons and the text*/
+.home_nav img,
+.home_nav p {
+    /*Refers to the icons and the text*/
     width: 150px;
-    padding-top: 25px;;
-    transition: transform 0.1s ease-in-out; /* Smooth animation */
+    padding-top: 25px;
+    ;
+    transition: transform 0.1s ease-in-out;
+    /* Smooth animation */
     font-size: 1rem;
-    text-align: center;}
+    text-align: center;
+}
 
 /* Apply hover effect to both image and text */
-.nav_item a:hover p {transform: scale(1.2);} /* Enlarges both image and text */
+.nav_item a:hover p {
+    transform: scale(1.2);
+}
+
+/* Enlarges both image and text */
 
 /* Prevent global hover styles on home page nav links */
-.home_nav nav a:hover {background-color: transparent;}  /* Remove yellow background */
+.home_nav nav a:hover {
+    background-color: transparent;
+}
+
+/* Remove yellow background */
 
 /*Adjusting the text to be centered and used flexbox */
-.nav_item, .nav_item a {
+.nav_item,
+.nav_item a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;}
+    width: auto;
+}
 
 /* SVG and text styling */
 .home_nav .nav_item a svg {
     width: 9.375rem;
     height: auto;
-    fill: var(--home_nav_icon_color); /* Change icon color */
-    stroke: #000000; /* Add stroke color */
+    fill: var(--home_nav_icon_color);
+    /* Change icon color */
+    stroke: #000000;
+    /* Add stroke color */
     stroke-width: 0.5;
     transition: transform 0.1s ease-in-out, fill 0.3s ease;
-    margin-bottom: 0.5rem;}
+    margin-bottom: 0.5rem;
+}
 
 .home_nav .nav_item a p {
     text-align: center;
-    color: #ffffff; /* Match text color with icon */
+    color: #ffffff;
+    /* Match text color with icon */
     margin: 0;
     width: 100%;
-    padding-top: 0; 
+    padding-top: 0;
     background-color: rgb(0, 0, 0);
     border-radius: 1rem;
-    text-shadow: 2px 2px 2px #000000; /* Add text shadow for better visibility */
-    font-size: 1.5rem;}
+    text-shadow: 2px 2px 2px #000000;
+    /* Add text shadow for better visibility */
+    font-size: 1.5rem;
+}
 
-.home_nav .nav_item a:hover svg, .home_nav .nav_item a:hover p {
+.home_nav .nav_item a:hover svg,
+.home_nav .nav_item a:hover p {
     transform: scale(1.1);
-    fill: var(--home_nav_hover_color); /* Grey Blue color on hover */
-    color: var(--home_nav_hover_color); /* Match text color with icon on hover */}
+    fill: var(--home_nav_hover_color);
+    /* Grey Blue color on hover */
+    color: var(--home_nav_hover_color);
+    /* Match text color with icon on hover */
+}
 
 /*Description and Email Formatting*/
-.company_description, .home_email{ /*Box format*/
+.company_description,
+.home_email {
+    /*Box format*/
     margin: auto;
-    border: 0.25rem solid rgb(0, 0, 0);  /* 5px -> 0.3125rem */
-    border-radius: 1.875rem;  /*30px -> 1.875rem*/
+    border: 0.25rem solid rgb(0, 0, 0);
+    /* 5px -> 0.3125rem */
+    border-radius: 1.875rem;
+    /*30px -> 1.875rem*/
     box-shadow: 10px 10px 5px #1c1b1b;
-    margin-bottom: 1.25rem;  /*20px -> 1.25rem*/
+    margin-bottom: 1.25rem;
+    /*20px -> 1.25rem*/
     width: 70%;
     background-color: var(--textcard_color);
-    text-align: center;}
+    text-align: center;
+}
 
-.company_description h1, .home_email h2{ /*Box titles*/ 
+.company_description h1,
+.home_email h2 {
+    /*Box titles*/
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:white;
-    display: inline-block; /*Makes the background and border match the text width*/
+    color: white;
+    display: inline-block;
+    /*Makes the background and border match the text width*/
     background-color: var(--heading_color);
-    padding: 5px 10px; 
-    border-radius: 10px; 
-    margin: auto; }
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: auto;
+}
 
-.company_description p { /*Description Text*/
+.company_description p {
+    /*Description Text*/
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
-    text-align: justify; /*Aligns text to both sides*/
+    text-align: justify;
+    /*Aligns text to both sides*/
     padding-left: 2%;
     padding-right: 2%;
-    line-height: 2;}
+    line-height: 2;
+}
 
 /*Email specific CSS*/
-.home_email #email_prompt { /*Email text*/
+.home_email #email_prompt {
+    /*Email text*/
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     padding-left: 3%;
@@ -360,39 +484,57 @@ body.hero_background {
     margin-top: 5px;
     text-align: center;
     line-height: 1.5;
-    margin-bottom: 0;}
+    margin-bottom: 0;
+}
 
-.home_email a{ /*Removes the blue hyperlink line*/
+.home_email a {
+    /*Removes the blue hyperlink line*/
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
-    color: black;}
+    color: black;
+}
 
 #email_icon {
-    width: 8.75rem;  /*140px -> 8.75rem*/
+    width: 8.75rem;
+    /*140px -> 8.75rem*/
     height: auto;
-    margin-bottom: 0; /*Remove extra bottom margin*/}
+    margin-bottom: 0;
+    /*Remove extra bottom margin*/
+}
 
-.home_email a p{
-    margin-top: 0; margin-bottom: 0.3rem;
+.home_email a p {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
     font-size: 1.5rem;
-    text-decoration: none;}
+    text-decoration: none;
+}
 
-#email_icon, .home_email a p{transition: transform 0.1s ease-in-out;} /*Smooth animation*/
+#email_icon,
+.home_email a p {
+    transition: transform 0.1s ease-in-out;
+}
 
-.home_email a:hover #email_icon, .home_email a:hover p {transform: scale(1.2);}
+/*Smooth animation*/
+
+.home_email a:hover #email_icon,
+.home_email a:hover p {
+    transform: scale(1.2);
+}
 
 /************************************************************/
 /*about.php specific CSS*/
 /*Section headings*/
-.section_heading{
-    text-align: center; 
-    font-size: 2rem; 
-    color: var(--heading_color);}
+.section_heading {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--heading_color);
+}
 
 /*OpenSOS Highlight text*/
-#highlight{
+#highlight {
     font-weight: bolder;
-    color: var(--heading_color);}
+    color: var(--heading_color);
+}
 
 /* Team intro table styling */
 .team_intro {
@@ -400,23 +542,32 @@ body.hero_background {
     margin: auto;
     border-collapse: collapse;
     border: rgb(0, 0, 0) 0.25rem solid;
-    border-radius: 10px;}
+    border-radius: 10px;
+}
 
-.team_intro th { /* table header */
+.team_intro th {
+    /* table header */
     padding: 1rem;
-    background-color:var(--heading_color);
-    color: white;}
+    background-color: var(--heading_color);
+    color: white;
+}
 
-.team_intro td{background-color:var(--textcard_color);}
+.team_intro td {
+    background-color: var(--textcard_color);
+}
 
-.team_intro img { /* Individual images*/
+.team_intro img {
+    /* Individual images*/
     width: 100%;
     max-width: 200px;
     height: auto;
     border-radius: 10px;
-    transition: transform 0.3s ease;}
+    transition: transform 0.3s ease;
+}
 
-.team_intro img:hover {transform: scale(1.1);}
+.team_intro img:hover {
+    transform: scale(1.1);
+}
 
 /*About Us page content (middle section)*/
 .about_content {
@@ -427,65 +578,82 @@ body.hero_background {
     gap: 2rem;
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 2rem 1rem;}
+    padding: 2rem 1rem;
+}
 
 .about_section {
     background-color: var(--textcard_color);
     padding: 1rem;
     border: rgb(0, 0, 0) 0.25rem solid;
     border-radius: 10px;
-    flex: 1; /* Allows flexible resizing */
+    flex: 1;
+    /* Allows flexible resizing */
     min-width: 250px;
     max-width: 300px;
-    
-    margin: 0; /* Remove margin-left */
+
+    margin: 0;
+    /* Remove margin-left */
     text-align: center;
 
-    list-style-position: inside; /* Puts bullet/number inside the box, aligning better */
-    line-height: 1.5;}
+    list-style-position: inside;
+    /* Puts bullet/number inside the box, aligning better */
+    line-height: 1.5;
+}
 
-.about_section li {/*Lists for about section formatting*/
+.about_section li {
+    /*Lists for about section formatting*/
     background-color: var(--textcard_color);
     padding: 0 .5rem;
-    font-size: 1.5rem;}
+    font-size: 1.5rem;
+}
 
 /* Table styling for Member's Interests*/
-.member_interests table{
+.member_interests table {
     margin: auto;
     width: 60%;
     border-collapse: collapse;
     border: rgb(0, 0, 0) 0.25rem solid;
     border-radius: 10px;
 }
+
 caption {
     font-weight: bold;
-    margin-bottom: 10px;}
+    margin-bottom: 10px;
+}
 
-th, td {
+th,
+td {
     border: 1px solid #ccc;
     padding: 10px;
-    text-align: center;}
+    text-align: center;
+}
 
 th {
     background-color: var(--heading_color);
     color: white;
-    font-weight: bold;}
+    font-weight: bold;
+}
 
-td {background-color:var(--textcard_color);}
+td {
+    background-color: var(--textcard_color);
+}
 
 /* Hover effect for table*/
 td:hover {
     background-color: var(--home_nav_hover_color);
-    color: rgb(255, 255, 255);}
+    color: rgb(255, 255, 255);
+}
 
-#about_the_team_container { /*allows flexible design for the about the team section*/
+#about_the_team_container {
+    /*allows flexible design for the about the team section*/
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3rem;
     margin: 2rem auto;
     max-width: 1000px;
-    padding: 0 2rem;}
+    padding: 0 2rem;
+}
 
 #about_the_team {
     flex: 0 1 55%;
@@ -496,24 +664,28 @@ td:hover {
     border-radius: 10px;
     text-align: center;
     line-height: 1.5;
-    height: 100%;}
-    
-#group_photo { /*Group Photo Styling*/
-    float: right; /*FLoated to the right*/
+    height: 100%;
+}
+
+#group_photo {
+    /*Group Photo Styling*/
+    float: right;
+    /*FLoated to the right*/
     flex: 0 1 35%;
     max-width: 400px;
     display: block;
     border: 0.25rem solid #00381c;
     border-radius: 10px;
     object-fit: cover;
-    margin: 0;}
+    margin: 0;
+}
 
 /************************************************************/
 /*apply.php specific CSS*/
 /* Centre the heading and apply styling */
 form h3 {
     text-align: center;
-    color:var(--heading_color);
+    color: var(--heading_color);
 }
 
 #apply_subheading {
@@ -525,7 +697,7 @@ form h3 {
     font-weight: bold;
     text-align: center;
     font-size: 1rem;
-    color:rgb(4, 42, 61);
+    color: rgb(4, 42, 61);
     margin: auto;
     width: 100%;
     background-color: transparent;
@@ -533,21 +705,25 @@ form h3 {
     border: none;
 }
 
+
 /* Applicants details attributes */
 #applicant_details, #technical_skills, #other_skills_section {
+
     text-align: center;
     font-weight: bold;
     margin: auto;
     background: var(--textcard_color);
     padding: 0.75rem;
     width: 42%;
-    line-height: 1.2rem;;
+    line-height: 1.2rem;
+    ;
     /* Border */
     border: 0.25rem solid black;
     border-radius: 1rem;
     box-shadow: 1rem 0.75rem 0.75rem #1c1b1b;
     margin-bottom: 2rem;
 }
+
 #personal_details fieldset {
     border: none;
 }
@@ -559,11 +735,13 @@ form h3 {
 }
 
 /* ID's skills */
-#technical_skills, #other_skills_section {
+#technical_skills,
+#other_skills_section {
     float: right;
     padding-right: 2rem;
     margin-right: 4.5rem;
 }
+
 #other_skills_section textarea {
     display: flex;
     align-items: center;
@@ -590,7 +768,8 @@ form h3 {
     border: none;
 }
 
-.buttons { /*Styling for the buttons*/
+.buttons {
+    /*Styling for the buttons*/
     padding: 1%;
     color: white;
     background-color: black;
@@ -599,7 +778,8 @@ form h3 {
     border-radius: 1rem;
 }
 
-.buttons:hover { /*Apply button hover effect*/
+.buttons:hover {
+    /*Apply button hover effect*/
     color: black;
     background-color: white;
     cursor: pointer;
@@ -608,53 +788,64 @@ form h3 {
 /************************************************************/
 /*jobs.php specific CSS*/
 /*description box div*/
-.job_description_box{
+.job_description_box {
     padding: 1rem;
     border-radius: 1rem;
     border: 0.25rem solid black;
     background-color: var(--textcard_color);
-    height: 100%; /* Or set a fixed height like 500px */
+    height: 100%;
+    /* Or set a fixed height like 500px */
     overflow: auto;
 
     margin: 1.5rem 4.5rem;
     clear: both;
     line-height: 1.75rem;
-    font-size: 1.2rem;}
+    font-size: 1.2rem;
+}
 
 /*main jobs header*/
-.jobs_heading{
+.jobs_heading {
     text-align: center;
     color: rgb(6, 98, 40);
     font-size: 3rem;
-    padding-bottom: 0.5rem;}
+    padding-bottom: 0.5rem;
+}
 
 /*left side of job desc*/
-.job_description_left{
+.job_description_left {
     float: left;
     clear: left;
     line-height: 1.75rem;
-    width: 48%;}
+    width: 48%;
+}
 
 /*right side of job desc*/
-.job_description_right{
+.job_description_right {
     float: right;
     clear: right;
-    line-height: 1.75rem; /*added consistent line height from feedback*/
-    width: 48%;}
+    line-height: 1.75rem;
+    /*added consistent line height from feedback*/
+    width: 48%;
+}
 
 /*indenting list items, since they aren't moved by default. might be due to affect of other css?*/
-.list_indent{margin-left: 1.5rem;}
+.list_indent {
+    margin-left: 1.5rem;
+}
 
 /*grey to imply they aren't main content*/
-.reference_number{color: rgb(88, 88, 88);}
+.reference_number {
+    color: rgb(88, 88, 88);
+}
 
 /*h1 styling*/
 h1.job_title {
     font: bold 1.5rem Arial, Helvetica, sans-serif;
-    color: var(--heading_color);}
+    color: var(--heading_color);
+}
 
 /*left top box*/
-#job_prompt{ 
+#job_prompt {
     float: left;
     clear: left;
     font-size: 1.2rem;
@@ -664,7 +855,8 @@ h1.job_title {
     background-color: var(--section_span_color);
     padding: 1rem;
     line-height: 1.75rem;
-    border-radius: 1rem;}
+    border-radius: 1rem;
+}
 
 /*aside*/
 #job_aside {
@@ -680,15 +872,19 @@ h1.job_title {
     padding: 1rem;
     border-radius: 1rem;
     line-height: 1.75rem;
-    box-shadow: 0.25rem 0.25rem 0.75rem #1c1b1b;}
+    box-shadow: 0.25rem 0.25rem 0.75rem #1c1b1b;
+}
 
-.apply_container{ /*Allows the reference number and the apply button to be inline*/
+.apply_container {
+    /*Allows the reference number and the apply button to be inline*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;}
+    margin-top: auto;
+}
 
-.buttons_description_box {/*styling for buttons*/
+.buttons_description_box {
+    /*styling for buttons*/
     padding: 1%;
     color: white;
     text-decoration: none;
@@ -698,12 +894,15 @@ h1.job_title {
     border: 0.25rem solid black;
     border-radius: 0.5rem;
     text-align: center;
-    margin-top: 0.5rem;}
+    margin-top: 0.5rem;
+}
 
-.buttons_description_box:hover {/*Hover for buttons*/
+.buttons_description_box:hover {
+    /*Hover for buttons*/
     color: black;
     background-color: var(--home_nav_hover_color);
-    cursor: pointer;}
+    cursor: pointer;
+}
 
 
 /************************************************************/
@@ -717,70 +916,111 @@ h1.job_title {
 
 /* Responsive styles for screens up to 925px */
 @media (max-width: 925px) {
-    
+
     /* Header adjustments */
     #heading_not_homepage {
-        font-size: 2rem; /* Adjust heading size */
-        margin: 0.5rem 0;} /* Add some margin */
+        font-size: 2rem;
+        /* Adjust heading size */
+        margin: 0.5rem 0;
+    }
 
-    #header_logo_not_homepage {scale: 0.45;}
+    /* Add some margin */
+
+    #header_logo_not_homepage {
+        scale: 0.45;
+    }
 
     /*Nav adjustments*/
-    nav{text-align: center;}
+    nav {
+        text-align: center;
+    }
 
-    html, body {
-        background-size: cover; /*Adjust background scaling*/}
+    html,
+    body {
+        background-size: cover;
+        /*Adjust background scaling*/
+    }
 
     /************************************************************/
     /* For index.php */
     .home_header {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center-align items */
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center-align items */
         padding-bottom: 1rem;
     }
 
     .theme_container {
-        order: 2; padding-bottom: 1rem;
-      }
-      .home_logo_container {
-        order: 1; padding-bottom: 1rem;
-      }
-      .manager_login_link {
-        order: 3; padding-bottom: 1rem;
-      }
-    #header_logo {width: 15.625rem;} 
+        order: 2;
+        padding-bottom: 1rem;
+    }
 
-    .home_nav nav {align-items: center;}
-    .home_nav h2{font-size: 2rem;}
+    .home_logo_container {
+        order: 1;
+        padding-bottom: 1rem;
+    }
 
-    .home_nav svg, .home_nav p{
-        width: 6.25rem;  
-        font-size: 1rem;} /*Adjust font size*/
+    .manager_login_link {
+        order: 3;
+        padding-bottom: 1rem;
+    }
 
-    .company_description, .home_email{
-        width: 90%; /*Increase width for smaller screens, easier to read*/
-        margin-bottom: 0.9375rem;}  
+    #header_logo {
+        width: 15.625rem;
+    }
 
-    .company_description p, .home_email #email_prompt{
-        font-size: 1rem; /*Adjust text size*/
+    .home_nav nav {
+        align-items: center;
+    }
+
+    .home_nav h2 {
+        font-size: 2rem;
+    }
+
+    .home_nav svg,
+    .home_nav p {
+        width: 6.25rem;
+        font-size: 1rem;
+    }
+
+    /*Adjust font size*/
+
+    .company_description,
+    .home_email {
+        width: 90%;
+        /*Increase width for smaller screens, easier to read*/
+        margin-bottom: 0.9375rem;
+    }
+
+    .company_description p,
+    .home_email #email_prompt {
+        font-size: 1rem;
+        /*Adjust text size*/
         padding-left: 5%;
-        padding-right: 5%;}
+        padding-right: 5%;
+    }
 
     footer {
-        font-size: 0.9rem; /*Adjust size for smaller screen*/
-        flex-direction: column; /*Stack footer content*/
+        font-size: 0.9rem;
+        /*Adjust size for smaller screen*/
+        flex-direction: column;
+        /*Stack footer content*/
         text-align: center;
-        line-height: 1.5;}
+        line-height: 1.5;
+    }
 
     /************************************************************/
     /* For apply.php */
     #applicant_details, #technical_skills, #other_skills_section {
         display: flex;
-        float: none; /* Remove float */
+        float: none;
+        /* Remove float */
         clear: both;
         flex-direction: column;
         width: 90%;
-        margin: 1rem auto; /* Center using auto margins */
+        margin: 1rem auto;
+        /* Center using auto margins */
         padding: 1rem;
         /* Reset positioning */
         margin-left: auto;
@@ -792,11 +1032,13 @@ h1.job_title {
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
         font-size: 0.6rem;
-        padding: 0.4rem;}
+        padding: 0.4rem;
+    }
 
     textarea {
         width: 100%;
-        height: 5rem;}
+        height: 5rem;
+    }
 
     /************************************************************/
     /* For about.php */
@@ -804,97 +1046,138 @@ h1.job_title {
     .about_section, .about_section li{font-size: 1rem;}
 
     /*Decrease size of table*/
-    .team_intro {width: 95%;}
+    .team_intro {
+        width: 95%;
+    }
 
     .team_intro th {
         font-size: 0.9rem;
-        padding: 0.5rem;}
+        padding: 0.5rem;
+    }
 
-    .team_intro img {max-width: 150px;}
+    .team_intro img {
+        max-width: 150px;
+    }
 
-    #about_the_team_container { /*Make the about the team section stacked above the group photo*/
+    #about_the_team_container {
+        /*Make the about the team section stacked above the group photo*/
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        padding: 1rem;}
+        padding: 1rem;
+    }
 
     #about_the_team {
         width: 90%;
         font-size: 1.2rem;
-        margin: 0 auto;  /* Center the text section */
-        flex: none; }     /* Remove flex properties */
+        margin: 0 auto;
+        /* Center the text section */
+        flex: none;
+    }
+
+    /* Remove flex properties */
 
     #group_photo {
         width: 100%;
-        margin: 2rem auto;  /* Add margin and center */
-        flex: none;        /* Remove flex properties */
-        float: none;}      /* Remove float */
+        margin: 2rem auto;
+        /* Add margin and center */
+        flex: none;
+        /* Remove flex properties */
+        float: none;
+    }
+
+    /* Remove float */
     /************************************************************/
     /* For jobs.php */
 
     /*smaller margin and font size to fit more in on smaller reses*/
-    .job_description_box{
+    .job_description_box {
         margin: 1rem 1rem;
-        font-size: 1rem;}
+        font-size: 1rem;
+    }
 
     /*section stacking*/
-    .job_description_left, .job_description_right{
+    .job_description_left,
+    .job_description_right {
         float: left;
         clear: none;
         margin: auto;
-        width: 100%;}
+        width: 100%;
+    }
 
     /*justified to fit more content*/
-    .job_description_left p{ 
+    .job_description_left p {
         text-align: justify;
-        line-height: 1.5;}
+        line-height: 1.5;
+    }
 
     /*smaller margins, calculating width or else it goes off screen*/
-    #job_prompt{
+    #job_prompt {
         margin-left: 1rem;
         margin-right: 1rem;
         margin-bottom: 1rem;
         width: calc(100% - 2rem);
         float: none;
-        clear: none;}
+        clear: none;
+    }
 
     /*smaller margins, calculating width or else it goes off screen*/
-    #job_aside{
+    #job_aside {
         margin-left: 1rem;
         margin-right: 1rem;
         width: calc(100% - 2rem);
         float: none;
-        clear: none;}
+        clear: none;
+    }
 }
 
 /* Responsive styles for screens up to 425px */
 @media (max-width: 425px) {
     footer {
-        font-size: 0.8rem; /*Further adjust footer text size: : 13px*/
-        line-height: 1.5;}
+        font-size: 0.8rem;
+        /*Further adjust footer text size: : 13px*/
+        line-height: 1.5;
+    }
 
     /************************************************************/
     /* For index.php */
     #header_logo {width: 12.5rem;}  /*200px -> 12.5rem*/
-
+  
     .home_nav nav {
-        flex-direction: column; /*Stack nav items vertically*/
-        align-items: center;}
+        flex-direction: column;
+        /*Stack nav items vertically*/
+        align-items: center;
+    }
 
-    .home_nav h2{font-size: 1.5rem;}
+    .home_nav h2 {
+        font-size: 1.5rem;
+    }
 
-    .home_nav svg, .home_nav p {
-        width: 5rem;  /*80px -> 5rem*/
-        font-size: 1rem;}
+    .home_nav svg,
+    .home_nav p {
+        width: 5rem;
+        /*80px -> 5rem*/
+        font-size: 1rem;
+    }
 
-    .company_description, .home_email {
-        width: 95%; /*Maximize width for smaller screens*/}
+    .company_description,
+    .home_email {
+        width: 95%;
+        /*Maximize width for smaller screens*/
+    }
 
-    .company_description p{
-        font-size: 0.9rem; /*Adjust text size*/
-        text-align: center;  /*Align text to center*/}
+    .company_description p {
+        font-size: 0.9rem;
+        /*Adjust text size*/
+        text-align: center;
+        /*Align text to center*/
+    }
 
-    .home_email #email_prompt, .home_email a p {font-size: 1rem; /*Adjust text size*/}
+    .home_email #email_prompt,
+    .home_email a p {
+        font-size: 1rem;
+        /*Adjust text size*/
+    }
 
     /************************************************************/
     /* For Apply.php */
@@ -903,25 +1186,35 @@ h1.job_title {
         margin: 0.5rem auto; /* Reduce vertical spacing */
         padding: 0.5rem;
     }
+
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
         font-size: 0.5rem;
-        padding: 0.3rem;}
+        padding: 0.3rem;
+    }
 
     textarea {
         width: 90%;
-        height: 2rem;}
+        height: 2rem;
+    }
+
     /************************************************************/
     /* For jobs.php */
     .job_description_box{font-size: 0.9rem;}
 
-    #job_prompt, #job_aside{
+    #job_prompt,
+    #job_aside {
         font-size: 0.9rem;
-        text-align: center;}
+        text-align: center;
+    }
+
     /************************************************************/
     /* For about.php */
     #about_the_team {
         font-size: 1rem;
-        margin: 0 auto;  /* Center the text section */
-        flex: none;      /* Remove flex properties */}
+        margin: 0 auto;
+        /* Center the text section */
+        flex: none;
+        /* Remove flex properties */
+    }
 }

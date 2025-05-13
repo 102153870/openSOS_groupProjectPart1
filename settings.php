@@ -1,5 +1,5 @@
 <?php
-    // settings.php to store connection variables
+// settings.php to store connection variables
     $host = "localhost";     
     $user = "root";   
     $pwd  = ""; 
@@ -14,3 +14,4 @@
         die("Connection Failed: " . mysqli_connect_error());
     }
 ?>
+
