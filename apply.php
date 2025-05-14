@@ -1,3 +1,8 @@
+<?php
+session_start(); // Start fresh session
+require_once 'settings.php'; // Ensure this file correctly initializes $conn
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- The header of the webpage. Contains the meta tags and Title -->
