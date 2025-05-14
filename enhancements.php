@@ -1,73 +1,118 @@
 <?php
 session_start();
-require_once 'settings.php';
+require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
-// Initialize login attempts if not set
+// --- Constants for login logic ---
+define('MAX_LOGIN_ATTEMPTS', 3);
+define('LOCKOUT_DURATION_SECONDS', 10); // Lockout time in seconds
+
+// Initialize session variables if not already set
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
+}
+if (!isset($_SESSION['lockout_time'])) {
     $_SESSION['lockout_time'] = 0;
 }
 
-// Check if account is locked
-function isAccountLocked() {
-    $lockout_duration = 300; // 5 minutes lockout
-    if ($_SESSION['lockout_time'] > 0) {
-        $time_left = $_SESSION['lockout_time'] + $lockout_duration - time();
+// Function to check lockout status and time left
+function getLockoutTimeLeft() {
+    if (isset($_SESSION['lockout_time']) && $_SESSION['lockout_time'] > 0) {
+        $time_passed = time() - $_SESSION['lockout_time'];
+        $time_left = LOCKOUT_DURATION_SECONDS - $time_passed;
         if ($time_left > 0) {
-            return $time_left;
+            return $time_left; // Still locked out
+        } else {
+            // Lockout expired, reset state
+            $_SESSION['lockout_time'] = 0;
+            $_SESSION['login_attempts'] = 0;
+            unset($_SESSION['error']); // Clear error message related to lockout/attempts
+            unset($_SESSION['time_left_message']); // Clear time_left message
+            return 0; // Lockout just expired
         }
-        // Reset lockout if time has expired
-        $_SESSION['lockout_time'] = 0;
-        $_SESSION['login_attempts'] = 0;
     }
-    return 0;
+    return 0; // Not locked out or lockout_time not set
 }
 
-// Handle login form submission
+// Error message variables for the current request (will be stored in session)
+$error = "";
+$time_left_message = "";
+
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $input_username = trim($_POST['username']);
     $input_password = trim($_POST['password']);
 
-    // Check if account is locked
-    $lockout_time = isAccountLocked();
-    if ($lockout_time > 0) {
-        $error = "Account is locked. Please try again in " . ceil($lockout_time / 60) . " minutes.";
-    }
-    else 
-    {
-        // Check in managers table first
-        $query = "SELECT * FROM managers WHERE username = '$input_username' AND password = '$input_password'";
+    $current_lockout_time = getLockoutTimeLeft(); // Check current lockout status
+
+    if ($current_lockout_time > 0) {
+        // This error is set if user tries to submit while already locked.
+        $error = "Account is locked.";
+        $time_left_message = "Please try again in {$current_lockout_time} second(s).";
+    } else {
+        // Not currently locked out, proceed with login attempt
+
+        // Check managers table (
+        $query= "SELECT * FROM managers WHERE username = '$input_username' AND password = '$input_password'";
         $result = mysqli_query($conn, $query);
 
         if ($user = mysqli_fetch_assoc($result)) {
             $_SESSION['username'] = $input_username;
-            $_SESSION['login_attempts'] = 0;
+            $_SESSION['login_attempts'] = 0; // Reset attempts
+            $_SESSION['lockout_time'] = 0;   // Reset lockout time
+            unset($_SESSION['error']);       // Clear any previous error messages
+            unset($_SESSION['time_left_message']); // Clear any previous time_left messages
             header("Location: manage.php");
             exit();
         }
 
-        // If not found in managers, check users table
-        $query = "SELECT * FROM users WHERE username = '$input_username' AND password = '$input_password'";
+        // Check users table 
+        $query= "SELECT * FROM users WHERE username = '$input_username' AND password = '$input_password'";
         $result = mysqli_query($conn, $query);
 
-        if ($user = mysqli_fetch_assoc($result)) {
+        if ($user= mysqli_fetch_assoc($result)) {
             $_SESSION['username'] = $input_username;
-            $_SESSION['login_attempts'] = 0;
+            $_SESSION['login_attempts'] = 0; // Reset attempts
+            $_SESSION['lockout_time'] = 0;   // Reset lockout time
+            unset($_SESSION['error']);       // Clear any previous error messages
+            unset($_SESSION['time_left_message']); // Clear any previous time_left messages
             header("Location: index.php");
             exit();
         }
-        
-        else {
-            $_SESSION['login_attempts']++;
-            if ($_SESSION['login_attempts'] >= 3) {
-                $_SESSION['lockout_time'] = time();
-                $error = "Account locked. Please try again in 5 minutes.";
-            } else {
-                $remaining = 3 - $_SESSION['login_attempts'];
-                $error = "Invalid credentials. $remaining attempt" . ($remaining !== 1 ? "s" : "") . " remaining.";
-            }
+
+        // Invalid credentials if neither manager nor user found
+        $_SESSION['login_attempts']++;
+
+        // Maximum login attempts reached
+        if ($_SESSION['login_attempts'] >= MAX_LOGIN_ATTEMPTS) {
+            $_SESSION['lockout_time'] = time(); // Set lockout time
+            $current_lockout_time = getLockoutTimeLeft(); // This will be LOCKOUT_DURATION_SECONDS
+            $error = "Account locked.";
+            $time_left_message = "Please try again in {$current_lockout_time} second(s).";
+        } else {
+            // Show remaining attempts
+            $remaining_attempts = MAX_LOGIN_ATTEMPTS - $_SESSION['login_attempts'];
+            $error = "Invalid credentials.";
+            $time_left_message = "$remaining_attempts attempt" . ($remaining_attempts !== 1 ? "s" : "") . " remaining.";
+            $_SESSION['lockout_time'] = 0; // Ensure lockout_time is not set if not actually locked
         }
     }
+
+    // Save messages to session
+    $_SESSION['error'] = $error;
+    $_SESSION['time_left_message'] = $time_left_message;
+
+    // Redirect to the same page to display error messages and prevent form resubmission
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
+
+// Call getLockoutTimeLeft() here on every page load (POST or GET).
+$current_lockout_time = getLockoutTimeLeft(); 
+$is_currently_locked_out = ($current_lockout_time > 0);
+
+if ($is_currently_locked_out) {
+    //Refresh the lockout message if still locked out
+    $_SESSION['time_left_message'] = "Please try again in {$current_lockout_time} second(s).";
 }
 ?>
 
@@ -76,77 +121,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manager Login - OpenSOS</title>
+    <title>Login - OpenSOS</title>
     <link rel="stylesheet" href="styles/style.css">
-    <style>
-        .login_container {
-            background-color: #b8ebab;
-            padding: 2rem;
-            border-radius: 10px;
-            border: 0.25rem solid black;
-            width: 300px;
-            margin: 50px auto;
-            text-align: center;
-        }
-        .login_form input {
-            width: 100%;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .login_button {
-            background-color: #003800;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 1rem auto; /* center horizontally */
-            display: block;     /* make it take up full line, so margin auto works */
-        }
-
-        .error_message {
-            color: red;
-            margin: 1rem 0;
-        }
-
-        h2{
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <?php 
+        <?php
             $page_title = "Login Page";
-            include 'header.inc';
+            include 'header.inc'; // Ensure this path is correct
         ?>
     </header>
+   <main>
+    <div class="login_container">
+        <h2>Login here!</h2>
 
-    <main>
-        <div class="login_container">
-            <h2>Login here!</h2>
-            <?php if (isset($error)): ?>
-                <p class="error_message"><?php echo $error; ?></p>
-            <?php endif; ?>
-            <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <div>
-                    <input type="text" name="username" placeholder="Username" required 
-                        <?php echo isAccountLocked() ? 'disabled' : ''; ?>>
-                </div>
-                <div>
-                    <input type="password" name="password" placeholder="Password" required 
-                        <?php echo isAccountLocked() ? 'disabled' : ''; ?>>
-                </div>
-                <button type="submit" class="login_button" <?php echo isAccountLocked() ? 'disabled' : ''; ?>>
-                    Login
-                </button>
-            </form>
-        </div>
+        <!-- Display error messages from session -->
+        <?php
+            // Messages are now cleared by getLockoutTimeLeft() on expiry or by successful login.
+            // They will persist in session across refreshes if the condition is still active.
+            if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+                echo '<p class="error_message">' . htmlspecialchars($_SESSION['error']) . '</p>';
+            }
+            if (isset($_SESSION['time_left_message']) && !empty($_SESSION['time_left_message'])) {
+                echo '<p class="error_message">' . htmlspecialchars($_SESSION['time_left_message']) . '</p>';
+            }
+        ?>
+
+        <!--Login form -->
+        <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+
+            <input type="text" id="username" name="username" placeholder="Username" required
+            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+
+            <input type="password" id="password" name="password" placeholder="Password" required
+            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+
+            <button type="submit" class="login_button" <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+                Login
+            </button>
+        </form>
+    </div>
+
+    <!--Register options -->
+    <div class="register_options">
         <h2>New User? Register your credentials here!</h2>
-        <input type="submit" value="User Register" class="login_button" onclick="window.location.href='register_user.php'">
-        <input type="submit" value="Manager Register" class="login_button" onclick="window.location.href='register_manager.php'">
+        <button type="button" class="login_button" onclick="window.location.href='register_user.php'">User Register</button>
+        <button type="button" class="login_button" onclick="window.location.href='register_manager.php'">Manager Register</button>
+    </div>
     </main>
+    <footer>
+        <?php include 'footer.inc'; ?>
+    </footer>
 </body>
 </html>

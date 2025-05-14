@@ -29,7 +29,7 @@
     <!-- Begin the main content of the web page -->
     <main>
         <p id = "job_prompt">Here, you can view our amazing job descriptions!<br>Browse and view each one for its required skills, and an overview of the work you will be undertaking!<br>Also see appropriate annual salaries, and other important information.</p>
-        <aside id = "job_aside">Use the <a href="apply.html" title="Apply">Apply</a> page to apply for a job.<br>You will need to use the reference code shown in the description of the job you would like to apply for.</aside><!--This might not need to be a float-->
+        <aside id = "job_aside">Use the <a href="apply.php" title="Apply">Apply</a> page to apply for a job.<br>You will need to use the reference code shown in the description of the job you would like to apply for.</aside><!--This might not need to be a float-->
         <br>
 
         <!--jobs in sections-->
