@@ -509,6 +509,45 @@ td:hover {
     margin: 0;}
 
 /************************************************************/
+/* For manage.php */
+
+/* Database Viewer (Anchored Left, Reaches Halfway, Full Height) */
+#databaseViewer {
+    width: 50%;
+    height: 100vh; /* Full height */
+    position: absolute;
+    left: 0;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+/* Search Bar Styling */
+#searchBar {
+    width: 40%;
+    margin-left: 55%;
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 15px;
+}
+
+/* Input Box */
+#searchInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+/* Database Editor */
+#databaseEditor {
+    width: 40%;
+    margin-left: 55%;
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 15px;
+}
+
+
+/************************************************************/
 /*apply.html specific CSS*/
 /* Centre the heading and apply styling */
 form h3 {
@@ -820,6 +859,9 @@ h1.job_title {
         margin: 2rem auto;  /* Add margin and center */
         flex: none;        /* Remove flex properties */
         float: none;}      /* Remove float */
+    
+
+
     /************************************************************/
     /* For jobs.html */
 
