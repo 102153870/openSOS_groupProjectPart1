@@ -29,7 +29,6 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] != 'manager') {
 <html lang="en">
 <head>
     <!-- Metadata tags -->
-     <!--Charset I don't understand-->
     <meta charset="UTF-8">
     <meta name="description" content="Manager screen to view and edit EOI">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

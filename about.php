@@ -133,6 +133,8 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                       <td rowspan="2">106010911</td>
                       <td rowspan="2"><strong>Henry</strong></td>
                       <td>Music and Pokemon</td>
+                      
+
                   </tr>
                   <tr>
                       <td>Movies and Adventures</td>
