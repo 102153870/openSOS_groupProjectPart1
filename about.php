@@ -1,5 +1,9 @@
 <!--Henry's page-->
 <!--Started 29/03/2025-->
+<?php
+session_start(); // Start fresh session
+require_once 'settings.php'; // Ensure this file correctly initializes $conn
+?>
 
 <!DOCTYPE html>
 <html lang="en">

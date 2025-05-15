@@ -215,6 +215,7 @@ footer p #github_link:hover {
     border-bottom: 0.25rem solid black;
 }
 
+/************************************************************/
 /*Login Page for Users and Managers*/
 .login_container {
     background-color: var(--textcard_color);
@@ -246,10 +247,20 @@ footer p #github_link:hover {
     display: block;
     /* make it take up full line, so margin auto works */
 }
-
 .error_message {color: red; margin: 1rem 0;}
 
 h2 {text-align: center;}
+
+/************************************************************/
+/*Profile Page for Users (profile.php)*/
+.profile_container {
+    text-align: center;
+}
+
+/************************************************************/
+/*Manage Page for Users*/
+
+
 
 /************************************************************/
 /*index.php specific CSS*/
