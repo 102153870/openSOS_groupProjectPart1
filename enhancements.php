@@ -124,10 +124,15 @@ if ($is_currently_locked_out) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <<meta charset="UTF-8">
+    <meta name="description" content="Project Part 1 enhancements.php Page (Login Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - OpenSOS</title>
+    <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
+    <meta name="author" content="Rodney Liaw">
+    <title>User Login</title>
+
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="images/tab_icon.png">
 </head>
 <body>
     <header>

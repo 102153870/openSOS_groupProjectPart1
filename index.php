@@ -11,7 +11,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 index.html Page (Home Page)">
+    <meta name="description" content="Project Part 1 index.php Page (Home Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
