@@ -25,7 +25,8 @@
                 $link = 'profile.php';
             }
         }
-?>
+        ?>
+        
         <a href="<?php echo $link; ?>">
             <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
             <p>
