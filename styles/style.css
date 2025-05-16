@@ -85,6 +85,7 @@ description: refers to index.php, about.php, apply.php and jobs.php, process_eoi
     display: flex;
     align-items: center;
 }
+html{height: 100%;}
 
 /*Changes to website background colour*/
 body {
@@ -98,7 +99,6 @@ body {
 
     display: flex;
     flex-direction: column;
-
     width: 100%;
     min-height: 100%;
     margin: 0;
@@ -166,7 +166,6 @@ main {
 footer {
     background: rgb(26, 25, 25);
     font-size: 1rem;
-    flex: end;
     align-items: center;
     padding: 1rem 3rem;
     /* Add horizontal padding */
