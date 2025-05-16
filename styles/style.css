@@ -278,10 +278,19 @@ body.hero_background {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    width: 100%;
-    /* Ensure it spans the full width*/
+    width: 100%; /* Ensure it spans the full width*/
+    padding-top: 0.2rem;
 }
 
+/*Class to make the radio button labels hidden but still exist*/
+.visually_hidden {
+    clip: rect(0·0·0·0);
+    clip-path: inset (50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute; white-space: nowrap;
+    width: 1px;
+}
 /* Changing Theme (Left) */
 .theme_container {
     flex: 1;
@@ -291,8 +300,10 @@ body.hero_background {
     color: #333;
     padding-left: 1%;
     width: fit-content;
+    font-size: 1.2rem;
 }
 
+/*Theme selector block styling*/
 #theme_selector {
     display: inline-block;
     background-color: lightgray;
@@ -302,6 +313,25 @@ body.hero_background {
     text-align: center;
 }
 
+ /*Styling for theme radio buttons*/
+#theme_selector input[type="radio"] {
+    appearance: none;
+    margin: 0.5rem 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    outline: 3px solid var(--radio_color, currentColor);
+    outline-offset: 3px; /*Makes the outline look like a circle (not filled)*/
+    border-radius: 50%;
+}
+/* When a radio button is checked, style its label differently */
+#theme_selector input[type="radio"]:checked{
+  background-color: var(--radio_color);}
+
+/*Making the radio buttons have their respective color outlines*/
+#theme_selector input[type="radio"]#original{--radio_color: green;}
+#theme_selector input[type="radio"]#red{--radio_color: red;}
+#theme_selector input[type="radio"]#blue{--radio_color: blue;}
+#theme_selector input[type="radio"]#yellow{--radio_color: yellow;}
 
 /* Center logo styling */
 .page_title_container {
