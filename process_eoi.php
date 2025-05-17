@@ -207,7 +207,7 @@
                                             other_skills VARCHAR(500),
                                             status VARCHAR(7)
                                             )";
-                            // Make sure the table was created
+                            // Create the table and print an error message if its not created
                             if (!mysqli_query($db_conn, $create_table))
                             {
                                 echo"<p class='process_eoi_text'>Error creating table: " . mysqli_error($db_conn) . "</p>";
