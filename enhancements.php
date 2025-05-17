@@ -53,7 +53,7 @@ $role = ""; // This will be set to either 'user' or 'manager' based on the login
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $input_username = sanitise_input($_POST['username']);
+    $input_email = sanitise_input($_POST['email']);
     $input_password = sanitise_input($_POST['password']);
 
     $current_lockout_time = getLockoutTimeLeft(); // Check current lockout status
@@ -66,11 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Not currently locked out, proceed with login attempt
 
         // Check for managers(
-        $query= "SELECT * FROM users WHERE username = '$input_username' AND password = '$input_password' AND role = 'manager'";
+        $query= "SELECT * FROM users WHERE email = '$input_email' AND password = '$input_password' AND role = 'manager'";
         $result = mysqli_query($db_conn, $query);
 
         if ($user = mysqli_fetch_assoc($result)) {
-            $_SESSION['username'] = $input_username;
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];
             $_SESSION['login_attempts'] = 0; // Reset attempts
             $_SESSION['lockout_time'] = 0;   // Reset lockout time
             $_SESSION['role'] = 'manager'; // Set manager type
@@ -81,11 +82,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Check users table 
-        $query= "SELECT * FROM users WHERE username = '$input_username' AND password = '$input_password' AND role = 'user'";
+        $query= "SELECT * FROM users WHERE email = '$input_email' AND password = '$input_password' AND role = 'user'";
         $result = mysqli_query($db_conn, $query);
 
         if ($user= mysqli_fetch_assoc($result)) {
-            $_SESSION['username'] = $input_username;
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];
             $_SESSION['login_attempts'] = 0; // Reset attempts
             $_SESSION['lockout_time'] = 0;   // Reset lockout time
             $_SESSION['role'] = 'user'; // Set user type
@@ -172,7 +174,7 @@ if ($is_currently_locked_out) {
         <!--Login form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
-            <input type="text" id="username" name="username" placeholder="Username" required
+            <input type="text" id="email" name="email" placeholder="Email" required
             <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
 
             <input type="password" id="password" name="password" placeholder="Password" required
