@@ -113,8 +113,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Call getLockoutTimeLeft() here on every page load (POST or GET).
 $current_lockout_time = getLockoutTimeLeft(); 
-$is_currently_locked_out = ($current_lockout_time > 0);
+$is_currently_locked_out = ($current_lockout_time > 0); //If lockout time is greater than 0, user is locked out
 
+// Set the error message if the user is currently locked out
 if ($is_currently_locked_out) {
     //Refresh the lockout message if still locked out
     $_SESSION['time_left_message'] = "Please try again in {$current_lockout_time} second(s).";
@@ -125,9 +126,14 @@ if ($is_currently_locked_out) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Project Part 1 enhancements.php Page (Login Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - OpenSOS</title>
+    <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
+    <meta name="author" content="Rodney Liaw">
+    <title>User Login</title>
+
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="images/tab_icon.png">
 </head>
 <body>
     <header>
@@ -139,11 +145,11 @@ if ($is_currently_locked_out) {
    <main>
     <div class="login_container">
         <h2>Login here!</h2>
-
-        <!-- Display error messages from session -->
         <?php
             // Messages are now cleared by getLockoutTimeLeft() on expiry or by successful login.
             // They will persist in session across refreshes if the condition is still active.
+
+            // Display error messages from session
             if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
                 echo '<p class="error_message">' . htmlspecialchars($_SESSION['error']) . '</p>';
             }
