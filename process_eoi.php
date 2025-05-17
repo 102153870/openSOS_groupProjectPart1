@@ -161,12 +161,11 @@
                     $other_skills = isset($_POST["other_skills"]) ? sanitise_input($_POST["other_skills"]) : "";
 
                     // Check for repeated applications using the same email address
-                    // First check database for any EOIs that have the same email address
-                    $query = "SELECT * FROM eoi WHERE email_address = '$email'";
+                    $query = "SELECT * FROM eoi WHERE email_address = '$email' AND job_ref_number = '$job_ref_number'";
                     $result = mysqli_query($db_conn, $query);
-                    if($result)
+                    if(mysqli_num_rows($result) > 0)
                     {
-                        
+                        $errors[] = "An application for this position with this email address already exists!";
                     }
                     
                     // Show errors if there are any 
