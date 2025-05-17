@@ -1,3 +1,4 @@
+
 <header class="home_header">
     <!-- Left: Theme Selector -->
     <div class="theme_container">
@@ -14,9 +15,29 @@
 
     <!-- Right: Manager Login -->
     <div class="manager_login_link">
-        <a href="enhancements.php">
+        <?php
+        $link = 'enhancements.php'; // Default fallback
+
+        if (isset($_SESSION['user_type'])) {
+            if ($_SESSION['user_type'] == 'manager') {
+                $link = 'manage.php';
+            } elseif ($_SESSION['user_type'] == 'user') {
+                $link = 'profile.php';
+            }
+        }
+        ?>
+        
+        <a href="<?php echo $link; ?>">
             <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
-            <p>User Log In</p>
+            <p>
+                <?php
+                    if (isset($_SESSION['username'])) {
+                        echo 'Welcome, ' . htmlspecialchars($_SESSION['username']);
+                    } else {
+                        echo 'User Login';
+                    }
+                ?>
+            </p>
         </a>
     </div>
 </header>

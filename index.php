@@ -1,11 +1,17 @@
 <!--HOME PAGE-->
 <!--In-charge: Rodney (Leader)-->
+<?php
+session_start(); // Start fresh session
+require_once 'settings.php'; // Ensure this file correctly initializes $conn
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 index.html Page (Home Page)">
+    <meta name="description" content="Project Part 1 index.php Page (Home Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
@@ -28,12 +34,32 @@
                 <img src="images/OpenSOS_logo_nobg.png" alt="OpenSOS logo" id="header_logo">
             </a>
         </div>
-        <div class="manager_login_link">
-            <a href="enhancements.php">
-                <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
-                <p>User Log In</p>
-            </a>
-        </div>
+    <!-- Right: Manager Login -->
+    <div class="manager_login_link">
+        <?php
+        $link = 'enhancements.php'; // Default fallback
+
+        if (isset($_SESSION['user_type'])) {
+            if ($_SESSION['user_type'] == 'manager') {
+                $link = 'manage.php';
+            } elseif ($_SESSION['user_type'] == 'user') {
+                $link = 'profile.php';
+            }
+        }
+        ?>
+        <a href="<?php echo $link; ?>">
+            <img src="images/manager_login_icon.png" alt="Manager Login Icon" id="manager_logo">
+            <p>
+                <?php
+                    if (isset($_SESSION['username'])) {
+                        echo 'Welcome, ' . htmlspecialchars($_SESSION['username']);
+                    } else {
+                        echo 'User Login';
+                    }
+                ?>
+            </p>
+        </a>
+    </div>
     </header>
 
     <!--Main content for page-->
