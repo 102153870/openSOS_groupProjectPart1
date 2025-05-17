@@ -767,11 +767,20 @@ form h3 {
 #personal_details fieldset {
     border: none;
 }
-
 #applicant_details {
     float: left;
     padding-left: 2rem;
-    margin-left: 4.5rem;
+    margin-left: 3rem;
+}
+#gender_selection label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+#gender_selection label:first-child {
+    margin-top: 2rem;
+}
+#gender_selection label:last-child {
+    margin-bottom: 0;
 }
 
 /* ID's skills */
@@ -779,7 +788,23 @@ form h3 {
 #other_skills_section {
     float: right;
     padding-right: 2rem;
-    margin-right: 4.5rem;
+    margin-right: 3rem;
+}
+#technical_skills_input {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+}
+#technical_skills .checkbox_skills {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1em;
+    margin-bottom: 1em;
+}
+#backend_skills, #generic_skills {
+    align-items: flex-end; /* Right align these columns */
 }
 
 #other_skills_section textarea {
@@ -951,7 +976,11 @@ h1.job_title {
     text-align: center;
 }
 #process_error_list {
-    list-style-type: square;
+    list-style-type: disc;      /* Show standard bullet points */
+    margin: 1em auto;           /* Center the list block horizontally */
+    padding-left: 2em;          /* Indent bullets from the left edge */
+    width: fit-content;         /* Shrink to fit content, so centering works */
+    text-align: left;           /* Left-align the text inside the list */
 }
 
 /* Responsive styles for screens up to 925px */
@@ -1068,6 +1097,12 @@ h1.job_title {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    /* #technical_skills_input {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-items: center;
+} */
 
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {

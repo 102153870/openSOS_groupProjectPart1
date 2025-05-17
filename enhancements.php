@@ -33,6 +33,17 @@ function getLockoutTimeLeft() {
     return 0; // Not locked out or lockout_time not set
 }
 
+function sanitise_input ($data)
+{
+    // Remove leading and trailing spaces
+    $data = trim($data); 
+    // Remove backslashes in front of quotes
+    $data = stripslashes($data);
+    // Converts HTML special characters like < to &lt;
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 // Error message variables for the current request (will be stored in session)
 $error = "";
 $time_left_message = "";
@@ -42,8 +53,8 @@ $user_type = ""; // This will be set to either 'user' or 'manager' based on the 
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $input_username = trim($_POST['username']);
-    $input_password = trim($_POST['password']);
+    $input_username = sanitise_input($_POST['username']);
+    $input_password = sanitise_input($_POST['password']);
 
     $current_lockout_time = getLockoutTimeLeft(); // Check current lockout status
 
