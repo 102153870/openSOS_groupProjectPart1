@@ -257,9 +257,11 @@ h2 {text-align: center;}
 }
 
 /************************************************************/
-/*Manage Page for Users*/
+/*Manage Page for Users (manage.php)*/
 
-
+#status_color{
+    color: var(--home_nav_icon_color);
+}
 
 /************************************************************/
 /*index.php specific CSS*/
@@ -490,8 +492,7 @@ body.hero_background {
     text-align: center;
 }
 
-.company_description h1,
-.home_email h2 {
+.heading_important {
     /*Box titles*/
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
@@ -980,6 +981,7 @@ h1.job_title {
 /*processing_eoi.php specific CSS*/
 .process_eoi_text {
     text-align: center;
+    padding-top: 1%;
 }
 #process_error_list {
     list-style-type: disc;      /* Show standard bullet points */

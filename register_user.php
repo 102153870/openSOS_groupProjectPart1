@@ -30,9 +30,11 @@
         <!--Registration form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
-            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="text" id="email" name="email" placeholder="Email" required>
 
             <input type="password" id="password" name="password" placeholder="Password" required>
+
+            <input type="text" id="username" name="username" placeholder="Username" required>
 
             <button type="submit" class="login_button">
                 Register

@@ -39,10 +39,10 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
         <?php
         $link = 'enhancements.php'; // Default fallback
 
-        if (isset($_SESSION['user_type'])) {
-            if ($_SESSION['user_type'] == 'manager') {
+        if (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] == 'manager') {
                 $link = 'manage.php';
-            } elseif ($_SESSION['user_type'] == 'user') {
+            } elseif ($_SESSION['role'] == 'user') {
                 $link = 'profile.php';
             }
         }
@@ -66,7 +66,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
     <main>
         <!--Description of Company-->
         <section class="company_description">
-            <h1 id="description_heading">What We Do</h1>
+            <h2 class ="heading_important">What We Do</h2>
             <p><strong>OpenSOS</strong> is a forward-thinking programming company dedicated to delivering top-quality solutions across various fields of computer science. 
                 Our expertise spans software development, data analysis, artificial intelligence, cybersecurity, and IT consulting, ensuring that businesses 
                 stay ahead in the digital landscape. With a team of highly skilled professionals, we leverage cutting-edge technology to develop efficient, 
@@ -130,7 +130,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
         <!--Email-->
         <section class="home_email">
-            <h2>Company Contact info:</h2>
+            <h2 class ="heading_important">Company Contact info:</h2>
             <p id="email_prompt">Have any questions, queries or prefer to talk to us directly? Drop us an email and we'll be glad to help you out!</p>
             
             <a href="mailto:info@opensos.com.au">
