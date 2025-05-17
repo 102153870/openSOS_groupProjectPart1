@@ -34,18 +34,18 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
         <!-- Begin the form. The form submits to the process_eoi.php page -->
         <form action="process_eoi.php" method="post" novalidate="novalidate">
             <br>
+            <h2 id="apply_subheading">Please enter the relevant information for your application</h2>
+            <br>
             <!-- The drop down box for the job reference number -->
             <fieldset id="job_selection">
-                <h2 id="apply_subheading">Please enter the relevant information for your application</h2>
-                <br>
-                <label for="job_ref_number"><strong>Job Reference Number:</strong>
+                    <label for="job_ref_number"><strong>Job Reference Number:</strong>
                     <select name="job_ref_number" id="job_ref_number" required>
                         <option value="" selected="selected">Please Select</option>
                         <option value="H3110">H3110 (Data Analyst)</option>
                         <option value="T4B13">T4B13 (Programmer)</option>
                         <option value="P1224">P1224 (Front-end Web Developer)</option>
                     </select>
-                </label>
+                    </label>
             </fieldset>
             <br><br>
 

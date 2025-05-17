@@ -736,19 +736,25 @@ form h3 {
 #job_selection {
     font-weight: bold;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: rgb(4, 42, 61);
     margin: auto;
-    width: 100%;
-    background-color: transparent;
+    width: fit-content;
+    background-color: var(--textcard_color);
+    border: 0.25rem solid black;
+    border-radius: 1rem;
     padding: 0.75rem;
-    border: none;
 }
-
+#job_selection select {
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--textcard_color);
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+}
 
 /* Applicants details attributes */
 #applicant_details, #technical_skills, #other_skills_section {
-
     text-align: center;
     font-weight: bold;
     margin: auto;
