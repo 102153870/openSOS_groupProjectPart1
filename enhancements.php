@@ -23,10 +23,21 @@ function isAccountLocked() {
     return 0;
 }
 
+function sanitise_input ($data)
+{
+    // Remove leading and trailing spaces
+    $data = trim($data); 
+    // Remove backslashes in front of quotes
+    $data = stripslashes($data);
+    // Converts HTML special characters like < to &lt;
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 // Handle login form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $input_username = trim($_POST['username']);
-    $input_password = trim($_POST['password']);
+    $input_username = sanitise_input($_POST['username']);
+    $input_password = sanitise_input($_POST['password']);
 
     // Check if account is locked
     $lockout_time = isAccountLocked();

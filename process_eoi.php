@@ -4,9 +4,8 @@
 
     // Connect to the database
     require_once 'settings.php';
-?>
-<!-- Function to sanitise the input -->
-<?php
+
+    // Function to sanitise the input
     function sanitise_input ($data)
     {
         // Remove leading and trailing spaces
@@ -160,6 +159,15 @@
                         $errors[] = "Please select at least one skill";
                     }
                     $other_skills = isset($_POST["other_skills"]) ? sanitise_input($_POST["other_skills"]) : "";
+
+                    // Check for repeated applications using the same email address
+                    // First check database for any EOIs that have the same email address
+                    $query = "SELECT * FROM eoi WHERE email_address = '$email'";
+                    $result = mysqli_query($db_conn, $query);
+                    if($result)
+                    {
+                        
+                    }
                     
                     // Show errors if there are any 
                     if (!empty($errors))

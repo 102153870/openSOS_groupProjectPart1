@@ -59,14 +59,12 @@
                     <br>
                     <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" max="2025-03-27" required></label>
                     <br>
-                    <fieldset>
+                    <fieldset id="gender_selection">
                         <legend>Gender:</legend>
-                        <p>
-                            <label><input type="radio" id="gender_female" name="gender" value="Female" required="required">Female</label>
-                            <label><input type="radio" id="gender_male" name="gender" value="Male">Male</label>
-                            <label><input type="radio" id="gender_other" name="gender" value="Other">Other</label>
-                            <label><input type="radio" id="gender_prefer_not_to_say" name="gender" value="Prefer Not To Say">Prefer Not To Say</label>
-                        </p>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                        <label><input type="radio" name="gender" value="Male"> Male</label>
+                        <label><input type="radio" name="gender" value="Other"> Other</label>
+                        <label><input type="radio" name="gender" value="Prefer Not To Say"> Prefer Not To Say</label>
                     </fieldset>
                     <br>
                 </section>
@@ -128,19 +126,52 @@
             <fieldset id="technical_skills">
                 <h3>Technical Skills:</h3>
                 <br>
-                <!-- CHECKBOX input type -->
-                <p>
-                    <label for="html" ><input type="checkbox" id="html" name="skills[]" value="html" checked="checked">HTML</label>
-                    <label for="css" ><input type="checkbox" id="css" name="skills[]" value="css">CSS</label>
-                    <label for="javascript" ><input type="checkbox" id="javascript" name="skills[]" value="javascript">JavaScript</label>
-                    <label for="php" ><input type="checkbox" id="php" name="skills[]" value="php">PHP</label>
-                    <label for="mysql" ><input type="checkbox" id="mysql" name="skills[]" value="mysql">MySQL</label>
-                    <label for="excel" ><input type="checkbox" id="excel" name="skills[]" value="excel">Excel</label>
-                    <label for="python" ><input type="checkbox" id="python" name="skills[]" value="python">Python</label>
-                    <label for="csharp" ><input type="checkbox" id="csharp" name="skills[]" value="csharp">C#</label>
-                    <label for="cplusplus" ><input type="checkbox" id="cplusplus" name="skills[]" value="cplusplus">C++</label>
-                    <label for="ruby" ><input type="checkbox" id="ruby" name="skills[]" value="ruby">Ruby</label>
-                </p>
+                <!-- CHECKBOX input -->
+                <section id="technical_skills_input">
+                    <!-- Frontend Web Dev Skills -->
+                    <section id="frontend_skills" class="checkbox_skills">
+                        <h4>Frontend</h4>
+                        <label for="html" ><input type="checkbox" id="html" name="skills[]" value="html" checked="checked"> HTML</label>
+                        <label for="css" ><input type="checkbox" id="css" name="skills[]" value="css"> CSS</label>
+                        <label for="javascript" ><input type="checkbox" id="javascript" name="skills[]" value="javascript"> JavaScript</label>
+                        <label for="reactjs" ><input type="checkbox" id="reactjs" name="skills[]" value="reactjs"> React.js</label>
+                        <label for="angular" ><input type="checkbox" id="angular" name="skills[]" value="angular"> Angular</label>
+                        <label for="bootstrap" ><input type="checkbox" id="bootstrap" name="skills[]" value="bootstrap"> Bootstrap</label>
+                    </section>
+                    <!-- Backend Web Dev Skills -->
+                    <section id="backend_skills" class="checkbox_skills">
+                        <h4>Backend</h4>
+                        <label for="php" ><input type="checkbox" id="php" name="skills[]" value="php"> PHP</label>
+                        <label for="phpmyadmin" ><input type="checkbox" id="phpmyadmin" name="skills[]" value="phpmyadmin"> PHPMyAdmin</label>
+                        <label for="mysql" ><input type="checkbox" id="mysql" name="skills[]" value="mysql"> MySQL</label>
+                        <label for="postgresql" ><input type="checkbox" id="postgresql" name="skills[]" value="postgresql"> PostgreSQL</label>
+                        <label for="mongodb" ><input type="checkbox" id="mongodb" name="skills[]" value="mongodb"> MongoDB</label>
+                        <label for="apache" ><input type="checkbox" id="apache" name="skills[]" value="apache"> Apache</label>
+                        <label for="nodejs" ><input type="checkbox" id="nodejs" name="skills[]" value="nodejs"> Node.js</label>
+                    </section>
+                    <!-- Programming Skills -->
+                    <section id="programming_skills" class="checkbox_skills">
+                        <h4>Programming</h4>
+                        <label for="python" ><input type="checkbox" id="python" name="skills[]" value="python"> Python</label>
+                        <label for="csharp" ><input type="checkbox" id="csharp" name="skills[]" value="csharp"> C#</label>
+                        <label for="cplusplus" ><input type="checkbox" id="cplusplus" name="skills[]" value="cplusplus"> C++</label>
+                        <label for="ruby" ><input type="checkbox" id="ruby" name="skills[]" value="ruby"> Ruby</label>
+                        <label for="java" ><input type="checkbox" id="java" name="skills[]" value="java"> Java</label>
+                        <label for="pascal" ><input type="checkbox" id="pascal" name="skills[]" value="pascal"> Pascal</label>
+                        <label for="swift" ><input type="checkbox" id="swift" name="skills[]" value="swift"> Swift</label>
+                    </section>
+                    <!-- Generic Skills -->
+                    <section id="generic_skills" class="checkbox_skills">
+                        <h4>General</h4>
+                        <label for="word" ><input type="checkbox" id="word" name="skills[]" value="word"> Word</label>
+                        <label for="excel" ><input type="checkbox" id="excel" name="skills[]" value="excel"> Excel</label>
+                        <label for="powerpoint" ><input type="checkbox" id="powerpoint" name="skills[]" value="powerpoint"> Powerpoint</label>
+                        <label for="msteams" ><input type="checkbox" id="msteams" name="skills[]" value="msteams"> MS Teams</label>
+                        <label for="git" ><input type="checkbox" id="git" name="skills[]" value="git"> Git</label>
+                        <label for="jira" ><input type="checkbox" id="jira" name="skills[]" value="jira"> Jira</label>
+                        <label for="trello" ><input type="checkbox" id="trello" name="skills[]" value="trello"> Trello</label>
+                    </section>
+                </section>
             </fieldset>
                 
             <fieldset id="other_skills_section">
