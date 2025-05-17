@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
 }
 
 //SECURITY: Check if user is a manager, if not redirect to index.php
-if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] != 'manager') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     header("Location: index.php");
     exit();
 }
@@ -42,9 +42,10 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] != 'manager') {
 <body>
     <?php 
     $page_title = "Dashboard";
-    include 'header.inc'; ?>
+    include 'header.inc';
+    include 'nav.inc'; ?>
 
-    <h2>Welcome to the manager dashboard <?php echo htmlspecialchars($username) ?>!</h2>
+    <h2 class = "home_email h2">Welcome to the manager dashboard <?php echo htmlspecialchars($username) ?>!</h2>
 
 <?php
 // Handle different query types
@@ -90,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "UPDATE eoi SET status = '$status' WHERE eoi_number = $id";
         mysqli_query($db_conn, $query);
         echo "<p>Updated status of EOI ID $id to '$status'</p>";
-        $query = null;
+        $query = null; //Reset the query 
     }
 
     //Display the results in a table
@@ -114,7 +115,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td>{$row['phone_number']}</td>
                     <td>{$row['skills']}</td>
                     <td>{$row['other_skills']}</td>
-                    <td>{$row['status']}</td></tr>";
+                    <td>
+                        <form method='post'>
+                            <input type='hidden' name='eoi_number' value='" . $row['eoi_number'] . "'>
+                            <select name='status'>
+                                
+                                <option value='NEW'" . ($row['status'] == 'NEW' ? ' selected' : '') . ">NEW</option>
+                                <option value='CURRENT'" . ($row['status'] == 'CURRENT' ? ' selected' : '') . ">CURRENT</option>
+                                <option value='FINAL'" . ($row['status'] == 'FINAL' ? ' selected' : '') . ">FINAL</option>
+                            </select>
+                            <button type='submit' name='action' value='update_status'>Update</button>
+                        </form>
+                    </td>
+                    </tr>";
             }
             echo "</table>";
         } else {
@@ -124,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- Form to select the action -->
+<!-- Form to select the query action -->
 <form method="post" class="login_container">
     <h3>List All EOIs</h3>
     <button name="action" value="list_all">List All</button>
@@ -142,14 +155,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
     <button name="action" value="delete_job_ref_number">Delete</button>
 
-    <h3>Update Status</h3>
-    <input type="text" name="eoi_number" placeholder="EOI ID">
-    <input type="text" name="status" placeholder="New Status">
-    <button name="action" value="update_status">Update</button>
 </form>
 
 <!-- Logout button -->
-<form method="post">
+<form method="post" class="profile_container">
     <button type="submit" name="logout" class="buttons">Logout</button>
 </form>
 

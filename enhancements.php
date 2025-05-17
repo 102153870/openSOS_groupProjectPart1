@@ -49,7 +49,7 @@ $error = "";
 $time_left_message = "";
 
 // Variable to check if its user or manager 
-$user_type = ""; // This will be set to either 'user' or 'manager' based on the login attempt
+$role = ""; // This will be set to either 'user' or 'manager' based on the login attempt
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -65,15 +65,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Not currently locked out, proceed with login attempt
 
-        // Check managers table (
-        $query= "SELECT * FROM managers WHERE username = '$input_username' AND password = '$input_password'";
+        // Check for managers(
+        $query= "SELECT * FROM users WHERE username = '$input_username' AND password = '$input_password' AND role = 'manager'";
         $result = mysqli_query($db_conn, $query);
 
         if ($user = mysqli_fetch_assoc($result)) {
             $_SESSION['username'] = $input_username;
             $_SESSION['login_attempts'] = 0; // Reset attempts
             $_SESSION['lockout_time'] = 0;   // Reset lockout time
-            $_SESSION['user_type'] = 'manager'; // Set manager type
+            $_SESSION['role'] = 'manager'; // Set manager type
             unset($_SESSION['error']);       // Clear any previous error messages
             unset($_SESSION['time_left_message']); // Clear any previous time_left messages
             header("Location: manage.php");
@@ -81,14 +81,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Check users table 
-        $query= "SELECT * FROM users WHERE username = '$input_username' AND password = '$input_password'";
+        $query= "SELECT * FROM users WHERE username = '$input_username' AND password = '$input_password' AND role = 'user'";
         $result = mysqli_query($db_conn, $query);
 
         if ($user= mysqli_fetch_assoc($result)) {
             $_SESSION['username'] = $input_username;
             $_SESSION['login_attempts'] = 0; // Reset attempts
             $_SESSION['lockout_time'] = 0;   // Reset lockout time
-            $_SESSION['user_type'] = 'user'; // Set user type
+            $_SESSION['role'] = 'user'; // Set user type
             unset($_SESSION['error']);       // Clear any previous error messages
             unset($_SESSION['time_left_message']); // Clear any previous time_left messages
             header("Location: index.php");

@@ -39,10 +39,10 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
         <?php
         $link = 'enhancements.php'; // Default fallback
 
-        if (isset($_SESSION['user_type'])) {
-            if ($_SESSION['user_type'] == 'manager') {
+        if (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] == 'manager') {
                 $link = 'manage.php';
-            } elseif ($_SESSION['user_type'] == 'user') {
+            } elseif ($_SESSION['role'] == 'user') {
                 $link = 'profile.php';
             }
         }

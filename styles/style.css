@@ -974,6 +974,7 @@ h1.job_title {
 /*processing_eoi.php specific CSS*/
 .process_eoi_text {
     text-align: center;
+    padding-top: 1%;
 }
 #process_error_list {
     list-style-type: disc;      /* Show standard bullet points */

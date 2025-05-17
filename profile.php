@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
 }
 
 //SECURITY: Check if user is a logged in, if not redirect to index.php
-if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] != 'user') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
     header("Location: index.php");
     exit();
 }
@@ -37,7 +37,7 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] != 'user') {
         <br>
         <h2>Your Profile Information</h2>
         <br><br><br>
-        <h2>Your Applications</h2>
+        <h2>Your Application</h2>
         <br><br><br>
 
         <!-- Logout button -->
