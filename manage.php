@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
 }
 
 //SECURITY: Check if user is a manager, if not redirect to index.php
-if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] != 'manager') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     header("Location: index.php");
     exit();
 }
@@ -42,9 +42,30 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] != 'manager') {
 <body>
     <?php 
     $page_title = "Dashboard";
-    include 'header.inc'; ?>
+    include 'header.inc';
+    include 'nav.inc'; ?>
 
-    <h2>Welcome to the manager dashboard <?php echo htmlspecialchars($username) ?>!</h2>
+    <h2 class ="heading_important">Welcome to the manager dashboard <?php echo htmlspecialchars($username) ?>!</h2>
+
+    <!-- Form to select the query action -->
+    <form method="post" class="login_container">
+        <h3>List All EOIs</h3>
+        <button name="action" value="list_all">List All</button>
+
+        <h3>Search by Job Reference</h3>
+        <input type="text" name="search_job_ref_number" placeholder="Job Reference">
+        <button name="action" value="search_job_ref_number">Search</button>
+
+        <h3>Search by Applicant</h3>
+        <input type="text" name="first_name" placeholder="First Name">
+        <input type="text" name="last_name" placeholder="Last Name">
+        <button name="action" value="applicant">Search</button>
+
+        <h3>Delete by Job Reference</h3>
+        <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
+        <button name="action" value="delete_job_ref_number">Delete</button>
+
+    </form>
 
 <?php
 // Handle different query types
@@ -81,7 +102,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "DELETE FROM eoi WHERE job_ref_number = '$job_ref_number'";
         mysqli_query($db_conn, $query);
         echo "<p>Deleted EOIs for job reference: $job_ref_number</p>";
-        $query = null; //Reset the query 
+
+        // Refresh the table after update
+        $query = "SELECT * FROM eoi";
 
     // Update status
     } elseif ($action == "update_status" && !empty($_POST['eoi_number']) && !empty($_POST['status'])) {
@@ -90,13 +113,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "UPDATE eoi SET status = '$status' WHERE eoi_number = $id";
         mysqli_query($db_conn, $query);
         echo "<p>Updated status of EOI ID $id to '$status'</p>";
-        $query = null;
+        
+        // Refresh the table after update
+        $query = "SELECT * FROM eoi";
     }
 
     //Display the results in a table
     if (isset($query)) {
         $result = mysqli_query($db_conn, $query);
-        if ($result) {
+        if ($result && mysqli_num_rows($result) > 0) { //Check if there are results in the eoi table
             echo "<table border='1'><tr><th>ID</th><th>Job Ref</th><th>Name</th><th>DOB</th><th>Gender</th>
             <th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Email Address</th><th>Phone Number</th>
             <th>Skills</th><th>Other Skills</th><th>Status</th></tr>";
@@ -114,7 +139,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td>{$row['phone_number']}</td>
                     <td>{$row['skills']}</td>
                     <td>{$row['other_skills']}</td>
-                    <td>{$row['status']}</td></tr>";
+                    <td id='status_color'>
+                        <form method='post'>
+                            <input type='hidden' name='eoi_number' value='" . $row['eoi_number'] . "'>
+                            <select name='status'> <!-- Dropdown for status selection, using ternary operators -->
+                                <option value='NEW'" . ($row['status'] == 'NEW' ? ' selected' : '') . ">NEW</option>
+                                <option value='CURRENT'" . ($row['status'] == 'CURRENT' ? ' selected' : '') . ">CURRENT</option>
+                                <option value='FINAL'" . ($row['status'] == 'FINAL' ? ' selected' : '') . ">FINAL</option>
+                            </select>
+                            <button type='submit' name='action' value='update_status'>Update</button>
+                        </form>
+                    </td>
+                    </tr>";
             }
             echo "</table>";
         } else {
@@ -124,32 +160,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!-- Form to select the action -->
-<form method="post" class="login_container">
-    <h3>List All EOIs</h3>
-    <button name="action" value="list_all">List All</button>
-
-    <h3>Search by Job Reference</h3>
-    <input type="text" name="search_job_ref_number" placeholder="Job Reference">
-    <button name="action" value="search_job_ref_number">Search</button>
-
-    <h3>Search by Applicant</h3>
-    <input type="text" name="first_name" placeholder="First Name">
-    <input type="text" name="last_name" placeholder="Last Name">
-    <button name="action" value="applicant">Search</button>
-
-    <h3>Delete by Job Reference</h3>
-    <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
-    <button name="action" value="delete_job_ref_number">Delete</button>
-
-    <h3>Update Status</h3>
-    <input type="text" name="eoi_number" placeholder="EOI ID">
-    <input type="text" name="status" placeholder="New Status">
-    <button name="action" value="update_status">Update</button>
-</form>
-
+<br>
 <!-- Logout button -->
-<form method="post">
+<form method="post" class="profile_container">
     <button type="submit" name="logout" class="buttons">Logout</button>
 </form>
 
