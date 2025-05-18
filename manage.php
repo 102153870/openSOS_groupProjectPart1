@@ -66,9 +66,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 <button name="action" value="applicant">Search</button>
             </section>
             <section id="manager_search_by_status">
-                <h3>Search by Status</h3>
-                <input type="text" name="search_by_status" placeholder="Status">
-                <button name="action" value="search_by_status">Search</button>
+            <h3>Search by Status</h3>
+            <select name="search_by_status">
+                <option value="NEW">NEW</option>
+                <option value="CURRENT">CURRENT</option>
+                <option value="FINAL">FINAL</option>
+            </select>
+            <button name="action" value="search_by_status">Search</button>
             </section>
         </section>
         
@@ -86,7 +90,11 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             </section>
             <section id="manager_delete_by_status">
                 <h3>Delete by Status</h3>
-                <input type="text" name="delete_status" placeholder="Status">
+                <select name="delete_by_status">
+                    <option value="NEW">NEW</option>
+                    <option value="CURRENT">CURRENT</option>
+                    <option value="FINAL">FINAL</option>
+                </select>
                 <button name="action" value="delete_status">Delete</button>
             </section>
         </section>
