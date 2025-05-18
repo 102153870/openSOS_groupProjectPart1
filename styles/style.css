@@ -261,7 +261,26 @@ h2 {text-align: center;}
 #status_color{
     color: var(--home_nav_icon_color);
 }
-
+#manager_eoi_form {
+    display: flex;
+    justify-content: space-evenly;
+    background: transparent;
+    padding: 0.75rem;
+    line-height: 1.2rem;
+    width: 100%;
+    border: none;
+}
+#manager_list_all_eois, #manager_search_by_job_ref, #manager_search_by_applicant, #manager_search_by_status, #manager_delete_by_job_ref, #manager_delete_by_status, #manager_delete_by_name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1em;
+    background: var(--textcard_color);
+    /* Border */
+    border: 0.25rem solid black;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
 
 /************************************************************/
 /*index.php specific CSS*/

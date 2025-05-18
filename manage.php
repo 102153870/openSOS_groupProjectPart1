@@ -64,21 +64,26 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             <input type="text" name="last_name" placeholder="Last Name">
             <button name="action" value="applicant">Search</button>
         </section>
+        <section id="manager_search_by_status">
+            <h3>Search by Status</h3>
+            <input type="text" name="search_by_status" placeholder="Status">
+            <button name="action" value="search_by_status">Search</button>
+        </section>
         <section id="manager_delete_by_job_ref">
             <h3>Delete by Job Reference</h3>
             <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
             <button name="action" value="delete_job_ref_number">Delete</button>
-        </section>
-        <section id="manager_delete_by_status">
-            <h3>Delete by Status</h3>
-            <input type="text" name="delete_status" placeholder="Status">
-            <button name="action" value="delete_status">Delete</button>
         </section>
         <section id="manager_delete_by_name">
             <h3>Delete by Applicant</h3>
             <input type="text" name="delete_first_name" placeholder="First Name">
             <input type="text" name="delete_last_name" placeholder="Last Name">
             <button name="action" value="delete_applicant">Delete</button>
+        </section>
+        <section id="manager_delete_by_status">
+            <h3>Delete by Status</h3>
+            <input type="text" name="delete_status" placeholder="Status">
+            <button name="action" value="delete_status">Delete</button>
         </section>
     </form>
 
