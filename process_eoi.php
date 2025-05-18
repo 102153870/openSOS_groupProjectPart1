@@ -171,6 +171,10 @@
                     // Show errors if there are any 
                     if (!empty($errors))
                     {
+                        // Save the data that the user has entered in the form in a session variable
+                        $_SESSION['form_data'] = $_POST;
+
+                        // Display the errors from the form to the user
                         echo"<h2 class='process_eoi_text'>The following errors were found in your submission:</h2>";
                         // Iterate through each error
                         echo"<ul class='process_eoi_text' id='process_error_list'>";
@@ -179,7 +183,7 @@
                             echo"<li>" . htmlspecialchars($error) . "</li>";
                         }
                         echo"</ul>";
-                        echo"<p class='process_eoi_text'><strong>Please fix your errors and resubmit.</strong></p>";
+                        echo"<p class='process_eoi_text'><strong>Please fix your errors and <a href='apply.php'>resubmit.</strong></p>";
                     }
                     else
                     {

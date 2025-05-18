@@ -763,7 +763,6 @@ form h3 {
     padding: 0.75rem;
     width: 42%;
     line-height: 1.2rem;
-    ;
     /* Border */
     border: 0.25rem solid black;
     border-radius: 1rem;
@@ -868,7 +867,6 @@ form h3 {
     height: 100%;
     /* Or set a fixed height like 500px */
     overflow: auto;
-
     margin: 1.5rem 4.5rem;
     clear: both;
     line-height: 1.75rem;
@@ -982,13 +980,18 @@ h1.job_title {
 .process_eoi_text {
     text-align: center;
     padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 1em;
 }
 #process_error_list {
-    list-style-type: disc;      /* Show standard bullet points */
-    margin: 1em auto;           /* Center the list block horizontally */
-    padding-left: 2em;          /* Indent bullets from the left edge */
-    width: fit-content;         /* Shrink to fit content, so centering works */
-    text-align: left;           /* Left-align the text inside the list */
+    list-style-type: disc;
+    margin: 1em auto;
+    padding-left: 2em;
+    width: fit-content;
+    text-align: left;
+    background: var(--textcard_color);
+    border: 0.25rem solid black;
+    border-radius: 1rem;
 }
 
 /* Responsive styles for screens up to 925px */

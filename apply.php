@@ -1,6 +1,11 @@
 <?php
-session_start(); // Start fresh session
-require_once 'settings.php'; // Ensure this file correctly initializes $conn
+session_start();
+require_once 'settings.php';
+
+// Get form data from session if it exists
+$form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
+// Clear the session data after retrieving it
+unset($_SESSION['form_data']);
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +37,9 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
     <!-- Begin the main content of the web page -->
     <main>
         <!-- Begin the form. The form submits to the process_eoi.php page -->
+         <!-- The form inputs have been modified to automatically fill with any information that has already been entered
+              This means that if the user comes back to this page from the process_eoi page becuase there was errors in their submission
+              the input they already entered will be repopulated -->
         <form action="process_eoi.php" method="post" novalidate="novalidate">
             <br>
             <h2 id="apply_subheading">Please enter the relevant information for your application</h2>
@@ -40,10 +48,10 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
             <fieldset id="job_selection">
                     <label for="job_ref_number"><strong>Job Reference Number:</strong>
                     <select name="job_ref_number" id="job_ref_number" required>
-                        <option value="" selected="selected">Please Select</option>
-                        <option value="H3110">H3110 (Data Analyst)</option>
-                        <option value="T4B13">T4B13 (Programmer)</option>
-                        <option value="P1224">P1224 (Front-end Web Developer)</option>
+                        <option value="" <?php echo !isset($form_data['job_ref_number']) ? 'selected="selected"' : ''; ?>>Please Select</option>
+                        <option value="H3110" <?php echo isset($form_data['job_ref_number']) && $form_data['job_ref_number'] === 'H3110' ? 'selected="selected"' : ''; ?>>H3110 (Data Analyst)</option>
+                        <option value="T4B13" <?php echo isset($form_data['job_ref_number']) && $form_data['job_ref_number'] === 'T4B13' ? 'selected="selected"' : ''; ?>>T4B13 (Programmer)</option>
+                        <option value="P1224" <?php echo isset($form_data['job_ref_number']) && $form_data['job_ref_number'] === 'P1224' ? 'selected="selected"' : ''; ?>>P1224 (Front-end Web Developer)</option>
                     </select>
                     </label>
             </fieldset>
@@ -56,20 +64,20 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     <!-- The 'title' of the section -->
                     <h3>Personal Details:</h3>
                     <br>
-                    <!-- Max 20 alpha characters. Has inline CSS!! -->
-                    <p><label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" style="<?php echo $error ?  'border:2px solid red;' : ''; ?>" required></label></p>
+                    <!-- Max 20 alpha characters -->
+                    <p><label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" value="<?php echo isset($form_data['given_name']) ? htmlspecialchars($form_data['given_name']) : ''; ?>" required></label></p>
                     <br>
                     <!-- Max 20 alpha characters -->
-                    <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,20}" required></label>
+                    <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,20}" value="<?php echo isset($form_data['family_name']) ? htmlspecialchars($form_data['family_name']) : ''; ?>" required></label>
                     <br>
-                    <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" max="2025-03-27" required></label>
+                    <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" max="2025-03-27" value="<?php echo isset($form_data['dob']) ? htmlspecialchars($form_data['dob']) : ''; ?>" required></label>
                     <br>
                     <fieldset id="gender_selection">
                         <legend>Gender:</legend>
-                        <label><input type="radio" name="gender" value="Female"> Female</label>
-                        <label><input type="radio" name="gender" value="Male"> Male</label>
-                        <label><input type="radio" name="gender" value="Other"> Other</label>
-                        <label><input type="radio" name="gender" value="Prefer Not To Say"> Prefer Not To Say</label>
+                        <label><input type="radio" name="gender" value="Female" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Female' ? 'checked' : ''; ?> required> Female</label>
+                        <label><input type="radio" name="gender" value="Male" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Male' ? 'checked' : ''; ?>> Male</label>
+                        <label><input type="radio" name="gender" value="Other" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Other' ? 'checked' : ''; ?>> Other</label>
+                        <label><input type="radio" name="gender" value="Prefer Not To Say" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Prefer Not To Say' ? 'checked' : ''; ?>> Prefer Not To Say</label>
                     </fieldset>
                     <br>
                 </section>
@@ -79,26 +87,26 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     <h3>Address:</h3>
                     <br>
                     <!-- Max 40 alphanumeric characters for address, allows slashes (/) and dashes (-) as well -->
-                    <label for="address">Address: <input type="text" id="address" name="address" placeholder="1/110 John street" pattern="[\da-zA-Z/]{1,40}"></label>
+                    <label for="address">Address: <input type="text" id="address" name="address" placeholder="1/110 John street" pattern="[\da-zA-Z/]{1,40}" value="<?php echo isset($form_data['address']) ? htmlspecialchars($form_data['address']) : ''; ?>"></label>
                     <br>
                     <!-- Max 40 characters for address, only allows characters -->
-                    <label for="suburb">Suburb: <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z]{1,40}"></label>
+                    <label for="suburb">Suburb: <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z]{1,40}" value="<?php echo isset($form_data['suburb']) ? htmlspecialchars($form_data['suburb']) : ''; ?>" required></label>
                     <br>
                     <!-- 4 digits -->
-                    <label for="postcode">Postcode: <input type="text" id="postcode" name="postcode" pattern="\d{4}" required></label>
+                    <label for="postcode">Postcode: <input type="text" id="postcode" name="postcode" pattern="\d{4}" value="<?php echo isset($form_data['postcode']) ? htmlspecialchars($form_data['postcode']) : ''; ?>"  required></label>
                     <br>
                     <!-- Dropdown menu for the state/territory -->
                     <label for="state">State/Territory
                         <select name="state" id="state" required>
                             <option value="" selected="selected">Please Select</option>
-                            <option value="act">ACT</option>
-                            <option value="nsw">NSW</option>
-                            <option value="nt">NT</option>
-                            <option value="qld">QLD</option>
-                            <option value="sa">SA</option>
-                            <option value="tas">TAS</option>
-                            <option value="vic">VIC</option>
-                            <option value="wa">WA</option>
+                            <option value="act" <?php echo isset($form_data['state']) && $form_data['state'] === 'act' ? 'selected="selected"' : ''; ?>>ACT</option>
+                            <option value="nsw" <?php echo isset($form_data['state']) && $form_data['state'] === 'nsw' ? 'selected="selected"' : ''; ?>>NSW</option>
+                            <option value="nt" <?php echo isset($form_data['state']) && $form_data['state'] === 'nt' ? 'selected="selected"' : ''; ?>>NT</option>
+                            <option value="qld" <?php echo isset($form_data['state']) && $form_data['state'] === 'qld' ? 'selected="selected"' : ''; ?>>QLD</option>
+                            <option value="sa" <?php echo isset($form_data['state']) && $form_data['state'] === 'sa' ? 'selected="selected"' : ''; ?>>SA</option>
+                            <option value="tas" <?php echo isset($form_data['state']) && $form_data['state'] === 'tas' ? 'selected="selected"' : ''; ?>>TAS</option>
+                            <option value="vic" <?php echo isset($form_data['state']) && $form_data['state'] === 'vic' ? 'selected="selected"' : ''; ?>>VIC</option>
+                            <option value="wa" <?php echo isset($form_data['state']) && $form_data['state'] === 'wa' ? 'selected="selected"' : ''; ?>>WA</option>
                         </select>
                     </label>
                 </section>
@@ -110,7 +118,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     <br>
                     <label for="phone_number">Phone Number:
                         <!-- Input validation is for 8 to 12 digits, or spaces -->
-                        <input type="text" id="phone_number" name="phone_number" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}" required>
+                        <input type="text" id="phone_number" name="phone_number" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}" value="<?php echo isset($form_data['phone_number']) ? htmlspecialchars($form_data['phone_number']) : ''; ?>" required>
                     </label>
                     <br>
                     <label for="email">Email Address:
@@ -120,7 +128,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                              ([^@\s]+) Make sure there is at least one character that is not whitespace or @ symbol
                              (\.) Make sure the dot is next
                              ([^@\s]+) Make sure there is at least one character that is not whitespace or @ symbol -->
-                        <input type="text" id="email" name="email" placeholder="email@domain.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required>
+                        <input type="text" id="email" name="email" placeholder="email@domain.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" value="<?php echo isset($form_data['email']) ? htmlspecialchars($form_data['email']) : ''; ?>" required>
                         <!-- <input type="email" id="email" name="email" placeholder="email@domain.com" required> -->
                     </label>
                 </section>
@@ -136,45 +144,45 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     <!-- Frontend Web Dev Skills -->
                     <section id="frontend_skills" class="checkbox_skills">
                         <h4>Frontend</h4>
-                        <label for="html" ><input type="checkbox" id="html" name="skills[]" value="html" checked="checked"> HTML</label>
-                        <label for="css" ><input type="checkbox" id="css" name="skills[]" value="css"> CSS</label>
-                        <label for="javascript" ><input type="checkbox" id="javascript" name="skills[]" value="javascript"> JavaScript</label>
-                        <label for="reactjs" ><input type="checkbox" id="reactjs" name="skills[]" value="reactjs"> React.js</label>
-                        <label for="angular" ><input type="checkbox" id="angular" name="skills[]" value="angular"> Angular</label>
-                        <label for="bootstrap" ><input type="checkbox" id="bootstrap" name="skills[]" value="bootstrap"> Bootstrap</label>
+                        <label for="html" ><input type="checkbox" id="html" name="skills[]" value="html" <?php echo isset($form_data['skills']) && in_array('html', $form_data['skills']) ? 'checked' : ''; ?>> HTML</label>
+                        <label for="css" ><input type="checkbox" id="css" name="skills[]" value="css" <?php echo isset($form_data['skills']) && in_array('css', $form_data['skills']) ? 'checked' : ''; ?>> CSS</label>
+                        <label for="javascript" ><input type="checkbox" id="javascript" name="skills[]" value="javascript" <?php echo isset($form_data['skills']) && in_array('javascript', $form_data['skills']) ? 'checked' : ''; ?>> JavaScript</label>
+                        <label for="reactjs" ><input type="checkbox" id="reactjs" name="skills[]" value="reactjs" <?php echo isset($form_data['skills']) && in_array('reactjs', $form_data['skills']) ? 'checked' : ''; ?>> React.js</label>
+                        <label for="angular" ><input type="checkbox" id="angular" name="skills[]" value="angular" <?php echo isset($form_data['skills']) && in_array('angular', $form_data['skills']) ? 'checked' : ''; ?>> Angular</label>
+                        <label for="bootstrap" ><input type="checkbox" id="bootstrap" name="skills[]" value="bootstrap" <?php echo isset($form_data['skills']) && in_array('bootstrap', $form_data['skills']) ? 'checked' : ''; ?>> Bootstrap</label>
                     </section>
                     <!-- Backend Web Dev Skills -->
                     <section id="backend_skills" class="checkbox_skills">
                         <h4>Backend</h4>
-                        <label for="php" ><input type="checkbox" id="php" name="skills[]" value="php"> PHP</label>
-                        <label for="phpmyadmin" ><input type="checkbox" id="phpmyadmin" name="skills[]" value="phpmyadmin"> PHPMyAdmin</label>
-                        <label for="mysql" ><input type="checkbox" id="mysql" name="skills[]" value="mysql"> MySQL</label>
-                        <label for="postgresql" ><input type="checkbox" id="postgresql" name="skills[]" value="postgresql"> PostgreSQL</label>
-                        <label for="mongodb" ><input type="checkbox" id="mongodb" name="skills[]" value="mongodb"> MongoDB</label>
-                        <label for="apache" ><input type="checkbox" id="apache" name="skills[]" value="apache"> Apache</label>
-                        <label for="nodejs" ><input type="checkbox" id="nodejs" name="skills[]" value="nodejs"> Node.js</label>
+                        <label for="php" ><input type="checkbox" id="php" name="skills[]" value="php" <?php echo isset($form_data['skills']) && in_array('php', $form_data['skills']) ? 'checked' : ''; ?>> PHP</label>
+                        <label for="phpmyadmin" ><input type="checkbox" id="phpmyadmin" name="skills[]" value="phpmyadmin" <?php echo isset($form_data['skills']) && in_array('phpmyadmin', $form_data['skills']) ? 'checked' : ''; ?>> PHPMyAdmin</label>
+                        <label for="mysql" ><input type="checkbox" id="mysql" name="skills[]" value="mysql" <?php echo isset($form_data['skills']) && in_array('mysql', $form_data['skills']) ? 'checked' : ''; ?>> MySQL</label>
+                        <label for="postgresql" ><input type="checkbox" id="postgresql" name="skills[]" value="postgresql" <?php echo isset($form_data['skills']) && in_array('postgresql', $form_data['skills']) ? 'checked' : ''; ?>> PostgreSQL</label>
+                        <label for="mongodb" ><input type="checkbox" id="mongodb" name="skills[]" value="mongodb" <?php echo isset($form_data['skills']) && in_array('mongodb', $form_data['skills']) ? 'checked' : ''; ?>> MongoDB</label>
+                        <label for="apache" ><input type="checkbox" id="apache" name="skills[]" value="apache" <?php echo isset($form_data['skills']) && in_array('apache', $form_data['skills']) ? 'checked' : ''; ?>> Apache</label>
+                        <label for="nodejs" ><input type="checkbox" id="nodejs" name="skills[]" value="nodejs" <?php echo isset($form_data['skills']) && in_array('nodejs', $form_data['skills']) ? 'checked' : ''; ?>> Node.js</label>
                     </section>
                     <!-- Programming Skills -->
                     <section id="programming_skills" class="checkbox_skills">
                         <h4>Programming</h4>
-                        <label for="python" ><input type="checkbox" id="python" name="skills[]" value="python"> Python</label>
-                        <label for="csharp" ><input type="checkbox" id="csharp" name="skills[]" value="csharp"> C#</label>
-                        <label for="cplusplus" ><input type="checkbox" id="cplusplus" name="skills[]" value="cplusplus"> C++</label>
-                        <label for="ruby" ><input type="checkbox" id="ruby" name="skills[]" value="ruby"> Ruby</label>
-                        <label for="java" ><input type="checkbox" id="java" name="skills[]" value="java"> Java</label>
-                        <label for="pascal" ><input type="checkbox" id="pascal" name="skills[]" value="pascal"> Pascal</label>
-                        <label for="swift" ><input type="checkbox" id="swift" name="skills[]" value="swift"> Swift</label>
+                        <label for="python" ><input type="checkbox" id="python" name="skills[]" value="python" <?php echo isset($form_data['skills']) && in_array('python', $form_data['skills']) ? 'checked' : ''; ?>> Python</label>
+                        <label for="csharp" ><input type="checkbox" id="csharp" name="skills[]" value="csharp" <?php echo isset($form_data['skills']) && in_array('csharp', $form_data['skills']) ? 'checked' : ''; ?>> C#</label>
+                        <label for="cplusplus" ><input type="checkbox" id="cplusplus" name="skills[]" value="cplusplus" <?php echo isset($form_data['skills']) && in_array('cplusplus', $form_data['skills']) ? 'checked' : ''; ?>> C++</label>
+                        <label for="ruby" ><input type="checkbox" id="ruby" name="skills[]" value="ruby" <?php echo isset($form_data['skills']) && in_array('ruby', $form_data['skills']) ? 'checked' : ''; ?>> Ruby</label>
+                        <label for="java" ><input type="checkbox" id="java" name="skills[]" value="java" <?php echo isset($form_data['skills']) && in_array('java', $form_data['skills']) ? 'checked' : ''; ?>> Java</label>
+                        <label for="pascal" ><input type="checkbox" id="pascal" name="skills[]" value="pascal" <?php echo isset($form_data['skills']) && in_array('pascal', $form_data['skills']) ? 'checked' : ''; ?>> Pascal</label>
+                        <label for="swift" ><input type="checkbox" id="swift" name="skills[]" value="swift" <?php echo isset($form_data['skills']) && in_array('swift', $form_data['skills']) ? 'checked' : ''; ?>> Swift</label>
                     </section>
                     <!-- Generic Skills -->
                     <section id="generic_skills" class="checkbox_skills">
                         <h4>General</h4>
-                        <label for="word" ><input type="checkbox" id="word" name="skills[]" value="word"> Word</label>
-                        <label for="excel" ><input type="checkbox" id="excel" name="skills[]" value="excel"> Excel</label>
-                        <label for="powerpoint" ><input type="checkbox" id="powerpoint" name="skills[]" value="powerpoint"> Powerpoint</label>
-                        <label for="msteams" ><input type="checkbox" id="msteams" name="skills[]" value="msteams"> MS Teams</label>
-                        <label for="git" ><input type="checkbox" id="git" name="skills[]" value="git"> Git</label>
-                        <label for="jira" ><input type="checkbox" id="jira" name="skills[]" value="jira"> Jira</label>
-                        <label for="trello" ><input type="checkbox" id="trello" name="skills[]" value="trello"> Trello</label>
+                        <label for="word" ><input type="checkbox" id="word" name="skills[]" value="word" <?php echo isset($form_data['skills']) && in_array('word', $form_data['skills']) ? 'checked' : ''; ?>> Word</label>
+                        <label for="excel" ><input type="checkbox" id="excel" name="skills[]" value="excel" <?php echo isset($form_data['skills']) && in_array('excel', $form_data['skills']) ? 'checked' : ''; ?>> Excel</label>
+                        <label for="powerpoint" ><input type="checkbox" id="powerpoint" name="skills[]" value="powerpoint" <?php echo isset($form_data['skills']) && in_array('powerpoint', $form_data['skills']) ? 'checked' : ''; ?>> Powerpoint</label>
+                        <label for="msteams" ><input type="checkbox" id="msteams" name="skills[]" value="msteams" <?php echo isset($form_data['skills']) && in_array('msteams', $form_data['skills']) ? 'checked' : ''; ?>> MS Teams</label>
+                        <label for="git" ><input type="checkbox" id="git" name="skills[]" value="git" <?php echo isset($form_data['skills']) && in_array('git', $form_data['skills']) ? 'checked' : ''; ?>> Git</label>
+                        <label for="jira" ><input type="checkbox" id="jira" name="skills[]" value="jira" <?php echo isset($form_data['skills']) && in_array('jira', $form_data['skills']) ? 'checked' : ''; ?>> Jira</label>
+                        <label for="trello" ><input type="checkbox" id="trello" name="skills[]" value="trello" <?php echo isset($form_data['skills']) && in_array('trello', $form_data['skills']) ? 'checked' : ''; ?>> Trello</label>
                     </section>
                 </section>
             </fieldset>
@@ -183,7 +191,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                 <h3>Other Skills:</h3>
                 <p>
                     <br>
-                    <label><textarea name="other_skills" id="other_skills" rows="10" placeholder="List any other relevant skills here"></textarea>Please Enter Any Other Relevant Skills</label>
+                    <label><textarea name="other_skills" id="other_skills" rows="10" placeholder="List any other relevant skills here"><?php echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; ?></textarea>Please Enter Any Other Relevant Skills</label>
                 </p>
                 </fieldset>
             </fieldset>
@@ -194,7 +202,6 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                 <!-- The Reset button -->
                 <input class="buttons" type="reset" value="Reset">
             </fieldset>
-            
         </form>
     </main>
         
