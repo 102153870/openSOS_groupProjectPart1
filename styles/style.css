@@ -5,9 +5,9 @@ author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
-last modified: 13/5/2025
+last modified: 18/5/2025
 
-description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php
+description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php, manage.php
 */
 /*Variables for theme selector*/
 /*The root checks the input selected by the user from the theme selector*/
@@ -258,10 +258,10 @@ h2 {text-align: center;}
 
 /************************************************************/
 /*Manage Page for Users (manage.php)*/
-
 #status_color{
     color: var(--home_nav_icon_color);
 }
+
 
 /************************************************************/
 /*index.php specific CSS*/
