@@ -56,15 +56,24 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                 while ($row = mysqli_fetch_assoc($result))
                 {
                     echo '<div class = "job_description_box">';
+
+                    //left
                     echo '<section class = "job_description_left">';
                     echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
                     echo '<br><p>' . $row['description'] . '</p><br>';
                     echo '<h3>Key Responsibilities</h3>';
-                    echo $row['key_resposibilities'];
+                    echo $row['key_responsibilities'];
+                    echo '</section>';
+
+                    //right
+                    echo '<section class = "job_description_right">';
+                    echo '<br>';
+                    echo '<h3>Key Attributes</h3>';
+                    echo 'Essential';
+                    echo $row['key_attributes_essential'];
                     echo '';
                     echo '';
-                    echo '';
-                    echo '';
+
                     //echo '';
 
                     /*
