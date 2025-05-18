@@ -71,19 +71,16 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     echo '<h3>Key Attributes</h3>';
                     echo 'Essential';
                     echo $row['key_attributes_essential'];
-                    echo '';
-                    echo '';
-
-                    //echo '';
-
-                    /*
-                    echo "<tr>";
-                    echo "<td>" . $row['car_id'] . "</td>";
-                    echo "<td>" . $row['make'] . "</td>";
-                    echo "<td>" . $row['model'] . "</td>";
-                    echo "<td>" . $row['price'] . "</td>";
-                    echo "<td>" . $row['yom'] . "</td>";
-                    echo "</tr>";*/
+                    echo 'Preferred';
+                    echo $row['key_attributes_preferred'];
+                    echo '<br>';
+                    echo '<p>Salary: $' . $row['salary_min'] . ' - $' $row['salary_max'] . 'per annum</p>';
+                    echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
+                    echo '<br><br>';
+                    echo '<div class="apply_container">';
+                    echo '<p class="reference_number"><em>Reference Number: ' . $row['reference_code'] . '</em></p>';
+                    
+                    echo '<a href="apply.php" class="buttons_description_box">Apply</a></div></section></div>';
                 }
 
                 echo "</table>";
