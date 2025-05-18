@@ -48,23 +48,48 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     <h2 class ="heading_important">Welcome to the manager dashboard <?php echo htmlspecialchars($username) ?>!</h2>
 
     <!-- Form to select the query action -->
-    <form method="post" class="login_container">
-        <h3>List All EOIs</h3>
-        <button name="action" value="list_all">List All</button>
-
-        <h3>Search by Job Reference</h3>
-        <input type="text" name="search_job_ref_number" placeholder="Job Reference">
-        <button name="action" value="search_job_ref_number">Search</button>
-
-        <h3>Search by Applicant</h3>
-        <input type="text" name="first_name" placeholder="First Name">
-        <input type="text" name="last_name" placeholder="Last Name">
-        <button name="action" value="applicant">Search</button>
-
-        <h3>Delete by Job Reference</h3>
-        <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
-        <button name="action" value="delete_job_ref_number">Delete</button>
-
+    <form method="post" class="login_container" id="manager_eoi_form">
+        <section id="manager_list_all_eois">
+            <h3>List All EOIs</h3>
+            <button name="action" value="list_all">List All</button>
+        </section>
+        <section id="manager_search_section">
+            <section id="manager_search_by_job_ref">
+                <h3>Search by Job Reference</h3>
+                <input type="text" name="search_job_ref_number" placeholder="Job Reference">
+                <button name="action" value="search_job_ref_number">Search</button>
+            </section>
+            <section id="manager_search_by_applicant">
+                <h3>Search by Applicant</h3>
+                <input type="text" name="first_name" placeholder="First Name">
+                <input type="text" name="last_name" placeholder="Last Name">
+                <button name="action" value="applicant">Search</button>
+            </section>
+            <section id="manager_search_by_status">
+                <h3>Search by Status</h3>
+                <input type="text" name="search_by_status" placeholder="Status">
+                <button name="action" value="search_by_status">Search</button>
+            </section>
+        </section>
+        
+        <section id="manager_delete_section">
+            <section id="manager_delete_by_job_ref">
+                <h3>Delete by Job Reference</h3>
+                <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
+                <button name="action" value="delete_job_ref_number">Delete</button>
+            </section>
+            <section id="manager_delete_by_name">
+                <h3>Delete by Applicant</h3>
+                <input type="text" name="delete_first_name" placeholder="First Name">
+                <input type="text" name="delete_last_name" placeholder="Last Name">
+                <button name="action" value="delete_applicant">Delete</button>
+            </section>
+            <section id="manager_delete_by_status">
+                <h3>Delete by Status</h3>
+                <input type="text" name="delete_status" placeholder="Status">
+                <button name="action" value="delete_status">Delete</button>
+            </section>
+        </section>
     </form>
 
 <?php
@@ -96,6 +121,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $query = "SELECT * FROM eoi WHERE " . implode(" AND ", $conditions);
         }
 
+    // Search by status
+    } elseif ($action == "search_by_status" && !empty($_POST['search_by_status'])) {
+        $status = mysqli_real_escape_string($db_conn, $_POST['search_by_status']);
+        $query = "SELECT * FROM eoi WHERE status = '$status'";
+
     // Delete by job reference
     } elseif ($action == "delete_job_ref_number" && !empty($_POST['delete_job_ref_number'])) {
         $job_ref_number = mysqli_real_escape_string($db_conn, $_POST['delete_job_ref_number']);
@@ -105,6 +135,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Refresh the table after update
         $query = "SELECT * FROM eoi";
+
+    // Delete applications by status
+    } elseif ($action == "delete_status" && !empty($_POST['delete_status'])) {
+        $status = mysqli_real_escape_string($db_conn, $_POST['delete_status']);
+        $query = "DELETE FROM eoi WHERE status = '$status'";
+        mysqli_query($db_conn, $query);
+        echo "<p>Deleted EOIs for status: $status</p>";
+
+        // Refresh the table after update
+        $query = "SELECT * FROM eoi";
+
+    // Delete applications by applicant name
+    } elseif ($action == "delete_applicant") {
+        $conditions = [];
+        if (!empty($_POST['delete_first_name'])) { //Check if first name is not empty
+            $fname = mysqli_real_escape_string($db_conn, $_POST['delete_first_name']); //Escape special characters
+            $conditions[] = "first_name LIKE '%$fname%'"; //Make an array of conditions to check for first and last name pairing
+        }
+        if (!empty($_POST['delete_last_name'])) {
+            $lname = mysqli_real_escape_string($db_conn, $_POST['delete_last_name']);
+            $conditions[] = "last_name LIKE '%$lname%'";
+        }
+        if (count($conditions) > 0) {
+            $query = "DELETE FROM eoi WHERE " . implode(" AND ", $conditions);
+            mysqli_query($db_conn, $query);
+            
+            // Echo the names that were provided
+            $nameString = "";
+            if (!empty($_POST['delete_first_name'])) $nameString .= $_POST['delete_first_name'];
+            if (!empty($_POST['delete_last_name'])) {
+                if ($nameString) $nameString .= " ";
+                $nameString .= $_POST['delete_last_name'];
+            }
+            echo "<p>Deleted EOIs for: " . htmlspecialchars($nameString) . "</p>";
+
+            // Refresh the table after update
+            $query = "SELECT * FROM eoi";
+        }
 
     // Update status
     } elseif ($action == "update_status" && !empty($_POST['eoi_number']) && !empty($_POST['status'])) {
