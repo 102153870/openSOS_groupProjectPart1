@@ -73,7 +73,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     echo $row['key_attributes_essential'];
                     echo 'Preferred';
                     echo $row['key_attributes_preferred'];
-                    echo '<br>';
+                    echo '<br><br>';
                     echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . 'per annum</p>';
                     echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
                     echo '<br><br>';
