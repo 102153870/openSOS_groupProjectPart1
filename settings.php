@@ -11,7 +11,8 @@
     // Error message if the connection does not work
     if (!$db_conn)
     {
-        die("Connection Failed: " . mysqli_connect_error());
+        erorr_log("Connection failed: " . mysqli_connect_error());
+        die("Sorry something went wrong. Please try again.: " . mysqli_connect_error());
     }
 ?>
 
