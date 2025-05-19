@@ -81,14 +81,14 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
                     //essential list
                     echo '<ul><li class = "list_indent">Essential<ul>"'
-                    $key_resps = explode("\n", $row['key_attributes_essential']);
+                    $key_attr_esse = explode("\n", $row['key_attributes_essential']);
                     foreach($key_attr_esse as $attr_esse)
                     {
                         echo '<li class = "list_indent">' . $attr_esse . '</li>';
                     }
                     //end essential list, start prefered list
                     echo '</ul></li><li class = "list_indent">Preferred<ul>';
-                    $key_resps = explode("\n", $row['key_attributes_preferred']);
+                    $key_attr_pref = explode("\n", $row['key_attributes_preferred']);
                     foreach($key_attr_pref as $attr_pref)
                     {
                         echo '<li class = "list_indent">' . $attr_pref . '</li>';
