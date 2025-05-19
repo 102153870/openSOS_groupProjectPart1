@@ -80,7 +80,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     echo '<h3>Key Attributes</h3>';         
 
                     //essential list
-                    echo '<ul><li class = "list_indent">Essential<ul>"';
+                    echo '<ul><li class = "list_indent">Essential<ul>';
                     $key_attr_esse = explode("\n", $row['key_attributes_essential']);
                     foreach($key_attr_esse as $attr_esse)
                     {
