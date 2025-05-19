@@ -5,9 +5,9 @@ author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
-last modified: 13/5/2025
+last modified: 18/5/2025
 
-description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php
+description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php, manage.php
 */
 /*Variables for theme selector*/
 /*The root checks the input selected by the user from the theme selector*/
@@ -258,9 +258,49 @@ h2 {text-align: center;}
 
 /************************************************************/
 /*Manage Page for Users (manage.php)*/
-
 #status_color{
     color: var(--home_nav_icon_color);
+}
+#manager_eoi_form {
+    background: transparent;
+    padding: 0.75rem;
+    line-height: 1.2rem;
+    width: 100%;
+    border: none;
+}
+#manager_search_section, #manager_delete_section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;  /* Center items horizontally */
+    margin: 0 auto;      /* Center the container itself */
+    width: fit-content;
+    background: var(--textcard_color);
+    /* width: fit-content; */
+    /* Border */
+    border: 0.25rem solid black;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+#manager_search_by_job_ref, #manager_search_by_applicant, #manager_search_by_status, #manager_delete_by_job_ref, #manager_delete_by_status, #manager_delete_by_name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1em;
+    background: transparent;
+}
+#manager_list_all_eois {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center items horizontally */
+    margin: 0 auto;      /* Center the container itself */
+    width: fit-content;
+    justify-content: center;
+    padding: 1em;
+    background: var(--textcard_color);
+    /* Border */
+    border: 0.25rem solid black;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
 }
 
 /************************************************************/
@@ -763,7 +803,6 @@ form h3 {
     padding: 0.75rem;
     width: 42%;
     line-height: 1.2rem;
-    ;
     /* Border */
     border: 0.25rem solid black;
     border-radius: 1rem;
@@ -868,7 +907,6 @@ form h3 {
     height: 100%;
     /* Or set a fixed height like 500px */
     overflow: auto;
-
     margin: 1.5rem 4.5rem;
     clear: both;
     line-height: 1.75rem;
@@ -982,13 +1020,18 @@ h1.job_title {
 .process_eoi_text {
     text-align: center;
     padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 1em;
 }
 #process_error_list {
-    list-style-type: disc;      /* Show standard bullet points */
-    margin: 1em auto;           /* Center the list block horizontally */
-    padding-left: 2em;          /* Indent bullets from the left edge */
-    width: fit-content;         /* Shrink to fit content, so centering works */
-    text-align: left;           /* Left-align the text inside the list */
+    list-style-type: disc;
+    margin: 1em auto;
+    padding-left: 2em;
+    width: fit-content;
+    text-align: left;
+    background: var(--textcard_color);
+    border: 0.25rem solid black;
+    border-radius: 1rem;
 }
 
 /* Responsive styles for screens up to 925px */

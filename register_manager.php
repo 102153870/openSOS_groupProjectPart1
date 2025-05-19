@@ -30,11 +30,11 @@
         <!--Registration form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
+            <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+
             <input type="text" id="username" name="username" placeholder="Username" required>
 
             <input type="password" id="password" name="password" placeholder="Password" required>
-
-            <input type="text" id="email" name="email" placeholder="Email" required>
 
             <input type="company_password" id="company_password" name="company_password" placeholder="Company Password" required>
 
