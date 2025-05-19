@@ -62,7 +62,16 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
                     echo '<br><p>' . $row['description'] . '</p><br>';
                     echo '<h3>Key Responsibilities</h3>';
-                    echo $row['key_responsibilities'];
+
+                    //list
+                    $key_resps = explode("\n", $row['key_responsibilities']);
+                    echo "<ol>"
+                    foreach($resp as $key_resps)
+                    {
+                        echo '<li class = "list_indent">' . $resp . '</li>';
+                    }
+                    echo "</ol>"
+
                     echo '</section>';
 
                     //right
@@ -70,9 +79,15 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     echo '<br>';
                     echo '<h3>Key Attributes</h3>';
                     echo 'Essential';
+
+                    //list
                     echo $row['key_attributes_essential'];
+
                     echo 'Preferred';
+
+                    //list
                     echo $row['key_attributes_preferred'];
+
                     echo '<br><br>';
                     echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . 'per annum</p>';
                     echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
