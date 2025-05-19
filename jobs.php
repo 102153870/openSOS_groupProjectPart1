@@ -65,12 +65,12 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
                     //list
                     $key_resps = explode("\n", $row['key_responsibilities']);
-                    echo "<ol>"
-                    foreach($resp as $key_resps)
+                    echo "<ol>";
+                    foreach($key_resps as $resp)
                     {
                         echo '<li class = "list_indent">' . $resp . '</li>';
                     }
-                    echo "</ol>"
+                    echo "</ol>";
 
                     echo '</section>';
 
