@@ -60,12 +60,12 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     //left
                     echo '<section class = "job_description_left">';
                     echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
-                    echo '<br><p>' . $row['description'] . '</p><br>';
-                    echo '<h3>Key Responsibilities</h3>';
+                    echo '<br><p>' . $row['description'] . '</p><br>';                 
 
-                    //list
-                    $key_resps = explode("\n", $row['key_responsibilities']);
+                    //list               
+                    echo '<h3>Key Responsibilities</h3>';
                     echo "<ol>";
+                    $key_resps = explode("\n", $row['key_responsibilities']);
                     foreach($key_resps as $resp)
                     {
                         echo '<li class = "list_indent">' . $resp . '</li>';
@@ -77,17 +77,25 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     //right
                     echo '<section class = "job_description_right">';
                     echo '<br>';
-                    echo '<h3>Key Attributes</h3>';
-                    echo 'Essential';
+                    echo '<h3>Key Attributes</h3>';         
 
-                    //list
-                    echo $row['key_attributes_essential'];
+                    //essential list
+                    echo '<ul><li class = "list_indent">Essential<ul>"'
+                    $key_resps = explode("\n", $row['key_attributes_essential']);
+                    foreach($key_attr_esse as $attr_esse)
+                    {
+                        echo '<li class = "list_indent">' . $attr_esse . '</li>';
+                    }
+                    //end essential list, start prefered list
+                    echo '</ul></li><li class = "list_indent">Preferred<ul>';
+                    $key_resps = explode("\n", $row['key_attributes_preferred']);
+                    foreach($key_attr_pref as $attr_pref)
+                    {
+                        echo '<li class = "list_indent">' . $attr_pref . '</li>';
+                    }
+                    echo '</ul></li></ul>';
 
-                    echo 'Preferred';
-
-                    //list
-                    echo $row['key_attributes_preferred'];
-
+                    //extra info
                     echo '<br><br>';
                     echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . 'per annum</p>';
                     echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
