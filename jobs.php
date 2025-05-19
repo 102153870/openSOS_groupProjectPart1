@@ -93,7 +93,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     {
                         echo '<li class = "list_indent">' . $attr_pref . '</li>';
                     }
-                    echo '</ul></li></ul>';
+                    echo '</ul></li></ul>'; //close master list
 
                     //extra info
                     echo '<br><br>';
