@@ -247,6 +247,7 @@ footer p #github_link:hover {
     /* make it take up full line, so margin auto works */
 }
 .error_message {color: red; margin: 1rem 0;}
+.success_message {color:green; margin: 1rem 0;}
 
 h2 {text-align: center;}
 
