@@ -45,7 +45,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     include 'header.inc';
     include 'nav.inc'; ?>
 
-    <h2 class ="heading_important">Welcome to the manager dashboard <?php echo htmlspecialchars($username) ?>!</h2>
+    <h2 class ="heading_important" id="manager_page_h2">Welcome to the manager dashboard <?php echo htmlspecialchars($username) ?>!</h2>
 
     <!-- Form to select the query action -->
     <form method="post" class="login_container" id="manager_eoi_form">
@@ -69,7 +69,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                             }
                     ?>
                 </select>
-                <input type="text" name="search_job_ref_number" placeholder="Job Reference">
                 <button name="action" value="search_job_ref_number" class="manager_page_button">Search</button>
             </section>
             <section id="manager_search_by_applicant">
@@ -93,7 +92,19 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
         <section id="manager_delete_section">
             <section id="manager_delete_by_job_ref">
                 <h3>Delete by Job Reference</h3>
-                <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
+                <select name="delete_job_ref_number">
+                    <option value="" selected="selected">Please Select</option>
+                    <!-- Print the jobs dynamically using the DB information -->
+                    <?php
+                            // Get the job reference numbers from the database and display them in the dropdown box
+                            $query = "SELECT * from jobs";
+                            $result = mysqli_query($db_conn, $query);
+                            while ($row = mysqli_fetch_assoc($result)) 
+                            {
+                                echo '<option value="' . htmlspecialchars($row['reference_code']) . '">' . htmlspecialchars($row['reference_code']) . ' (' . htmlspecialchars($row['job_title']) . ')</option>';
+                            }
+                    ?>
+                </select>
                 <button name="action" value="delete_job_ref_number" class="manager_page_button">Delete</button>
             </section>
             <section id="manager_delete_by_name">

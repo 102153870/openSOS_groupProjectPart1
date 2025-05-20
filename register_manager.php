@@ -5,16 +5,16 @@ session_start();
 require_once 'settings.php';
 
 // Function to sanitise the input
-    function sanitise_input ($data)
-    {
-        // Remove leading and trailing spaces
-        $data = trim($data); 
-        // Remove backslashes in front of quotes
-        $data = stripslashes($data);
-        // Converts HTML special characters like < to &lt;
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+function sanitise_input ($data)
+{
+    // Remove leading and trailing spaces
+    $data = trim($data); 
+    // Remove backslashes in front of quotes
+    $data = stripslashes($data);
+    // Converts HTML special characters like < to &lt;
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = sanitise_input($_POST["email"]);
