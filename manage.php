@@ -53,9 +53,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             <h3>List All EOIs</h3>
             <button name="action" value="list_all" class="manager_page_button">List All</button>
         </section>
+        <h3>Sort by:</h3>
+        <section id="sort_dropdown">
+            
         <section id="manager_search_section">
             <section id="manager_search_by_job_ref">
-                <h3>Search by Job Reference</h3>
+                <h3>Search by Reference</h3>
                 <select name="search_job_ref_number">
                     <option value="" selected="selected">Please Select</option>
                     <!-- Print the jobs dynamically using the DB information -->
@@ -91,7 +94,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
         
         <section id="manager_delete_section">
             <section id="manager_delete_by_job_ref">
-                <h3>Delete by Job Reference</h3>
+                <h3>Delete by Reference</h3>
                 <select name="delete_job_ref_number">
                     <option value="" selected="selected">Please Select</option>
                     <!-- Print the jobs dynamically using the DB information -->
@@ -132,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // List all EOIs
     if ($action == "list_all") {
-        $query = "SELECT * FROM eoi";
+        $query = "SELECT * FROM eoi ORDER BY ";
 
     // Search by job reference
     } elseif ($action == "search_job_ref_number" && !empty($_POST['search_job_ref_number'])) {
@@ -153,6 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (count($conditions) > 0) {
             $query = "SELECT * FROM eoi WHERE " . implode(" AND ", $conditions);
         }
+        else $query = " ";
 
     // Search by status
     } elseif ($action == "search_by_status" && !empty($_POST['search_by_status'])) {
@@ -206,6 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Refresh the table after update
             $query = "SELECT * FROM eoi";
         }
+        else $query = " ";
 
     // Update status
     } elseif ($action == "update_status" && !empty($_POST['eoi_number']) && !empty($_POST['status'])) {

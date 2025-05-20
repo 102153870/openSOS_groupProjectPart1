@@ -272,11 +272,10 @@ h2 {text-align: center;}
 #manager_search_section, #manager_delete_section {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;  /* Center items horizontally */
-    margin: 0 auto;      /* Center the container itself */
+    align-items: stretch;
+    margin: 0 auto;
     width: fit-content;
     background: var(--textcard_color);
-    /* width: fit-content; */
     /* Border */
     border: 0.25rem solid black;
     border-radius: 1rem;
@@ -289,15 +288,18 @@ h2 {text-align: center;}
 #manager_search_by_job_ref, #manager_search_by_applicant, #manager_search_by_status, #manager_delete_by_job_ref, #manager_delete_by_status, #manager_delete_by_name {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between; 
+    flex: 1 1 0;
+    min-height: fit-content;
     padding: 1em;
     background: transparent;
+    width: 33%;
 }
 #manager_list_all_eois {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Center items horizontally */
-    margin: 0 auto;      /* Center the container itself */
+    align-items: center;
+    margin: 0 auto;
     width: fit-content;
     justify-content: center;
     padding: 1em;
