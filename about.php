@@ -164,6 +164,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
             </figure>
         </div>
       </main>
+
     <?php include 'footer.inc' ?> <!--Include Footer-->
 
 
