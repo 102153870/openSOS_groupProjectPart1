@@ -39,7 +39,90 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
         <!--jobs in sections-->
         <!-- Cant use the name section as a class -->
-        <div class = "job_description_box">
+        <?php
+        require_once("settings.php");
+        if($db_conn)
+        {
+            $query = "SELECT * FROM jobs";
+            $result = mysqli_query($db_conn, $query);
+        }
+
+        //check query
+        if($result)
+        {
+            //worked  
+            if(mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    echo '<div class = "job_description_box">';
+
+                    //left
+                    echo '<section class = "job_description_left">';
+                    echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
+                    echo '<br><p>' . $row['description'] . '</p><br>';                 
+
+                    //list               
+                    echo '<h3>Key Responsibilities</h3>';
+                    echo "<ol>";
+                    $key_resps = explode("\n", $row['key_responsibilities']);
+                    foreach($key_resps as $resp)
+                    {
+                        echo '<li class = "list_indent">' . $resp . '</li>';
+                    }
+                    echo "</ol>";
+
+                    echo '</section>';
+
+                    //right
+                    echo '<section class = "job_description_right">';
+                    echo '<br>';
+                    echo '<h3>Key Attributes</h3>';         
+
+                    //essential list
+                    echo '<ul><li class = "list_indent">Essential<ul>';
+                    $key_attr_esse = explode("\n", $row['key_attributes_essential']);
+                    foreach($key_attr_esse as $attr_esse)
+                    {
+                        echo '<li class = "list_indent">' . $attr_esse . '</li>';
+                    }
+                    //end essential list, start prefered list
+                    echo '</ul></li><li class = "list_indent">Preferred<ul>';
+                    $key_attr_pref = explode("\n", $row['key_attributes_preferred']);
+                    foreach($key_attr_pref as $attr_pref)
+                    {
+                        echo '<li class = "list_indent">' . $attr_pref . '</li>';
+                    }
+                    echo '</ul></li></ul>'; //close master list
+
+                    //extra info
+                    echo '<br><br>';
+                    echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . 'per annum</p>';
+                    echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
+                    echo '<br><br>';
+                    echo '<div class="apply_container">';
+                    echo '<p class="reference_number"><em>Reference Number: ' . $row['reference_code'] . '</em></p>';
+
+                    echo '<a href="apply.php" class="buttons_description_box">Apply</a></div></section></div>';
+                }
+
+                echo "</table>";
+                echo "<br>";
+                echo "<a href='search_form.php'>Search for a car</a>";
+            }
+            else
+            {
+                echo "There are no jobs to display.";
+            }    
+        }
+        else
+        {
+            //didn't work
+            echo "No Connection";
+        }
+
+        
+        /*<div class = "job_description_box">
             <section class = "job_description_left">
                 <h1 class = "job_title">Data Analyst</h1>
                 <br>
@@ -111,155 +194,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     <a href="apply.php" class="buttons_description_box">Apply</a>
                 </div>
             </section>
-        </div>
-
-        <div class = "job_description_box">
-            <section class = "job_description_left">
-                <h1 class = "job_title">Programmer</h1>
-                <br>
-                <p>
-                    As a Programmer at OpenSOS, you will play a key role in the development and maintenance of our software systems. You will collaborate closely with our software development team to design, implement, and refine code for a wide range of applications that support our mission. Your responsibilities will include writing clean, efficient, and well-documented code, as well as conducting regular reviews to ensure reliability, performance, and scalability. In this role, you’ll not only contribute to building new features but also help optimize existing codebases and debug issues that arise during development or testing phases. You will be encouraged to apply best practices in software engineering and stay updated with modern programming trends to continually improve the quality of our products.
-                    <!--Description generated by ChatGPT, prompt: create a description for a Programmer role for a company OpenSOS-->
-                </p>
-                <br>
-
-                <!--responsibilities list-->
-                <h3>Key Responsibilities</h3>
-                <ol>
-                    <li class = "list_indent">
-                        Write clear and efficient code
-                    </li>
-                    <li class = "list_indent">
-                        Test code to ensure reliability across different environments
-                    </li>
-                    <li class = "list_indent">
-                        Maintain and update softwares
-                    </li>
-                </ol>
-            </section>      
-
-            <!--key attributes list shifted to the right-->
-            <section class = "job_description_right">
-                <br>
-                <h3>Key Attributes</h3>
-                <ul>
-                    <li class = "list_indent">
-                        Essential
-                        <ul>
-                            <li class = "list_indent">
-                                1 Year of experience as a programmer
-                            </li>
-                            <li class = "list_indent">
-                                A Degree in Computer Science or a related field
-                            </li>
-                        </ul>
-                    </li>
-                    <li class = "list_indent">
-                        Preferred
-                        <ul>
-                            <li class = "list_indent">
-                                Experience using programming languages such as c#, c++ and python
-                            </li>
-                            <li class = "list_indent">
-                                A background of previously worked-on programs
-                            </li>
-                            <li class = "list_indent">
-                                Good communication skills
-                            </li>
-                            <li class = "list_indent">
-                                A positive attitude towards learning in the workspace and striving to improve
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-                <!--other info-->
-                <p>Salary: $100000 - $120000 per annum</p>
-                <p>Reports to: Director of Software Engineering</p>
-                
-                <br>
-                <div class="apply_container">
-                    <p class="reference_number"><em>Reference Number: T4B13</em></p>
-                    <a href="apply.php" class="buttons_description_box">Apply</a>
-                </div>
-            </section>
-        </div>
-
-        <div class = "job_description_box">
-            <section class = "job_description_left">
-                <h1 class = "job_title">Front-end Web Developer</h1>
-                <br>
-                <p>
-                    As a Front-End Web Developer at OpenSOS, you will be responsible for crafting user-facing features and interfaces that are not only visually appealing but also functional, accessible, and responsive across a variety of platforms and devices. You will collaborate closely with back-end developers, UI/UX designers, and other stakeholders to transform design mockups and functional requirements into fully responsive and interactive web pages. Your work will focus on creating seamless user experiences by writing clean, efficient, and modular HTML, CSS, and JavaScript. You will also be responsible for integrating APIs, handling data transfer securely between front-end components and back-end systems, and ensuring that security and performance standards are met across all user interactions.
-                    <!--Description generated by ChatGPT, prompt: create a description for a Front-End Web Developer role for a company OpenSOS-->
-                </p>
-                <br>
-                
-                <!--responsibilities list-->
-                <h3>Key Responsibilities</h3>
-                <ol>
-                    <li class = "list_indent">
-                        Create clean UI for web pages
-                    </li>
-                    <li class = "list_indent">
-                        Ensure websites work, and are usable in a range of different environments and with a variety of users
-                    </li>
-                    <li class = "list_indent">
-                        Collaborate with designers and back-end developers effectively
-                    </li>
-                </ol>
-            </section>
-            
-            <!--key attributes list shifted to the right-->
-            <section class = "job_description_right">
-                <br>
-                <h3>Key Attributes</h3>
-                <ul>
-                    <li class = "list_indent">
-                        Essential
-                        <ul>
-                            <li class = "list_indent">
-                                1 Year of experience as a front-end developer
-                            </li>
-                            <li class = "list_indent">
-                                A Degree in Computer Science or a related field
-                            </li>
-                            <li class = "list_indent">
-                                Experience using HTML, CSS and JavaScript
-                            </li>
-                        </ul>
-                    </li>
-                    <li class = "list_indent">
-                        Preferred
-                        <ul>
-                            <li class = "list_indent">
-                                A background of previously worked-on web pages
-                            </li>
-                            <li class = "list_indent">
-                                Good communication skills
-                            </li>
-                            <li class = "list_indent">
-                                A positive attitude towards learning in the workspace and striving to improve
-                            </li>
-                            <li class = "list_indent">
-                                Experience using frameworks such as React, Angular or Vue.js
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-
-                <!--other info-->
-                <p>Salary: $90000 - $110000 per annum</p>
-                <p>Reports to: Web development manager</p>
-                
-                <br><br>
-                <div class="apply_container">
-                    <p class="reference_number"><em>Reference Number: P1224</em></p>
-                    <a href="apply.php" class="buttons_description_box">Apply</a>
-                </div>
-            </section>
-        </div>
+        </div>*/?>
     </main>
 
     <?php include 'footer.inc' ?> <!--Include Footer-->

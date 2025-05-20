@@ -16,7 +16,7 @@
     <!-- Right: Manager Login -->
     <div class="manager_login_link">
         <?php
-        $link = 'enhancements.php'; // Default fallback
+        $link = 'login.php'; // Default fallback
 
         if (isset($_SESSION['role'])) {
             if ($_SESSION['role'] == 'manager') {

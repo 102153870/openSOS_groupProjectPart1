@@ -1,5 +1,68 @@
 <!--USER REGISTRATION PAGE-->
 <!--In-charge: Rodney/Henry-->
+<?php
+session_start(); 
+require_once 'settings.php';
+
+
+// Function to sanitise the input
+    function sanitise_input ($data)
+    {
+        // Remove leading and trailing spaces
+        $data = trim($data); 
+        // Remove backslashes in front of quotes
+        $data = stripslashes($data);
+        // Converts HTML special characters like < to &lt;
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = sanitise_input($_POST['email']);
+    $username = sanitise_input($_POST['username']);
+    $password = sanitise_input($_POST['password']);
+
+    //using filter_var to validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error_user_register'] = "Invalid email format."; //Use session to persist error message after redirect
+        header("Location: register_user.php");
+        exit();
+    }
+
+    // Check if email already exists
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $db_conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    //Check if the email already exists in the database
+    if ($result->num_rows > 0) {
+        $_SESSION['error_user_register'] = "Email is already registered.";
+        header("Location: register_user.php");
+        exit();
+    }
+
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Insert into users table
+    $insert_query = "INSERT INTO users (email, username, password, role) VALUES (?, ?, ?, 'user')";
+    $stmt = $db_conn->prepare($insert_query);
+    $stmt->bind_param("sss", $email, $username, $hashed_password);
+
+    if ($stmt->execute()) {
+        $_SESSION['success_user_register'] = "User registered successfully! You may now log in.";
+        header("Location: register_user.php");
+    } else {
+        $_SESSION['error_user_register'] = "Registration failed. Try again.";
+        header("Location: register_user.php");
+    }
+
+    exit();
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +81,7 @@
 <body>
     <header>
         <?php
-            $page_title = "User Registration";
+            $page_title = "User Register";
             include 'header.inc'; // Ensure this path is correct
         ?>
     </header>
@@ -30,7 +93,17 @@
         <!--Registration form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
-            <input type="text" id="email" name="email" placeholder="Email" required>
+            <?php
+            if (isset($_SESSION['error_user_register'])) {
+                echo "<p class='error_message'>" . $_SESSION['error_user_register'] . "</p>";
+                unset($_SESSION['error_user_register']);
+            } elseif (isset($_SESSION['success_user_register'])) {
+                echo "<p class='success_message'>" . $_SESSION['success_user_register'] . "</p>";
+                unset($_SESSION['success_user_register']);
+            }
+            ?>
+
+            <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 
             <input type="password" id="password" name="password" placeholder="Password" required>
 
