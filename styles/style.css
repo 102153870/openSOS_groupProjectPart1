@@ -304,6 +304,10 @@ h2 {text-align: center;}
     margin-bottom: 2rem;
 }
 
+.clear_float {
+    clear: both;
+    /* Clears the float before job description box*/
+}   
 /************************************************************/
 /*index.php specific CSS*/
 /*Homepage background image*/
@@ -897,19 +901,26 @@ form h3 {
     cursor: pointer;
 }
 
+
+
 /************************************************************/
 /*jobs.php specific CSS*/
+
+.job_intro {
+  overflow: auto; /* clearfix alternative */
+  margin: auto;
+}
 /*description box div*/
 .job_description_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
     padding: 1rem;
     border-radius: 1rem;
     border: 0.25rem solid black;
     background-color: var(--textcard_color);
-    height: 100%;
-    /* Or set a fixed height like 500px */
-    overflow: auto;
     margin: 1.5rem 4.5rem;
-    clear: both;
     line-height: 1.75rem;
     font-size: 1.2rem;
 }

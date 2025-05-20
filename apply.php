@@ -232,7 +232,7 @@ unset($_SESSION['form_data']);
             </fieldset>
         </form>
     </main>
-        
+    
     <?php include 'footer.inc' ?> <!--Include Footer-->
 
 </body>

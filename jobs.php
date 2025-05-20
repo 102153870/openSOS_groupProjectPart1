@@ -33,9 +33,12 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
     <!-- Begin the main content of the web page -->
     <main>
-        <p id = "job_prompt">Here, you can view our amazing job descriptions!<br>Browse and view each one for its required skills, and an overview of the work you will be undertaking!<br>Also see appropriate annual salaries, and other important information.</p>
-        <aside id = "job_aside">Use the <a href="apply.php" title="Apply">Apply</a> page to apply for a job.<br>You will need to use the reference code shown in the description of the job you would like to apply for.</aside><!--This might not need to be a float-->
-        <br>
+        <!--Job aside and prompt container-->
+        <div class = "job_intro">
+            <p id = "job_prompt">Here, you can view our amazing job descriptions!<br>Browse and view each one for its required skills, and an overview of the work you will be undertaking!<br>Also see appropriate annual salaries, and other important information.</p>
+            <aside id = "job_aside">Use the <a href="apply.php" title="Apply">Apply</a> page to apply for a job.<br>You will need to use the reference code shown in the description of the job you would like to apply for.</aside><!--This might not need to be a float-->
+        <div class ="clear_float"></div> <!--clears the float of the aside element so that job descriptions are not affected-->
+        </div>
 
         <!--jobs in sections-->
         <!-- Cant use the name section as a class -->
@@ -93,7 +96,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
                     //extra info
                     echo '<br><br>';
-                    echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . 'per annum</p>';
+                    echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . ' per annum</p>';
                     echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
                     echo '<br><br>';
                     echo '<div class="apply_container">';
