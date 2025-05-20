@@ -40,19 +40,15 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
         <!--jobs in sections-->
         <!-- Cant use the name section as a class -->
         <?php
-        require_once("settings.php");
         if($db_conn)
         {
             $query = "SELECT * FROM jobs";
             $result = mysqli_query($db_conn, $query);
-        }
 
-        //check query
-        if($result)
-        {
-            //worked  
-            if(mysqli_num_rows($result) > 0)
+            // Make sure the query returned something, otherwise display an error message
+            if ($result)
             {
+                // While the query is returing data from the DB
                 while ($row = mysqli_fetch_assoc($result))
                 {
                     echo '<div class = "job_description_box">';
@@ -105,15 +101,12 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
                     echo '<a href="apply.php" class="buttons_description_box">Apply</a></div></section></div>';
                 }
-
-                echo "</table>";
                 echo "<br>";
-                echo "<a href='search_form.php'>Search for a car</a>";
             }
             else
             {
                 echo "There are no jobs to display.";
-            }    
+            }   
         }
         else
         {

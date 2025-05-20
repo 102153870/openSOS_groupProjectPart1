@@ -1149,12 +1149,6 @@ h1.job_title {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    /* #technical_skills_input {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-columns: 25% 25% 25% 25%;
-    justify-items: center;
-} */
 
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {

@@ -51,28 +51,42 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     <form method="post" class="login_container" id="manager_eoi_form">
         <section id="manager_list_all_eois">
             <h3>List All EOIs</h3>
-            <button name="action" value="list_all">List All</button>
+            <button name="action" value="list_all" class="manager_page_button">List All</button>
         </section>
         <section id="manager_search_section">
             <section id="manager_search_by_job_ref">
                 <h3>Search by Job Reference</h3>
+                <select name="search_job_ref_number">
+                    <option value="" selected="selected">Please Select</option>
+                    <!-- Print the jobs dynamically using the DB information -->
+                    <?php
+                            // Get the job reference numbers from the database and display them in the dropdown box
+                            $query = "SELECT * from jobs";
+                            $result = mysqli_query($db_conn, $query);
+                            while ($row = mysqli_fetch_assoc($result)) 
+                            {
+                                echo '<option value="' . htmlspecialchars($row['reference_code']) . '">' . htmlspecialchars($row['reference_code']) . ' (' . htmlspecialchars($row['job_title']) . ')</option>';
+                            }
+                    ?>
+                </select>
                 <input type="text" name="search_job_ref_number" placeholder="Job Reference">
-                <button name="action" value="search_job_ref_number">Search</button>
+                <button name="action" value="search_job_ref_number" class="manager_page_button">Search</button>
             </section>
             <section id="manager_search_by_applicant">
                 <h3>Search by Applicant</h3>
                 <input type="text" name="first_name" placeholder="First Name">
                 <input type="text" name="last_name" placeholder="Last Name">
-                <button name="action" value="applicant">Search</button>
+                <button name="action" value="applicant" class="manager_page_button">Search</button>
             </section>
             <section id="manager_search_by_status">
             <h3>Search by Status</h3>
             <select name="search_by_status">
+                <option value="">Please Select</option>
                 <option value="NEW">NEW</option>
                 <option value="CURRENT">CURRENT</option>
                 <option value="FINAL">FINAL</option>
             </select>
-            <button name="action" value="search_by_status">Search</button>
+            <button name="action" value="search_by_status" class="manager_page_button">Search</button>
             </section>
         </section>
         
@@ -80,13 +94,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             <section id="manager_delete_by_job_ref">
                 <h3>Delete by Job Reference</h3>
                 <input type="text" name="delete_job_ref_number" placeholder="Job Reference">
-                <button name="action" value="delete_job_ref_number">Delete</button>
+                <button name="action" value="delete_job_ref_number" class="manager_page_button">Delete</button>
             </section>
             <section id="manager_delete_by_name">
                 <h3>Delete by Applicant</h3>
                 <input type="text" name="delete_first_name" placeholder="First Name">
                 <input type="text" name="delete_last_name" placeholder="Last Name">
-                <button name="action" value="delete_applicant">Delete</button>
+                <button name="action" value="delete_applicant" class="manager_page_button">Delete</button>
             </section>
             <section id="manager_delete_by_status">
                 <h3>Delete by Status</h3>
@@ -95,7 +109,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                     <option value="CURRENT">CURRENT</option>
                     <option value="FINAL">FINAL</option>
                 </select>
-                <button name="action" value="delete_status">Delete</button>
+                <button name="action" value="delete_status" class="manager_page_button">Delete</button>
             </section>
         </section>
     </form>
