@@ -5,8 +5,6 @@ session_start(); // Start fresh session
 require_once 'settings.php'; // Ensure this file correctly initializes $conn
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +35,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
     <!-- Right: Manager Login -->
     <div class="manager_login_link">
         <?php
-        $link = 'enhancements.php'; // Default fallback
+        $link = 'login.php'; // Default fallback
 
         if (isset($_SESSION['role'])) {
             if ($_SESSION['role'] == 'manager') {
@@ -139,6 +137,12 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                 <p><strong>info@openSOS.com.au</strong></p>
             </a>
         </section>
+
+        <!--Enhancement Section-->
+        <section class ="section_heading">
+            <button class="buttons" onclick="window.location.href='enhancements.php'">Go to Enhancements</button> 
+        </section>
+        <br>
         
     </main>
 

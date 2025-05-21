@@ -247,6 +247,7 @@ footer p #github_link:hover {
     /* make it take up full line, so margin auto works */
 }
 .error_message {color: red; margin: 1rem 0;}
+.success_message {color:green; margin: 1rem 0;}
 
 h2 {text-align: center;}
 
@@ -268,41 +269,89 @@ h2 {text-align: center;}
     width: 100%;
     border: none;
 }
+#manager_eoi_form section h3 {
+    padding-bottom: 0.5em;
+}
+#manager_list_all_and_sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 auto;
+    width: 40%;
+    background: transparent;
+}
+#manager_list_all_eois, #sort_dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+    justify-content: space-between;
+    padding: 1em;
+    background: var(--textcard_color);
+    /* Border */
+    border: 0.25rem solid black;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
 #manager_search_section, #manager_delete_section {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;  /* Center items horizontally */
-    margin: 0 auto;      /* Center the container itself */
-    width: fit-content;
+    align-items: stretch;
+    margin: 0 auto;
+    width: 33%;
     background: var(--textcard_color);
-    /* width: fit-content; */
     /* Border */
     border: 0.25rem solid black;
     border-radius: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
-#manager_search_by_job_ref, #manager_search_by_applicant, #manager_search_by_status, #manager_delete_by_job_ref, #manager_delete_by_status, #manager_delete_by_name {
+#manager_delete_section {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.manager_search_and_delete_subsections {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between; 
+    flex: 1 1 0;
+    min-height: fit-content;
     padding: 1em;
     background: transparent;
+    width: 33%;
 }
-#manager_list_all_eois {
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* Center items horizontally */
-    margin: 0 auto;      /* Center the container itself */
-    width: fit-content;
-    justify-content: center;
-    padding: 1em;
-    background: var(--textcard_color);
-    /* Border */
-    border: 0.25rem solid black;
-    border-radius: 1rem;
-    margin-bottom: 2rem;
+.manager_top_text_input {
+    margin-bottom: 0.5em;
+}
+.manager_page_button {
+    /*Styling for the buttons*/
+    padding: 1%;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5em;
+}
+.manager_page_button:hover {
+    /*Apply button hover effect*/
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+#manage_message {
+    text-align: center;
+    font-weight: bold;
+    margin: 2em auto;
+    font-size: 2rem;
+    width: 100%;
 }
 
+
+.clear_float {
+    clear: both;
+    /* Clears the float before job description box*/
+}   
 /************************************************************/
 /*index.php specific CSS*/
 /*Homepage background image*/
@@ -537,6 +586,7 @@ body.hero_background {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
     display: inline-block;
+    font-size: 2rem;
     /*Makes the background and border match the text width*/
     background-color: var(--heading_color);
     padding: 5px 10px;
@@ -896,19 +946,26 @@ form h3 {
     cursor: pointer;
 }
 
+
+
 /************************************************************/
 /*jobs.php specific CSS*/
+
+.job_intro {
+  overflow: auto; /* clearfix alternative */
+  margin: auto;
+}
 /*description box div*/
 .job_description_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
     padding: 1rem;
     border-radius: 1rem;
     border: 0.25rem solid black;
     background-color: var(--textcard_color);
-    height: 100%;
-    /* Or set a fixed height like 500px */
-    overflow: auto;
     margin: 1.5rem 4.5rem;
-    clear: both;
     line-height: 1.75rem;
     font-size: 1.2rem;
 }
@@ -1148,12 +1205,6 @@ h1.job_title {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    /* #technical_skills_input {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-columns: 25% 25% 25% 25%;
-    justify-items: center;
-} */
 
     /* Make writing and padding smaller for tiny screens */
     input[type="text"] {
@@ -1254,6 +1305,16 @@ h1.job_title {
         width: calc(100% - 2rem);
         float: none;
         clear: none;
+    }
+
+    /************************************************************/
+    /* For manager.php */
+    #manager_eoi_form section {
+    width: 100%;
+}
+    #manager_search_section, #manager_delete_section {
+        display: flex;
+        flex-direction: column;
     }
 }
 
