@@ -49,15 +49,29 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
 
     <!-- Form to select the query action -->
     <form method="post" class="login_container" id="manager_eoi_form">
-        <section id="manager_list_all_eois">
-            <h3>List All EOIs</h3>
-            <button name="action" value="list_all" class="manager_page_button">List All</button>
+        <section id="manager_list_all_and_sort">
+            <section id="manager_list_all_eois">
+                <h3>List All EOIs</h3>
+                <button name="action" value="list_all" class="manager_page_button">List All</button>
+            </section>
+            <section id="sort_dropdown">
+                <!-- Variable used to sort the table info -->
+                <?php $query_search_addon = ""; ?>
+                <h3>Sort by:</h3>
+                <select name="manager_sort_by">
+                    <option value="" selected="selected">Please Select</option>
+                    <option value="eoi_number">EOI ID</option>
+                    <option value="job_ref_number">Job Reference</option>
+                    <option value="first_name">First Name</option>
+                    <option value="last_name">Last Name</option>
+                    <option value="status">Status</option>
+                </select>
+                <button name="action" value="manager_sort_by" class="manager_page_button">Sort</button>
+            </section>
         </section>
-        <section id="sort_dropdown">
-            <h3>Sort by:</h3>
-            
+
         <section id="manager_search_section">
-            <section id="manager_search_by_job_ref">
+            <section id="manager_search_by_job_ref" class="manager_search_and_delete_subsections">
                 <h3>Search by Reference</h3>
                 <select name="search_job_ref_number">
                     <option value="" selected="selected">Please Select</option>
@@ -74,13 +88,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 </select>
                 <button name="action" value="search_job_ref_number" class="manager_page_button">Search</button>
             </section>
-            <section id="manager_search_by_applicant">
+            <section id="manager_search_by_applicant" class="manager_search_and_delete_subsections">
                 <h3>Search by Applicant</h3>
-                <input type="text" name="first_name" placeholder="First Name">
+                <input type="text" name="first_name" placeholder="First Name" class="manager_top_text_input">
                 <input type="text" name="last_name" placeholder="Last Name">
                 <button name="action" value="applicant" class="manager_page_button">Search</button>
             </section>
-            <section id="manager_search_by_status">
+            <section id="manager_search_by_status" class="manager_search_and_delete_subsections">
             <h3>Search by Status</h3>
             <select name="search_by_status">
                 <option value="" selected="selected">Please Select</option>
@@ -93,7 +107,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
         </section>
         
         <section id="manager_delete_section">
-            <section id="manager_delete_by_job_ref">
+            <section id="manager_delete_by_job_ref" class="manager_search_and_delete_subsections">
                 <h3>Delete by Reference</h3>
                 <select name="delete_job_ref_number">
                     <option value="" selected="selected">Please Select</option>
@@ -110,13 +124,13 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 </select>
                 <button name="action" value="delete_job_ref_number" class="manager_page_button">Delete</button>
             </section>
-            <section id="manager_delete_by_name">
+            <section id="manager_delete_by_name" class="manager_search_and_delete_subsections">
                 <h3>Delete by Applicant</h3>
-                <input type="text" name="delete_first_name" placeholder="First Name">
+                <input type="text" name="delete_first_name" placeholder="First Name" class="manager_top_text_input">
                 <input type="text" name="delete_last_name" placeholder="Last Name">
                 <button name="action" value="delete_applicant" class="manager_page_button">Delete</button>
             </section>
-            <section id="manager_delete_by_status">
+            <section id="manager_delete_by_status" class="manager_search_and_delete_subsections">
                 <h3>Delete by Status</h3>
                 <select name="delete_by_status">
                     <option value="" selected="selected">Please Select</option>
@@ -131,26 +145,32 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
 
 <?php
 // Handle different query types
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
     $action = $_POST['action'];
 
-    // List all EOIs
-    if ($action == "list_all") {
-        $query = "SELECT * FROM eoi ORDER BY ";
+    /* List all EOIs */
+    if ($action == "list_all") 
+    {
+        $query = "SELECT * FROM eoi";
 
-    // Search by job reference
+        $_SESSION['last_query'] = $query;
     } 
+    /* Search by job reference */
     elseif ($action == "search_job_ref_number") 
     {
-        if ($_POST['search_job_ref_number'] != "Please Select")
+        if ($_POST['search_job_ref_number'] != "")
         {
             $job_ref_number = mysqli_real_escape_string($db_conn, $_POST['search_job_ref_number']);
             $query = "SELECT * FROM eoi WHERE job_ref_number = '$job_ref_number'";
         }
         else $query = " ";
 
-    // Search by applicant name (allows for both first and last name or both)
-    } elseif ($action == "applicant") {
+        $_SESSION['last_query'] = $query;
+    } 
+    /* Search by applicant name (allows for both first and last name or both) */
+    elseif ($action == "applicant") 
+    {
         $conditions = [];
         if (!empty($_POST['first_name'])) { //Check if first name is not empty
             $fname = mysqli_real_escape_string($db_conn, $_POST['first_name']); //Escape special characters
@@ -165,19 +185,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else $query = " ";
 
-    // Search by status
+        $_SESSION['last_query'] = $query;
     } 
+    /* Search by status */
     elseif ($action == "search_by_status") 
     {
-        if ($_POST['search_by_status'] != "Please Select")
+        if ($_POST['search_by_status'] != "")
         {
             $status = mysqli_real_escape_string($db_conn, $_POST['search_by_status']);
             $query = "SELECT * FROM eoi WHERE status = '$status'";
         }
         else $query = " ";
 
-    // Delete by job reference
+        $_SESSION['last_query'] = $query;
     } 
+    /* Delete by job reference */
     elseif ($action == "delete_job_ref_number") 
     {
         if ($_POST['delete_job_ref_number'] != "")
@@ -192,8 +214,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else $query = " ";
 
-    // Delete applications by status
+        $_SESSION['last_query'] = $query;
     } 
+    /* Delete applications by status */
     elseif ($action == "delete_by_status") 
     {
         if ($_POST['delete_by_status'] != "")
@@ -208,8 +231,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else $query = " ";
 
-    // Delete applications by applicant name
-    } elseif ($action == "delete_applicant") {
+        $_SESSION['last_query'] = $query;
+    } 
+    /* Delete applications by applicant name */
+    elseif ($action == "delete_applicant") 
+    {
         $conditions = [];
         if (!empty($_POST['delete_first_name'])) { //Check if first name is not empty
             $fname = mysqli_real_escape_string($db_conn, $_POST['delete_first_name']); //Escape special characters
@@ -219,14 +245,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $lname = mysqli_real_escape_string($db_conn, $_POST['delete_last_name']);
             $conditions[] = "last_name LIKE '%$lname%'";
         }
-        if (count($conditions) > 0) {
+        if (count($conditions) > 0) 
+        {
             $query = "DELETE FROM eoi WHERE " . implode(" AND ", $conditions);
             mysqli_query($db_conn, $query);
             
             // Echo the names that were provided
             $nameString = "";
             if (!empty($_POST['delete_first_name'])) $nameString .= $_POST['delete_first_name'];
-            if (!empty($_POST['delete_last_name'])) {
+            if (!empty($_POST['delete_last_name'])) 
+            {
                 if ($nameString) $nameString .= " ";
                 $nameString .= $_POST['delete_last_name'];
             }
@@ -237,26 +265,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else $query = " ";
 
-    // Update status
-    } elseif ($action == "update_status" && !empty($_POST['eoi_number']) && !empty($_POST['status'])) {
-        $id = intval($_POST['eoi_number']);
-        $status = mysqli_real_escape_string($db_conn, $_POST['status']);
-        $query = "UPDATE eoi SET status = '$status' WHERE eoi_number = $id";
-        mysqli_query($db_conn, $query);
-        echo "<p>Updated status of EOI ID $id to '$status'</p>";
-        
-        // Refresh the table after update
-        $query = "SELECT * FROM eoi";
+        $_SESSION['last_query'] = $query;
+    } 
+    /* Update status */
+    elseif ($action == "update_status" && !empty($_POST['eoi_number']) && !empty($_POST['status'])) 
+    {
+        if ($_POST['status'] != "")
+        {
+            $id = intval($_POST['eoi_number']);
+            $status = mysqli_real_escape_string($db_conn, $_POST['status']);
+            $query = "UPDATE eoi SET status = '$status' WHERE eoi_number = $id";
+            mysqli_query($db_conn, $query);
+            echo "<p>Updated status of EOI ID $id to '$status'</p>";
+            
+            // Refresh the table after update
+            $query = "SELECT * FROM eoi";
+        }
+        else $query = " ";
+
+        $_SESSION['last_query'] = $query;
+    }
+
+    if ($action == "manager_sort_by")
+    {
+        if($_POST['manager_sort_by'] != "")
+        {
+            $query = $_SESSION['last_query'] . " ORDER BY " . $_POST['manager_sort_by'];
+        }
+        else $query = " ";
     }
 
     //Display the results in a table
-    if (isset($query)) {
+    if (isset($query)) 
+    {
         $result = mysqli_query($db_conn, $query);
-        if ($result && mysqli_num_rows($result) > 0) { //Check if there are results in the eoi table
+        if ($result && mysqli_num_rows($result) > 0) 
+        { //Check if there are results in the eoi table
             echo "<table border='1'><tr><th>ID</th><th>Job Ref</th><th>Name</th><th>DOB</th><th>Gender</th>
             <th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Email Address</th><th>Phone Number</th>
             <th>Skills</th><th>Other Skills</th><th>Status</th></tr>";
-            while ($row = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)) 
+            {
                 echo "<tr><td>{$row['eoi_number']}</td>
                     <td>{$row['job_ref_number']}</td>
                     <td>{$row['first_name']} {$row['last_name']}</td>
@@ -274,6 +323,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method='post'>
                             <input type='hidden' name='eoi_number' value='" . $row['eoi_number'] . "'>
                             <select name='status'> <!-- Dropdown for status selection, using ternary operators -->
+                                <option value='' selected='selected'>Please Select</option>
                                 <option value='NEW'" . ($row['status'] == 'NEW' ? ' selected' : '') . ">NEW</option>
                                 <option value='CURRENT'" . ($row['status'] == 'CURRENT' ? ' selected' : '') . ">CURRENT</option>
                                 <option value='FINAL'" . ($row['status'] == 'FINAL' ? ' selected' : '') . ">FINAL</option>
@@ -284,9 +334,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </tr>";
             }
             echo "</table>";
-        } else {
-            echo "<p>No records found or query failed.</p>";
-        }
+        } 
+        else echo "<p id='manage_message'>No records found or query failed.</p>";
     }
 }
 ?>
