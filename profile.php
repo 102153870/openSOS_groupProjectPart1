@@ -7,7 +7,7 @@ $page_title = "Profile"; // Set the page title
 include 'header.inc'; // Include the header file
 include 'nav.inc'; // Include the navigation bar
 
-//Check if logout button is pressed
+// Check if logout button is pressed
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     session_unset();         // Unset all session variables
     session_destroy();       // Destroy the session
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     exit;
 }
 
-//SECURITY: Check if user is a logged in, if not redirect to index.php
+// SECURITY: Check if user is logged in, if not redirect to index.php
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
     header("Location: index.php");
     exit();
@@ -24,11 +24,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
 
 <!DOCTYPE html>
 <html lang="en">
-<!-- The header of the webpage. Contains the meta tags and Title -->
 <head>
     <!-- Metadata tags -->
     <link rel="stylesheet" href="styles/style.css">
-
     <!-- Adds the OpenSOS Icon to title bar -->
     <link rel="icon" type="image/x-icon" href="images/tab_icon.png">
 </head>
@@ -38,16 +36,20 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
         <br>
         <h2>Your Profile Information</h2> <br>
         <?php
-        // Escape the email to prevent SQL injection
-        $email = mysqli_real_escape_string($db_conn, $_SESSION['email']);
+        // Using prepared statements instead of escaping strings for security
+        $email = $_SESSION['email'];
 
-        // Get one record for profile information
-        $query = "SELECT * FROM eoi WHERE email_address = '$email' LIMIT 1";
-        $result = mysqli_query($db_conn, $query);
+        // Prepare statement for profile information
+        $stmt = $db_conn->prepare("SELECT * FROM eoi WHERE email_address = ? LIMIT 1");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if ($result && mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            echo "<table class=\"team_intro\">
+        // Check if the query was successful and if any rows were returned
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            // Display the user's profile information in a table
+            echo "<table class=\"team_intro\"> 
                     <tr><th>Name</th><th>DOB</th><th>Gender</th>
                     <th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Email Address</th><th>Phone Number</th></tr>";
             echo "<tr>
@@ -65,34 +67,42 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
         } else {
             echo "<p>No records found! Apply now to see your profile info!</p>";
         }
+
+        $stmt->close();
         ?>
 
         <br><br><br>
         <h2>Your Application</h2> <br>
         <?php
-        // Retrieve the user's skills, other skills, and corresponding job titles for all applications
-        $query = "
+        // Prepare statement for user's applications
+        $email = $_SESSION['email'];
+
+        $stmt = $db_conn->prepare("
             SELECT eoi.skills, eoi.other_skills, jobs.job_title
             FROM eoi
             JOIN jobs ON eoi.job_ref_number = jobs.reference_code
-            WHERE eoi.email_address = '$email'
-        ";
-        $result = mysqli_query($db_conn, $query);
+            WHERE eoi.email_address = ?
+        ");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if ($result && mysqli_num_rows($result) > 0) {
+        if ($result && $result->num_rows > 0) {
             echo "<table class=\"team_intro\">
                     <tr><th>Job Position</th><th>Skills</th><th>Other Skills</th></tr>";
-            while ($row = mysqli_fetch_assoc($result)) {
+            while ($row = $result->fetch_assoc()) {
                 echo "<tr>
                         <td>{$row['job_title']}</td>
                         <td>{$row['skills']}</td>
                         <td>{$row['other_skills']}</td>
-                    </tr>";
+                      </tr>";
             }
             echo "</table>";
         } else {
             echo "<p>No application records found! Apply now!</p>";
         }
+
+        $stmt->close();
         ?>
 
         <br><br><br>
@@ -102,5 +112,5 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
             <button type="submit" name="logout" class="buttons">Logout</button> 
         </form>
     </div>
-
 </body>
+</html>
