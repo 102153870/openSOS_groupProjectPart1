@@ -33,7 +33,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="" alt="Job Sorting for Manager">
+                <img src="images/eoi_sort.png" alt="Job Sorting for Manager">
             </section>
         </div>
 
@@ -57,7 +57,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="" alt="Access control to manage.php">
+                <img src="images/manager_login.png" alt="Access control to manage.php">
             </section>
         </div>
 
