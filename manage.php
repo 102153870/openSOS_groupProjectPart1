@@ -53,8 +53,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             <h3>List All EOIs</h3>
             <button name="action" value="list_all" class="manager_page_button">List All</button>
         </section>
-        <h3>Sort by:</h3>
         <section id="sort_dropdown">
+            <h3>Sort by:</h3>
             
         <section id="manager_search_section">
             <section id="manager_search_by_job_ref">
@@ -83,7 +83,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             <section id="manager_search_by_status">
             <h3>Search by Status</h3>
             <select name="search_by_status">
-                <option value="">Please Select</option>
+                <option value="" selected="selected">Please Select</option>
                 <option value="NEW">NEW</option>
                 <option value="CURRENT">CURRENT</option>
                 <option value="FINAL">FINAL</option>
@@ -119,11 +119,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             <section id="manager_delete_by_status">
                 <h3>Delete by Status</h3>
                 <select name="delete_by_status">
+                    <option value="" selected="selected">Please Select</option>
                     <option value="NEW">NEW</option>
                     <option value="CURRENT">CURRENT</option>
                     <option value="FINAL">FINAL</option>
                 </select>
-                <button name="action" value="delete_status" class="manager_page_button">Delete</button>
+                <button name="action" value="delete_by_status" class="manager_page_button">Delete</button>
             </section>
         </section>
     </form>
@@ -138,9 +139,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "SELECT * FROM eoi ORDER BY ";
 
     // Search by job reference
-    } elseif ($action == "search_job_ref_number" && !empty($_POST['search_job_ref_number'])) {
-        $job_ref_number = mysqli_real_escape_string($db_conn, $_POST['search_job_ref_number']);
-        $query = "SELECT * FROM eoi WHERE job_ref_number = '$job_ref_number'";
+    } 
+    elseif ($action == "search_job_ref_number") 
+    {
+        if ($_POST['search_job_ref_number'] != "Please Select")
+        {
+            $job_ref_number = mysqli_real_escape_string($db_conn, $_POST['search_job_ref_number']);
+            $query = "SELECT * FROM eoi WHERE job_ref_number = '$job_ref_number'";
+        }
+        else $query = " ";
 
     // Search by applicant name (allows for both first and last name or both)
     } elseif ($action == "applicant") {
@@ -159,29 +166,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else $query = " ";
 
     // Search by status
-    } elseif ($action == "search_by_status" && !empty($_POST['search_by_status'])) {
-        $status = mysqli_real_escape_string($db_conn, $_POST['search_by_status']);
-        $query = "SELECT * FROM eoi WHERE status = '$status'";
+    } 
+    elseif ($action == "search_by_status") 
+    {
+        if ($_POST['search_by_status'] != "Please Select")
+        {
+            $status = mysqli_real_escape_string($db_conn, $_POST['search_by_status']);
+            $query = "SELECT * FROM eoi WHERE status = '$status'";
+        }
+        else $query = " ";
 
     // Delete by job reference
-    } elseif ($action == "delete_job_ref_number" && !empty($_POST['delete_job_ref_number'])) {
-        $job_ref_number = mysqli_real_escape_string($db_conn, $_POST['delete_job_ref_number']);
-        $query = "DELETE FROM eoi WHERE job_ref_number = '$job_ref_number'";
-        mysqli_query($db_conn, $query);
-        echo "<p>Deleted EOIs for job reference: $job_ref_number</p>";
+    } 
+    elseif ($action == "delete_job_ref_number") 
+    {
+        if ($_POST['delete_job_ref_number'] != "")
+        {
+            $job_ref_number = mysqli_real_escape_string($db_conn, $_POST['delete_job_ref_number']);
+            $query = "DELETE FROM eoi WHERE job_ref_number = '$job_ref_number'";
+            mysqli_query($db_conn, $query);
+            echo "<p>Deleted EOIs for job reference: $job_ref_number</p>";
 
-        // Refresh the table after update
-        $query = "SELECT * FROM eoi";
+            // Refresh the table after update
+            $query = "SELECT * FROM eoi";
+        }
+        else $query = " ";
 
     // Delete applications by status
-    } elseif ($action == "delete_status" && !empty($_POST['delete_status'])) {
-        $status = mysqli_real_escape_string($db_conn, $_POST['delete_status']);
-        $query = "DELETE FROM eoi WHERE status = '$status'";
-        mysqli_query($db_conn, $query);
-        echo "<p>Deleted EOIs for status: $status</p>";
+    } 
+    elseif ($action == "delete_by_status") 
+    {
+        if ($_POST['delete_by_status'] != "")
+        {
+            $status = mysqli_real_escape_string($db_conn, $_POST['delete_by_status']);
+            $query = "DELETE FROM eoi WHERE status = '$status'";
+            mysqli_query($db_conn, $query);
+            echo "<p>Deleted EOIs for status: $status</p>";
 
-        // Refresh the table after update
-        $query = "SELECT * FROM eoi";
+            // Refresh the table after update
+            $query = "SELECT * FROM eoi";
+        }
+        else $query = " ";
 
     // Delete applications by applicant name
     } elseif ($action == "delete_applicant") {
