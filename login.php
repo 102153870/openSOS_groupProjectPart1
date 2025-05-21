@@ -73,29 +73,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
-        //Result is found in the users table
-        if ($user = mysqli_fetch_assoc($result)) {
+        // Result is found in the users table
+        if ($user = mysqli_fetch_assoc($result)) 
+        {
             // Check password
-            if (password_verify($input_password, $user['password'])) {
-            session_regenerate_id(true); // Regenerate session ID to prevent session fixation attacks
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['login_attempts'] = 0;
-            $_SESSION['lockout_time'] = 0;
-            $_SESSION['role'] = $user['role'];
+            if (password_verify($input_password, $user['password'])) 
+            {
+                session_regenerate_id(true); // Regenerate session ID to prevent session fixation attacks
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['login_attempts'] = 0;
+                $_SESSION['lockout_time'] = 0;
+                $_SESSION['role'] = $user['role'];
 
-            unset($_SESSION['error']);
-            unset($_SESSION['time_left_message']);
+                unset($_SESSION['error']);
+                unset($_SESSION['time_left_message']);
 
-            // Redirect based on role
-            if ($user['role'] == 'manager') {
-                header("Location: manage.php");
-            }    else {
-                header("Location: index.php");
+                // Redirect based on role
+                if ($user['role'] == 'manager') header("Location: manage.php");
+                else header("Location: index.php");
+
+                exit();
             }
-            exit();
         }
-    }
 
         // Invalid credentials if neither manager nor user found
         $_SESSION['login_attempts']++;
