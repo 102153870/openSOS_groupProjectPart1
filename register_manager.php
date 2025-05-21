@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = sanitise_input($_POST["email"]);
     $username = sanitise_input($_POST["username"]);
     $password = sanitise_input($_POST["password"]);
+    $company_password = sanitise_input($_POST["company_password"]);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error_manager_register'] = "Invalid email format.";
@@ -27,6 +28,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // Check if the company password is correct
+    $query = "SELECT * FROM manager_password LIMIT 1";
+    $result = mysqli_query($db_conn, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $correct_password = $row['company_password']; //Store the correct password
+
+        // Verify the company password
+        if ($company_password !== $correct_password) {
+            $_SESSION['error_manager_register'] = "Incorrect company password.";
+            header("Location: register_manager.php");
+            exit();
+        }
+
+    } else {
+        // Handle query failure or no password set
+        $_SESSION['error_manager_register'] = "Password verification error. Please contact support.";
+        header("Location: register_manager.php");
+        exit();
+    }
+
+    //checking if email is already registered
     $query = "SELECT * FROM users WHERE email = ?";
     $stmt = $db_conn->prepare($query);
     $stmt->bind_param("s", $email);
@@ -39,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    //hashing the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $insert_query = "INSERT INTO users (email, username, password, role) VALUES (?, ?, ?, 'manager')";
     $stmt = $db_conn->prepare($insert_query);
