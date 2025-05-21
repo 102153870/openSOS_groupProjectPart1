@@ -80,10 +80,10 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
           <section class="about_section">
             <h2 class="section_heading">Contributions</h2>
             <dl>
-              <dt><strong>Rodney Liaw</strong></dt><dd>Index, website design and assistance with other members</dd>
-              <dt><strong>Mark Richards</strong></dt><dd>Application, website design and Jira managing</dd>
-              <dt><strong>Henry Low</strong></dt><dd>About Us page, design and collaborations</dd>
-              <dt><strong>Ryan Weber</strong></dt><dd>Job descriptions and communications</dd>
+              <dt><strong>Rodney Liaw</strong></dt><dd>Adding modular website components, Website Security, Enhancements</dd>
+              <dt><strong>Mark Richards</strong></dt><dd>Application, EOI database processing, Enhancements, Styling manager page</dd>
+              <dt><strong>Henry Low</strong></dt><dd>Manager Page, User Login and Responsive Design</dd>
+              <dt><strong>Ryan Weber</strong></dt><dd>Job description integration with database</dd>
             </dl>
           </section>
       

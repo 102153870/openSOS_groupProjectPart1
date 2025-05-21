@@ -30,10 +30,10 @@ include 'nav.inc'; // Include the navigation bar
             <section class="job_description_left">
                 <h1 class="job_title">Job Sorting for Manager</h1>
                 <p>We implemented a lockout mechanism that limits login attempts to enhance security. If too many failed attempts are made, the system prevents further login attempts for a specified duration.</p><br>
-                <a href="enhancement1_example.html" class="buttons_description_box">View Enhancement</a>
+                <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/tab_icon.png" alt="Lockout System">
+                <img src="" alt="Job Sorting for Manager">
             </section>
         </div>
 
@@ -42,10 +42,10 @@ include 'nav.inc'; // Include the navigation bar
             <section class="job_description_left">
                 <h1 class="job_title">Manager Registration Page</h1>
                 <p>We added a logging feature to track user activity for improved monitoring and troubleshooting.</p><br>
-                <a href="enhancement2_example.html" class="buttons_description_box">View Enhancement</a>
+                <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/activity_log.png" alt="User Activity Logging">
+                <img src="" alt="Manager Registration Page">
             </section>
         </div>
 
@@ -54,30 +54,39 @@ include 'nav.inc'; // Include the navigation bar
             <section class="job_description_left">
                 <h1 class="job_title">Access control to manage.php</h1>
                 <p>The password reset flow has been streamlined with email verification and security questions.</p><br>
-                <a href="enhancement3_example.html" class="buttons_description_box">View Enhancement</a>
+                <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/password_reset.png" alt="Password Reset Flow">
+                <img src="" alt="Access control to manage.php">
             </section>
         </div>
 
         <!-- Enhancement 4 -->
         <div class="job_description_box">
             <section class="job_description_left">
-                <h1 class="job_title">Improved Password Reset Flow</h1>
+                <h1 class="job_title">Disable Login for Number of Login Attempts</h1>
                 <p>The password reset flow has been streamlined with email verification and security questions.</p><br>
-                <a href="enhancement3_example.html" class="buttons_description_box">View Enhancement</a>
+                <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/password_reset.png" alt="Password Reset Flow">
+                <img src="images/password_reset.png" alt="Disable Login for Number of Login Attempts">
+            </section>
+        </div>
+
+        <!-- Enhancement 5 -->
+        <div class="job_description_box">
+            <section class="job_description_left">
+                <h1 class="job_title">More Options for Manager</h1>
+                <p>The password reset flow has been streamlined with email verification and security questions.</p><br>
+                <a href="login.php" class="buttons_description_box">View Enhancement</a>
+            </section>
+            <section class="job_description_right">
+                <img src="images/password_reset.png" alt="More Options for Manager">
             </section>
         </div>
 
     </main>
 
-    <footer>
-        <!-- Replace with your actual footer.inc content -->
-        <p>&copy; 2025 OpenSOS. All rights reserved.</p>
-    </footer>
+    <?php include 'footer.inc'; // Include the footer file ?>
 </body>
 </html>
