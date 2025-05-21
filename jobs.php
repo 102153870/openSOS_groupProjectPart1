@@ -43,160 +43,81 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
         <!--jobs in sections-->
         <!-- Cant use the name section as a class -->
         <?php
-        require_once("settings.php");
-        if($db_conn)
-        {
-            $query = "SELECT * FROM jobs";
-            $result = mysqli_query($db_conn, $query);
-        }
-
-        //check query
-        if($result)
-        {
-            //worked  
-            if(mysqli_num_rows($result) > 0)
+            if($db_conn)
             {
-                while ($row = mysqli_fetch_assoc($result))
+                $query = "SELECT * FROM jobs";
+                $result = mysqli_query($db_conn, $query);
+
+                // Make sure the query returned something, otherwise display an error message
+                if ($result)
                 {
-                    echo '<div class = "job_description_box">';
-
-                    //left
-                    echo '<section class = "job_description_left">';
-                    echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
-                    echo '<br><p>' . $row['description'] . '</p><br>';                 
-
-                    //list               
-                    echo '<h3>Key Responsibilities</h3>';
-                    echo "<ol>";
-                    $key_resps = explode("\n", $row['key_responsibilities']);
-                    foreach($key_resps as $resp)
+                    // While the query is returing data from the DB
+                    while ($row = mysqli_fetch_assoc($result))
                     {
-                        echo '<li class = "list_indent">' . $resp . '</li>';
+                        echo '<div class = "job_description_box">';
+
+                        //left
+                        echo '<section class = "job_description_left">';
+                        echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
+                        echo '<br><p>' . $row['description'] . '</p><br>';                 
+
+                        //list               
+                        echo '<h3>Key Responsibilities</h3>';
+                        echo "<ol>";
+                        $key_resps = explode("\n", $row['key_responsibilities']);
+                        foreach($key_resps as $resp)
+                        {
+                            echo '<li class = "list_indent">' . $resp . '</li>';
+                        }
+                        echo "</ol>";
+
+                        echo '</section>';
+
+                        //right
+                        echo '<section class = "job_description_right">';
+                        echo '<br>';
+                        echo '<h3>Key Attributes</h3>';         
+
+                        //essential list
+                        echo '<ul><li class = "list_indent">Essential<ul>';
+                        $key_attr_esse = explode("\n", $row['key_attributes_essential']);
+                        foreach($key_attr_esse as $attr_esse)
+                        {
+                            echo '<li class = "list_indent">' . $attr_esse . '</li>';
+                        }
+                        //end essential list, start prefered list
+                        echo '</ul></li><li class = "list_indent">Preferred<ul>';
+                        $key_attr_pref = explode("\n", $row['key_attributes_preferred']);
+                        foreach($key_attr_pref as $attr_pref)
+                        {
+                            echo '<li class = "list_indent">' . $attr_pref . '</li>';
+                        }
+                        echo '</ul></li></ul>'; //close master list
+
+                        //extra info
+                        echo '<br><br>';
+                        echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . ' per annum</p>';
+                        echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
+                        echo '<br><br>';
+                        echo '<div class="apply_container">';
+                        echo '<p class="reference_number"><em>Reference Number: ' . $row['reference_code'] . '</em></p>';
+
+                        echo '<a href="apply.php" class="buttons_description_box">Apply</a></div></section></div>';
                     }
-                    echo "</ol>";
-
-                    echo '</section>';
-
-                    //right
-                    echo '<section class = "job_description_right">';
-                    echo '<br>';
-                    echo '<h3>Key Attributes</h3>';         
-
-                    //essential list
-                    echo '<ul><li class = "list_indent">Essential<ul>';
-                    $key_attr_esse = explode("\n", $row['key_attributes_essential']);
-                    foreach($key_attr_esse as $attr_esse)
-                    {
-                        echo '<li class = "list_indent">' . $attr_esse . '</li>';
-                    }
-                    //end essential list, start prefered list
-                    echo '</ul></li><li class = "list_indent">Preferred<ul>';
-                    $key_attr_pref = explode("\n", $row['key_attributes_preferred']);
-                    foreach($key_attr_pref as $attr_pref)
-                    {
-                        echo '<li class = "list_indent">' . $attr_pref . '</li>';
-                    }
-                    echo '</ul></li></ul>'; //close master list
-
-                    //extra info
-                    echo '<br><br>';
-                    echo '<p>Salary: $' . $row['salary_min'] . ' - $' . $row['salary_max'] . ' per annum</p>';
-                    echo '<p>Reports to: ' . $row['reports_to'] . '</p/>';
-                    echo '<br><br>';
-                    echo '<div class="apply_container">';
-                    echo '<p class="reference_number"><em>Reference Number: ' . $row['reference_code'] . '</em></p>';
-
-                    echo '<a href="apply.php" class="buttons_description_box">Apply</a></div></section></div>';
+                    echo "<br>";
                 }
-                echo "<br>";
+                else
+                {
+                    echo "There are no jobs to display.";
+                }   
             }
             else
             {
-                echo "There are no jobs to display.";
-            }    
-        }
-        else
-        {
-            //didn't work
-            echo "No Connection";
-        }
-
-        
-        /*<div class = "job_description_box">
-            <section class = "job_description_left">
-                <h1 class = "job_title">Data Analyst</h1>
-                <br>
-                <p>
-                    As a Data Analyst for OpenSOS, you will play a critical role in supporting our mission by turning raw data into meaningful insights that drive informed decision-making. You will collaborate closely with cross-functional teams, including developers, program managers, and stakeholders, to identify, collect, and analyze data from a variety of sources. Your work will focus on multiple key areas of interest such as tracking and evaluating emerging issues with our technologies, monitoring and interpreting user interactions with our digital platforms, and exploring opportunities to enhance the overall effectiveness and efficiency of our programs and operations. In this role, you are not just analyzing numbers — you’re helping tell the story of how OpenSOS can grow, adapt, and improve through data-driven strategies.
-                    <!--Description generated by ChatGPT, prompt: create a description for a Data Analyst role for a company OpenSOS-->
-                </p>
-                <br>
-
-                <!--responsibilities list-->
-                <h3>Key Responsibilities</h3>
-                <ol>
-                    <li class = "list_indent">
-                        Collecting data from reliable sources
-                    </li>
-                    <li class = "list_indent">
-                        Cleaning data and interoperating it in a meaningful way
-                    </li>
-                    <li class = "list_indent">
-                        Presenting data in a clear way that is easy to understand
-                    </li>
-                </ol>
-            </section>
-            <!--main-->
-
-            <!--key attributes list shifted to the right-->
-            <section class = "job_description_right">
-                <br> <!--I don't think this is technically aligned, perhaps change in future-->
-                <h3>Key Attributes</h3>
-                <ul>
-                    <li class = "list_indent">
-                        Essential
-                        <ul>
-                            <li class = "list_indent">
-                                1 Year of experience as a data analyst
-                            </li>
-                            <li class = "list_indent">
-                                A Degree in Computer Science or a related field
-                            </li>
-                        </ul>
-                    </li>
-                    <li class = "list_indent">
-                        Preferred
-                        <ul>
-                            <li class = "list_indent">
-                                Experience using Excel, Python, and SQL
-                            </li>
-                            <li class = "list_indent">
-                                Good communication skills
-                            </li>
-                            <li class = "list_indent">
-                                A positive attitude towards learning in the workspace and striving to improve
-                            </li>
-                            <li class = "list_indent">
-                                Experience using various data visualization tools 
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-
-                <!--other info-->
-                <p>Salary: $90000 - $100000 per annum</p>
-                <p>Reports to: Analytics Leader</p>
-                
-                <br><br>
-                <div class="apply_container">
-                    <p class="reference_number"><em>Reference Number: H3110</em></p>
-                    <a href="apply.php" class="buttons_description_box">Apply</a>
-                </div>
-            </section>
-        </div>*/?>
+                //didn't work
+                echo "No Connection";
+            }
+        ?>
     </main>
-
     <?php include 'footer.inc' ?> <!--Include Footer-->
 </body>
 </html>

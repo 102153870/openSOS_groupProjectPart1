@@ -41,6 +41,8 @@ unset($_SESSION['form_data']);
               This means that if the user comes back to this page from the process_eoi page becuase there was errors in their submission
               the input they already entered will be repopulated -->
         <form action="process_eoi.php" method="post" novalidate="novalidate">
+            <!-- A hidden field used to check if the form has been submitted -->
+            <input type="hidden" name="form_submitted" value="1">
             <br>
             <h2 id="apply_subheading">Please enter the relevant information for your application</h2>
             <br>
@@ -49,9 +51,16 @@ unset($_SESSION['form_data']);
                     <label for="job_ref_number"><strong>Job Reference Number:</strong>
                     <select name="job_ref_number" id="job_ref_number" required>
                         <option value="" <?php echo !isset($form_data['job_ref_number']) ? 'selected="selected"' : ''; ?>>Please Select</option>
-                        <option value="H3110" <?php echo isset($form_data['job_ref_number']) && $form_data['job_ref_number'] === 'H3110' ? 'selected="selected"' : ''; ?>>H3110 (Data Analyst)</option>
-                        <option value="T4B13" <?php echo isset($form_data['job_ref_number']) && $form_data['job_ref_number'] === 'T4B13' ? 'selected="selected"' : ''; ?>>T4B13 (Programmer)</option>
-                        <option value="P1224" <?php echo isset($form_data['job_ref_number']) && $form_data['job_ref_number'] === 'P1224' ? 'selected="selected"' : ''; ?>>P1224 (Front-end Web Developer)</option>
+                        <?php
+                            // Get the job reference numbers from the database and display them in the dropdown box
+                            $query = "SELECT * from jobs";
+                            $result = mysqli_query($db_conn, $query);
+                            while ($row = mysqli_fetch_assoc($result)) 
+                            {
+                                $selected = isset($form_data['job_ref_number']) && $form_data['job_ref_number'] === $row['reference_code'] ? 'selected="selected"' : '';
+                                echo '<option value="' . htmlspecialchars($row['reference_code']) . '" ' . $selected . '>' . htmlspecialchars($row['reference_code']) . ' (' . htmlspecialchars($row['job_title']) . ')</option>';
+                            }
+                        ?>
                     </select>
                     </label>
             </fieldset>
@@ -144,7 +153,26 @@ unset($_SESSION['form_data']);
                     <!-- Frontend Web Dev Skills -->
                     <section id="frontend_skills" class="checkbox_skills">
                         <h4>Frontend</h4>
-                        <label for="html" ><input type="checkbox" id="html" name="skills[]" value="html" <?php echo isset($form_data['skills']) && in_array('html', $form_data['skills']) ? 'checked' : ''; ?>> HTML</label>
+                        <label for="html">
+                            <input type="checkbox" id="html" name="skills[]" value="html"
+                                <?php
+                                    // If the form was submitted, only check if 'html' is in the array
+                                    if (isset($form_data['form_submitted'])) 
+                                    {
+                                        if (isset($form_data['skills']) && is_array($form_data['skills']) && in_array('html', $form_data['skills'])) 
+                                        {
+                                            echo 'checked';
+                                        }
+                                        // If form was submitted and 'html' is not in skills, do NOT check
+                                    } 
+                                    else 
+                                    {
+                                        // If the form has NOT been submitted, check by default
+                                        echo 'checked';
+                                    }
+                                ?>
+                            > HTML
+                        </label>
                         <label for="css" ><input type="checkbox" id="css" name="skills[]" value="css" <?php echo isset($form_data['skills']) && in_array('css', $form_data['skills']) ? 'checked' : ''; ?>> CSS</label>
                         <label for="javascript" ><input type="checkbox" id="javascript" name="skills[]" value="javascript" <?php echo isset($form_data['skills']) && in_array('javascript', $form_data['skills']) ? 'checked' : ''; ?>> JavaScript</label>
                         <label for="reactjs" ><input type="checkbox" id="reactjs" name="skills[]" value="reactjs" <?php echo isset($form_data['skills']) && in_array('reactjs', $form_data['skills']) ? 'checked' : ''; ?>> React.js</label>
