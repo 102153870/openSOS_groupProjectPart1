@@ -66,10 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Not currently locked out, proceed with login attempt
 
-        // Check for email in the database
-        $query = "SELECT * FROM users WHERE email = ?";
+        // Check for email or username in the database
+        $query = "SELECT * FROM users WHERE email = ? OR username = ?";
         $stmt = mysqli_prepare($db_conn, $query);
-        mysqli_stmt_bind_param($stmt, "s", $input_email);
+        mysqli_stmt_bind_param($stmt, "ss", $input_email, $input_email);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
