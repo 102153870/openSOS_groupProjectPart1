@@ -175,7 +175,7 @@ if ($is_currently_locked_out) {
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
             <input type="text" id="email" name="email" placeholder="Email" required
-            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>> <!--Ternary Statement for checking if user is locked out-->
 
             <input type="password" id="password" name="password" placeholder="Password" required
             <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
