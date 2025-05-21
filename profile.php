@@ -37,15 +37,20 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
     <div class="profile_container">
         <br>
         <h2>Your Profile Information</h2> <br>
-        <?php //Display the user's profile information
-        $query = "SELECT * FROM eoi WHERE email_address = '" . mysqli_real_escape_string($db_conn, $_SESSION['email']) . "'";
+        <?php
+        // Escape the email to prevent SQL injection
+        $email = mysqli_real_escape_string($db_conn, $_SESSION['email']);
+
+        // Get one record for profile information
+        $query = "SELECT * FROM eoi WHERE email_address = '$email' LIMIT 1";
         $result = mysqli_query($db_conn, $query);
-        if ($result && mysqli_num_rows($result) > 0) { //Check if there are results in the eoi table
-            echo "<table class=\"team_intro\"><tr><th>Name</th><th>DOB</th><th>Gender</th>
-            <th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Email Address</th><th>Phone Number</th>
-            </tr>";
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            echo "<table class=\"team_intro\">
+                    <tr><th>Name</th><th>DOB</th><th>Gender</th>
+                    <th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Email Address</th><th>Phone Number</th></tr>";
+            echo "<tr>
                     <td>{$row['first_name']} {$row['last_name']}</td>
                     <td>{$row['dob']}</td>
                     <td>{$row['gender']}</td>
@@ -55,8 +60,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
                     <td>{$row['postcode']}</td>
                     <td>{$row['email_address']}</td>
                     <td>{$row['phone_number']}</td>
-                    </tr>";
-            }
+                </tr>";
             echo "</table>";
         } else {
             echo "<p>No records found! Apply now to see your profile info!</p>";
@@ -65,46 +69,31 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
 
         <br><br><br>
         <h2>Your Application</h2> <br>
-        <?php //Display the user's application information
-
-        // Displaying the user's job position title for application
-        $query = "SELECT * FROM eoi WHERE email_address = '" . mysqli_real_escape_string($db_conn, $_SESSION['email']) . "'";
+        <?php
+        // Retrieve the user's skills, other skills, and corresponding job titles for all applications
+        $query = "
+            SELECT eoi.skills, eoi.other_skills, jobs.job_title
+            FROM eoi
+            JOIN jobs ON eoi.job_ref_number = jobs.reference_code
+            WHERE eoi.email_address = '$email'
+        ";
         $result = mysqli_query($db_conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION['job_ref_number'] = $row['job_ref_number'];
-
-            // Relating the job reference number to the job position title from eoi to jobs table
-            $query = "SELECT * FROM jobs WHERE reference_code = '" . mysqli_real_escape_string($db_conn, $_SESSION['job_ref_number']) . "'";
-            $result = mysqli_query($db_conn, $query);
-
-            // Check if the query was successful and if there are results
-            if ($result && mysqli_num_rows($result) > 0) {
-                $job_title = mysqli_fetch_assoc($result)['job_title'];
-            } else {
-                $job_title = "Unknown";
-            }
-
-            // Check for the user's email in the eoi table again
-            $query = "SELECT * FROM eoi WHERE email_address = '" . mysqli_real_escape_string($db_conn, $_SESSION['email']) . "'";
-            $result = mysqli_query($db_conn, $query);
-            if ($result && mysqli_num_rows($result) > 0) {
-                echo "<table class=\"team_intro\"><tr><th>Job Position</th><th>Skills</th><th>Other Skills</th></tr>";
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>
-                        <td>{$job_title}</td>
+            echo "<table class=\"team_intro\">
+                    <tr><th>Job Position</th><th>Skills</th><th>Other Skills</th></tr>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                        <td>{$row['job_title']}</td>
                         <td>{$row['skills']}</td>
                         <td>{$row['other_skills']}</td>
-                        </tr>";
-                }
-                echo "</table>";
-            } 
+                    </tr>";
+            }
+            echo "</table>";
         } else {
-            echo "<p>No records found! Apply now!</p>";
+            echo "<p>No application records found! Apply now!</p>";
         }
         ?>
-
 
         <br><br><br>
 
@@ -112,6 +101,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
         <form method="post">
             <button type="submit" name="logout" class="buttons">Logout</button> 
         </form>
-
     </div>
+
 </body>
