@@ -45,7 +45,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_registration.png" alt="Manager Registration Page">
+                <img src="images/manager_registration.png" alt="Admin Registration Page">
             </section>
         </div>
 
