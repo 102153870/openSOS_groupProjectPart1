@@ -33,7 +33,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="" alt="Job Sorting for Manager">
+                <img src="images/manager_sort.png" alt="Job Sorting for Manager">
             </section>
         </div>
 
@@ -45,7 +45,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="" alt="Manager Registration Page">
+                <img src="images/manager_registration.png" alt="Admin Registration Page">
             </section>
         </div>
 
@@ -57,7 +57,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="" alt="Access control to manage.php">
+                <img src="images/manager_login.png" alt="Access control to manage.php">
             </section>
         </div>
 
@@ -69,7 +69,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/password_reset.png" alt="Disable Login for Number of Login Attempts">
+                <img src="images/login_attempts.png" alt="Disable Login for Number of Login Attempts">
             </section>
         </div>
 
@@ -81,7 +81,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/password_reset.png" alt="More Options for Manager">
+                <img src="images/more_options.png" alt="More Options for Manager">
             </section>
         </div>
 
