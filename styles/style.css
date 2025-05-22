@@ -1079,6 +1079,7 @@ h1.job_title {
 /*processing_eoi.php specific CSS*/
 .process_eoi_text {
     text-align: center;
+    font-size: 1.2rem;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-right: 1em;
@@ -1323,6 +1324,15 @@ h1.job_title {
     #manager_search_section, #manager_delete_section {
         display: flex;
         flex-direction: column;
+    }
+
+    /************************************************************/
+    /*For process_eoi.php*/
+    .process_eoi_text {
+        font-size: 1rem;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        padding-right: 0.5em;
     }
 }
 
