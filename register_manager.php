@@ -175,8 +175,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
 
                 <label for="company_password" class="visually_hidden">Company Password:</label>
-                <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
-
 
             <!-- Submit button -->
             <button type="submit" class="login_button">
