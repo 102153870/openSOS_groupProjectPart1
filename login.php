@@ -91,7 +91,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Redirect based on role
                 if ($user['role'] == 'manager') header("Location: manage.php");
-                else header("Location: index.php");
+                else 
+                {
+                    // Save the user data that can be pre filled in the apply page
+                    $_SESSION['user_data'] = array(
+                        'first_name' => $user['first_name'],
+                        'last_name' => $user['last_name'],
+                        'dob' => $user['dob'],
+                        'gender' => $user['gender'],
+                        'address' => $user['address'],
+                        'suburb' => $user['suburb'],
+                        'state' => $user['state'],
+                        'postcode' => $user['postcode'],
+                        'phone_number' => $user['phone_number'],
+                        'email' => $user['email']
+                    );
+                    header("Location: index.php");
+                }
 
                 exit();
             }
@@ -139,7 +155,7 @@ if ($is_currently_locked_out) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 login.php Page (Login Page)">
+    <meta name="description" content="Project Part 2 login.php Page (Login Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">

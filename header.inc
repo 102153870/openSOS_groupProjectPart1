@@ -1,4 +1,3 @@
-
 <header class="home_header">
     <!-- Left: Theme Selector -->
     <div class="theme_container">
@@ -14,7 +13,7 @@
     </div>
 
     <!-- Right: Manager Login -->
-    <div class="manager_login_link">
+    <div class="header_login_link">
         <?php
         $link = 'login.php'; // Default fallback
 

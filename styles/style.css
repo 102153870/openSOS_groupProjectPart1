@@ -228,11 +228,14 @@ footer p #github_link:hover {
 
 .login_form input {
     width: 100%;
+    height: auto;
+    min-height: 2.5rem;
     padding: 0.5rem;
     margin: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+.login_form input::placeholder {font-size: 0.8rem;} /*Prevents placeholder text from shrinking for responsive design*/
 
 .login_button {
     background-color: var(--heading_color);
@@ -445,7 +448,7 @@ body.hero_background {
     height: auto;
 }
 
-.manager_login_link {
+.header_login_link {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -455,7 +458,7 @@ body.hero_background {
     padding-right: 2%;
 }
 
-.manager_login_link a {
+.header_login_link a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -468,12 +471,12 @@ body.hero_background {
     /* Smooth animation */
 }
 
-.manager_login_link img {
+.header_login_link img {
     width: 4rem;
     height: auto;
 }
 
-.manager_login_link a:hover {
+.header_login_link a:hover {
     transform: scale(1.1);
 }
 
@@ -946,11 +949,47 @@ form h3 {
     cursor: pointer;
 }
 
-
+/************************************************************/
+/*register_user.php specific CSS*/
+#applicant_details_registration {
+    font-weight: bold;
+    margin: auto;
+    background: var(--textcard_color);
+    padding: 0.75rem;
+    line-height: 1rem;
+    /* Border */
+    border: none;
+}
+#personal_details_registration {
+    line-height: 1rem;
+    width: 100%;
+    padding: 0;
+}
+#personal_details_registration section {
+    border: none;
+}
+#applicant_details_registration {
+    float: left;
+    padding-left: 2rem;
+    margin-left: 3rem;
+}
+#gender_selection_registration {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#gender_selection_registration label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+#gender_selection_registration input[type="radio"] {
+    margin-right: 0.5rem;
+}
 
 /************************************************************/
 /*jobs.php specific CSS*/
-
 .job_intro {
   overflow: auto; /* clearfix alternative */
   margin: auto;
@@ -1076,6 +1115,7 @@ h1.job_title {
 /*processing_eoi.php specific CSS*/
 .process_eoi_text {
     text-align: center;
+    font-size: 1.2rem;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-right: 1em;
@@ -1138,7 +1178,7 @@ h1.job_title {
         padding-bottom: 1rem;
     }
 
-    .manager_login_link {
+    .header_login_link {
         order: 3;
         padding-bottom: 1rem;
     }
@@ -1185,6 +1225,11 @@ h1.job_title {
         /*Stack footer content*/
         text-align: center;
         line-height: 1.5;
+    }
+    .heading_important {
+        font-size: 1.5rem;
+        /*Adjust size for smaller screen*/
+        padding: 0.5rem 1rem;
     }
 
     /************************************************************/
@@ -1316,6 +1361,15 @@ h1.job_title {
         display: flex;
         flex-direction: column;
     }
+
+    /************************************************************/
+    /*For process_eoi.php*/
+    .process_eoi_text {
+        font-size: 1rem;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        padding-right: 0.5em;
+    }
 }
 
 /* Responsive styles for screens up to 425px */
@@ -1329,7 +1383,10 @@ h1.job_title {
     /************************************************************/
     /* For index.php */
     #header_logo {width: 12.5rem;}  /*200px -> 12.5rem*/
-  
+    .heading_important {
+        font-size: 1.2rem;
+        /*Adjust size for smaller screen*/
+    }
     .home_nav nav {
         flex-direction: column;
         /*Stack nav items vertically*/

@@ -10,7 +10,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 <head>
     <!-- Metadata tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 jobs.html Page">
+    <meta name="description" content="Project Part 1 jobs.php Page">
     <meta name="keywords" content="HTML5, Forms, Group Project, Job Application">
     <meta name="author" content="Ryan Weber">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,7 +103,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                         echo '<div class="apply_container">';
                         echo '<p class="reference_number"><em>Reference Number: ' . $row['reference_code'] . '</em></p>';
 
-                        echo '<a href="apply.php" class="buttons_description_box">Apply</a></div></section></div>';
+                        echo '<a href="apply.php" class="buttons_description_box" >Apply</a></div></section></div>';
                     }
                     echo "<br>";
                 }
