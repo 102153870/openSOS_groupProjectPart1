@@ -33,7 +33,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_sort.png" alt="Job Sorting for Manager">
+                <img src="images/enhancement1.png" alt="Job Sorting for Manager" class = "enhancement_image">
             </section>
         </div>
 
@@ -45,7 +45,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_registration.png" alt="Admin Registration Page">
+                <img src="images/enhancement2.png" alt="Admin Registration Page" class = "enhancement_image">
             </section>
         </div>
 
@@ -57,7 +57,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_login.png" alt="Access control to manage.php">
+                <img src="images/manager_login.png" alt="Access control to manage.php" class = "enhancement_image">
             </section>
         </div>
 
@@ -69,7 +69,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/login_attempts.png" alt="Disable Login for Number of Login Attempts">
+                <img src="images/login_attempts.png" alt="Disable Login for Number of Login Attempts" class = "enhancement_image">
             </section>
         </div>
 
@@ -81,7 +81,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/more_options.png" alt="More Options for Manager">
+                <img src="images/more_options.png" alt="More Options for Manager" class = "enhancement_image">
             </section>
         </div>
 
