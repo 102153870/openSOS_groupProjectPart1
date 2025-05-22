@@ -40,11 +40,12 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
         <div class ="clear_float"></div> <!--clears the float of the aside element so that job descriptions are not affected-->
         </div>
 
-        <!--jobs in sections-->
-        <!-- Cant use the name section as a class -->
+        <!--each job has a division-->
+        <!--gets content from database-->
         <?php
             if($db_conn)
             {
+                //query jobs database
                 $query = "SELECT * FROM jobs";
                 $result = mysqli_query($db_conn, $query);
 
@@ -61,10 +62,10 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                         echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
                         echo '<br><p>' . $row['description'] . '</p><br>';                 
 
-                        //list               
+                        //key responsibilities list               
                         echo '<h3>Key Responsibilities</h3>';
                         echo "<ol>";
-                        $key_resps = explode("\n", $row['key_responsibilities']);
+                        $key_resps = explode("\n", $row['key_responsibilities']); //create array from database text
                         foreach($key_resps as $resp)
                         {
                             echo '<li class = "list_indent">' . $resp . '</li>';
@@ -80,14 +81,14 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
                         //essential list
                         echo '<ul><li class = "list_indent">Essential<ul>';
-                        $key_attr_esse = explode("\n", $row['key_attributes_essential']);
+                        $key_attr_esse = explode("\n", $row['key_attributes_essential']); //create array from database text
                         foreach($key_attr_esse as $attr_esse)
                         {
                             echo '<li class = "list_indent">' . $attr_esse . '</li>';
                         }
                         //end essential list, start prefered list
                         echo '</ul></li><li class = "list_indent">Preferred<ul>';
-                        $key_attr_pref = explode("\n", $row['key_attributes_preferred']);
+                        $key_attr_pref = explode("\n", $row['key_attributes_preferred']); //create array from database text
                         foreach($key_attr_pref as $attr_pref)
                         {
                             echo '<li class = "list_indent">' . $attr_pref . '</li>';

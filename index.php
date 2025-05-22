@@ -5,8 +5,6 @@ session_start(); // Start fresh session
 require_once 'settings.php'; // Ensure this file correctly initializes $conn
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,8 +140,9 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
         <!--Enhancement Section-->
         <section class ="section_heading">
-            <button class="buttons" onclick="window.location.href='enhancements.php'">Go to Enhancements</button>
+            <button class="buttons" onclick="window.location.href='enhancements.php'">Go to Enhancements</button> 
         </section>
+        <br>
         
     </main>
 

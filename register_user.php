@@ -29,7 +29,7 @@ require_once 'settings.php';
         exit();
     }
 
-    // Check if email already exists
+    // Check if email already exists (using prepared statement)
     $query = "SELECT * FROM users WHERE email = ?";
     $stmt = $db_conn->prepare($query);
     $stmt->bind_param("s", $email);
@@ -46,7 +46,7 @@ require_once 'settings.php';
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert into users table
+    // Insert into users table (using prepared statement)
     $insert_query = "INSERT INTO users (email, username, password, role) VALUES (?, ?, ?, 'user')";
     $stmt = $db_conn->prepare($insert_query);
     $stmt->bind_param("sss", $email, $username, $hashed_password);

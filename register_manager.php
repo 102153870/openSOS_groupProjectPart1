@@ -17,38 +17,72 @@ function sanitise_input ($data)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //Sanitise all the inputs
     $email = sanitise_input($_POST["email"]);
     $username = sanitise_input($_POST["username"]);
     $password = sanitise_input($_POST["password"]);
+    $company_password = sanitise_input($_POST["company_password"]);
 
+    //Checking if the email format is valid
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error_manager_register'] = "Invalid email format.";
         header("Location: register_manager.php");
         exit();
     }
 
-    $query = "SELECT * FROM users WHERE email = ?";
+    // Check if the company password is correct using prepared statement
+    $query = "SELECT company_password FROM manager_password LIMIT 1"; //There is only one company password
     $stmt = $db_conn->prepare($query);
-    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $correct_password = $row['company_password']; //Store the correct password
+
+        // Verify the company password
+        if ($company_password !== $correct_password) { //Company password entered is not correct
+            $_SESSION['error_manager_register'] = "Incorrect company password.";
+            header("Location: register_manager.php");
+            exit();
+        }
+
+    } else {
+        // Handle query failure or no password set
+        $_SESSION['error_manager_register'] = "Password verification error. Please contact support.";
+        header("Location: register_manager.php");
+        exit();
+    }
+    $stmt->close();
+
+    //checking if email is already registered
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $db_conn->prepare($query); //using prepared statements to prevent SQL injection
+    $stmt->bind_param("s", $email); //Bind the email parameter to the query (s - string)
+    $stmt->execute();
+    $result = $stmt->get_result(); //Execute the query and get the result
+
+    //If the email is already registered
     if ($result->num_rows > 0) {
         $_SESSION['error_manager_register'] = "Email is already registered.";
         header("Location: register_manager.php");
         exit();
     }
+    $stmt->close();
 
+    //Hashing the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $insert_query = "INSERT INTO users (email, username, password, role) VALUES (?, ?, ?, 'manager')";
     $stmt = $db_conn->prepare($insert_query);
     $stmt->bind_param("sss", $email, $username, $hashed_password);
 
+    //Checking if the password is hashed correctly
     if ($stmt->execute()) {
         $_SESSION['success_manager_register'] = "Manager registered successfully!";
     } else {
         $_SESSION['error_manager_register'] = "Registration failed. Try again.";
     }
+    $stmt->close();
 
     header("Location: register_manager.php");
     exit();
@@ -83,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!--Registration form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <?php
+            <?php //Display error or success messages depending on logic set in PHP
             if (isset($_SESSION['error_manager_register'])) {
                 echo "<p class='error_message'>" . $_SESSION['error_manager_register'] . "</p>";
                 unset($_SESSION['error_manager_register']);
@@ -93,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             ?>
 
+            <!-- Input fields for registration -->
             <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 
             <input type="text" id="username" name="username" placeholder="Username" required>
@@ -101,6 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
 
+            <!-- Submit button -->
             <button type="submit" class="login_button">
                 Register
             </button>

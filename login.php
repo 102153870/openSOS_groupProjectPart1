@@ -54,7 +54,7 @@ $role = ""; // This will be set to either 'user' or 'manager' based on the login
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $input_email = sanitise_input($_POST['email']);
+    $input_username_or_email = sanitise_input($_POST['username_or_email']);
     $input_password = sanitise_input($_POST['password']);
 
     $current_lockout_time = getLockoutTimeLeft(); // Check current lockout status
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check for email or username in the database
         $query = "SELECT * FROM users WHERE email = ? OR username = ?";
         $stmt = mysqli_prepare($db_conn, $query);
-        mysqli_stmt_bind_param($stmt, "ss", $input_email, $input_email);
+        mysqli_stmt_bind_param($stmt, "ss", $input_username_or_email, $input_username_or_email);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
@@ -174,8 +174,8 @@ if ($is_currently_locked_out) {
         <!--Login form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
-            <input type="text" id="email" name="email" placeholder="Email" required
-            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+            <input type="text" id="username_or_email" name="username_or_email" placeholder="Username or Email" required
+            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>> <!--Ternary Statement for checking if user is locked out-->
 
             <input type="password" id="password" name="password" placeholder="Password" required
             <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
