@@ -18,6 +18,15 @@ if ($table_check_result && $table_check_result->num_rows === 0) {
             username VARCHAR(50) NOT NULL,
             password VARCHAR(100) NOT NULL,
             role varchar(50) NOT NULL,
+            first_name VARCHAR(50),
+            last_name VARCHAR(50),
+            dob DATE,
+            gender VARCHAR(20),
+            address VARCHAR(100),
+            suburb VARCHAR(50),
+            state VARCHAR(10),
+            postcode VARCHAR(10),
+            phone_number VARCHAR(20),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ";
@@ -166,9 +175,9 @@ if ($table_check_result && $table_check_result->num_rows === 0) {
 
             <label for="username" class="visually_hidden">Username:</label>
             <input type="text" id="username" name="username" placeholder="Username" required>
-
+                
             <!-- Optional details to simplify user applications -->
-            <h3>Optional (Make your application easier!)</h3>
+            <h2>Optional Information</h2>
             <h4>Personal Details:</h4>
             <!-- Max 20 alpha characters -->
             <label for="given_name_registration"><input type="text" id="given_name_registration" name="given_name_registration" pattern="[a-zA-Z]{1,20}" placeholder="Given Name"></label>
