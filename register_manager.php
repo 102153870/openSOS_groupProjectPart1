@@ -168,17 +168,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="username" class="visually_hidden">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Username" required>
 
-<<<<<<< HEAD
-            <input type="password" id="password" name="password" placeholder="Password" required>
-            <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
-=======
                 <label for="password" class="visually_hidden">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Password" required>
 
+                <label for="password" class="visually_hidden">Retype Password:</label>
+                <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
+
                 <label for="company_password" class="visually_hidden">Company Password:</label>
                 <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
->>>>>>> 5586bd72cfe966edff467f01fb931a0a60e5d128
-
 
             <!-- Submit button -->
             <button type="submit" class="login_button">
