@@ -14,7 +14,7 @@ unset($_SESSION['form_data']);
 <head>
     <!-- Metadata tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 2 apply.php Page">
+    <meta name="description" content="Project Part 1 apply.php Page">
     <meta name="keywords" content="HTML5, Forms, Group Project, Job Application">
     <meta name="author" content="Mark Richards">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
