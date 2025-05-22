@@ -59,7 +59,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 <?php $query_search_addon = ""; ?>
                 <h3>Sort by:</h3>
                 <select name="manager_sort_by">
-                    <option value="" selected="selected">Please Select</option>
                     <option value="eoi_number">EOI ID</option>
                     <option value="job_ref_number">Job Reference</option>
                     <option value="first_name">First Name</option>
@@ -207,7 +206,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $job_ref_number = mysqli_real_escape_string($db_conn, $_POST['delete_job_ref_number']);
             $query = "DELETE FROM eoi WHERE job_ref_number = '$job_ref_number'";
             mysqli_query($db_conn, $query);
-            echo "<p>Deleted EOIs for job reference: $job_ref_number</p>";
+            echo "<p class = \"heading_important\">Deleted EOIs for job reference: $job_ref_number</p>";
 
             // Refresh the table after update
             $query = "SELECT * FROM eoi";
@@ -224,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $status = mysqli_real_escape_string($db_conn, $_POST['delete_by_status']);
             $query = "DELETE FROM eoi WHERE status = '$status'";
             mysqli_query($db_conn, $query);
-            echo "<p>Deleted EOIs for status: $status</p>";
+            echo "<p class = \"heading_important\">Deleted EOIs for status: $status</p>";
 
             // Refresh the table after update
             $query = "SELECT * FROM eoi";
@@ -258,7 +257,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 if ($nameString) $nameString .= " ";
                 $nameString .= $_POST['delete_last_name'];
             }
-            echo "<p>Deleted EOIs for: " . htmlspecialchars($nameString) . "</p>";
+            echo "<p class = \"heading_important\">Deleted EOIs for: " . htmlspecialchars($nameString) . "</p>";
 
             // Refresh the table after update
             $query = "SELECT * FROM eoi";
@@ -276,7 +275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             $status = mysqli_real_escape_string($db_conn, $_POST['status']);
             $query = "UPDATE eoi SET status = '$status' WHERE eoi_number = $id";
             mysqli_query($db_conn, $query);
-            echo "<p>Updated status of EOI ID $id to '$status'</p>";
+            echo "<p class =\"heading_important\">Updated status of EOI ID $id to '$status'</p>";
             
             // Refresh the table after update
             $query = "SELECT * FROM eoi";
@@ -323,7 +322,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                         <form method='post'>
                             <input type='hidden' name='eoi_number' value='" . $row['eoi_number'] . "'>
                             <select name='status'> <!-- Dropdown for status selection, using ternary operators -->
-                                <option value='' selected='selected'>Please Select</option>
                                 <option value='NEW'" . ($row['status'] == 'NEW' ? ' selected' : '') . ">NEW</option>
                                 <option value='CURRENT'" . ($row['status'] == 'CURRENT' ? ' selected' : '') . ">CURRENT</option>
                                 <option value='FINAL'" . ($row['status'] == 'FINAL' ? ' selected' : '') . ">FINAL</option>

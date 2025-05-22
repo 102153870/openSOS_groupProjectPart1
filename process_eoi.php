@@ -235,10 +235,14 @@
                         {
                             // Get the auto-incremented ID
                             $eoi_number = mysqli_insert_id($db_conn); 
+
+                            echo "<div class = \"profile_container\">";
                             // Show the message on the page to the user confirming that there EOI has been submitted
                             echo "<h2 class='process_eoi_text'><br>Thank you for your application, $first_name.</h2>";
                             echo "<p class='process_eoi_text'>Your Reference number for your application is: <strong>$eoi_number </strong>
                                   <br><br>We will get back to you soon.</p>";
+                            echo "<button class=\"buttons\" onclick=\"window.location.href='index.php'\">Continue Browsing</button>";
+                            echo "</div>";
                         } 
                         else 
                         {
