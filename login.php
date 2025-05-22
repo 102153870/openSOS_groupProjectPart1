@@ -93,11 +93,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($user['role'] == 'manager') header("Location: manage.php");
                 else 
                 {
-                    // Save user data in a session variable
+                    // Save the user data that can be pre filled in the apply page
                     $_SESSION['user_data'] = array(
                         'first_name' => $user['first_name'],
                         'last_name' => $user['last_name'],
                         'dob' => $user['dob'],
+                        'gender' => $user['gender'],
+                        'address' => $user['address'],
+                        'suburb' => $user['suburb'],
+                        'state' => $user['state'],
+                        'postcode' => $user['postcode'],
+                        'phone_number' => $user['phone_number'],
                         'email' => $user['email']
                     );
                     header("Location: index.php");
