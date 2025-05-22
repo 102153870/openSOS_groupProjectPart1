@@ -33,7 +33,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
             </a>
         </div>
     <!-- Right: Manager Login -->
-    <div class="manager_login_link">
+    <div class="header_login_link">
         <?php
         $link = 'login.php'; // Default fallback
 
