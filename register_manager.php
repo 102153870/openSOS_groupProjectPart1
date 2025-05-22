@@ -4,6 +4,30 @@
 session_start();
 require_once 'settings.php';
 
+// Check if 'users' table exists, if not create it
+$table_check_query = "SHOW TABLES LIKE 'users'";
+$table_check_result = $db_conn->query($table_check_query);
+
+if ($table_check_result && $table_check_result->num_rows === 0) {
+
+    // Table doesn't exist, so create it
+    $create_table_query = "
+        CREATE TABLE users (
+            user_id INT AUTO_INCREMENT PRIMARY KEY,
+            email VARCHAR(50) NOT NULL UNIQUE,
+            username VARCHAR(50) NOT NULL,
+            password VARCHAR(100) NOT NULL,
+            role varchar(50) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ";
+
+    if (!$db_conn->query($create_table_query)) {
+        die("Error creating users table: " . $db_conn->error);
+    }
+}
+
+
 // Function to sanitise the input
 function sanitise_input ($data)
 {
@@ -44,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    //If the company password matches the one in the database
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $correct_password = $row['company_password']; //Store the correct password
@@ -86,7 +111,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Checking if the password is hashed correctly
     if ($stmt->execute()) {
-        $_SESSION['success_manager_register'] = "Manager registered successfully!";
+        $_SESSION['success_manager_register'] = "Manager registered successfully! You may now <a href=\"login.php\">LOGIN</a>.";
+        $_SESSION['is_registered'] = true; // Set a session variable to indicate registration success
     } else {
         $_SESSION['error_manager_register'] = "Registration failed. Try again.";
     }
@@ -101,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 register_manager.php Page">
+    <meta name="description" content="Project Part 2 register_manager.php Page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
@@ -135,15 +161,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             ?>
 
-            <!-- Input fields for registration -->
-            <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+            <!-- Input fields for registration  -->
+                <label for="email" class="visually_hidden">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 
-            <input type="text" id="username" name="username" placeholder="Username" required>
+                <label for="username" class="visually_hidden">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
 
+<<<<<<< HEAD
             <input type="password" id="password" name="password" placeholder="Password" required>
             <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
+=======
+                <label for="password" class="visually_hidden">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
 
-            <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
+                <label for="company_password" class="visually_hidden">Company Password:</label>
+                <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
+>>>>>>> 5586bd72cfe966edff467f01fb931a0a60e5d128
+
 
             <!-- Submit button -->
             <button type="submit" class="login_button">

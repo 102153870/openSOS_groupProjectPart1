@@ -10,7 +10,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 <head>
     <!-- Metadata tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 jobs.html Page">
+    <meta name="description" content="Project Part 1 jobs.php Page">
     <meta name="keywords" content="HTML5, Forms, Group Project, Job Application">
     <meta name="author" content="Ryan Weber">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

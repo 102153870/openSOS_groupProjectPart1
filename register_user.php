@@ -4,6 +4,28 @@
 session_start(); 
 require_once 'settings.php';
 
+// Check if 'users' table exists, if not create it
+$table_check_query = "SHOW TABLES LIKE 'users'";
+$table_check_result = $db_conn->query($table_check_query);
+
+if ($table_check_result && $table_check_result->num_rows === 0) {
+
+    // Table doesn't exist, so create it
+    $create_table_query = "
+        CREATE TABLE users (
+            user_id INT AUTO_INCREMENT PRIMARY KEY,
+            email VARCHAR(50) NOT NULL UNIQUE,
+            username VARCHAR(50) NOT NULL,
+            password VARCHAR(100) NOT NULL,
+            role varchar(50) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ";
+
+    if (!$db_conn->query($create_table_query)) {
+        die("Error creating users table: " . $db_conn->error);
+    }
+}
 
 // Function to sanitise the input
     function sanitise_input ($data)
@@ -84,7 +106,7 @@ require_once 'settings.php';
     );
 
     if ($stmt->execute()) {
-        $_SESSION['success_user_register'] = "User registered successfully! You may now log in.";
+        $_SESSION['success_user_register'] = "User registered successfully! You may now <a href=\"login.php\">LOGIN</a>.";
         header("Location: register_user.php");
     } else {
         $_SESSION['error_user_register'] = "Registration failed. Try again.";
@@ -100,7 +122,7 @@ require_once 'settings.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 register_user.php Page">
+    <meta name="description" content="Project Part 2 register_user.php Page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
@@ -135,11 +157,14 @@ require_once 'settings.php';
             }
             ?>
 
+            <label for="email" class="visually_hidden">Email:</label>
             <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
 
+            <label for="password" class="visually_hidden">Password:</label>
             <input type="password" id="password" name="password" placeholder="Password" required>
             <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
 
+            <label for="username" class="visually_hidden">Username:</label>
             <input type="text" id="username" name="username" placeholder="Username" required>
 
             <!-- Optional details to simplify user applications -->

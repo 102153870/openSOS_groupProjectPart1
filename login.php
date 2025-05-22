@@ -155,7 +155,7 @@ if ($is_currently_locked_out) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 login.php Page (Login Page)">
+    <meta name="description" content="Project Part 2 login.php Page (Login Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">

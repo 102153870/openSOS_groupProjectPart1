@@ -30,7 +30,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 manage.php Page">
+    <meta name="description" content="Project Part 2 manage.php Page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
