@@ -78,8 +78,8 @@ require_once 'settings.php';
         $gender,
         $address,
         $suburb,
-        $postcode,
         $state,
+        $postcode,
         $phone
     );
 
@@ -143,70 +143,51 @@ require_once 'settings.php';
             <input type="text" id="username" name="username" placeholder="Username" required>
 
             <!-- Optional details to simplify user applications -->
-            <h3>Optional (Make your application easier)</h3>
-            <br>
-
-            <fieldset id="applicant_details_registration">
-                <section id="personal_details_registration" class="input">
-                    <h4>Personal Details:</h4>
-                    <br>
-                    <!-- Max 20 alpha characters -->
-                    <label for="given_name_registration">Given Name: <input type="text" id="given_name_registration" name="given_name_registration" pattern="[a-zA-Z]{1,20}"></label>
-                    <br>
-                    <!-- Max 20 alpha characters -->
-                    <label for="family_name_registration">Family Name: <input type="text" id="family_name_registration" name="family_name_registration" pattern="[a-zA-Z]{1,20}"></label>
-                    <br>
-                    <label for="dob_registration">Date of Birth: <input type="date" id="dob_registration" name="dob_registration" max="2025-03-27"></label>
-                    <br>
-                    <fieldset id="gender_selection_registration">
-                        <legend>Gender:</legend>
-                        <label><input type="radio" name="gender_registration" value="Female"> Female</label>
-                        <label><input type="radio" name="gender_registration" value="Male"> Male</label>
-                        <label><input type="radio" name="gender_registration" value="Other"> Other</label>
-                        <label><input type="radio" name="gender_registration" value="Prefer Not To Say"> Prefer Not To Say</label>
-                    </fieldset>
-                    <br>
-                </section>
-
-                <!-- Get the address details -->
-                <section id="address_details_registration" class="input">
-                    <h4>Address:</h4>
-                    <br>
-                    <!-- Max 40 alphanumeric characters for address, allows slashes (/) and dashes (-) as well -->
-                    <label for="address_registration">Address: <input type="text" id="address_registration" name="address_registration" placeholder="1/110 John street" pattern="[\da-zA-Z/]{1,40}"></label>
-                    <br>
-                    <!-- Max 40 characters for address, only allows characters -->
-                    <label for="suburb_registration">Suburb: <input type="text" id="suburb_registration" name="suburb_registration" pattern="[a-zA-Z]{1,40}"></label>
-                    <br>
-                    <!-- 4 digits -->
-                    <label for="postcode_registration">Postcode: <input type="text" id="postcode_registration" name="postcode_registration" pattern="\d{4}"></label>
-                    <br>
-                    <!-- Dropdown menu for the state/territory -->
-                    <label for="state_registration">State/Territory
-                        <select name="state_registration" id="state_registration">
-                            <option value="" selected="selected">Please Select</option>
-                            <option value="act">ACT</option>
-                            <option value="nsw">NSW</option>
-                            <option value="nt">NT</option>
-                            <option value="qld">QLD</option>
-                            <option value="sa">SA</option>
-                            <option value="tas">TAS</option>
-                            <option value="vic">VIC</option>
-                            <option value="wa">WA</option>
-                        </select>
-                    </label>
-                </section>
-                <br>
-
-                <!-- Get the applicants contact details -->
-                <section id="contact_details_registration" class="input">
-                    <label for="phone_number_registration">Phone Number:
-                        <!-- Input validation is for 8 to 12 digits, or spaces -->
-                        <input type="text" id="phone_number_registration" name="phone_number_registration" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}">
-                    </label>
-                </section>
-                <br>
+            <h3>Optional (Make your application easier!)</h3>
+            <h4>Personal Details:</h4>
+            <!-- Max 20 alpha characters -->
+            <label for="given_name_registration"><input type="text" id="given_name_registration" name="given_name_registration" pattern="[a-zA-Z]{1,20}" placeholder="Given Name"></label>
+            <!-- Max 20 alpha characters -->
+            <label for="family_name_registration"><input type="text" id="family_name_registration" name="family_name_registration" pattern="[a-zA-Z]{1,20}"  placeholder="Family Name"></label>
+            <h4>Date of Birth:</h4>
+            <label for="dob_registration"><input type="date" id="dob_registration" name="dob_registration" max="2025-03-27"></label>
+            <h4>Gender:</h4>
+            <fieldset id="gender_selection_registration">
+                <label><input type="radio" name="gender_registration" value="Female"> Female</label>
+                <label><input type="radio" name="gender_registration" value="Male"> Male</label>
+                <label><input type="radio" name="gender_registration" value="Other"> Other</label>
+                <label><input type="radio" name="gender_registration" value="Prefer Not To Say"> Prefer Not To Say</label>
             </fieldset>
+            
+            <h4>Address:</h4>
+            <!-- Max 40 alphanumeric characters for address, allows slashes (/) and dashes (-) as well -->
+            <label for="address_registration"><input type="text" id="address_registration" name="address_registration" placeholder="1/110 John street" pattern="[\da-zA-Z/]{1,40}"></label>
+            <!-- Max 40 characters for address, only allows characters -->
+            <label for="suburb_registration"><input type="text" id="suburb_registration" name="suburb_registration" placeholder="Suburb" pattern="[a-zA-Z ]{1,40}"></label>
+            <!-- 4 digits -->
+            <label for="postcode_registration"><input type="text" id="postcode_registration" name="postcode_registration" placeholder="Postcode" pattern="\d{4}"></label>
+            <!-- Dropdown menu for the state/territory -->
+            <h4>State/Territory</h4>
+            <label for="state_registration">
+                <select name="state_registration" id="state_registration">
+                    <option value="" selected="selected">Please Select</option>
+                    <option value="act">ACT</option>
+                    <option value="nsw">NSW</option>
+                    <option value="nt">NT</option>
+                    <option value="qld">QLD</option>
+                    <option value="sa">SA</option>
+                    <option value="tas">TAS</option>
+                    <option value="vic">VIC</option>
+                    <option value="wa">WA</option>
+                </select>
+            </label>
+            <br><br>
+
+            <h4>Phone Number:</h4>
+            <label for="phone_number_registration">
+                <!-- Input validation is for 8 to 12 digits, or spaces -->
+                <input type="text" id="phone_number_registration" name="phone_number_registration" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}">
+            </label>
 
             <button type="submit" class="login_button">
                 Register

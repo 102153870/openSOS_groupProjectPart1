@@ -946,11 +946,47 @@ form h3 {
     cursor: pointer;
 }
 
-
+/************************************************************/
+/*register_user.php specific CSS*/
+#applicant_details_registration {
+    font-weight: bold;
+    margin: auto;
+    background: var(--textcard_color);
+    padding: 0.75rem;
+    line-height: 1rem;
+    /* Border */
+    border: none;
+}
+#personal_details_registration {
+    line-height: 1rem;
+    width: 100%;
+    padding: 0;
+}
+#personal_details_registration section {
+    border: none;
+}
+#applicant_details_registration {
+    float: left;
+    padding-left: 2rem;
+    margin-left: 3rem;
+}
+#gender_selection_registration {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#gender_selection_registration label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+#gender_selection_registration input[type="radio"] {
+    margin-right: 0.5rem;
+}
 
 /************************************************************/
 /*jobs.php specific CSS*/
-
 .job_intro {
   overflow: auto; /* clearfix alternative */
   margin: auto;
