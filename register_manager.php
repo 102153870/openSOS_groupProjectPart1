@@ -21,11 +21,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = sanitise_input($_POST["email"]);
     $username = sanitise_input($_POST["username"]);
     $password = sanitise_input($_POST["password"]);
+    $retype_password = sanitise_input($_POST["retype_password"]);
     $company_password = sanitise_input($_POST["company_password"]);
 
     //Checking if the email format is valid
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error_manager_register'] = "Invalid email format.";
+        header("Location: register_manager.php");
+        exit();
+    }
+    //Check if both of the passwords entered match
+    if ($password != $retype_password)
+    {
+        $_SESSION['error_manager_register'] = "Passwords did not match.";
         header("Location: register_manager.php");
         exit();
     }
@@ -133,6 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="username" name="username" placeholder="Username" required>
 
             <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
 
             <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
 

@@ -50,7 +50,8 @@ unset($_SESSION['form_data']);
             <fieldset id="job_selection">
                     <label for="job_ref_number"><strong>Job Reference Number:</strong>
                     <select name="job_ref_number" id="job_ref_number" required>
-                        <option value="" <?php echo !isset($form_data['job_ref_number']) ? 'selected="selected"' : ''; ?>>Please Select</option>
+                        <option value="" <?php echo !isset($form_data['job_ref_number']) ? 'selected="selected"' : 
+                                (isset($_SESSION['job_ref']) ? $_SESSION['job_ref'] : ''); ?>>Please Select</option>
                         <?php
                             // Get the job reference numbers from the database and display them in the dropdown box
                             $query = "SELECT * from jobs";
