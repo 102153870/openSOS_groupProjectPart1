@@ -74,7 +74,9 @@ unset($_SESSION['form_data']);
                     <h3>Personal Details:</h3>
                     <br>
                     <!-- Max 20 alpha characters -->
-                    <p><label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" value="<?php echo isset($form_data['given_name']) ? htmlspecialchars($form_data['given_name']) : ''; ?>" required></label></p>
+                    <p><label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" 
+                            value="<?php echo isset($form_data['given_name']) ? htmlspecialchars($form_data['given_name']) : 
+                            (isset($_SESSION['user_data']['first_name']) ? htmlspecialchars($_SESSION['user_data']['first_name']) : ''); ?>" required></label></p>
                     <br>
                     <!-- Max 20 alpha characters -->
                     <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,20}" value="<?php echo isset($form_data['family_name']) ? htmlspecialchars($form_data['family_name']) : ''; ?>" required></label>

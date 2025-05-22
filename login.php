@@ -91,7 +91,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Redirect based on role
                 if ($user['role'] == 'manager') header("Location: manage.php");
-                else header("Location: index.php");
+                else 
+                {
+                    // Save user data in a session variable
+                    $_SESSION['user_data'] = array(
+                        'first_name' => $user['first_name'],
+                        'last_name' => $user['last_name'],
+                        'dob' => $user['dob'],
+                        'email' => $user['email']
+                    );
+                    header("Location: index.php");
+                }
 
                 exit();
             }
