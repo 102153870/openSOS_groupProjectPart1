@@ -12,6 +12,7 @@ description: refers to index.php, about.php, apply.php and jobs.php, process_eoi
 /*Variables for theme selector*/
 /*The root checks the input selected by the user from the theme selector*/
 /*Variables are used to dynamically change the color of each theme based on the user input (no JS needed)*/
+
 :root {
     /* Default/Original (Green) Theme */
     --home_background_image: url("images/homepage_background.jpg");
@@ -905,6 +906,10 @@ form h3 {
 #backend_skills, #generic_skills {
     align-items: flex-end; /* Right align these columns */
 }
+
+#other_skills_textarea_container {display: none;} /*Hide the other skills textbox if the checkbox is not ticked*/
+
+#other_skills_checkbox:checked + label + #other_skills_textarea_container {display: block;} /*Show the other skills textbox if the checkbox is ticked*/
 
 #other_skills_section textarea {
     display: flex;
