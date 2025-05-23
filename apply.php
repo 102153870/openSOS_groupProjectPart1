@@ -246,14 +246,17 @@ unset($_SESSION['form_data']);
                     </section>
                 </section>
             </fieldset>
-                
+
             <fieldset id="other_skills_section">
-                <h3>Other Skills:</h3>
-                <p>
-                    <br>
-                    <label><textarea name="other_skills" id="other_skills" rows="10" placeholder="List any other relevant skills here"><?php echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; ?></textarea>Please Enter Any Other Relevant Skills</label>
-                </p>
-                </fieldset>
+                <!-- Keep checkbox first -->
+                <input type="checkbox" id="other_skills_checkbox">
+                <label for="other_skills_checkbox">I have other relevant skills</label>
+
+                <!-- Textarea appears when checkbox is checked -->
+                <div id="other_skills_textarea_container">
+                    <label for="other_skills">Please enter any other relevant skills:</label><br>
+                    <textarea name="other_skills" id="other_skills" rows="10" placeholder="List any other relevant skills here"><?php echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; ?></textarea>
+                </div>
             </fieldset>
 
             <fieldset id="buttons_div">
