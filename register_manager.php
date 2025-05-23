@@ -146,12 +146,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <main>
-    <div class="login_container">
-        <h2>Register here!</h2>
-
-        <!--Registration form -->
-        <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <?php //Display error or success messages depending on logic set in PHP
+        <?php 
+        include 'nav.inc'; //Include the nav
+        
             if (isset($_SESSION['error_manager_register'])) {
                 echo "<p class='error_message'>" . $_SESSION['error_manager_register'] . "</p>";
                 unset($_SESSION['error_manager_register']);
@@ -159,28 +156,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<p class='success_message'>" . $_SESSION['success_manager_register'] . "</p>";
                 unset($_SESSION['success_manager_register']);
             }
-            ?>
+        ?>
+    <div class="login_container">
+        <h2>Register here!</h2><br>
 
-            <!-- Input fields for registration  -->
-                <label for="email" class="visually_hidden">Email:</label>
+        <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <div class="form_row">
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+            </div>
 
-                <label for="username" class="visually_hidden">Username:</label>
+            <div class="form_row">
+                <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
 
-                <label for="password" class="visually_hidden">Password:</label>
+            <div class="form_row">
+                <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
 
-                <label for="password" class="visually_hidden">Retype Password:</label>
+            <div class="form_row">
+                <label for="retype_password">Retype Password:</label>
                 <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
+            </div>
 
-                <label for="company_password" class="visually_hidden">Company Password:</label>
+            <div class="form_row">
+                <label for="company_password">Company Password:</label>
+                <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
+            </div>
 
-            <!-- Submit button -->
-            <button type="submit" class="login_button">
-                Register
-            </button>
+            <button type="submit" class="login_button">Register</button>
         </form>
+
     </div>
     </main>
     <footer>

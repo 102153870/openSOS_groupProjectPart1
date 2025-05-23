@@ -217,16 +217,110 @@ footer p #github_link:hover {
 
 /************************************************************/
 /*Login Page for Users and Managers*/
+/*Similar styling done for register users and manager page*/
 .login_container {
     background-color: var(--textcard_color);
     padding: 2rem;
     border-radius: 10px;
     border: 0.25rem solid black;
-    width: 300px;
+    width: 40rem; /* Increased width */
     margin: 3rem auto;
-    text-align: center;
+    text-align: justify;
 }
 
+.login_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Space between rows */
+}
+
+/*Aligning the labels with the input fields*/
+.form_row {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+}
+
+/*Makes the label align vertically*/
+.form_row label {
+    width: 10rem; /* Enough space for label text */
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/*For user registration responsive design*/
+.user_registration_container {
+    display: flex;
+    align-items: flex-start; /* Prevent height stretching */
+}
+.user_registration_container .login_container:first-child {
+    flex: 0 0 auto; /* Don't grow or shrink, size based on content */
+    height: auto;   /* Height adjusts to content */
+}
+
+/*Styling for relevant types of input*/
+.form_row input{
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.form_row select { /*State and Territory dropdown menu*/
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+/*Fixing the gender radio buttons*/
+#gender_registration {
+    display: flex;
+    flex-wrap: wrap; /* Allows options to wrap if not enough horizontal space */
+    align-items: center; /* Vertically align items in each line */
+    gap: 10px 15px; /* row-gap column-gap (space between radio options) */
+    flex: 1; /* Takes available space in the form_row */
+}
+
+/* Styles for each label containing a radio button and text*/
+#gender_registration label {
+    display: inline-flex; /* Align radio button and text nicely */
+    align-items: center;
+    /* Reset/override properties from general .form_row > label if they might conflict */
+    width: auto;             /* Override width: 10rem from main label style */
+    margin-right: 0;         /* Use gap on parent #gender_registration for spacing */
+    font-weight: normal;     /* Main labels are bold, these are normal */
+    text-align: left;        /* Ensure text is aligned left */
+    cursor: pointer;
+}
+
+/* Styles for the radio input itself */
+#gender_registration input[type="radio"] {
+    width: auto; /* Default browser size */
+    height: auto; /* Default browser size */
+    transform: none; /* Reset any transforms */
+    scale: 1;  /* Reset any scaling */
+    appearance: radio;  /* Use native radio button appearance */
+    margin-right: 5px; /* Space between radio button and its text label */
+    /* Ensure no flex item properties are messing with the radio button itself */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    /* Remove padding/margin that might come from broader input rules */
+    padding: 0; 
+    min-height: unset; /* Unset min-height from general input rules */
+}
+
+/*To format the mandatory and optional information sections*/
+.form_section_left, .form_section_right {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*Ensuring form input stays an acceptable size for responsive designs*/
 .login_form input {
     width: 100%;
     height: auto;
@@ -238,7 +332,7 @@ footer p #github_link:hover {
 }
 .login_form input::placeholder {font-size: 0.8rem;} /*Prevents placeholder text from shrinking for responsive design*/
 
-.login_button {
+.login_button { /*Login and register button s*/
     background-color: var(--heading_color);
     color: white;
     padding: 0.5rem 1rem;
@@ -250,8 +344,10 @@ footer p #github_link:hover {
     display: block;
     /* make it take up full line, so margin auto works */
 }
-.error_message {color: red; margin: 1rem 0;}
-.success_message {color:green; margin: 1rem 0;}
+.error_message {color: red; margin: 1rem 0; text-align: center; font-size: 2rem;
+                background-color: black;}
+.success_message {color:green; margin: 1rem 0; text-align: center; font-size: 2rem;
+                    background-color: #000000;}
 
 h2 {text-align: center;}
 
@@ -377,7 +473,7 @@ body.hero_background {
     padding-top: 0.2rem;
 }
 
-/*Class to make the radio button labels hidden but still exist*/
+/*Class to make the radio labels hidden but still exist*/
 .visually_hidden {
     clip: rect(0·0·0·0);
     clip-path: inset (50%);
@@ -1374,6 +1470,32 @@ h1.job_title {
         padding-top: 0.5%;
         padding-bottom: 0.5%;
         padding-right: 0.5em;
+    }
+
+    /*************************************************************/
+    /*For login and registration pages*/
+    .login_container{
+        width: 80%;
+    }
+    .user_registration_container {
+        flex-direction: column;
+        align-items: stretch; /* optional for full-width children */
+    }
+
+     .form_row {
+        text-align: center;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form_row label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 0.25rem;
+    }
+
+    .form_row input {
+        width: 100%;
     }
 }
 
