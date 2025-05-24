@@ -69,7 +69,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/login_attempts.png" alt="Disable Login for Number of Login Attempts" class = "enhancement_image">
+                <img src="images/enhancement4.png" alt="Disable Login for Number of Login Attempts" class = "enhancement_image">
             </section>
         </div>
 
@@ -81,7 +81,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/more_options.png" alt="More Options for Manager" class = "enhancement_image">
+                <img src="images/enhancement5.png" alt="More Options for Manager" class = "enhancement_image">
             </section>
         </div>
 
