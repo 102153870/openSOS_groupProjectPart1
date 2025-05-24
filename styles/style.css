@@ -900,7 +900,7 @@ td:hover {
 #group_photo {
     /*Group Photo Styling*/
     float: right;
-    /*FLoated to the right*/
+    /*Floated to the right*/
     flex: 0 1 35%;
     max-width: 400px;
     display: block;
@@ -1229,6 +1229,11 @@ h1.job_title {
     background: var(--textcard_color);
     border: 0.25rem solid black;
     border-radius: 1rem;
+}
+
+/*css for enhancements page*/
+.enhancement_image{
+    box-shadow: 0.5rem 0.5rem 1rem black;
 }
 
 /* Responsive styles for screens up to 925px */
