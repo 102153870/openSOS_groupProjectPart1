@@ -27,6 +27,12 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
 <head>
     <!-- Metadata tags -->
     <link rel="stylesheet" href="styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="Project Part 2 profile.php Page">
+    <meta name="keywords" content="HTML5, Table, PHP, Group Project, User Profile">
+    <meta name="author" content="Rodney Liaw">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
     <!-- Adds the OpenSOS Icon to title bar -->
     <link rel="icon" type="image/x-icon" href="images/tab_icon.png">
 </head>
