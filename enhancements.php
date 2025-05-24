@@ -40,7 +40,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/enhancement1.png" alt="Job Sorting for Manager" class="enhancement_image">
+                <img src="images/enhancement1.png" alt="Sorting options and table output in the manage page" class="enhancement_image">
             </section>
         </div>
 
@@ -52,7 +52,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/enhancement2.png" alt="Admin Registration Page" class = "enhancement_image">
+                <img src="images/enhancement2.png" alt="Admin Registration Page with email, username, password, retype password, and company password fields" class = "enhancement_image">
             </section>
         </div>
 
@@ -64,7 +64,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/enhancement3.png" alt="Access control to manage.php" class = "enhancement_image">
+                <img src="images/enhancement3.png" alt='The login screen, showing "Login here!" text' class = "enhancement_image">
             </section>
         </div>
 
@@ -76,7 +76,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/enhancement4.png" alt="Disable Login for Number of Login Attempts" class = "enhancement_image">
+                <img src="images/enhancement4.png" alt="Invalid login with 2 attempts remaining in black bars above the login box" class = "enhancement_image">
             </section>
         </div>
 
@@ -88,7 +88,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/enhancement5.png" alt="More Options for Manager" class = "enhancement_image">
+                <img src="images/enhancement5.png" alt="6 Search / Delete Options for Manager" class = "enhancement_image">
             </section>
         </div>
 
@@ -105,7 +105,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="apply.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/enhancement6.png" alt="More Options for Manager" class = "enhancement_image">
+                <img src="images/enhancement6.png" alt="Personal and Technical details forms pre-filled out" class = "enhancement_image">
             </section>
         </div>
 
