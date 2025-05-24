@@ -173,7 +173,7 @@ if ($is_currently_locked_out) {
     </header>
    <main>
     <div class="login_container">
-        <h2>Login here!</h2>
+        <h2>Login here!</h2> <br>
         <?php
             // Messages are now cleared by getLockoutTimeLeft() on expiry or by successful login.
             // They will persist in session across refreshes if the condition is still active.
@@ -189,12 +189,19 @@ if ($is_currently_locked_out) {
 
         <!--Login form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <div class="form_row">
+                <label for="username_or_email">Username/Email:</label>
+                <input type="text" id="username_or_email" name="username_or_email"
+                    placeholder="Username or Email" required
+                    <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+            </div>
 
-            <input type="text" id="username_or_email" name="username_or_email" placeholder="Username or Email" required
-            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>> <!--Ternary Statement for checking if user is locked out-->
-
-            <input type="password" id="password" name="password" placeholder="Password" required
-            <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+            <div class="form_row">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"
+                    placeholder="Password" required
+                    <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+            </div>
 
             <button type="submit" class="login_button" <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
                 Login
