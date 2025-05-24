@@ -57,7 +57,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_login.png" alt="Access control to manage.php" class = "enhancement_image">
+                <img src="images/enhancement3.png" alt="Access control to manage.php" class = "enhancement_image">
             </section>
         </div>
 
