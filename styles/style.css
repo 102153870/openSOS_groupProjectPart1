@@ -224,7 +224,7 @@ footer p #github_link:hover {
     border: 0.25rem solid black;
     width: 40rem; /* Increased width */
     margin: 3rem auto;
-    text-align: justify;
+    text-align: center;
 }
 
 .login_form {
@@ -355,6 +355,53 @@ h2 {text-align: center;}
 .profile_container {
     text-align: center;
 }
+
+ /*Disguise the checkbox as a button*/
+.profile_editor_toggle {
+    opacity: 0;  /* Makes the checkbox completely transparent (invisible) */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+}
+
+/*This class styles the <label> element associated with the hidden checkbox.
+   This label acts as the visible "button" the user clicks.*/
+.profile_editor_toggle_label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/*Hover for edit profile button*/
+.profile_editor_toggle_label:hover {
+    background-color: #e0e0e0;
+}
+
+/*Initially hide the edit profile form*/
+#edit_profile_form_container {
+    display: none; 
+    justify-content: center;
+}
+
+/*Toggle between showing the edit form and hiding it*/
+.profile_editor_toggle:checked ~ #edit_profile_form_container {
+    display: block;
+}
+.profile_editor_toggle:checked ~ #static_profile_info_container {
+    display: none;
+}
+
+/*Consistent sizing for different input types*/
+.edit_form_field { margin-bottom: 10px; }
+.edit_form_field label { display: inline-block; width: 120px; font-weight: bold; }
+.edit_form_field input[type="text"],
+.edit_form_field input[type="date"],
+.edit_form_field input[type="tel"],
+.edit_form_field select { width: 250px; padding: 5px; box-sizing: border-box; }
 
 /************************************************************/
 /*Manage Page for Users (manage.php)*/
@@ -851,7 +898,9 @@ body.hero_background {
     border: rgb(0, 0, 0) 0.25rem solid;
     border-radius: 10px;
 }
-
+.member_interests table th{ /*Consistent table header width*/
+    width: 15%;
+}
 caption {
     font-weight: bold;
     margin-bottom: 10px;

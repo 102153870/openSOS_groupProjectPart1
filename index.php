@@ -3,6 +3,7 @@
 <?php
 session_start(); // Start fresh session
 require_once 'settings.php'; // Ensure this file correctly initializes $conn
+                        
 ?>
 
 <!DOCTYPE html>

@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Redirect based on role
                 if ($user['role'] == 'manager') header("Location: manage.php");
                 else 
-                {
+                {//Role is user
                     // Save the user data that can be pre filled in the apply page
                     $_SESSION['user_data'] = array(
                         'first_name' => $user['first_name'],
