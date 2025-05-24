@@ -77,8 +77,25 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">More Options for Manager</h1>
-                <p>The password reset flow has been streamlined with email verification and security questions.</p><br>
-                <a href="login.php" class="buttons_description_box">View Enhancement</a>
+                <p>More options for the manager were integrated to make searching and deleting applications easier. (To view enhancement please login to manager account)</p><br>
+                <a href="manage.php" class="buttons_description_box">View Enhancement</a>
+            </section>
+            <section class="job_description_right">
+                <img src="images/more_options.png" alt="More Options for Manager">
+            </section>
+        </div>
+
+        <!-- Enhancement 6 -->
+        <div class="job_description_box">
+            <section class="job_description_left">
+                <h1 class="job_title">Form pre-filling</h1>
+                <p>Two enhancements were made to the apply.php page</p><br>
+                <ol>
+                    <li>  If the user is logged in to an account (user level not manager) the form will pre-fill with the optional information associated with their account (if it was entered upon creation)</li>
+                    <li>  If errors are detected after the user attempts to submit an EOI the form will be pre-filled with the entered information when the user selects the link to return to the apply page.</li>
+                </ol>
+                <br>
+                <a href="apply.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
                 <img src="images/more_options.png" alt="More Options for Manager">

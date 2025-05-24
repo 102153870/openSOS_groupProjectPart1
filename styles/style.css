@@ -1134,6 +1134,11 @@ form h3 {
     line-height: 1.75rem;
     width: 48%;
 }
+.job_description_left ol {
+    padding-left: 2rem;
+    margin-left: 0;
+    text-align: left;
+}
 
 /*right side of job desc*/
 .job_description_right {
@@ -1439,6 +1444,10 @@ h1.job_title {
 
     /*justified to fit more content*/
     .job_description_left p {
+        text-align: justify;
+        line-height: 1.5;
+    }
+    .job_description_left ol {
         text-align: justify;
         line-height: 1.5;
     }
