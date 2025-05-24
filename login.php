@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($current_lockout_time > 0) {
         // This error is set if user tries to submit while already locked.
-        $error = "Account is locked.";
+        $error = "Login is locked.";
         $time_left_message = "Please try again in {$current_lockout_time} second(s).";
     } else {
         // Not currently locked out, proceed with login attempt
@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_SESSION['login_attempts'] >= MAX_LOGIN_ATTEMPTS) {
             $_SESSION['lockout_time'] = time(); // Set lockout time
             $current_lockout_time = getLockoutTimeLeft(); // This will be LOCKOUT_DURATION_SECONDS
-            $error = "Account locked.";
+            $error = "Login locked.";
             $time_left_message = "Please try again in {$current_lockout_time} second(s).";
         } else {
             // Show remaining attempts
@@ -172,20 +172,21 @@ if ($is_currently_locked_out) {
         ?>
     </header>
    <main>
+    <?php include 'nav.inc'?>
+    <?php
+    // Messages are now cleared by getLockoutTimeLeft() on expiry or by successful login.
+    // They will persist in session across refreshes if the condition is still active.
+
+        // Display error messages from session
+        if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+            echo '<p class="error_message">' . htmlspecialchars($_SESSION['error']) . '</p>';
+        }
+        if (isset($_SESSION['time_left_message']) && !empty($_SESSION['time_left_message'])) {
+                    echo '<p class="error_message">' . htmlspecialchars($_SESSION['time_left_message']) . '</p>';
+        }
+    ?>
     <div class="login_container">
         <h2>Login here!</h2> <br>
-        <?php
-            // Messages are now cleared by getLockoutTimeLeft() on expiry or by successful login.
-            // They will persist in session across refreshes if the condition is still active.
-
-            // Display error messages from session
-            if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
-                echo '<p class="error_message">' . htmlspecialchars($_SESSION['error']) . '</p>';
-            }
-            if (isset($_SESSION['time_left_message']) && !empty($_SESSION['time_left_message'])) {
-                echo '<p class="error_message">' . htmlspecialchars($_SESSION['time_left_message']) . '</p>';
-            }
-        ?>
 
         <!--Login form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
