@@ -88,7 +88,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/more_options.png" alt="More Options for Manager">
+                <img src="images/enhancement5.png" alt="More Options for Manager">
             </section>
         </div>
 
