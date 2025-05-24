@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Checking if the password is hashed correctly
     if ($stmt->execute()) {
-        $_SESSION['success_manager_register'] = "Manager registered successfully! You may now <a href=\"login.php\">LOGIN</a>.";
+        $_SESSION['success_manager_register'] = "Manager registered successfully! You may now <a href=\"login.php\"  class='registration_message'>LOGIN</a>.";
         $_SESSION['is_registered'] = true; // Set a session variable to indicate registration success
     } else {
         $_SESSION['error_manager_register'] = "Registration failed. Try again.";

@@ -1088,6 +1088,9 @@ form h3 {
 #gender_selection_registration input[type="radio"] {
     margin-right: 0.5rem;
 }
+.registration_message {
+    color: white;
+}
 
 /************************************************************/
 /*jobs.php specific CSS*/
