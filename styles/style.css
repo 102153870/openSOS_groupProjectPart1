@@ -5,14 +5,13 @@ author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
-last modified: 18/5/2025
+last modified: 23/5/2025
 
-description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php, manage.php
+description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php, manage.php, login.php, register_user.php, register_manager.php
 */
 /*Variables for theme selector*/
 /*The root checks the input selected by the user from the theme selector*/
 /*Variables are used to dynamically change the color of each theme based on the user input (no JS needed)*/
-
 :root {
     /* Default/Original (Green) Theme */
     --home_background_image: url("images/homepage_background.jpg");
@@ -1409,10 +1408,8 @@ h1.job_title {
         float: none;
     }
 
-    /* Remove float */
     /************************************************************/
     /* For jobs.php */
-
     /*smaller margin and font size to fit more in on smaller reses*/
     .job_description_box {
         margin: 1rem 1rem;
