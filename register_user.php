@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
 
     if ($stmt->execute()) {
-        $_SESSION['success_user_register'] = "User registered successfully! You may now <a href=\"login.php\">LOGIN</a>.";
+        $_SESSION['success_user_register'] = "User registered successfully! You may now <a href=\"login.php\" class='registration_message'>LOGIN</a>.";
     } else {
         // Provide error from statement for debugging, but generic for user
         $_SESSION['error_user_register'] = "Registration failed. Try again. Error: " . $stmt->error;

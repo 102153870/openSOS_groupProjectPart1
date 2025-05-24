@@ -87,10 +87,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 </select>
                 <button name="action" value="search_job_ref_number" class="manager_page_button">Search</button>
             </section>
-            <section id="manager_search_by_applicant" class="manager_search_and_delete_subsections">
+            <section id="manager_search_by_name" class="manager_search_and_delete_subsections">
                 <h3>Search by Applicant</h3>
-                <input type="text" name="first_name" placeholder="First Name" class="manager_top_text_input">
-                <input type="text" name="last_name" placeholder="Last Name">
+                <label class="manager_name_labels">First Name: <input type="text" name="first_name" placeholder="First Name" class="manager_top_text_input"></label>
+                <label class="manager_name_labels">Last Name: <input type="text" name="last_name" placeholder="Last Name"  class="manager_top_text_input"></label>
                 <button name="action" value="applicant" class="manager_page_button">Search</button>
             </section>
             <section id="manager_search_by_status" class="manager_search_and_delete_subsections">
@@ -125,8 +125,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             </section>
             <section id="manager_delete_by_name" class="manager_search_and_delete_subsections">
                 <h3>Delete by Applicant</h3>
-                <input type="text" name="delete_first_name" placeholder="First Name" class="manager_top_text_input">
-                <input type="text" name="delete_last_name" placeholder="Last Name">
+                <label class="manager_name_labels">First Name: <input type="text" name="delete_first_name" placeholder="First Name" class="manager_top_text_input"></label>
+                <label class="manager_name_labels">Last Name: <input type="text" name="delete_last_name" placeholder="Last Name"  class="manager_top_text_input"></label>
                 <button name="action" value="delete_applicant" class="manager_page_button">Delete</button>
             </section>
             <section id="manager_delete_by_status" class="manager_search_and_delete_subsections">

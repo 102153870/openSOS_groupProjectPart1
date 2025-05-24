@@ -178,9 +178,10 @@ if (isset($_SESSION['user_data']) && $_SESSION['user_data']['email'] == $_SESSIO
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML5, Group Project, Profile Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
+    <title>User Profile</title>
+  
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" type="image/x-icon" href="images/tab_icon.png">
-    <title>OpenSOS</title>
 </head>
 
 <body>
