@@ -183,7 +183,7 @@
                             echo"<li>" . htmlspecialchars($error) . "</li>";
                         }
                         echo"</ul>";
-                        echo"<p class='process_eoi_text'><strong>Please fix your errors and <a href='apply.php'>resubmit.</strong></p>";
+                        echo"<p class='process_eoi_text'><strong>Please fix your errors and <a href='apply.php'>resubmit.</a></strong></p>";
                     }
                     else
                     {
@@ -259,7 +259,7 @@
                 }
             }
             // Force the user back to the form if they reached the page without submitting the form
-            else header ("Location:apply.php");
+            else header ("Location:apply.php"); 
         ?>
         
     </main>
