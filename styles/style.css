@@ -420,6 +420,9 @@ h2 {text-align: center;}
     width: 33%;
 }
 .manager_top_text_input {
+    width: 100%;
+}
+.manager_top_text_input {
     margin-bottom: 0.5em;
 }
 .manager_page_button {
@@ -445,7 +448,10 @@ h2 {text-align: center;}
     font-size: 2rem;
     width: 100%;
 }
-
+.manager_name_labels {
+    text-align: start;
+    font-weight: bold;
+}
 
 .clear_float {
     clear: both;
@@ -1087,6 +1093,9 @@ form h3 {
 #gender_selection_registration input[type="radio"] {
     margin-right: 0.5rem;
 }
+.registration_message {
+    color: white;
+}
 
 /************************************************************/
 /*jobs.php specific CSS*/
@@ -1123,6 +1132,11 @@ form h3 {
     clear: left;
     line-height: 1.75rem;
     width: 48%;
+}
+.job_description_left ol {
+    padding-left: 2rem;
+    margin-left: 0;
+    text-align: left;
 }
 
 /*right side of job desc*/
@@ -1435,6 +1449,10 @@ h1.job_title {
         text-align: justify;
         line-height: 1.5;
     }
+    .job_description_left ol {
+        text-align: justify;
+        line-height: 1.5;
+    }
 
     /*smaller margins, calculating width or else it goes off screen*/
     #job_prompt {
@@ -1459,7 +1477,7 @@ h1.job_title {
     /* For manager.php */
     #manager_eoi_form section {
     width: 100%;
-}
+    }
     #manager_search_section, #manager_delete_section {
         display: flex;
         flex-direction: column;
