@@ -421,6 +421,9 @@ h2 {text-align: center;}
     width: 33%;
 }
 .manager_top_text_input {
+    width: 100%;
+}
+.manager_top_text_input {
     margin-bottom: 0.5em;
 }
 .manager_page_button {
@@ -446,7 +449,10 @@ h2 {text-align: center;}
     font-size: 2rem;
     width: 100%;
 }
-
+.manager_name_labels {
+    text-align: start;
+    font-weight: bold;
+}
 
 .clear_float {
     clear: both;
@@ -1460,7 +1466,7 @@ h1.job_title {
     /* For manager.php */
     #manager_eoi_form section {
     width: 100%;
-}
+    }
     #manager_search_section, #manager_delete_section {
         display: flex;
         flex-direction: column;
