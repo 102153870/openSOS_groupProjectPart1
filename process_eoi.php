@@ -188,12 +188,12 @@
                     else
                     {
                         // Submit the EOI to the database
-                        // Check if the table exists
+                        // Check if the eoi table exists (original logic)
                         $check_table_query = "SHOW TABLES LIKE 'eoi'";
                         $check_table_result = mysqli_query($db_conn, $check_table_query);
                         if (mysqli_num_rows($check_table_result) == 0)
                         {
-                            // The table doesnt exist so we need to create it
+                            // The table doesnt exist so we need to create it (original logic)
                             $create_table = "CREATE TABLE eoi (
                                             eoi_number INT AUTO_INCREMENT PRIMARY KEY,
                                             job_ref_number VARCHAR(5),
@@ -211,16 +211,18 @@
                                             other_skills VARCHAR(500),
                                             status VARCHAR(7)
                                             )";
-                            // Create the table and print an error message if its not created
+                            // Create the table and print an error message if its not created (original logic)
                             if (!mysqli_query($db_conn, $create_table))
                             {
-                                echo"<p class='process_eoi_text'>Error creating table: " . mysqli_error($db_conn) . "</p>";
+                                echo"<p class='process_eoi_text'>Error creating eoi table: " . mysqli_error($db_conn) . "</p>";
                                 exit();
                             }    
                         }
-                        // Insert the data into the database
+
+                        // Insert the data into the eoi table
                         $status = "NEW";
-                        $insert_sql = "INSERT INTO eoi (
+                        // Variables $job_ref_number, $first_name, etc., are already sanitized by your function
+                        $insert_eoi_sql = "INSERT INTO eoi (
                                         job_ref_number, first_name, last_name, dob, gender,
                                         address, suburb, state, postcode, phone_number, email_address,
                                         skills, other_skills, status
@@ -231,22 +233,21 @@
                                     )
                                 ";
 
-                        if (mysqli_query($db_conn, $insert_sql)) 
-                        {
-                            // Get the auto-incremented ID
+                        if (mysqli_query($db_conn, $insert_eoi_sql)) {
+                            // Get the auto-incremented ID from the EOI insert IMMEDIATELY
                             $eoi_number = mysqli_insert_id($db_conn); 
 
-                            echo "<div class = \"profile_container\">";
-                            // Show the message on the page to the user confirming that there EOI has been submitted
-                            echo "<h2 class='process_eoi_text'><br>Thank you for your application, $first_name.</h2>";
-                            echo "<p class='process_eoi_text'>Your Reference number for your application is: <strong>$eoi_number </strong>
-                                  <br><br>We will get back to you soon.</p>";
+                            // Display EOI success message
+                            echo "<div class=\"profile_container\">";
+                            echo "<h2 class='process_eoi_text'><br>Thank you for your application, " . htmlspecialchars($first_name) . ".</h2>";
+                            echo "<p class='process_eoi_text'>Your Reference number for your application is: <strong>" . htmlspecialchars($eoi_number) . "</strong>";
+                            echo "<br><br>We will get back to you soon.</p>";
                             echo "<button class=\"buttons\" onclick=\"window.location.href='index.php'\">Continue Browsing</button>";
                             echo "</div>";
-                        } 
-                        else 
-                        {
-                            echo "<p class='process_eoi_text'>Error submitting application: " . mysqli_error($db_conn) . "</p>";
+                            unset($_SESSION['form_data']); // Clear form data on success
+
+                        } else {
+                            echo "<p class='process_eoi_text'>Error submitting EOI application: " . mysqli_error($db_conn) . "</p>";
                         }
                     }
 
