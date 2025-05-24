@@ -5,9 +5,9 @@ author: OpenSOS: Rodney, Mark, Henry, Ryan
 
 created: 27/3/2025
 
-last modified: 18/5/2025
+last modified: 23/5/2025
 
-description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php, manage.php
+description: refers to index.php, about.php, apply.php and jobs.php, process_eoi.php, manage.php, login.php, register_user.php, register_manager.php
 */
 /*Variables for theme selector*/
 /*The root checks the input selected by the user from the theme selector*/
@@ -216,25 +216,122 @@ footer p #github_link:hover {
 
 /************************************************************/
 /*Login Page for Users and Managers*/
+/*Similar styling done for register users and manager page*/
 .login_container {
     background-color: var(--textcard_color);
     padding: 2rem;
     border-radius: 10px;
     border: 0.25rem solid black;
-    width: 300px;
+    width: 40rem; /* Increased width */
     margin: 3rem auto;
-    text-align: center;
+    text-align: justify;
 }
 
+.login_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Space between rows */
+}
+
+/*Aligning the labels with the input fields*/
+.form_row {
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+}
+
+/*Makes the label align vertically*/
+.form_row label {
+    width: 10rem; /* Enough space for label text */
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/*For user registration responsive design*/
+.user_registration_container {
+    display: flex;
+    align-items: flex-start; /* Prevent height stretching */
+}
+.user_registration_container .login_container:first-child {
+    flex: 0 0 auto; /* Don't grow or shrink, size based on content */
+    height: auto;   /* Height adjusts to content */
+}
+
+/*Styling for relevant types of input*/
+.form_row input{
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.form_row select { /*State and Territory dropdown menu*/
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+/*Fixing the gender radio buttons*/
+#gender_registration {
+    display: flex;
+    flex-wrap: wrap; /* Allows options to wrap if not enough horizontal space */
+    align-items: center; /* Vertically align items in each line */
+    gap: 10px 15px; /* row-gap column-gap (space between radio options) */
+    flex: 1; /* Takes available space in the form_row */
+}
+
+/* Styles for each label containing a radio button and text*/
+#gender_registration label {
+    display: inline-flex; /* Align radio button and text nicely */
+    align-items: center;
+    /* Reset/override properties from general .form_row > label if they might conflict */
+    width: auto;             /* Override width: 10rem from main label style */
+    margin-right: 0;         /* Use gap on parent #gender_registration for spacing */
+    font-weight: normal;     /* Main labels are bold, these are normal */
+    text-align: left;        /* Ensure text is aligned left */
+    cursor: pointer;
+}
+
+/* Styles for the radio input itself */
+#gender_registration input[type="radio"] {
+    width: auto; /* Default browser size */
+    height: auto; /* Default browser size */
+    transform: none; /* Reset any transforms */
+    scale: 1;  /* Reset any scaling */
+    appearance: radio;  /* Use native radio button appearance */
+    margin-right: 5px; /* Space between radio button and its text label */
+    /* Ensure no flex item properties are messing with the radio button itself */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    /* Remove padding/margin that might come from broader input rules */
+    padding: 0; 
+    min-height: unset; /* Unset min-height from general input rules */
+}
+
+/*To format the mandatory and optional information sections*/
+.form_section_left, .form_section_right {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*Ensuring form input stays an acceptable size for responsive designs*/
 .login_form input {
     width: 100%;
+    height: auto;
+    min-height: 2.5rem;
     padding: 0.5rem;
     margin: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+.login_form input::placeholder {font-size: 0.8rem;} /*Prevents placeholder text from shrinking for responsive design*/
 
-.login_button {
+.login_button { /*Login and register button s*/
     background-color: var(--heading_color);
     color: white;
     padding: 0.5rem 1rem;
@@ -246,8 +343,10 @@ footer p #github_link:hover {
     display: block;
     /* make it take up full line, so margin auto works */
 }
-.error_message {color: red; margin: 1rem 0;}
-.success_message {color:green; margin: 1rem 0;}
+.error_message {color: red; margin: 1rem 0; text-align: center; font-size: 2rem;
+                background-color: black;}
+.success_message {color:green; margin: 1rem 0; text-align: center; font-size: 2rem;
+                    background-color: #000000;}
 
 h2 {text-align: center;}
 
@@ -373,7 +472,7 @@ body.hero_background {
     padding-top: 0.2rem;
 }
 
-/*Class to make the radio button labels hidden but still exist*/
+/*Class to make the radio labels hidden but still exist*/
 .visually_hidden {
     clip: rect(0·0·0·0);
     clip-path: inset (50%);
@@ -445,7 +544,7 @@ body.hero_background {
     height: auto;
 }
 
-.manager_login_link {
+.header_login_link {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -455,7 +554,7 @@ body.hero_background {
     padding-right: 2%;
 }
 
-.manager_login_link a {
+.header_login_link a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -468,12 +567,12 @@ body.hero_background {
     /* Smooth animation */
 }
 
-.manager_login_link img {
+.header_login_link img {
     width: 4rem;
     height: auto;
 }
 
-.manager_login_link a:hover {
+.header_login_link a:hover {
     transform: scale(1.1);
 }
 
@@ -903,6 +1002,10 @@ form h3 {
     align-items: flex-end; /* Right align these columns */
 }
 
+#other_skills_textarea_container {display: none;} /*Hide the other skills textbox if the checkbox is not ticked*/
+
+#other_skills_checkbox:checked + label + #other_skills_textarea_container {display: block;} /*Show the other skills textbox if the checkbox is ticked*/
+
 #other_skills_section textarea {
     display: flex;
     align-items: center;
@@ -946,11 +1049,47 @@ form h3 {
     cursor: pointer;
 }
 
-
+/************************************************************/
+/*register_user.php specific CSS*/
+#applicant_details_registration {
+    font-weight: bold;
+    margin: auto;
+    background: var(--textcard_color);
+    padding: 0.75rem;
+    line-height: 1rem;
+    /* Border */
+    border: none;
+}
+#personal_details_registration {
+    line-height: 1rem;
+    width: 100%;
+    padding: 0;
+}
+#personal_details_registration section {
+    border: none;
+}
+#applicant_details_registration {
+    float: left;
+    padding-left: 2rem;
+    margin-left: 3rem;
+}
+#gender_selection_registration {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#gender_selection_registration label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+#gender_selection_registration input[type="radio"] {
+    margin-right: 0.5rem;
+}
 
 /************************************************************/
 /*jobs.php specific CSS*/
-
 .job_intro {
   overflow: auto; /* clearfix alternative */
   margin: auto;
@@ -1076,6 +1215,7 @@ h1.job_title {
 /*processing_eoi.php specific CSS*/
 .process_eoi_text {
     text-align: center;
+    font-size: 1.2rem;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-right: 1em;
@@ -1143,7 +1283,7 @@ h1.job_title {
         padding-bottom: 1rem;
     }
 
-    .manager_login_link {
+    .header_login_link {
         order: 3;
         padding-bottom: 1rem;
     }
@@ -1190,6 +1330,11 @@ h1.job_title {
         /*Stack footer content*/
         text-align: center;
         line-height: 1.5;
+    }
+    .heading_important {
+        font-size: 1.5rem;
+        /*Adjust size for smaller screen*/
+        padding: 0.5rem 1rem;
     }
 
     /************************************************************/
@@ -1268,10 +1413,8 @@ h1.job_title {
         float: none;
     }
 
-    /* Remove float */
     /************************************************************/
     /* For jobs.php */
-
     /*smaller margin and font size to fit more in on smaller reses*/
     .job_description_box {
         margin: 1rem 1rem;
@@ -1321,6 +1464,41 @@ h1.job_title {
         display: flex;
         flex-direction: column;
     }
+
+    /************************************************************/
+    /*For process_eoi.php*/
+    .process_eoi_text {
+        font-size: 1rem;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        padding-right: 0.5em;
+    }
+
+    /*************************************************************/
+    /*For login and registration pages*/
+    .login_container{
+        width: 80%;
+    }
+    .user_registration_container {
+        flex-direction: column;
+        align-items: stretch; /* optional for full-width children */
+    }
+
+     .form_row {
+        text-align: center;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form_row label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 0.25rem;
+    }
+
+    .form_row input {
+        width: 100%;
+    }
 }
 
 /* Responsive styles for screens up to 425px */
@@ -1334,7 +1512,10 @@ h1.job_title {
     /************************************************************/
     /* For index.php */
     #header_logo {width: 12.5rem;}  /*200px -> 12.5rem*/
-  
+    .heading_important {
+        font-size: 1.2rem;
+        /*Adjust size for smaller screen*/
+    }
     .home_nav nav {
         flex-direction: column;
         /*Stack nav items vertically*/

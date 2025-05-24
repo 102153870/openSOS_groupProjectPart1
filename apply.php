@@ -14,7 +14,7 @@ unset($_SESSION['form_data']);
 <head>
     <!-- Metadata tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="Project Part 1 apply.php Page">
+    <meta name="description" content="Project Part 2 apply.php Page">
     <meta name="keywords" content="HTML5, Forms, Group Project, Job Application">
     <meta name="author" content="Mark Richards">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,19 +74,33 @@ unset($_SESSION['form_data']);
                     <h3>Personal Details:</h3>
                     <br>
                     <!-- Max 20 alpha characters -->
-                    <p><label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" value="<?php echo isset($form_data['given_name']) ? htmlspecialchars($form_data['given_name']) : ''; ?>" required></label></p>
+                    <p><label for="given_name">Given Name: <input type="text" id="given_name" name="given_name" pattern="[a-zA-Z]{1,20}" 
+                            value="<?php echo isset($form_data['given_name']) ? htmlspecialchars($form_data['given_name']) : 
+                            (isset($_SESSION['user_data']['first_name']) ? htmlspecialchars($_SESSION['user_data']['first_name']) : ''); ?>" required></label></p>
                     <br>
                     <!-- Max 20 alpha characters -->
-                    <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,20}" value="<?php echo isset($form_data['family_name']) ? htmlspecialchars($form_data['family_name']) : ''; ?>" required></label>
+                    <label for="family_name">Family Name: <input type="text" id="family_name" name="family_name" pattern="[a-zA-Z]{1,20}" 
+                        value="<?php echo isset($form_data['family_name']) ? htmlspecialchars($form_data['family_name']) : 
+                        (isset($_SESSION['user_data']['last_name']) ? htmlspecialchars($_SESSION['user_data']['last_name']) : ''); ?>" required></label>
                     <br>
-                    <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" max="2025-03-27" value="<?php echo isset($form_data['dob']) ? htmlspecialchars($form_data['dob']) : ''; ?>" required></label>
+                    <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" max="2025-03-27" 
+                        value="<?php echo isset($form_data['dob']) ? htmlspecialchars($form_data['dob']) : 
+                        (isset($_SESSION['user_data']['dob']) ? htmlspecialchars($_SESSION['user_data']['dob']) : ''); ?>" required></label>
                     <br>
                     <fieldset id="gender_selection">
                         <legend>Gender:</legend>
-                        <label><input type="radio" name="gender" value="Female" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Female' ? 'checked' : ''; ?> required> Female</label>
-                        <label><input type="radio" name="gender" value="Male" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Male' ? 'checked' : ''; ?>> Male</label>
-                        <label><input type="radio" name="gender" value="Other" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Other' ? 'checked' : ''; ?>> Other</label>
-                        <label><input type="radio" name="gender" value="Prefer Not To Say" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Prefer Not To Say' ? 'checked' : ''; ?>> Prefer Not To Say</label>
+                        <label><input type="radio" name="gender" 
+                            value="Female" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Female' ? 'checked' : 
+                            (isset($_SESSION['user_data']['gender']) && $_SESSION['user_data']['gender'] === 'Female' ? 'checked' : ''); ?> required> Female</label>
+                        <label><input type="radio" name="gender" 
+                            value="Male" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Male' ? 'checked' : 
+                            (isset($_SESSION['user_data']['gender']) && $_SESSION['user_data']['gender'] === 'Male' ? 'checked' : ''); ?>> Male</label>
+                        <label><input type="radio" name="gender" 
+                            value="Other" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Other' ? 'checked' :
+                            (isset($_SESSION['user_data']['gender']) && $_SESSION['user_data']['gender'] === 'Other' ? 'checked' : ''); ?>> Other</label>
+                        <label><input type="radio" name="gender" 
+                            value="Prefer Not To Say" <?php echo isset($form_data['gender']) && $form_data['gender'] === 'Prefer Not To Say' ? 'checked' :
+                                (isset($_SESSION['user_data']['gender']) && $_SESSION['user_data']['gender'] === 'Prefer Not To Say' ? 'checked' : ''); ?>> Prefer Not To Say</label>
                     </fieldset>
                     <br>
                 </section>
@@ -96,26 +110,40 @@ unset($_SESSION['form_data']);
                     <h3>Address:</h3>
                     <br>
                     <!-- Max 40 alphanumeric characters for address, allows slashes (/) and dashes (-) as well -->
-                    <label for="address">Address: <input type="text" id="address" name="address" placeholder="1/110 John street" pattern="[\da-zA-Z/]{1,40}" value="<?php echo isset($form_data['address']) ? htmlspecialchars($form_data['address']) : ''; ?>"></label>
+                    <label for="address">Address: <input type="text" id="address" name="address" placeholder="1/110 John street" pattern="[\da-zA-Z/]{1,40}" 
+                        value="<?php echo isset($form_data['address']) ? htmlspecialchars($form_data['address']) : 
+                            (isset($_SESSION['user_data']['address']) ? htmlspecialchars($_SESSION['user_data']['address']) : ''); ?>"></label>
                     <br>
                     <!-- Max 40 characters for address, only allows characters -->
-                    <label for="suburb">Suburb: <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z]{1,40}" value="<?php echo isset($form_data['suburb']) ? htmlspecialchars($form_data['suburb']) : ''; ?>" required></label>
+                    <label for="suburb">Suburb: <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z]{1,40}" 
+                        value="<?php echo isset($form_data['suburb']) ? htmlspecialchars($form_data['suburb']) : 
+                            (isset($_SESSION['user_data']['suburb']) ? htmlspecialchars($_SESSION['user_data']['suburb']) : ''); ?>" required></label>
                     <br>
                     <!-- 4 digits -->
-                    <label for="postcode">Postcode: <input type="text" id="postcode" name="postcode" pattern="\d{4}" value="<?php echo isset($form_data['postcode']) ? htmlspecialchars($form_data['postcode']) : ''; ?>"  required></label>
+                    <label for="postcode">Postcode: <input type="text" id="postcode" name="postcode" pattern="\d{4}" 
+                        value="<?php echo isset($form_data['postcode']) ? htmlspecialchars($form_data['postcode']) : 
+                            (isset($_SESSION['user_data']['postcode']) ? htmlspecialchars($_SESSION['user_data']['postcode']) : ''); ?>"  required></label>
                     <br>
                     <!-- Dropdown menu for the state/territory -->
                     <label for="state">State/Territory
                         <select name="state" id="state" required>
                             <option value="" selected="selected">Please Select</option>
-                            <option value="act" <?php echo isset($form_data['state']) && $form_data['state'] === 'act' ? 'selected="selected"' : ''; ?>>ACT</option>
-                            <option value="nsw" <?php echo isset($form_data['state']) && $form_data['state'] === 'nsw' ? 'selected="selected"' : ''; ?>>NSW</option>
-                            <option value="nt" <?php echo isset($form_data['state']) && $form_data['state'] === 'nt' ? 'selected="selected"' : ''; ?>>NT</option>
-                            <option value="qld" <?php echo isset($form_data['state']) && $form_data['state'] === 'qld' ? 'selected="selected"' : ''; ?>>QLD</option>
-                            <option value="sa" <?php echo isset($form_data['state']) && $form_data['state'] === 'sa' ? 'selected="selected"' : ''; ?>>SA</option>
-                            <option value="tas" <?php echo isset($form_data['state']) && $form_data['state'] === 'tas' ? 'selected="selected"' : ''; ?>>TAS</option>
-                            <option value="vic" <?php echo isset($form_data['state']) && $form_data['state'] === 'vic' ? 'selected="selected"' : ''; ?>>VIC</option>
-                            <option value="wa" <?php echo isset($form_data['state']) && $form_data['state'] === 'wa' ? 'selected="selected"' : ''; ?>>WA</option>
+                            <option value="act" <?php echo isset($form_data['state']) && $form_data['state'] === 'act' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'act' ? 'selected="selected"' : ''); ?>>ACT</option>
+                            <option value="nsw" <?php echo isset($form_data['state']) && $form_data['state'] === 'nsw' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'nsw' ? 'selected="selected"' : ''); ?>>NSW</option>
+                            <option value="nt" <?php echo isset($form_data['state']) && $form_data['state'] === 'nt' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'nt' ? 'selected="selected"' : ''); ?>>NT</option>
+                            <option value="qld" <?php echo isset($form_data['state']) && $form_data['state'] === 'qld' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'qld' ? 'selected="selected"' : ''); ?>>QLD</option>
+                            <option value="sa" <?php echo isset($form_data['state']) && $form_data['state'] === 'sa' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'sa' ? 'selected="selected"' : ''); ?>>SA</option>
+                            <option value="tas" <?php echo isset($form_data['state']) && $form_data['state'] === 'tas' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'tas' ? 'selected="selected"' : ''); ?>>TAS</option>
+                            <option value="vic" <?php echo isset($form_data['state']) && $form_data['state'] === 'vic' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'vic' ? 'selected="selected"' : ''); ?>>VIC</option>
+                            <option value="wa" <?php echo isset($form_data['state']) && $form_data['state'] === 'wa' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'wa' ? 'selected="selected"' : ''); ?>>WA</option>
                         </select>
                     </label>
                 </section>
@@ -127,7 +155,9 @@ unset($_SESSION['form_data']);
                     <br>
                     <label for="phone_number">Phone Number:
                         <!-- Input validation is for 8 to 12 digits, or spaces -->
-                        <input type="text" id="phone_number" name="phone_number" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}" value="<?php echo isset($form_data['phone_number']) ? htmlspecialchars($form_data['phone_number']) : ''; ?>" required>
+                        <input type="text" id="phone_number" name="phone_number" placeholder="03 1234 5678" pattern="[0-9 ]{8,12}" 
+                            value="<?php echo isset($form_data['phone_number']) ? htmlspecialchars($form_data['phone_number']) : 
+                                (isset($_SESSION['user_data']['phone_number']) ? htmlspecialchars($_SESSION['user_data']['phone_number']) : ''); ?>" required>
                     </label>
                     <br>
                     <label for="email">Email Address:
@@ -137,7 +167,9 @@ unset($_SESSION['form_data']);
                              ([^@\s]+) Make sure there is at least one character that is not whitespace or @ symbol
                              (\.) Make sure the dot is next
                              ([^@\s]+) Make sure there is at least one character that is not whitespace or @ symbol -->
-                        <input type="text" id="email" name="email" placeholder="email@domain.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" value="<?php echo isset($form_data['email']) ? htmlspecialchars($form_data['email']) : ''; ?>" required>
+                        <input type="text" id="email" name="email" placeholder="email@domain.com" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" 
+                            value="<?php echo isset($form_data['email']) ? htmlspecialchars($form_data['email']) : 
+                                (isset($_SESSION['user_data']['email']) ? htmlspecialchars($_SESSION['user_data']['email']) : ''); ?>" required>
                         <!-- <input type="email" id="email" name="email" placeholder="email@domain.com" required> -->
                     </label>
                 </section>
@@ -214,14 +246,17 @@ unset($_SESSION['form_data']);
                     </section>
                 </section>
             </fieldset>
-                
+
             <fieldset id="other_skills_section">
-                <h3>Other Skills:</h3>
-                <p>
-                    <br>
-                    <label><textarea name="other_skills" id="other_skills" rows="10" placeholder="List any other relevant skills here"><?php echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; ?></textarea>Please Enter Any Other Relevant Skills</label>
-                </p>
-                </fieldset>
+                <!-- Keep checkbox first -->
+                <input type="checkbox" id="other_skills_checkbox">
+                <label for="other_skills_checkbox">I have other relevant skills</label>
+
+                <!-- Textarea appears when checkbox is checked -->
+                <div id="other_skills_textarea_container">
+                    <label for="other_skills">Please enter any other relevant skills:</label><br>
+                    <textarea name="other_skills" id="other_skills" rows="10" placeholder="List any other relevant skills here"><?php echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; ?></textarea>
+                </div>
             </fieldset>
 
             <fieldset id="buttons_div">

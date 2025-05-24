@@ -183,7 +183,7 @@
                             echo"<li>" . htmlspecialchars($error) . "</li>";
                         }
                         echo"</ul>";
-                        echo"<p class='process_eoi_text'><strong>Please fix your errors and <a href='apply.php'>resubmit.</strong></p>";
+                        echo"<p class='process_eoi_text'><strong>Please fix your errors and <a href='apply.php'>resubmit.</a></strong></p>";
                     }
                     else
                     {
@@ -235,10 +235,14 @@
                         {
                             // Get the auto-incremented ID
                             $eoi_number = mysqli_insert_id($db_conn); 
+
+                            echo "<div class = \"profile_container\">";
                             // Show the message on the page to the user confirming that there EOI has been submitted
                             echo "<h2 class='process_eoi_text'><br>Thank you for your application, $first_name.</h2>";
                             echo "<p class='process_eoi_text'>Your Reference number for your application is: <strong>$eoi_number </strong>
                                   <br><br>We will get back to you soon.</p>";
+                            echo "<button class=\"buttons\" onclick=\"window.location.href='index.php'\">Continue Browsing</button>";
+                            echo "</div>";
                         } 
                         else 
                         {
@@ -255,7 +259,7 @@
                 }
             }
             // Force the user back to the form if they reached the page without submitting the form
-            else header ("Location:apply.php");
+            else header ("Location:apply.php"); 
         ?>
         
     </main>

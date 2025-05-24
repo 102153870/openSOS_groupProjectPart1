@@ -103,7 +103,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                         echo '<div class="apply_container">';
                         echo '<p class="reference_number"><em>Reference Number: ' . $row['reference_code'] . '</em></p>';
 
-                        echo '<a href="apply.php" class="buttons_description_box">Apply</a></div></section></div>';
+                        echo '<a href="apply.php" class="buttons_description_box" >Apply</a></div></section></div>';
                     }
                     echo "<br>";
                 }

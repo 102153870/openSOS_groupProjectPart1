@@ -4,6 +4,30 @@
 session_start();
 require_once 'settings.php';
 
+// Check if 'users' table exists, if not create it
+$table_check_query = "SHOW TABLES LIKE 'users'";
+$table_check_result = $db_conn->query($table_check_query);
+
+if ($table_check_result && $table_check_result->num_rows === 0) {
+
+    // Table doesn't exist, so create it
+    $create_table_query = "
+        CREATE TABLE users (
+            user_id INT AUTO_INCREMENT PRIMARY KEY,
+            email VARCHAR(50) NOT NULL UNIQUE,
+            username VARCHAR(50) NOT NULL,
+            password VARCHAR(100) NOT NULL,
+            role varchar(50) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ";
+
+    if (!$db_conn->query($create_table_query)) {
+        die("Error creating users table: " . $db_conn->error);
+    }
+}
+
+
 // Function to sanitise the input
 function sanitise_input ($data)
 {
@@ -21,11 +45,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = sanitise_input($_POST["email"]);
     $username = sanitise_input($_POST["username"]);
     $password = sanitise_input($_POST["password"]);
+    $retype_password = sanitise_input($_POST["retype_password"]);
     $company_password = sanitise_input($_POST["company_password"]);
 
     //Checking if the email format is valid
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error_manager_register'] = "Invalid email format.";
+        header("Location: register_manager.php");
+        exit();
+    }
+    //Check if both of the passwords entered match
+    if ($password != $retype_password)
+    {
+        $_SESSION['error_manager_register'] = "Passwords did not match.";
         header("Location: register_manager.php");
         exit();
     }
@@ -36,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    //If the company password matches the one in the database
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $correct_password = $row['company_password']; //Store the correct password
@@ -78,7 +111,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Checking if the password is hashed correctly
     if ($stmt->execute()) {
-        $_SESSION['success_manager_register'] = "Manager registered successfully!";
+        $_SESSION['success_manager_register'] = "Manager registered successfully! You may now <a href=\"login.php\">LOGIN</a>.";
+        $_SESSION['is_registered'] = true; // Set a session variable to indicate registration success
     } else {
         $_SESSION['error_manager_register'] = "Registration failed. Try again.";
     }
@@ -112,12 +146,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <main>
-    <div class="login_container">
-        <h2>Register here!</h2>
-
-        <!--Registration form -->
-        <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <?php //Display error or success messages depending on logic set in PHP
+        <?php 
+        include 'nav.inc'; //Include the nav
+        
             if (isset($_SESSION['error_manager_register'])) {
                 echo "<p class='error_message'>" . $_SESSION['error_manager_register'] . "</p>";
                 unset($_SESSION['error_manager_register']);
@@ -125,22 +156,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<p class='success_message'>" . $_SESSION['success_manager_register'] . "</p>";
                 unset($_SESSION['success_manager_register']);
             }
-            ?>
+        ?>
+    <div class="login_container">
+        <h2>Register here!</h2><br>
 
-            <!-- Input fields for registration -->
-            <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+        <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <div class="form_row">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+            </div>
 
-            <input type="text" id="username" name="username" placeholder="Username" required>
+            <div class="form_row">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
 
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <div class="form_row">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
 
-            <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
+            <div class="form_row">
+                <label for="retype_password">Retype Password:</label>
+                <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
+            </div>
 
-            <!-- Submit button -->
-            <button type="submit" class="login_button">
-                Register
-            </button>
+            <div class="form_row">
+                <label for="company_password">Company Password:</label>
+                <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
+            </div>
+
+            <button type="submit" class="login_button">Register</button>
         </form>
+
     </div>
     </main>
     <footer>
