@@ -38,6 +38,7 @@ include 'nav.inc'; // Include the navigation bar
                 </ol>
                 <br>
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
+                <br><br>       
             </section>
             <section class="job_description_right">
                 <img src="images/enhancement1.png" alt="Sorting options and table output in the manage page" class="enhancement_image">
@@ -50,6 +51,7 @@ include 'nav.inc'; // Include the navigation bar
                 <h1 class="job_title">Manager Registration Page</h1>
                 <p>Users can register for the manager role through this page. In conjunction to signing up with an email, username, and confirmed password, they must provide also the company password, so that access is exclusive to the approprite users.</p><br>
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
+                <br><br>
             </section>
             <section class="job_description_right">
                 <img src="images/enhancement2.png" alt="Admin Registration Page with email, username, password, retype password, and company password fields" class = "enhancement_image">
@@ -62,6 +64,7 @@ include 'nav.inc'; // Include the navigation bar
                 <h1 class="job_title">Access control to manage.php</h1>
                 <p>Access to manage.php is restricted with a login page. Managers must use their credentials to log in. Their password is also hashed. Please note that you have to logout to see the login page.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
+                <br><br>
             </section>
             <section class="job_description_right">
                 <img src="images/enhancement3.png" alt='The login screen, showing "Login here!" text' class = "enhancement_image">
@@ -74,6 +77,7 @@ include 'nav.inc'; // Include the navigation bar
                 <h1 class="job_title">Disable Login for Number of Login Attempts</h1>
                 <p>Users are given a limited amount of login attempts. Users can be locked out for certain time periods after providing incorrect details. This increases the site's security. Please note that you have to logout to see the login page.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
+                <br><br>
             </section>
             <section class="job_description_right">
                 <img src="images/enhancement4.png" alt="Invalid login with 2 attempts remaining in black bars above the login box" class = "enhancement_image">
@@ -86,6 +90,7 @@ include 'nav.inc'; // Include the navigation bar
                 <h1 class="job_title">More Options for Manager</h1>
                 <p>More options for the manager were integrated to make searching and deleting applications easier. (To view enhancement please login to manager account)</p><br>
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
+                <br><br>
             </section>
             <section class="job_description_right">
                 <img src="images/enhancement5.png" alt="6 Search / Delete Options for Manager" class = "enhancement_image">
@@ -104,6 +109,7 @@ include 'nav.inc'; // Include the navigation bar
                 </ol>
                 <br>
                 <a href="apply.php" class="buttons_description_box">View Enhancement</a>
+                <br><br>
             </section>
             <section class="job_description_right">
                 <img src="images/enhancement6.png" alt="Personal and Technical details forms pre-filled out" class = "enhancement_image">
