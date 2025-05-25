@@ -128,22 +128,22 @@ unset($_SESSION['form_data']);
                     <label for="state">State/Territory
                         <select name="state" id="state" required>
                             <option value="" selected="selected">Please Select</option>
-                            <option value="act" <?php echo isset($form_data['state']) && $form_data['state'] === 'act' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'act' ? 'selected="selected"' : ''); ?>>ACT</option>
-                            <option value="nsw" <?php echo isset($form_data['state']) && $form_data['state'] === 'nsw' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'nsw' ? 'selected="selected"' : ''); ?>>NSW</option>
-                            <option value="nt" <?php echo isset($form_data['state']) && $form_data['state'] === 'nt' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'nt' ? 'selected="selected"' : ''); ?>>NT</option>
-                            <option value="qld" <?php echo isset($form_data['state']) && $form_data['state'] === 'qld' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'qld' ? 'selected="selected"' : ''); ?>>QLD</option>
-                            <option value="sa" <?php echo isset($form_data['state']) && $form_data['state'] === 'sa' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'sa' ? 'selected="selected"' : ''); ?>>SA</option>
-                            <option value="tas" <?php echo isset($form_data['state']) && $form_data['state'] === 'tas' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'tas' ? 'selected="selected"' : ''); ?>>TAS</option>
-                            <option value="vic" <?php echo isset($form_data['state']) && $form_data['state'] === 'vic' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'vic' ? 'selected="selected"' : ''); ?>>VIC</option>
-                            <option value="wa" <?php echo isset($form_data['state']) && $form_data['state'] === 'wa' ? 'selected="selected"' :
-                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'wa' ? 'selected="selected"' : ''); ?>>WA</option>
+                            <option value="ACT" <?php echo isset($form_data['state']) && $form_data['state'] === 'ACT' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'ACT' ? 'selected="selected"' : ''); ?>>ACT</option>
+                            <option value="NSW" <?php echo isset($form_data['state']) && $form_data['state'] === 'NSW' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'NSW' ? 'selected="selected"' : ''); ?>>NSW</option>
+                            <option value="NT" <?php echo isset($form_data['state']) && $form_data['state'] === 'NT' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'NT' ? 'selected="selected"' : ''); ?>>NT</option>
+                            <option value="QLD" <?php echo isset($form_data['state']) && $form_data['state'] === 'QLD' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'QLD' ? 'selected="selected"' : ''); ?>>QLD</option>
+                            <option value="SA" <?php echo isset($form_data['state']) && $form_data['state'] === 'SA' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'SA' ? 'selected="selected"' : ''); ?>>SA</option>
+                            <option value="TAS" <?php echo isset($form_data['state']) && $form_data['state'] === 'TAS' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'TAS' ? 'selected="selected"' : ''); ?>>TAS</option>
+                            <option value="VIC" <?php echo isset($form_data['state']) && $form_data['state'] === 'VIC' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'VIC' ? 'selected="selected"' : ''); ?>>VIC</option>
+                            <option value="WA" <?php echo isset($form_data['state']) && $form_data['state'] === 'WA' ? 'selected="selected"' :
+                                (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'WA' ? 'selected="selected"' : ''); ?>>WA</option>
                         </select>
                     </label>
                 </section>

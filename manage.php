@@ -318,7 +318,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                     <td>{$row['phone_number']}</td>
                     <td>{$row['skills']}</td>
                     <td>{$row['other_skills']}</td>
-                    <td id='status_color'>
+                    <td>
                         <form method='post'>
                             <input type='hidden' name='eoi_number' value='" . $row['eoi_number'] . "'>
                             <select name='status'> <!-- Dropdown for status selection, using ternary operators -->

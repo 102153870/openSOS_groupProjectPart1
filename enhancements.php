@@ -40,7 +40,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_sort.png" alt="Job Sorting for Manager">
+                <img src="images/enhancement1.png" alt="Sorting options and table output in the manage page" class="enhancement_image">
             </section>
         </div>
 
@@ -48,11 +48,11 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Manager Registration Page</h1>
-                <p>We added a logging feature to track user activity for improved monitoring and troubleshooting.</p><br>
+                <p>Users can register for the manager role through this page. In conjunction to signing up with an email, username, and confirmed password, they must provide also the company password, so that access is exclusive to the approprite users. The Company Password is "sosadmin123".</p><br>
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_registration.png" alt="Admin Registration Page">
+                <img src="images/enhancement2.png" alt="Admin Registration Page with email, username, password, retype password, and company password fields" class = "enhancement_image">
             </section>
         </div>
 
@@ -60,11 +60,11 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Access control to manage.php</h1>
-                <p>The password reset flow has been streamlined with email verification and security questions.</p><br>
+                <p>Access to manage.php is restricted with a login page. Managers must use their credentials to log in. Their password is also hashed. You can use: Email = "opensos404@gmail.com", Username = "OpenSOS", Password = "opensosrules" to log in. Please note that you have to logout to see the login page.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/manager_login.png" alt="Access control to manage.php">
+                <img src="images/enhancement3.png" alt='The login screen, showing "Login here!" text' class = "enhancement_image">
             </section>
         </div>
 
@@ -72,11 +72,11 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Disable Login for Number of Login Attempts</h1>
-                <p>The password reset flow has been streamlined with email verification and security questions.</p><br>
+                <p>Users are given a limited amount of login attempts. Users can be locked out for certain time periods after providing incorrect details. This increases the site's security. Please note that you have to logout to see the login page.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/login_attempts.png" alt="Disable Login for Number of Login Attempts">
+                <img src="images/enhancement4.png" alt="Invalid login with 2 attempts remaining in black bars above the login box" class = "enhancement_image">
             </section>
         </div>
 
@@ -88,7 +88,7 @@ include 'nav.inc'; // Include the navigation bar
                 <a href="manage.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/more_options.png" alt="More Options for Manager">
+                <img src="images/enhancement5.png" alt="6 Search / Delete Options for Manager" class = "enhancement_image">
             </section>
         </div>
 
@@ -100,12 +100,13 @@ include 'nav.inc'; // Include the navigation bar
                 <ol>
                     <li>  If the user is logged in to an account (user level not manager) the form will pre-fill with the optional information associated with their account (if it was entered upon creation)</li>
                     <li>  If errors are detected after the user attempts to submit an EOI the form will be pre-filled with the entered information when the user selects the link to return to the apply page.</li>
+                    <li>  If the user did not enter any optional information during the registration, the user can edit their profile information on the profile page, which will update the autofill on the apply page as well. </p>
                 </ol>
                 <br>
                 <a href="apply.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
-                <img src="images/more_options.png" alt="More Options for Manager">
+                <img src="images/enhancement6.png" alt="Personal and Technical details forms pre-filled out" class = "enhancement_image">
             </section>
         </div>
 

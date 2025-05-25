@@ -258,14 +258,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="state_registration">State/Territory</label>
                             <select name="state_registration" id="state_registration">
                                 <option value="" selected="selected">Please Select</option>
-                                <option value="act">ACT</option>
-                                <option value="nsw">NSW</option>
-                                <option value="nt">NT</option>
-                                <option value="qld">QLD</option>
-                                <option value="sa">SA</option>
-                                <option value="tas">TAS</option>
-                                <option value="vic">VIC</option>
-                                <option value="wa">WA</option>
+                                <option value="ACT">ACT</option>
+                                <option value="NSW">NSW</option>
+                                <option value="NT">NT</option>
+                                <option value="QLD">QLD</option>
+                                <option value="SA">SA</option>
+                                <option value="TAS">TAS</option>
+                                <option value="VIC">VIC</option>
+                                <option value="WA">WA</option>
                             </select>
                         </div>
 
