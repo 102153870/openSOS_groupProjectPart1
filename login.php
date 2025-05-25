@@ -2,6 +2,44 @@
 session_start();
 require_once 'settings.php'; // Ensure this file correctly initializes $db_conn
 
+// Check if $db_conn is valid before using
+if ($db_conn) {
+    // Check if 'users' table exists, if not create it
+    $table_check_query = "SHOW TABLES LIKE 'users'";
+    $table_check_result = $db_conn->query($table_check_query);
+
+    if ($table_check_result && $table_check_result->num_rows === 0) {
+        // Table doesn't exist, so create it
+        $create_table_query = "
+            CREATE TABLE users (
+                user_id INT AUTO_INCREMENT PRIMARY KEY,
+                email VARCHAR(50) NOT NULL UNIQUE,
+                username VARCHAR(50) NOT NULL,
+                password VARCHAR(100) NOT NULL,
+                role varchar(50) NOT NULL,
+                first_name VARCHAR(50),
+                last_name VARCHAR(50),
+                dob DATE,
+                gender VARCHAR(20),
+                address VARCHAR(100),
+                suburb VARCHAR(50),
+                state VARCHAR(10),
+                postcode VARCHAR(10),
+                phone_number VARCHAR(20),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ";
+
+        if (!$db_conn->query($create_table_query)) {
+            die("Error creating users table: " . $db_conn->error);
+        }
+    }
+} else {
+    die("Database connection failed. Please check your settings.php file.");
+}
+
+
+
 // --- Constants for login logic ---
 define('MAX_LOGIN_ATTEMPTS', 3);
 define('LOCKOUT_DURATION_SECONDS', 10); // Lockout time in seconds
@@ -213,8 +251,8 @@ if ($is_currently_locked_out) {
     <!--Register options -->
     <div class="register_options">
         <h2>New User? Register your credentials here!</h2>
-        <button type="button" class="login_button" onclick="window.location.href='register_user.php'">User Register</button>
-        <button type="button" class="login_button" onclick="window.location.href='register_manager.php'">Manager Register</button>
+        <a href='register_user.php'><button type="button" class="login_button">User Register</button></a>
+        <a href='register_manager.php'><button type="button" class="login_button" >Manager Register</button></a>
     </div>
     </main>
     <footer>
