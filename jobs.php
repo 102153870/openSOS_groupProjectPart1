@@ -57,7 +57,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                     {
                         echo '<div class = "job_description_box">';
 
-                        //left
+                        //left side
                         echo '<section class = "job_description_left">';
                         echo '<h1 class = "job_title">' . $row['job_title'] . '</h1>';
                         echo '<br><p>' . $row['description'] . '</p><br>';                 
@@ -72,10 +72,8 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                         }
                         echo "</ol>";
 
-                        echo '</section>';
-
-                        //right
-                        echo '<section class = "job_description_right">';
+                        //right side
+                        echo '</section><section class = "job_description_right">';
                         echo '<br>';
                         echo '<h3>Key Attributes</h3>';         
 
@@ -86,6 +84,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                         {
                             echo '<li class = "list_indent">' . $attr_esse . '</li>';
                         }
+
                         //end essential list, start prefered list
                         echo '</ul></li><li class = "list_indent">Preferred<ul>';
                         $key_attr_pref = explode("\n", $row['key_attributes_preferred']); //create array from database text
@@ -103,18 +102,20 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
                         echo '<div class="apply_container">';
                         echo '<p class="reference_number"><em>Reference Number: ' . $row['reference_code'] . '</em></p>';
 
+                        //apply button and closing tags
                         echo '<a href="apply.php" class="buttons_description_box" >Apply</a></div></section></div>';
                     }
                     echo "<br>";
                 }
                 else
                 {
+                    //no result
                     echo "There are no jobs to display.";
                 }   
             }
             else
             {
-                //didn't work
+                //connection didn't work
                 echo "No Connection";
             }
         ?>
