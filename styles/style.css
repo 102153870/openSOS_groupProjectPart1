@@ -1295,6 +1295,8 @@ h1.job_title {
 /*css for enhancements page*/
 .enhancement_image{
     box-shadow: 0.5rem 0.5rem 1rem black;
+    width: 100%;
+    height: auto;
 }
 
 /* Responsive styles for screens up to 925px */
@@ -1563,6 +1565,12 @@ h1.job_title {
 
     .form_row input {
         width: 100%;
+    }
+
+    /*for enhancements.php*/
+    .enhancement_image{
+        width: 400px;
+        height: auto;
     }
 }
 
