@@ -141,7 +141,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
 
         <!--Enhancement Section-->
         <section class ="section_heading">
-            <button class="buttons" onclick="window.location.href='enhancements.php'">Go to Enhancements</button> 
+            <a class="buttons" href='enhancements.php'">Go to Enhancements</a> 
         </section>
         <br>
         

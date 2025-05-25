@@ -351,7 +351,7 @@ if (isset($_SESSION['user_data']) && $_SESSION['user_data']['email'] == $_SESSIO
             $result_application = $stmt_application->get_result();
             if ($result_application && $result_application->num_rows > 0) { //User application information exists
                 while ($row_app = $result_application->fetch_assoc()) {
-                    echo "<div class=\"member_interests application_item\">";
+                    echo "<div class=\"member_interests\">";
                     echo "<table>";
                     echo "<tr><th>Job Position:</th><td>" . (isset($row_app['job_title']) && trim($row_app['job_title']) !== '' ? htmlspecialchars(trim($row_app['job_title'])) : "<em>N/A</em>") . "</td></tr>";
                     echo "<tr><th>Skills:</th><td>" . (isset($row_app['skills']) && trim($row_app['skills']) !== '' ? htmlspecialchars(trim($row_app['skills'])) : "<em>N/A</em>") . "</td></tr>";
