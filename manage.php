@@ -58,6 +58,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 <!-- Variable used to sort the table info -->
                 <?php $query_search_addon = ""; ?>
                 <h3>Sort by:</h3>
+
                 <select name="manager_sort_by">
                     <option value="eoi_number">EOI ID</option>
                     <option value="job_ref_number">Job Reference</option>
@@ -65,6 +66,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                     <option value="last_name">Last Name</option>
                     <option value="status">Status</option>
                 </select>
+                
                 <button name="action" value="manager_sort_by" class="manager_page_button">Sort</button>
             </section>
         </section>
