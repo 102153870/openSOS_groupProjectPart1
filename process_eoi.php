@@ -162,7 +162,7 @@
                         $other_skills = isset($_POST["other_skills"]) ? sanitise_input($_POST["other_skills"]) : "";
                         if ($other_skills == "")
                         {
-                            $errors[] = "Please enter you other relevant skills or uncheck the 'other skills' checkbox";
+                            $errors[] = "Please enter your other relevant skills or uncheck the 'other skills' checkbox";
                         }
                     }
                     

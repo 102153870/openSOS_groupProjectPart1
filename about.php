@@ -14,7 +14,7 @@ require_once 'settings.php'; // Ensure this file correctly initializes $conn
     <meta charset="UTF-8">
     <meta name="description" content="Project Part 1 about.php Page (About the team)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
+    <meta name="keywords" content="HTML5, Group Project, About Us Page, OpenSOS">
     <meta name="author" content="Henry Low">
     <title>About Us</title>
 
