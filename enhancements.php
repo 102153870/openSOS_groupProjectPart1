@@ -48,7 +48,7 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Manager Registration Page</h1>
-                <p>Users can register for the manager role through this page. In conjunction to signing up, they must provide the company password, so that access is exclusive to the approprite users. The Company Password is "sosadmin123".</p><br>
+                <p>Users can register for the manager role through this page. In conjunction to signing up with an email, username, and confirmed password, they must provide also the company password, so that access is exclusive to the approprite users. The Company Password is "sosadmin123".</p><br>
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
