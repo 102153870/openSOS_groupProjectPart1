@@ -72,7 +72,7 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Disable Login for Number of Login Attempts</h1>
-                <p>The password reset flow has been streamlined with email verification and security questions.</p><br>
+                <p>Users are given a limited amount of login attempts. Users can be locked out for certain time periods after providing incorrect details. This increases the site's security.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
