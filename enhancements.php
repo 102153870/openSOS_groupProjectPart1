@@ -48,7 +48,7 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Manager Registration Page</h1>
-                <p>Users can register for the manager role through this page. In conjunction to signing up with an email, username, and confirmed password, they must provide also the company password, so that access is exclusive to the approprite users. The Company Password is "sosadmin123".</p><br>
+                <p>Users can register for the manager role through this page. In conjunction to signing up with an email, username, and confirmed password, they must provide also the company password, so that access is exclusive to the approprite users.</p><br>
                 <a href="register_manager.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
@@ -60,7 +60,7 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Access control to manage.php</h1>
-                <p>Access to manage.php is restricted with a login page. Managers must use their credentials to log in. Their password is also hashed. You can use: Email = "opensos404@gmail.com", Username = "OpenSOS", Password = "opensosrules" to log in. Please note that you have to logout to see the login page.</p><br>
+                <p>Access to manage.php is restricted with a login page. Managers must use their credentials to log in. Their password is also hashed. Please note that you have to logout to see the login page.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
