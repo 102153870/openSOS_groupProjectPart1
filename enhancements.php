@@ -60,7 +60,7 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Access control to manage.php</h1>
-                <p>Access to manage.php is restricted with a login page. Managers must use their credentials to log in. Their password is also hashed. You can use: Email = "opensos404@gmail.com", Username = "OpenSOS", Password = "opensosrules" to log in.</p><br>
+                <p>Access to manage.php is restricted with a login page. Managers must use their credentials to log in. Their password is also hashed. You can use: Email = "opensos404@gmail.com", Username = "OpenSOS", Password = "opensosrules" to log in. Please note that you have to logout to see the login page.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
@@ -72,7 +72,7 @@ include 'nav.inc'; // Include the navigation bar
         <div class="job_description_box">
             <section class="job_description_left">
                 <h1 class="job_title">Disable Login for Number of Login Attempts</h1>
-                <p>Users are given a limited amount of login attempts. Users can be locked out for certain time periods after providing incorrect details. This increases the site's security.</p><br>
+                <p>Users are given a limited amount of login attempts. Users can be locked out for certain time periods after providing incorrect details. This increases the site's security. Please note that you have to logout to see the login page.</p><br>
                 <a href="login.php" class="buttons_description_box">View Enhancement</a>
             </section>
             <section class="job_description_right">
@@ -100,6 +100,7 @@ include 'nav.inc'; // Include the navigation bar
                 <ol>
                     <li>  If the user is logged in to an account (user level not manager) the form will pre-fill with the optional information associated with their account (if it was entered upon creation)</li>
                     <li>  If errors are detected after the user attempts to submit an EOI the form will be pre-filled with the entered information when the user selects the link to return to the apply page.</li>
+                    <li>  If the user did not enter any optional information during the registration, the user can edit their profile information on the profile page, which will update the autofill on the apply page as well. </p>
                 </ol>
                 <br>
                 <a href="apply.php" class="buttons_description_box">View Enhancement</a>

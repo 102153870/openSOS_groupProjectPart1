@@ -38,6 +38,15 @@ if ($db_conn) {
     die("Database connection failed. Please check your settings.php file.");
 }
 
+//Security check to see if user is already logged in:
+if(isset($_SESSION['role'])){
+    if($_SESSION['role'] == 'user'){
+        header("Location: profile.php");
+    }
+    else{
+        header("Location: manage.php");
+    }
+}
 
 
 // --- Constants for login logic ---
