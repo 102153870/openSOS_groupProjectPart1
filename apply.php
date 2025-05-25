@@ -3,7 +3,9 @@ session_start();
 require_once 'settings.php';
 
 // Get form data from session if it exists
-$form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
+$form_data = isset($_SESSION['form_data']) ? 
+$_SESSION['form_data'] : [];
+
 // Clear the session data after retrieving it
 unset($_SESSION['form_data']);
 ?>
@@ -128,8 +130,10 @@ unset($_SESSION['form_data']);
                     <label for="state">State/Territory
                         <select name="state" id="state" required>
                             <option value="" selected="selected">Please Select</option>
+                            
                             <option value="ACT" <?php echo isset($form_data['state']) && $form_data['state'] === 'ACT' ? 'selected="selected"' :
                                 (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'ACT' ? 'selected="selected"' : ''); ?>>ACT</option>
+
                             <option value="NSW" <?php echo isset($form_data['state']) && $form_data['state'] === 'NSW' ? 'selected="selected"' :
                                 (isset($_SESSION['user_data']['state']) && $_SESSION['user_data']['state'] === 'NSW' ? 'selected="selected"' : ''); ?>>NSW</option>
                             <option value="NT" <?php echo isset($form_data['state']) && $form_data['state'] === 'NT' ? 'selected="selected"' :
@@ -249,9 +253,8 @@ unset($_SESSION['form_data']);
 
             <fieldset id="other_skills_section">
                 <!-- Keep checkbox first -->
-                <input type="checkbox" id="other_skills_checkbox">
+                <input type="checkbox" id="other_skills_checkbox" name="other_skills_checkbox" <?php echo isset($form_data['other_skills_checkbox']) ? 'checked' : ''; ?>>
                 <label for="other_skills_checkbox">I have other relevant skills</label>
-
                 <!-- Textarea appears when checkbox is checked -->
                 <div id="other_skills_textarea_container">
                     <label for="other_skills">Please enter any other relevant skills:</label><br>

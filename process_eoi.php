@@ -12,7 +12,7 @@
         $data = trim($data); 
         // Remove backslashes in front of quotes
         $data = stripslashes($data);
-        // Converts HTML special characters like < to <
+        // Converts HTML special characters like < to &lt;
         $data = htmlspecialchars($data);
         return $data;
     }
@@ -156,9 +156,16 @@
                     {
                         $errors[] = "Please select at least one skill";
                     }
-                    $other_skills = isset($_POST["other_skills"]) ? sanitise_input($_POST["other_skills"]) : "";
-
-
+                    // Need to check if the user has ticked the other skills checkbox
+                    if (isset($_POST['other_skills_checkbox']))
+                    {
+                        $other_skills = isset($_POST["other_skills"]) ? sanitise_input($_POST["other_skills"]) : "";
+                        if ($other_skills == "")
+                        {
+                            $errors[] = "Please enter you other relevant skills or uncheck the 'other skills' checkbox";
+                        }
+                    }
+                    
                     if (empty($errors)) {
                         // Submit the EOI to the database
                         // Check if the eoi table exists 
@@ -232,7 +239,13 @@
                                     }
                                 }
                                 $skills = implode(", ", $skills_temp_array);
-                                $other_skills = mysqli_real_escape_string($db_conn, isset($_POST["other_skills"]) ? trim($_POST["other_skills"]) : "");
+                                
+                                // Need to make sure that the other skills text is only entered to the DB if the user has selected the box (they may have checked it, added text then unchecked it)
+                                if (isset($_POST['other_skills_checkbox']))
+                                {
+                                    $other_skills = mysqli_real_escape_string($db_conn, isset($_POST["other_skills"]) ? trim($_POST["other_skills"]) : "");
+                                }
+                                else $other_skills = "";
                                 
                                 // Insert the data into the eoi table
                                 $status = "NEW";
