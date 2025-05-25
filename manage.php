@@ -32,8 +32,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     <meta charset="UTF-8">
     <meta name="description" content="Project Part 2 manage.php Page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
-    <meta name="author" content="Rodney Liaw">
+    <meta name="keywords" content="HTML5, Group Project, Manager Page, OpenSOS">
+    <meta name="author" content="Rodney Liaw, Henry Low">
     <title>Manager Dashboard</title>
 
     <link rel="stylesheet" href="styles/style.css">
@@ -49,16 +49,21 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
 
     <!-- Form to select the query action -->
     <form method="post" class="login_container" id="manager_eoi_form">
+        <!--Manager list and sort Section-->
         <section id="manager_list_all_and_sort">
+
+            <!--List all the EOIs-->
             <section id="manager_list_all_eois">
                 <h3>List All EOIs</h3>
                 <button name="action" value="list_all" class="manager_page_button">List All</button>
             </section>
+            <!--Manager sort by-->
             <section id="sort_dropdown">
                 <!-- Variable used to sort the table info -->
                 <?php $query_search_addon = ""; ?>
                 <h3>Sort by:</h3>
 
+                <!-- Manager Sort by Options-->
                 <select name="manager_sort_by">
                     <option value="eoi_number">EOI ID</option>
                     <option value="job_ref_number">Job Reference</option>
@@ -71,7 +76,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             </section>
         </section>
 
+        <!-- Manager search by Options-->
         <section id="manager_search_section">
+
+            <!-- Search by Job reference-->
             <section id="manager_search_by_job_ref" class="manager_search_and_delete_subsections">
                 <h3>Search by Reference</h3>
                 <select name="search_job_ref_number">
@@ -89,12 +97,16 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 </select>
                 <button name="action" value="search_job_ref_number" class="manager_page_button">Search</button>
             </section>
+
+            <!-- Search by Name-->
             <section id="manager_search_by_name" class="manager_search_and_delete_subsections">
                 <h3>Search by Applicant</h3>
                 <label class="manager_name_labels">First Name: <input type="text" name="first_name" placeholder="First Name" class="manager_top_text_input"></label>
                 <label class="manager_name_labels">Last Name: <input type="text" name="last_name" placeholder="Last Name"  class="manager_top_text_input"></label>
                 <button name="action" value="applicant" class="manager_page_button">Search</button>
             </section>
+
+            <!--Search by Status-->
             <section id="manager_search_by_status" class="manager_search_and_delete_subsections">
             <h3>Search by Status</h3>
             <select name="search_by_status">
@@ -107,7 +119,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
             </section>
         </section>
         
+        <!--Manager delete options-->
         <section id="manager_delete_section">
+
+            <!--Delete by Job reference-->
             <section id="manager_delete_by_job_ref" class="manager_search_and_delete_subsections">
                 <h3>Delete by Reference</h3>
                 <select name="delete_job_ref_number">
@@ -125,12 +140,16 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
                 </select>
                 <button name="action" value="delete_job_ref_number" class="manager_page_button">Delete</button>
             </section>
+
+            <!--Delete by Name -->
             <section id="manager_delete_by_name" class="manager_search_and_delete_subsections">
                 <h3>Delete by Applicant</h3>
                 <label class="manager_name_labels">First Name: <input type="text" name="delete_first_name" placeholder="First Name" class="manager_top_text_input"></label>
                 <label class="manager_name_labels">Last Name: <input type="text" name="delete_last_name" placeholder="Last Name"  class="manager_top_text_input"></label>
                 <button name="action" value="delete_applicant" class="manager_page_button">Delete</button>
             </section>
+
+            <!--Delete by Status-->
             <section id="manager_delete_by_status" class="manager_search_and_delete_subsections">
                 <h3>Delete by Status</h3>
                 <select name="delete_by_status">
@@ -145,19 +164,19 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     </form>
 
 <?php
-// Handle different query types
+// Handle different query types for the manager action
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    $action = $_POST['action'];
+    $action = $_POST['action']; //Store the intended manager action in a variable for easier processing
 
-    /* List all EOIs */
+    // List all EOIs 
     if ($action == "list_all") 
     {
         $query = "SELECT * FROM eoi";
 
         $_SESSION['last_query'] = $query;
     } 
-    /* Search by job reference */
+    // Search by job reference 
     elseif ($action == "search_job_ref_number") 
     {
         if ($_POST['search_job_ref_number'] != "")
@@ -169,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $_SESSION['last_query'] = $query;
     } 
-    /* Search by applicant name (allows for both first and last name or both) */
+    // Search by applicant name (allows for both first and last name or both) 
     elseif ($action == "applicant") 
     {
         $conditions = [];
@@ -188,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $_SESSION['last_query'] = $query;
     } 
-    /* Search by status */
+    // Search by status 
     elseif ($action == "search_by_status") 
     {
         if ($_POST['search_by_status'] != "")
@@ -200,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $_SESSION['last_query'] = $query;
     } 
-    /* Delete by job reference */
+    // Delete by job reference 
     elseif ($action == "delete_job_ref_number") 
     {
         if ($_POST['delete_job_ref_number'] != "")
@@ -268,7 +287,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
         $_SESSION['last_query'] = $query;
     } 
-    /* Update status */
+    // Update status 
     elseif ($action == "update_status" && !empty($_POST['eoi_number']) && !empty($_POST['status'])) 
     {
         if ($_POST['status'] != "")
@@ -287,6 +306,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $_SESSION['last_query'] = $query;
     }
 
+    //Manager sort by function for different options
     if ($action == "manager_sort_by")
     {
         if($_POST['manager_sort_by'] != "")
@@ -306,7 +326,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             <th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Email Address</th><th>Phone Number</th>
             <th>Skills</th><th>Other Skills</th><th>Status</th></tr>";
             while ($row = mysqli_fetch_assoc($result)) 
-            {
+            {   //Display the eoi records
                 echo "<tr><td>{$row['eoi_number']}</td>
                     <td>{$row['job_ref_number']}</td>
                     <td>{$row['first_name']} {$row['last_name']}</td>

@@ -204,7 +204,7 @@ if ($is_currently_locked_out) {
     <meta charset="UTF-8">
     <meta name="description" content="Project Part 2 login.php Page (Login Page)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
+    <meta name="keywords" content="HTML5, Group Project, Login Page, OpenSOS">
     <meta name="author" content="Rodney Liaw">
     <title>User Login</title>
 
@@ -237,21 +237,22 @@ if ($is_currently_locked_out) {
 
         <!--Login form -->
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <div class="form_row">
+            <div class="form_row"><!--Username or Email -->
                 <label for="username_or_email">Username/Email:</label>
                 <input type="text" id="username_or_email" name="username_or_email"
                     placeholder="Username or Email" required
-                    <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+                    <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>> <!--If lockout is active, the input field is disabled-->
             </div>
 
-            <div class="form_row">
+            <div class="form_row"><!--Password-->
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password"
                     placeholder="Password" required
-                    <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+                    <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>><!--If lockout is active, the input field is disabled-->
             </div>
 
-            <button type="submit" class="login_button" <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>>
+            <!--Login button-->
+            <button type="submit" class="login_button" <?php echo $is_currently_locked_out ? 'disabled' : ''; ?>> <!--If lockout is active, the button is disabled-->
                 Login
             </button>
         </form>

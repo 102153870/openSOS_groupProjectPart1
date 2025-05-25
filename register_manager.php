@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="description" content="Project Part 2 register_manager.php Page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML5, Group Project, Home Page, OpenSOS">
+    <meta name="keywords" content="HTML5, Group Project, Manager Registration, OpenSOS">
     <meta name="author" content="Rodney Liaw">
     <title>Manager Registration</title>
 
@@ -148,39 +148,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <?php 
         include 'nav.inc'; //Include the nav
-        
+            //Checks if there are any errors inputted by the user, if yes show
             if (isset($_SESSION['error_manager_register'])) {
                 echo "<p class='error_message'>" . $_SESSION['error_manager_register'] . "</p>";
                 unset($_SESSION['error_manager_register']);
-            } elseif (isset($_SESSION['success_manager_register'])) {
+            } elseif (isset($_SESSION['success_manager_register'])) { //If no errors, display a success message
                 echo "<p class='success_message'>" . $_SESSION['success_manager_register'] . "</p>";
                 unset($_SESSION['success_manager_register']);
             }
         ?>
-    <div class="login_container">
+
+        <!--Manager Registration form-->
+        <div class="login_container">
         <h2>Register here!</h2><br>
 
         <form class="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+
+            <!--Email-->
             <div class="form_row">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
             </div>
 
+            <!--Username-->
             <div class="form_row">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Username" required>
             </div>
 
+            <!--Password-->
             <div class="form_row">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Password" required>
             </div>
 
+            <!--Retype Password-->
             <div class="form_row">
                 <label for="retype_password">Retype Password:</label>
                 <input type="password" id="retype_password" name="retype_password" placeholder="Retype Password" required>
             </div>
 
+            <!--Company Password (from DB)-->
             <div class="form_row">
                 <label for="company_password">Company Password:</label>
                 <input type="password" id="company_password" name="company_password" placeholder="Company Password" required>
@@ -189,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="login_button">Register</button>
         </form>
 
-    </div>
+        </div>
     </main>
     <footer>
         <?php include 'footer.inc'; ?>
