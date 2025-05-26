@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2025 at 05:13 AM
+-- Generation Time: May 26, 2025 at 10:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `opensos`
 --
+CREATE DATABASE IF NOT EXISTS `opensos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `opensos`;
 
 -- --------------------------------------------------------
 
