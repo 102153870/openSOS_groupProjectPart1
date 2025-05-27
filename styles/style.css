@@ -258,12 +258,6 @@ footer p #github_link:hover {
 }
 
 /*Styling for relevant types of input*/
-.form_row input{
-    flex: 1;
-    padding: 1rem;
-    font-size: 1rem;
-}
-
 .form_row select { /*State and Territory dropdown menu*/
     width: 100%;
     padding: 8px;
@@ -286,8 +280,7 @@ footer p #github_link:hover {
 #gender_registration label {
     display: inline-flex; /* Align radio button and text nicely */
     align-items: center;
-    /* Reset/override properties from general .form_row > label if they might conflict */
-    width: auto;             /* Override width: 10rem from main label style */
+    width: auto;          
     margin-right: 0;         /* Use gap on parent #gender_registration for spacing */
     font-weight: normal;     /* Main labels are bold, these are normal */
     text-align: left;        /* Ensure text is aligned left */
@@ -297,9 +290,9 @@ footer p #github_link:hover {
 /* Styles for the radio input itself */
 #gender_registration input[type="radio"] {
     width: auto; /* Default browser size */
-    height: auto; /* Default browser size */
-    transform: none; /* Reset any transforms */
-    scale: 1;  /* Reset any scaling */
+    height: auto;
+    transform: none; /*Reset any transforms*/
+    scale: 1;  /*Reset any scaling*/
     appearance: radio;  /* Use native radio button appearance */
     margin-right: 5px; /* Space between radio button and its text label */
     /* Ensure no flex item properties are messing with the radio button itself */
@@ -328,8 +321,12 @@ footer p #github_link:hover {
     margin: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+
+    flex: 1;
+    font-size: 0.9rem;
 }
 .login_form input::placeholder {font-size: 0.8rem;} /*Prevents placeholder text from shrinking for responsive design*/
+
 
 .login_button { /*Login and register button s*/
     background-color: var(--heading_color);
@@ -1047,14 +1044,14 @@ form h3 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.1em;
+    gap: 0.3em;
     margin-bottom: 1em;
 }
 #backend_skills, #generic_skills {
     align-items: flex-end; /* Right align these columns */
 }
 
-#other_skills_textarea_container {display: none;} /*Hide the other skills textbox if the checkbox is not ticked*/
+#other_skills_textarea_container {display: none; padding: 0.5rem} /*Hide the other skills textbox if the checkbox is not ticked*/
 
 #other_skills_checkbox:checked + label + #other_skills_textarea_container {display: block;} /*Show the other skills textbox if the checkbox is ticked*/
 
@@ -1063,17 +1060,6 @@ form h3 {
     align-items: center;
     justify-content: center;
     width: 100%;
-}
-
-.input_row label:last-child {
-    padding-left: 3rem;
-}
-
-.input {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-content: center;
 }
 
 #buttons_div {
